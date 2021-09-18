@@ -11,6 +11,7 @@
     "lat": 14.35,
     "lng": 120.58
   },
+  "loc_search_suffix": ", Philippines",
   "decks": [{
     "name": "flood",
     "cards": [
