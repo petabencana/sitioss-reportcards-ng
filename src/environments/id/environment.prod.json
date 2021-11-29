@@ -7,6 +7,8 @@
   "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
   "data_server": "https://data.petabencana.id/",
   "app": "https://petabencana.id/",
+  "captcha_site_key": "6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-",
+  "captcha_secret": "6LdbMVIaAAAAAIOUPOFTqHtkhv81_8kWv_G3xI69",
   "decks": [{
     "name": "flood",
     "cards": [

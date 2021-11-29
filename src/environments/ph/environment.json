@@ -7,8 +7,12 @@
   "default_language": "id",
   "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
   "data_server": "http://localhost:8001/",
-  "app": "https://dev.petabencana.id/",
-
+  "app": "https://mapakalamidad.ph/",
+  "default_location": {
+    "lat": 14.49,
+    "lng": 120.57
+  },
+  "loc_search_suffix": ", Philippines",
   "decks": [{
       "name": "flood",
       "cards": [
