@@ -8,7 +8,8 @@
     "next": "SUSUNOD"
   },
   "search": {
-    "placeholder": "I-click at I-drag upang Malipat ang Pin o Maghanap Dito"
+    "placeholder": "I-click at I-drag upang Malipat ang Pin o Maghanap Dito",
+    "locateText": "Ipakita ang aking lokasyon"
   },
   "card": {
     "yes": "Oo",
