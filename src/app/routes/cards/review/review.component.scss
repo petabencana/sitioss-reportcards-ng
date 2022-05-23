@@ -29,6 +29,14 @@
   }
 }
 
+.captchaContainer {
+  margin-bottom: 15px;
+}
+
+.rc-anchor-dark {
+  background: #424243 !important;
+}
+
 @media (max-width: 481px) {
   .review__text {
     font-size: 12px;

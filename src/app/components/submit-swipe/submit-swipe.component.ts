@@ -15,6 +15,11 @@ export class SubmitSwipeComponent implements OnInit {
   isLocationInIndonesia = true;
   isLoading = false;
   isSumbitted = false;
+  mouseDown = false;
+  initialMouse = 0;
+  slideMovementTotal = 0;
+  slider: JQuery<HTMLElement>;
+  knob: JQuery<HTMLElement>;
 
   @Input() isUserAbleToContinue: boolean
   @Input() swipeText: string;
@@ -29,71 +34,76 @@ export class SubmitSwipeComponent implements OnInit {
     return !(this.deckService.getDescription() || this.deckService.getPreview());
   }
 
-  async ngOnInit() {
-    let initialMouse = 0;
-    let slideMovementTotal = 0;
-    let mouseIsDown = false;
-    const knob = $('#submitKnob');
-    const slider = $('#submitSlider')
+  canSubmit():boolean {
+    return (!this.isDescriptionAndPhotoEmpty && this.deckService.isCaptchaCleared() && this.isLocationInIndonesia)
+  }
 
-    // If both of description and image is empty, next button is disabled
-    if (this.isDescriptionAndPhotoEmpty) {
-      knob.css('background-color', '#A0A0A0')
-      return
+  knobStart(event) {
+    console.log(this.canSubmit());
+    if (!this.canSubmit()) return; 
+    this.mouseDown = true;
+    this.slideMovementTotal = this.slider.width() - this.knob.width() - 13;
+    this.initialMouse = event.clientX || (event.originalEvent as any).touches[0].pageX; 
+  }
+
+  knobEnd (event) {
+    // console.log(canSubmit());
+    if (!this.canSubmit()) return;
+    if (!this.mouseDown) return;
+
+    this.mouseDown = false;
+    const currentMouse = event.clientX || event.changedTouches[0].pageX;
+    const relativeMouse = currentMouse - this.initialMouse;
+
+    if (relativeMouse < this.slideMovementTotal) {
+      this.slider.addClass('transparent')
+      this.knob.animate({ left: "0" }, 300, () => {
+        this.slider.css('background-color', 'rgba(31,73,99,0)')
+        this.slider.removeClass('transparent')
+      });
     }
+  };
 
+  async ngOnInit() {
+    // let initialMouse = 0;
+    // let slideMovementTotal = 0;
+    // let mouseIsDown = false;
+    // const knob = $('#submitKnob');
+    this.knob = $('#submitKnob');
+    // const slider = $('#submitSlider')
+    this.slider = $('#submitSlider')
     this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
 
-    // or location is not indonesia
-    if (!this.isLocationInIndonesia) {
-      knob.css('background-color', '#A0A0A0')
-      return
-    }
-
-    knob.on('mousedown touchstart', function (event) {
-      mouseIsDown = true;
-      slideMovementTotal = slider.width() - $(this).width() - 13;
-      initialMouse = event.clientX || (event.originalEvent as any).touches[0].pageX;
-    });
-
-    knob.on('mouseup touchend', function (event) {
-      if (!mouseIsDown) return;
-
-      mouseIsDown = false;
-      const currentMouse = event.clientX || event.changedTouches[0].pageX;
-      const relativeMouse = currentMouse - initialMouse;
-
-      if (relativeMouse < slideMovementTotal) {
-        slider.addClass('transparent')
-        knob.animate({ left: "0" }, 300, () => {
-          slider.css('background-color', 'rgba(31,73,99,0)')
-          slider.removeClass('transparent')
-        });
-      }
-    });
+    // If both of description and image is empty, next button is disabled
+    // if (!canSubmit()) {
+    //   knob.css('background-color', '#A0A0A0')
+    //   // return
+    // }
 
     $(document.body).on('mousemove touchmove', (event) => {
-      if (!mouseIsDown)
+      // console.log(canSubmit());
+      if (!this.canSubmit()) {this.knob.css('background-color', '#A0A0A0'); return} else {this.knob.css('background-color', '#31AADE');};
+      if (!this.mouseDown)
         return;
 
       const currentMouse = event.clientX || (event.originalEvent as any).touches[0].pageX;
-      const relativeMouse = currentMouse - initialMouse;
+      const relativeMouse = currentMouse - this.initialMouse;
 
-      slider.css(
+      this.slider.css(
         'background-color',
-        `rgba(31,73,99, ${relativeMouse / slideMovementTotal})`
+        `rgba(31,73,99, ${relativeMouse / this.slideMovementTotal})`
       )
 
       if (relativeMouse <= 0) {
-        knob.css({ 'left': '0' });
+        this.knob.css({ 'left': '0' });
         return;
       }
-      if (relativeMouse >= slideMovementTotal && ! this.isSumbitted) {
-        knob.css({ 'left': slideMovementTotal + 'px' });
+      if (relativeMouse >= this.slideMovementTotal && ! this.isSumbitted) {
+        this.knob.css({ 'left': this.slideMovementTotal + 'px' });
         this.submit()
         return;
       }
-      knob.css({ 'left': relativeMouse });
+      this.knob.css({ 'left': relativeMouse });
     });
   }
 

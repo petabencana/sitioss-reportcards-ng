@@ -6,12 +6,17 @@ import { ReviewComponent } from './review.component';
 import { SubmitSwipeComponent } from '../../../components/submit-swipe/submit-swipe.component';
 import { ReportReviewComponent } from '../../../components/report-review/report-review.component';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   imports: [
     CommonModule,
     ReviewRoutingModule,
-    TranslateModule
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ],
   declarations: [ReviewComponent, SubmitSwipeComponent, ReportReviewComponent],
   exports: [

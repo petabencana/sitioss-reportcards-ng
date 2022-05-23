@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service';
 import { TranslateService } from '@ngx-translate/core';
 import * as $ from 'jquery';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-review',
@@ -9,6 +10,7 @@ import * as $ from 'jquery';
   styleUrls: ['./review.component.scss']
 })
 export class ReviewComponent implements OnInit {
+  captchaForm: FormGroup;
   isLocationInIndonesia = true;
   termscontents = [
     {
@@ -27,20 +29,30 @@ export class ReviewComponent implements OnInit {
   tabContent = "";
   constructor(
     public deckService: DeckService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private formBuilder: FormBuilder
   ) {}
 
   async ngOnInit() {
     // this.deckService.userCanBack()
     // this.deckService.userCannotContinue()
+    this.deckService.setCaptchaNotCleared()
     this.switchTab(this.termscontents[0].tab_key);
     this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
+    this.captchaForm = this.formBuilder.group({
+      recaptcha: ['', Validators.required]
+    });
   }
   async ngAfterContentInit() {
     this.deckService.userCanBack();
     this.deckService.userCannotContinue();
   }
 
+  handleSuccess(event) {
+    // add verification step
+    console.log("hasdfn")
+    this.deckService.setCaptchaCleared()
+  }
   get showWarning(): boolean {
     return this.isDescriptionAndPhotoEmpty || !this.isLocationInIndonesia
   }
@@ -50,6 +62,10 @@ export class ReviewComponent implements OnInit {
     return !(this.deckService.getDescription() || this.deckService.getPreview());
   }
   
+  get canSubmit(): boolean {
+    return (this.isDescriptionAndPhotoEmpty && this.deckService.isCaptchaCleared())
+  }
+
   switchTab(key) {
     var lang = this.translate.currentLang;
     this.termscontents.forEach(element => {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DeckService } from '../../services/cards/deck.service';
 
 @Component({
   selector: 'app-deck',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeckComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private activatedroute:ActivatedRoute,
+    public deckService:DeckService) { 
+      this.activatedroute.queryParamMap.subscribe(params => {
+        this.deckService.setTwitterID(params.get("tid"))
+      })
+    }
 
   ngOnInit() {
   }

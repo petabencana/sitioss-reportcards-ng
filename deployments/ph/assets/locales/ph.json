@@ -175,5 +175,19 @@
     "swipeText": "Mag-swipe upang isumite ",
     "reportAgainStructure": "Gusto mo rin bang mag-ulat ng pagkaguho ng istruktura?",
     "reportAgainAccess": "Gusto mo rin bang mag-ulat ng accessibility ng daan?"
-  }
+  },
+  "partner_mode_title": "Pumapasok ka ba sa Partner Mode?",
+  "partner_mode_body1":"Kahit sino ay maaaring magsumite ng ulat ng kalamidad sa Mapakalamidad.ph!",
+  "partner_mode_body2":"Upang magsumite na walang pagkakikilala na ulat, laktawan ang hakbang na ito!",
+  "partner_mode_body3":"Upang magsumite ng ulat bilang isang kasosyong organisasyon, ilagay ang iyong code",  
+  "partner_mode_placeholder":"Partner Code",
+  "forgot_partner_code":"Nakalimutan mo ba ang iyong Partner code?",
+  "partner_mode_cta":"GO",
+  "partner_mode_loginHeader":"Welcome Back!",
+  "partner_mode_loginSubHeader" : "You are submitting a report as:",
+  "partner_mode_partnerNotfound":"Hindi nakita ang partner code o nasa inactive status , Paki-check ang iyong partner code o email sa bayanihan@mapakalamidad.ph.",
+  "forgot_partner_email":"bayanihan@mapakalamidad.ph",
+  "forgot_partner_subject":"Nakalimutan ang Mapakalamidad.ph Partner Code",
+  "forgot_partner_body":"Hi Makalamidad.ph Ang pangalan ko ay [ilagay ang iyong pangalan] mula sa [ilagay ang iyong organisasyon]. Nakalimutan ko ang aking partner code at/o gusto kong makakuha ng access sa isang Partner Code upang makapag-ulat ng mga kalamidad bilang opisyal na kinatawan ng partner ng Mapakalamidad.ph. Salamat"
+
 }

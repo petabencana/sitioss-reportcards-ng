@@ -5,7 +5,7 @@
   },
   "validationErrors": {
     "noPhoto": "Wajib menyertakan foto ATAU deskripsi untuk melapor",
-    "unsupportedLocation" : "Lokasi tidak terjangkau, laporan tidak dapat ditampilkan pada peta" 
+    "unsupportedLocation" : "Lokasi tidak terjangkau, laporan tidak dapat ditampilkan pada peta"
   },
   "deck": {
     "prev": "KEMBALI",
@@ -189,5 +189,18 @@
     "swipeText": "Geser",
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
-  }
+  },
+  "partner_mode_title": "Lapor sebagai Mitra Resmi?",
+  "partner_mode_body1":"Siapapun dapat melaporkan bencana ke PetaBencana.id.",
+  "partner_mode_body2":"Untuk mengirimkan laporan bencana secara anonim, lewati langkah ini.",
+  "partner_mode_body3":"Untuk mengirimkan laporan sebagai mitra, masukkan kode organisasi di bawah ini:",  
+  "partner_mode_placeholder":"Kode Mitra",
+  "forgot_partner_code":"Lupa Kode Mitra",
+  "partner_mode_cta":"Masuk",
+  "partner_mode_loginHeader":"Selamat Datang!",
+  "partner_mode_loginSubHeader" : "Anda akan melapor bencana sebagai:",
+  "partner_mode_partnerNotfound":"Kode mitra tidak ditemukan atau status tidak aktif, cek kembali kode Anda atau klik Lupa Kode Mitra untuk mengirim email ke info@petabencana.id",
+  "forgot_partner_email":" info@petabencana.id",
+  "forgot_partner_subject":"Lupa Kode Mitra PetaBencana.id",
+  "forgot_partner_body":"Halo PetaBencana.id, Saya [Nama] dari [Organisasi/Lembaga]. Saya lupa kode mitra dan/atau ingin mendapatkan akses Kode Mitra untuk dapat melaporkan bencana sebagai perwakilan organisasi mitra resmi di PetaBencana.id Terima kasih."
 }

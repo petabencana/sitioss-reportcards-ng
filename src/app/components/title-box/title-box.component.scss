@@ -1,10 +1,170 @@
-#titleText {
+.titleItems {
   width: 100%;
   height: 50px;
-  text-align: center;
   color: white;
   background-color: #424243;
   line-height: 50px;
+  align-items: start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.partnerTitleItems{
+  width: 100%;
+  height: 50px;
+  color: white;
+  background-color: #c0262d;
+  line-height: 50px;
+  align-items: start;
+  display: flex;
+  justify-content: space-between;
+}
+
+#partnerIcon {
+  width: 50px;
+  height: 50px;
+  text-align: left;
+  margin-left: 10px;
+}
+#titleText {
+  text-align: center;
+}
+
+.partnerCodePopup__header{
+  background-color: #c0262d;
+    height: 50px;
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column;
+    & img{
+      width: 50px;
+      height: 50px;
+    }
+    & p{
+      text-transform: capitalize;
+      text-align: center;
+      color: #fff;
+    }
+}
+
+#welcomeToast{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: clamp(15rem, 95%, 25rem);
+  transform: translate(-50%,-50%);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);;
+  z-index: 1030;
+  background: #CDCDCD;
+  opacity: 90%;
+
+  .partnerCodePopup__header{
+    display: flex;
+    gap: 2em;
+  }
+
+  & h3 ,  p{
+    text-align: center;
+    color: #fff;
+    margin:5px;
+  }
+
+  p{
+    font-size: 0.875em;
+  }
+
+  .welcomeToast__body {
+    padding: 30px;
+  }
+  .welcomeToast__partnerimage{
+    width: 40%;
+    margin: auto;
+    display: flex;
+  }
+
+}
+
+#partnerCodePopup {
+  //display: none;
+  position: fixed;
+  top: 54%;
+  left: 50%;
+  width: clamp(15rem, 95%, 25rem);
+  transform: translate(-50%,-50%);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);;
+  z-index: 1030;
+  background: #CDCDCD;
+  opacity: 90%;
+  & span {
+    vertical-align: middle;
+  }
+
+  & a{
+    color: #626262;
+    font-size: 0.75rem;
+  }
+
+  & #submitRow{
+    display: flex;
+    justify-content: flex-end;
+    margin:1rem 0;
+
+    & button{
+      appearance: none;
+      border: none;
+      background: #c0262d;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #fff;
+      min-width: 5rem;
+      box-shadow: rgb(50, 48,42) -1px 2px 24px;
+    }
+  }
+
+  & #closeRow {
+    display: flex;
+    justify-content: flex-end;
+
+    & span{
+      display: grid;
+      place-content: center;
+      border:1px solid #fff;
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+      font-size: 0.75rem;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+
+  .partnerCodePopup__body {
+    padding: 40px;
+
+    & .partnerCodePopup__body--underline{
+      color: #c0262d;
+      cursor: pointer;
+    }
+    & .partnerCodePopup__body--link{
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+#partnerCode {
+  border-radius: 1rem;
+  border: none;
+  padding: 0.75rem;
+  width: 100%;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  height: 2rem;
+
 }
 
 #tabsRow {
@@ -23,6 +183,10 @@
 
     &.filled {
       background-color: #31aade;
+    }
+
+    &.filled_partner{
+      background-color: #fff;
     }
   }
 }
