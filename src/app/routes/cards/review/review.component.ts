@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ReviewComponent implements OnInit {
   captchaForm: FormGroup;
-  isLocationInIndonesia = true;
+  isPermittedLocation = true;
   termscontents = [
     {
       'tab_key': 'u_a',
@@ -38,7 +38,7 @@ export class ReviewComponent implements OnInit {
     // this.deckService.userCannotContinue()
     this.deckService.setCaptchaNotCleared()
     this.switchTab(this.termscontents[0].tab_key);
-    this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
+    this.isPermittedLocation = await this.deckService.isPermittedLocation();
     this.captchaForm = this.formBuilder.group({
       recaptcha: ['', Validators.required]
     });
@@ -54,7 +54,7 @@ export class ReviewComponent implements OnInit {
     this.deckService.setCaptchaCleared()
   }
   get showWarning(): boolean {
-    return this.isDescriptionAndPhotoEmpty || !this.isLocationInIndonesia
+    return this.isDescriptionAndPhotoEmpty || !this.isPermittedLocation
   }
 
   get isDescriptionAndPhotoEmpty(): boolean {

@@ -12,7 +12,7 @@
       <i class="fa fa-exclamation-circle"></i>
       {{'validationErrors.noPhoto' | translate}}
     </p>
-    <p *ngIf="!isLocationInIndonesia">
+    <p *ngIf="!isPermittedLocation">
       <i class="fa fa-exclamation-circle"></i>
       {{'validationErrors.unsupportedLocation' | translate }}
       Unsupported location, report cannot be displayed on the map
