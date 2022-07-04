@@ -83,7 +83,7 @@ export class DeckService {
 
     const geocodeData = await response.json()
 
-    return geocodeData.address.country_code === env.deployment
+    return geocodeData.address.country_code === env.country_code
   }
 
   // Getter
