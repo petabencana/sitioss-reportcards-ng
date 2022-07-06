@@ -6,7 +6,7 @@
   "supported_languages": ["en", "id"],
   "default_language": "id",
   "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
-  "data_server": "https://api.petabencana.id/",
+  "data_server": "https://dev-api.petabencana.id/",
   "app": "https://petabencana.id/",
   "default_location": {
     "lat": -6.175392,
