@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./submit-swipe.component.scss']
 })
 export class SubmitSwipeComponent implements OnInit {
-  isLocationInIndonesia = true;
+  isPermittedLocation = true;
   isLoading = false;
   isSumbitted = false;
   mouseDown = false;
@@ -35,7 +35,7 @@ export class SubmitSwipeComponent implements OnInit {
   }
 
   canSubmit():boolean {
-    return (!this.isDescriptionAndPhotoEmpty && this.deckService.isCaptchaCleared() && this.isLocationInIndonesia)
+    return (!this.isDescriptionAndPhotoEmpty && this.deckService.isCaptchaCleared() && this.isPermittedLocation)
   }
 
   knobStart(event) {
@@ -72,7 +72,7 @@ export class SubmitSwipeComponent implements OnInit {
     this.knob = $('#submitKnob');
     // const slider = $('#submitSlider')
     this.slider = $('#submitSlider')
-    this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
+    this.isPermittedLocation = await this.deckService.isPermittedLocation();
 
     // If both of description and image is empty, next button is disabled
     // if (!canSubmit()) {

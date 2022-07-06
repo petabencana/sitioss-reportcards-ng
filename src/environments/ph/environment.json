@@ -2,7 +2,7 @@
   "production": false,
   "stage": "dev",
   "deployment": "ph",
-
+  "country_code":"ph",
   "supported_languages": ["en", "ph"],
   "default_language": "ph",
   "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
