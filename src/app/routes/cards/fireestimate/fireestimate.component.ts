@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service'
 import { MONUMEN_NASIONAL_LAT_LNG } from '../../../../utils/const';
 import { TranslateService } from '@ngx-translate/core';
-
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { lineString , length} from "@turf/turf";
 declare let L
 
 @Component({
@@ -14,6 +16,7 @@ declare let L
 export class FireestimateComponent implements OnInit {
   private fireMarker
   private radiusMarker
+  private geojson
   private circleRadius
   public latlng: { lat: string, lng: string }
 
@@ -47,60 +50,76 @@ export class FireestimateComponent implements OnInit {
       lng = this.deckService.getFireLocation().lng
     }
 
-    this.map = L.map('mapid', { 
-      center: [ lat, lng ],
-      zoom: 16
+    // this.map = L.map('mapid', { 
+    //   center: [ lat, lng ],
+    //   zoom: 16
+    // });
+
+    // const accessToken = 'pk.eyJ1IjoiaWxoYW13YWhhYmkiLCJhIjoiY2p5MGllYW96MDNoNjNobnF2cWh2c3dkZyJ9.Vfmf0KAT-gZBA4L2LF7PNg';
+    
+    // L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=${accessToken}`, {
+    //   attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // }).addTo(this.map);
+
+    // L.control.zoom({ position: 'bottomleft' })
+
+    // this.map.addControl(new L.Control.Compass());
+
+    // L.control.locate({ icon: 'locate' }).addTo(this.map);
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ';
+    this.map = new mapboxgl.Map({
+        container: 'mapid', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center:[lng , lat], // starting position [lng, lat]
+        zoom: 16, // starting zoom
     });
 
-    const accessToken = 'pk.eyJ1IjoiaWxoYW13YWhhYmkiLCJhIjoiY2p5MGllYW96MDNoNjNobnF2cWh2c3dkZyJ9.Vfmf0KAT-gZBA4L2LF7PNg';
+    const self = this
+
+    this.geojson = {
+      'type': 'FeatureCollection',
+      'features': []
+      };
     
-    L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=${accessToken}`, {
-      attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(this.map);
-
-    L.control.zoom({ position: 'bottomleft' })
-
-    this.map.addControl(new L.Control.Compass());
-
-    L.control.locate({ icon: 'locate' }).addTo(this.map);
-
-    this.onLocateFound()
+    this.map.on('load', () => {
+      this.map.addSource('geojson', {
+      'type': 'geojson',
+      'data': this.geojson
+      });
+      self.onLocateFound()
+    })
   }
 
   private onLocateFound(): void {
     this.addFireMarker()
     this.addRadiusMarker()
-    this.addCircleRadius()
+    setTimeout(() => {
+      this.addCircleRadius();
+      }, 1000);
   }
 
   private addFireMarker() {
     const latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
 
-    const fireMarkerConfig = {
-      icon: L.divIcon({
-        className: 'informer-icon',
-        html: `
-          <div style="display: flex; flex-direction: column; align-items: center">
-            <img 
-              src="../../../assets/decks/fire/location/SelectFireLocation_Highlight.png"
-              style="width: 25px;"
-            />
-            <p style="width: 75px; text-align: center;" id="ha">${this.fireRange} ${this.translate.instant('card.fireestimate.unit')}</p>
-          </div>
-        `,
-        iconAnchor: [8, 42.5],
-      }),
-    }
-
-    const marker = L.marker(
-      [latlng.lat, latlng.lng],
-      fireMarkerConfig
-    )
+    const imageElement = document.createElement('div');
+    imageElement.className = 'marker';
+    imageElement.style.backgroundImage = `url(../../../assets/decks/fire/location/SelectFireLocation_Highlight.png)`;
+    imageElement.style.width = `30px`;
+    imageElement.style.height = `60px`;
+    imageElement.style['background-repeat'] = 'no-repeat';
+    imageElement.style.backgroundSize = '100%';
+ 
+      // Add markers to the map.
+      const marker = new mapboxgl.Marker({
+        element : imageElement,
+      })
+      .setLngLat([latlng.lng, latlng.lat])
+      .addTo(this.map);
 
     if (this.fireMarker) this.fireMarker.remove(this.map)
     this.fireMarker = marker
 
-    marker.addTo(this.map)
+    // marker.addTo(this.map)
   }
 
   private addRadiusMarker() {
@@ -111,55 +130,83 @@ export class FireestimateComponent implements OnInit {
       latlng = this.deckService.getFireRadius()
     }
 
-    const radiusMarkerConfig = {
-      icon: L.divIcon({
-        className: 'radius-icon'
-      }),
-      draggable: true,
-    }
-
-    const marker = L.marker(
-      [latlng.lat, latlng.lng],
-      radiusMarkerConfig
-    )
+    const imageElement = document.createElement('div');
+    imageElement.className = 'marker';
+    imageElement.style.backgroundImage = `url(../../../assets/decks/fire/fireradius/FireAreaMarkerDrag.png)`;
+    imageElement.style.width = `30px`;
+    imageElement.style.height = `30px`;
+    imageElement.style['margin-left'] = `-15px`;
+    imageElement.style['background-repeat'] = 'no-repeat';
+    imageElement.style.backgroundSize = '100%';
+ 
+      // Add markers to the map.
+      const marker = new mapboxgl.Marker({
+        element : imageElement,
+        draggable:true
+      })
+      .setLngLat([latlng.lng, latlng.lat])
+      .addTo(this.map)
 
     if (this.radiusMarker) this.radiusMarker.remove(this.map)
     this.radiusMarker = marker
 
-    marker.addTo(this.map)
-
-    marker.on('move', (e) => {
-      this.deckService.setFireRadius(e.latlng)
+    marker.on('drag', () => {
+      this.deckService.setFireRadius(marker.getLngLat())
       this.deckService.userCanContinue()
       this.addCircleRadius()
     })
   }
 
   private addCircleRadius(): void {
-    const radius = this.map.distance(
-      this.fireMarker.getLatLng(), 
-      this.radiusMarker.getLatLng()
-    )
-    
-    const circle = L.circle(
-      [
-        this.fireMarker.getLatLng().lat,
-        this.fireMarker.getLatLng().lng,
-      ],
-      {
-        radius,
-        className: 'radius-circle'
-      }
-    )
+    if (this.circleRadius) {
+      this.geojson.features.pop()
+      this.map.getSource('geojson').setData(this.geojson)
+      this.map.removeLayer('measure-radius')
+      this.map.removeLayer('radius-label')
+    }
 
-    this.deckService.setFireDistance(radius)
+       // Used to calculate radius between boints
+       var line = lineString([[this.fireMarker.getLngLat().lng ,this.fireMarker.getLngLat().lat ] , [this.radiusMarker.getLngLat().lng ,this.radiusMarker.getLngLat().lat]]);
+       var circleRadius = length(line, {units: 'meters'});
+       this.deckService.setFireDistance(circleRadius)
+       const circleLayer = {
+        'type': 'Feature',
+        'properties': {
+          'description': `${this.fireRange} ${this.translate.instant('card.fireestimate.unit')}`,
+          },
+        'geometry': {
+        'type': 'Point',
+        'coordinates': [this.fireMarker.getLngLat().lng , this.fireMarker.getLngLat().lat],
+        }
+        };
 
-    document.getElementById('ha').innerText = `${this.fireRange} ${this.translate.instant('card.fireestimate.unit')}` 
+        this.map.addLayer({
+          'id': 'radius-label',
+          'type': 'symbol',
+          'source': 'geojson',
+          'layout': {
+          'text-field': ['get', 'description'],
+          'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+          "text-offset" : [0 , 2.5],
+          'text-justify': 'auto',
+          "text-size": 13
+          }
+          });
 
-    if (this.circleRadius) this.circleRadius.remove(this.map)
-    this.circleRadius = circle
+        this.map.addLayer({
+          'id': 'measure-radius',
+          'type': 'circle',
+          'source': 'geojson',
+          'paint': {
+          'circle-radius': circleRadius,
+          'circle-opacity':0.3,
+          'circle-color': '#B42222',
+          },
+          'filter': ['==', '$type', 'Point']
+          });
+       this.geojson.features.push(circleLayer);
+       this.circleRadius = this.map.getSource('geojson').setData(this.geojson);
 
-    this.circleRadius.addTo(this.map);
   }
 
   get fireRange() {
