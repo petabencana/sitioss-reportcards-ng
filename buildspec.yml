@@ -25,7 +25,7 @@ phases:
       # - command
   post_build:
     commands:
-      - aws s3 sync dist/dev-id $TARGET_S3_BUCKET --sse
+      - aws s3 sync dist/prod-ph $TARGET_S3_BUCKET --sse
 artifacts:
   files:
     - '**/*'
