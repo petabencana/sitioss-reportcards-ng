@@ -51,19 +51,50 @@ export class LocationPickerComponent implements OnInit {
     // });
     mapboxgl.accessToken = 'pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ';
     this.map = new mapboxgl.Map({
-        container: 'mapid', // container ID
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+      container: 'mapid', // container ID
+      style: 'mapbox://styles/mapbox/streets-v11', // style URL
         center:[lng , lat], // starting position [lng, lat]
-        zoom: 16, // starting zoom
+      zoom: 16, // starting zoom
     });
 
-        // If user not approve permission
-    if (this.currentMarker) this.currentMarker.remove(this.map)
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+      },
+      trackUserLocation: true,
+      showUserHeading: false,
+      showUserLocation: false,
+    });
 
-    this.addMarker()
+    this.map.addControl(geolocate);
+
+    // If user not approve permission
+    if (this.currentMarker) this.currentMarker.remove(this.map);
+
+    this.addMarker();
 
     this.provider = new OpenStreetMapProvider();
 
+    this.map.on('load', () => {
+      geolocate.trigger();
+    });
+
+    geolocate.on('geolocate', (event) => {
+      // If location already same, no net to disable it again
+      if (
+        isEqual(this.map.getCenter(), {
+          lng: event.coords.longitude,
+          lat: event.coords.latitude,
+        })
+      ) {
+        this.deckService.userCannotContinue();
+      }
+    });
+
+    geolocate.on('trackuserlocationend', () => {
+      if (this.currentMarker) this.currentMarker.remove(this.map);
+      this.addMarker();
+    });
   }
 
   ngOnDestroy() {
@@ -92,7 +123,7 @@ export class LocationPickerComponent implements OnInit {
     this.map.flyTo({
       center: [results[0].x, results[0].y],
       essential: true // this animation is considered essential with respect to prefers-reduced-motion
-      });
+    });
     if (this.currentMarker) this.currentMarker.remove(this.map)
     const imageElement = document.createElement('div');
     imageElement.className = 'marker';
@@ -102,14 +133,14 @@ export class LocationPickerComponent implements OnInit {
     imageElement.style.height = `60px`;
     imageElement.style['background-repeat'] = 'no-repeat';
     imageElement.style.backgroundSize = '100%';
-     
+
     // Add markers to the map.
     const marker = new mapboxgl.Marker({
       element : imageElement,
       draggable:true
     })
-    .setLngLat([results[0].x, results[0].y])
-    .addTo(this.map);
+      .setLngLat([results[0].x, results[0].y])
+      .addTo(this.map);
     if (this.currentMarker) this.currentMarker.remove(this.map)
     this.currentMarker = marker
 
@@ -118,13 +149,13 @@ export class LocationPickerComponent implements OnInit {
         if (!isEqual(this.map.getCenter(), {lng : lngLat.lng , lat: lngLat.lat})) {
             this.deckService.userCanContinue()
             this.deckService.setLocation({ lat : lngLat.lat, lng: lngLat.lng })
-        }
-    })    
-    
+      }
+    });
   }
-
-  private addMarker () {
-    const { lat , lng } = this.map.getCenter();
+  
+  private addMarker() {
+    const { lat, lng } = this.map.getCenter();
+   
 
     const imageElement = document.createElement('div');
 
@@ -135,21 +166,21 @@ export class LocationPickerComponent implements OnInit {
     imageElement.style.height = `60px`;
     imageElement.style['background-repeat'] = 'no-repeat';
     imageElement.style.backgroundSize = '100%';
- 
-      // Add markers to the map.
-      const marker = new mapboxgl.Marker({
+
+    // Add markers to the map.
+    const marker = new mapboxgl.Marker({
         element : imageElement,
         draggable:true
-      })
+    })
       .setLngLat([lng, lat])
       .addTo(this.map);
 
       marker.on('dragend' , () => {
-        const lngLat = marker.getLngLat();
+      const lngLat = marker.getLngLat();
          if (!isEqual(this.map.getCenter(), {lng : lngLat.lng , lat: lngLat.lat})) {
              this.deckService.userCanContinue()
              this.deckService.setLocation({ lat : lngLat.lat, lng: lngLat.lng })
-         }
+      }
       })
     if (this.currentMarker) this.currentMarker.remove(this.map)
     this.currentMarker = marker

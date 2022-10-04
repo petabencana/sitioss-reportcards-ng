@@ -71,6 +71,16 @@ export class FiredistanceComponent implements OnInit {
     // if (this.deckService.getLocation()) this.onLocateFound()
     // else locate.start() // Locate user current location
 
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+      },
+      trackUserLocation: true,
+      showUserHeading: false,
+      showUserLocation: false,
+    });
+
+
 
     mapboxgl.accessToken = 'pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ';
     this.map = new mapboxgl.Map({
@@ -82,14 +92,15 @@ export class FiredistanceComponent implements OnInit {
 
     const self = this
 
+    this.map.addControl(geolocate);
+
+
     this.geojson = {
       'type': 'FeatureCollection',
       'features': []
       };
        
-    
-       
-      this.map.on('load', () => {
+    this.map.on('load', () => {
       this.map.addSource('geojson', {
       'type': 'geojson',
       'data': this.geojson
@@ -109,15 +120,25 @@ export class FiredistanceComponent implements OnInit {
       },
       filter: ['in', '$type', 'LineString']
       });
-      self.onLocateFound()
+      // self.onLocateFound()
+      self.checkGeolocation()
+      geolocate.trigger();
     })
 
-    // else locate.start() // Locate user current location
+
+    if (this.deckService.getLocation()) this.onLocateFound()
+    else  geolocate.trigger() // Locate user current location
 
     // this.addMarker()
+    
+    geolocate.on('trackuserlocationend', () => {
+      self.onLocateFound()
+    });
+
 
     this.provider = new OpenStreetMapProvider();
   }
+
 
   private checkGeolocation() {    
     const addMarkerAtMonas = () => {
