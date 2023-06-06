@@ -176,7 +176,7 @@
       "rejectButton": "No",
       "tips": "Click here for safety tips from BNPB"
     },
-    "swipeText": "Swipe to submit",
+    "swipeText": "Submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?"
   },
