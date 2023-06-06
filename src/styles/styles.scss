@@ -37,6 +37,10 @@ html, body {
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
+
+  .rtnBtnWrapper { 
+    flex-basis: 50%;
+  }
 }
 
 // MODIFY TOP LEFT GET CURRENT LOCATION APPEARANCE

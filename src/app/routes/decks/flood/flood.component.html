@@ -1,23 +1,26 @@
 <div>
-  <app-title-box [title]="'card.titles.' + navController.getCardPath() | translate">
+  <app-title-box
+    [title]="'card.titles.' + navController.getCardPath() | translate"
+  >
   </app-title-box>
 </div>
 
-<router-outlet>
-</router-outlet>
+<router-outlet> </router-outlet>
 
-<div
-  id="navWrapper"
-  *ngIf="navController.getCurrentRouteName() !== 'thank'" >
+<div id="navWrapper" *ngIf="navController.getCurrentRouteName() !== 'thank'">
   <app-nav-button
-    [type]="'left'" 
+    [type]="'left'"
     [text]="'deck.prev' | translate"
-    (navigate)="navController.back(route)">
+    (navigate)="navController.back(route)"
+  >
   </app-nav-button>
 
-  <app-nav-button
-    [type]="'right'"
-    [text]="'deck.next' | translate"
-    (navigate)="navController.next(route)">
-  </app-nav-button>
+  <div class="rtnBtnWrapper" *ngIf="navController.getCurrentRouteName() !== 'review'">
+    <app-nav-button
+      [type]="'right'"
+      [text]="'deck.next' | translate"
+      (navigate)="navController.next(route)"
+    >
+    </app-nav-button>
+  </div>
 </div>
