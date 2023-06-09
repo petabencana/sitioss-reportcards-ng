@@ -1,0 +1,28 @@
+button {
+    display: block;
+    color: white;
+    margin: 20px auto 10px;
+    border-radius: 7.5px;
+    padding: 10px 50px;
+    border: 1.5px solid white;
+    background-color: #6d6e6d;
+    cursor: pointer;
+    &:disabled {
+      color: #888;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+  
+  @media (max-width: 721px) and (max-height: 761px) {
+    .button {
+      padding: 7.5px 37.5px;
+    }
+  }
+  
+  @media (max-height: 569px) {
+    button {
+      padding: 5px 35px;
+    }
+  }
+  
