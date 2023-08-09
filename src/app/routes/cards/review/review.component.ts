@@ -60,6 +60,11 @@ export class ReviewComponent implements OnInit {
     console.log(this.deckService.isNextButtonDisabled);
     return !(this.deckService.getDescription() || this.deckService.getPreview());
   }
+
+  get reportType() : string {
+    const reportType = this.deckService.getReportType()
+    return `card.submitButton.${reportType}`
+  }
   
   get canSubmit(): boolean {
     return (this.isDescriptionAndPhotoEmpty && this.deckService.isCaptchaCleared())

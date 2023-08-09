@@ -59,6 +59,10 @@
       "earthquake": {
         "roadTypeButton": "Laporkan Akses Jalan",
         "structureTypeButton": "Laporkan Kerusakan Bangunan"
+      },
+      "report": {
+        "realTypeButton": "Laporkan Bencana",
+        "trainingTypeButton": " Latihan Simulasi"
       }
     },
     "visibility": {
@@ -174,6 +178,10 @@
       "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih"
     },
     "swipeText": "Kirim Laporan",
+    "submitButton": {
+      "real": "Kirim Laporan",
+      "training": "Selesaikan Latihan"
+    },
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
   },

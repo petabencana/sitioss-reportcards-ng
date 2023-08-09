@@ -9,9 +9,14 @@ import { environment as env } from '../../../../environments/environment';
 @Component({
   selector: 'app-flood',
   templateUrl: './flood.component.html',
-  styleUrls: ['./flood.component.scss']
+  styleUrls: ['./flood.component.scss'],
 })
 export class FloodComponent implements OnInit {
+  items: {
+    title: string;
+    subType: string;
+  }[];
+  showReportTypeButton: boolean = true
 
   constructor(
     public translate: TranslateService,
@@ -31,11 +36,30 @@ export class FloodComponent implements OnInit {
     // Check for first card, else redirect
     this.navController.checkForFirstCard(this.route);
 
-    this.deckService.setDeckType('flood')
-    this.deckService.setDeckSubType('flood')
-    this.deckService.setRoute(route)
+    this.deckService.setDeckType('flood');
+    this.deckService.setDeckSubType('flood');
+    this.deckService.setRoute(route);
   }
 
-  ngOnInit() { }
+  onTypeSelected(type) {
+    this.showReportTypeButton = false;
+    this.deckService.selectReportType(type);
+  }
 
+  get isShowButtons(): boolean {
+    return this.showReportTypeButton;
+  }
+
+  ngOnInit() {
+    this.items = [
+      {
+        title: 'card.type.report.realTypeButton',
+        subType: 'real',
+      },
+      {
+        title: 'card.type.report.trainingTypeButton',
+        subType: 'training',
+      },
+    ];
+  }
 }

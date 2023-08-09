@@ -62,6 +62,7 @@ export class DeckService {
 
   isPrevButtonDisabled = true;
   isNextButtonDisabled = true;
+  reportType = '';
 
   userCanBack() {
     this.isPrevButtonDisabled = false;
@@ -69,6 +70,10 @@ export class DeckService {
 
   userCannotBack() {
     this.isPrevButtonDisabled = true;
+  }
+
+  selectReportType(type: string) {
+    this.reportType = type;
   }
 
   userCanContinue() {
@@ -109,6 +114,10 @@ export class DeckService {
 
   getRoute() {
     return this.route;
+  }
+  
+  getReportType() {
+    return this.reportType
   }
 
   getStructureFailure() {
@@ -347,13 +356,14 @@ export class DeckService {
 
   async submitNotificationRequest(): Promise<any> {
     const selectedRegion = this.getSelectedRegionCode();
+    const languageCode = this.getCardLanguage();
     const notifyMedium = this.waNumber;
-    const data  = {
-      region_code : selectedRegion,
+    const data = {
+      region_code: selectedRegion,
       whatsapp: notifyMedium,
-      language_code : this.getCardLanguage()
-    }
-    return new Promise(async(resolve, reject) => {
+      language_code: languageCode,
+    };
+    return new Promise(async (resolve, reject) => {
       return await this.http
         .post(`${env.data_server}subscriptions/add-subscriber`, data)
         .toPromise()
@@ -362,7 +372,7 @@ export class DeckService {
           resolve(success);
         })
         .catch((error) => {
-          reject(error)
+          reject(error);
           console.log('Error', error);
           // PUT report & notify user about upload error
         });
@@ -375,7 +385,6 @@ export class DeckService {
     const report = this._get_report_summary();
     // conditionally add properties to the report depending on the current deck type
 
-    console.log('Report image', report, signedURL, cardId);
     if (this.preview && signedURL) {
       const photo = this.preview;
       if (signedURL === 'url_error') {
@@ -412,6 +421,7 @@ export class DeckService {
       image_url: '',
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : '',
+      is_training : this.getReportType() === 'training'
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;
