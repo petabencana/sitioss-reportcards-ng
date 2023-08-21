@@ -12,7 +12,11 @@ import { environment as env } from '../../../../environments/environment';
   styleUrls: ['./fire.component.scss']
 })
 export class FireComponent implements OnInit {
-
+  items: {
+    title: string;
+    subType: 'real' | 'training';
+  }[];
+  showReportTypeButton: boolean = true
   constructor(
     public translate: TranslateService,
     public route: ActivatedRoute,
@@ -37,6 +41,26 @@ export class FireComponent implements OnInit {
     this.deckService.setRoute(route)
   }
 
-  ngOnInit() { }
+  onTypeSelected(type) {
+    this.showReportTypeButton = false;
+    this.deckService.selectReportType(type);
+  }
+
+  get isShowButtons(): boolean {
+    return this.showReportTypeButton;
+  }
+
+  ngOnInit() {
+    this.items = [
+      {
+        title: 'card.type.report.realTypeButton',
+        subType: 'real',
+      },
+      {
+        title: 'card.type.report.trainingTypeButton',
+        subType: 'training',
+      },
+    ];
+  }
 
 }

@@ -165,6 +165,11 @@
     },
     "thank": {
       "result": "SUCCESS!",
+      "url":{
+        "real" : "https://petabencana.id",
+        "training" : "https://training.petabencana.id"
+      },
+      "urlText":"Petabencana.id",
       "title": [
         "Thank you for your report. Check",
         "to view your report and see real-time disaster updates."

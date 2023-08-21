@@ -14,7 +14,7 @@ import { environment as env } from '../../../../environments/environment';
 export class FloodComponent implements OnInit {
   items: {
     title: string;
-    subType: string;
+    subType: 'real' | 'training';
   }[];
   showReportTypeButton: boolean = true
 

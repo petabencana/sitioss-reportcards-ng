@@ -49,6 +49,11 @@ export class ThankComponent {
     }
   }
 
+  get reportType() : string {
+    const reportType = this.deckService.getReportType()
+    return `card.thank.url.${reportType}`
+  }
+
   reportAnotherCard() {
     this.deckService.setSubSubmission();
     if(this.deckService.getDeckType() === 'earthquake' ){

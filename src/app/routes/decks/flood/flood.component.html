@@ -7,11 +7,10 @@
 
 <div *ngIf="isShowButtons" class="centered">
   <ng-template ngFor let-item [ngForOf]="items">
-    <app-type-button
+    <app-report-type-button
       [title]="item.title | translate"
       (click)="onTypeSelected(item.subType)"
-      [isCentered]="true"
-    ></app-type-button>
+    ></app-report-type-button>
   </ng-template>
 </div>
 <router-outlet> </router-outlet>

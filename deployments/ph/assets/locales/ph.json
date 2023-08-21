@@ -163,6 +163,11 @@
     },
     "thank": {
       "result": "TAGUMPAY!",
+      "url":{
+        "real" : "https://mapakalamidad.ph",
+        "training" : "https://training.mapakalamidad.ph"
+      },
+      "urlText":"Mapakalamidad.ph",
       "title": [
         "Salamat sa iyong ulat. Magtungo sa",
         "upang matingnan ang iyong ulat at makita ang mga real-time na update ng sakuna."

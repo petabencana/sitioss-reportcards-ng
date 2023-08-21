@@ -167,6 +167,11 @@
     },
     "thank": {
       "result": "SUKSES!",
+      "url":{
+        "real" : "https://petabencana.id",
+        "training" : "https://training.petabencana.id"
+      },
+      "urlText":"Petabencana.id",
       "title": [
         "Terima kasih atas laporan Anda. Cek",
         "untuk melihat laporan Anda dan mengetahui situasi terkini."
