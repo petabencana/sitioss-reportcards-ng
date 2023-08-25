@@ -6,6 +6,11 @@
   min-height: 90vh;
 }
 
+.type-hidden{
+  // display:hidden;
+  visibility: hidden;
+}
+
 @media (max-width: 721px) {
   .type {
     flex-direction: column;

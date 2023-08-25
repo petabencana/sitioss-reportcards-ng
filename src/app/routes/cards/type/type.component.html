@@ -1,3 +1,4 @@
+<div [ngClass] = "deckService.getReportType() === '' ? 'type-hidden' : 'type'">
 <div class="type">
   <ng-template ngFor let-item [ngForOf]="items">
     <app-type-button
@@ -8,4 +9,5 @@
       (click)="onTypeSelected(item.subtype)"
     ></app-type-button>
   </ng-template>
+</div>
 </div>
