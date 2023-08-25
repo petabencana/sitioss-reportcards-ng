@@ -361,9 +361,9 @@ export class DeckService {
     const data = {
       region_code: selectedRegion,
       whatsapp: notifyMedium,
-      language_code: languageCode,
-    };
-    return new Promise(async (resolve, reject) => {
+      language_code : this.getCardLanguage()
+    }
+    return new Promise(async(resolve, reject) => {
       return await this.http
         .post(`${env.data_server}subscriptions/add-subscriber`, data)
         .toPromise()
