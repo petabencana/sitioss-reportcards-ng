@@ -49,7 +49,7 @@ export class EarthquakeComponent implements OnInit {
     return this.showReportTypeButton;
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.items = [
       {
         title: 'card.type.report.realTypeButton',
@@ -60,6 +60,6 @@ export class EarthquakeComponent implements OnInit {
         subType: 'training',
       },
     ]
+
    }
 }
-
