@@ -50,10 +50,6 @@ export class EarthquakeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.deckService.getDeckSubType())
-    console.log(this.deckService.getDeckType())
-    console.log(this.deckService.getReportType())
-
     this.items = [
       {
         title: 'card.type.report.realTypeButton',
