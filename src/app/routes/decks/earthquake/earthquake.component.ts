@@ -60,6 +60,5 @@ export class EarthquakeComponent implements OnInit {
         subType: 'training',
       },
     ]
-
    }
 }
