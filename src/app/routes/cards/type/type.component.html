@@ -1,4 +1,4 @@
-<div [ngClass] = "deckService.getReportType() === '' ? 'type-hidden' : 'type'">
+<div [ngClass] = "deckService.getReportType() === '' ? 'type-hidden' : 'type-outer'">
 <div class="type">
   <ng-template ngFor let-item [ngForOf]="items">
     <app-type-button
