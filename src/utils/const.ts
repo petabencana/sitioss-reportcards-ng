@@ -1,4 +1,4 @@
 export const MONUMEN_NASIONAL_LAT_LNG = {
-  lat: 14.5896,
-  lng: 120.9747
+  lat: -6.175392,
+  lng: 106.827153
 }
