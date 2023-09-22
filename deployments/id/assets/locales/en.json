@@ -164,16 +164,25 @@
       "people": "people"
     },
     "thank": {
-      "result": "SUCCESS!",
+      "result": {
+        "real" : "SUCCESS",
+        "training": "SUCCESS TRAINING"
+      },
       "url":{
         "real" : "https://petabencana.id",
         "training" : "https://training.petabencana.id"
       },
       "urlText":"Petabencana.id",
-      "title": [
+      "title": {
+        "real" : [
         "Thank you for your report. Check",
         "to view your report and see real-time disaster updates."
       ],
+      "training" : [
+        "You have completed your training . Check",
+        " to view and share your simulation report!"
+      ]
+    },
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",

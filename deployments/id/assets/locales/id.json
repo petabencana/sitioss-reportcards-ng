@@ -166,16 +166,25 @@
       "people": "orang"
     },
     "thank": {
-      "result": "SUKSES!",
-      "url":{
-        "real" : "https://petabencana.id",
-        "training" : "https://training.petabencana.id"
+      "result": {
+        "real" : "SUKSES!",
+        "training": "SELAMAT!"
       },
-      "urlText":"Petabencana.id",
-      "title": [
-        "Terima kasih atas laporan Anda. Cek",
-        "untuk melihat laporan Anda dan mengetahui situasi terkini."
-      ],
+      "url": {
+        "real": "https://petabencana.id",
+        "training": "https://training.petabencana.id"
+      },
+      "urlText": "Petabencana.id",
+      "title": {
+        "real": [
+          "Terima kasih atas laporan Anda. Cek",
+          "untuk melihat laporan Anda dan mengetahui situasi terkini."
+        ],
+        "training": [
+          "Kamu telah menyelesaikan simulasi!, Kunjungi",
+          "untuk melihat dan membagikan laporan simulasi-mu!"
+        ]
+      },
       "subtitle": "Mau submit laporan lainnya?",
       "acceptButton": "Ya",
       "rejectButton": "Tidak",
