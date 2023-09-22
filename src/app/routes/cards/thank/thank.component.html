@@ -1,10 +1,10 @@
 <div class="thanks">
   <img [src]="typeImage" alt="success image report" class="thanks__img">
   <p class="thanks__title">
-    {{'card.thank.result' | translate}}
+    {{thankTitle | translate}} 
   </p>
   <p class="thanks__subtitle">
-  {{'card.thank.title.0' | translate}} <a href="https://training.petabencana.id/">training.petabencana.id</a> {{'card.thank.title.1' | translate}}
+  {{thankSubtitle | translate}} <a href="{{thankUrl | translate}}">{{thankURLText | translate }}</a> {{thankSubtitle | translate}}
   </p>
 
   <p *ngIf="isShowReportAgain" class="thanks__again">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service'
 import { NavigationService } from '../../../services/navigation.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -49,9 +49,39 @@ export class ThankComponent {
     }
   }
 
-  get reportType() : string {
+  // get reportType() : string {
+  //   const reportType = this.deckService.getReportType()
+  //   return `card.thank.url.${reportType}`;    
+  // }
+
+  // get thankTitle() : string {
+  //   const reportType = this.deckService.getReportType()
+  //   return `card.thank.result.${reportType}`;  
+  // }
+
+  // get thankSubtitle() : string {
+  //   const reportType = this.deckService.getReportType()
+  //   return `card.thank.title.${reportType}`;  
+  // }
+
+  // get thankURLText() : string {
+  //   const reportType = this.deckService.getReportType()
+  //   return `card.thank.urlText.${reportType}`;  
+  // }
+
+  get reportTypeData(): {
+    thankTitle: string;
+    thankSubtitle: string;
+    thankURL: string;
+    thankURLText: string;
+  } {
     const reportType = this.deckService.getReportType()
-    return `card.thank.url.${reportType}`
+  return {
+      thankTitle: `card.thank.result.${reportType}`,
+      thankSubtitle: `card.thank.title.${reportType}`,
+      thankURL: `card.thank.url.${reportType}`,
+      thankURLText: `card.thank.urlText.${reportType}`,
+    };
   }
 
   reportAnotherCard() {
