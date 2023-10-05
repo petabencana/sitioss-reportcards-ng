@@ -167,6 +167,11 @@
     },
     "thank": {
       "result": "SUCCESS!",
+      "url":{
+        "real" : "https://mapakalamidad.ph",
+        "training" : "https://training.mapakalamidad.ph"
+      },
+      "urlText":"Mapakalamidad.ph",
       "title": [
         "Thank you for your report. Check",
         "to view your report and see real-time disaster updates."

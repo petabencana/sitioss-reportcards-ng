@@ -1,3 +1,5 @@
+<div [ngClass]="deckService.getReportType() === '' && 'fire-opacity'">
+
 <search-location
   (search)="onSearch($event)"
   (confirmSearch)="onConfirmSearch($event)"
@@ -6,3 +8,4 @@
   >
 </search-location>
   <div id="mapid"></div>
+  </div>

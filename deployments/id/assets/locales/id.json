@@ -59,6 +59,10 @@
       "earthquake": {
         "roadTypeButton": "Laporkan Akses Jalan",
         "structureTypeButton": "Laporkan Kerusakan Bangunan"
+      },
+      "report": {
+        "realTypeButton": "Laporkan Bencana",
+        "trainingTypeButton": " Latihan Simulasi"
       }
     },
     "visibility": {
@@ -162,11 +166,25 @@
       "people": "orang"
     },
     "thank": {
-      "result": "SUKSES!",
-      "title": [
-        "Terima kasih atas laporan Anda. Cek",
-        "untuk melihat laporan Anda dan mengetahui situasi terkini."
-      ],
+      "result": {
+        "real" : "SUKSES!",
+        "training": "SELAMAT!"
+      },
+      "url": {
+        "real": "https://petabencana.id",
+        "training": "https://training.petabencana.id"
+      },
+      "urlText": "Petabencana.id",
+      "title": {
+        "real": [
+          "Terima kasih atas laporan Anda. Cek",
+          "untuk melihat laporan Anda dan mengetahui situasi terkini."
+        ],
+        "training": [
+          "Kamu telah menyelesaikan simulasi! Kunjungi",
+          "untuk melihat dan membagikan laporan simulasimu!"
+        ]
+      },
       "subtitle": "Mau submit laporan lainnya?",
       "acceptButton": "Ya",
       "rejectButton": "Tidak",
@@ -174,6 +192,10 @@
       "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih"
     },
     "swipeText": "Kirim Laporan",
+    "submitButton": {
+      "real": "Kirim Laporan",
+      "training": "Selesaikan Latihan"
+    },
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
   },

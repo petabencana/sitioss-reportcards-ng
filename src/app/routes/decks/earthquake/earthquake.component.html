@@ -4,6 +4,15 @@
     </app-title-box>
   </div>
 
+  <div *ngIf="isShowButtons" class="centered">
+    <ng-template ngFor let-item [ngForOf]="items">
+      <app-report-type-button
+        [title]="item.title | translate"
+        (click)="onTypeSelected(item.subType)"
+      ></app-report-type-button>
+    </ng-template>
+  </div>
+
   <router-outlet>
   </router-outlet>
 

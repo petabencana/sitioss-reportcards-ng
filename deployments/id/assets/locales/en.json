@@ -5,7 +5,7 @@
   },
   "validationErrors": {
     "noPhoto": "A photo OR description is required to make a report",
-    "unsupportedLocation" : "Unsupported location, report cannot be displayed on the map"
+    "unsupportedLocation": "Unsupported location, report cannot be displayed on the map"
   },
   "deck": {
     "prev": "PREV",
@@ -44,10 +44,8 @@
       "thank": "Thank you!",
 
       "region": "Select region(s) to receive notifications for",
-      "summary" : "Review & Submit",
-      "thankyou":"Thank You!"
-
-
+      "summary": "Review & Submit",
+      "thankyou": "Thank You!"
     },
     "type": {
       "fire": {
@@ -60,6 +58,10 @@
       "earthquake": {
         "roadTypeButton": "Road Accessibility",
         "structureTypeButton": "Structural Failure"
+      },
+      "report":{
+        "realTypeButton": "Submit Real Disaster Report",
+        "trainingTypeButton": "Completely Training Exercise"
       }
     },
     "visibility": {
@@ -68,11 +70,7 @@
         "I can still see but not clean enough to drive.",
         "I can barely see. Too dangerous to go out."
       ],
-      "review": [
-        "High",
-        "Moderate",
-        "Low"
-      ]
+      "review": ["High", "Moderate", "Low"]
     },
     "airquality": {
       "title": "Indicate any symptoms:",
@@ -83,13 +81,7 @@
         "Headache / Nauseous",
         "Shortness of Breath / Chest Tightness"
       ],
-      "review": [
-        "",
-        "Moderate",
-        "Poor",
-        "Severe",
-        "Hazardous"
-      ]
+      "review": ["", "Moderate", "Poor", "Severe", "Hazardous"]
     },
     "accessibility": [
       "No access for vehicles",
@@ -120,15 +112,15 @@
     "evacuation": {
       "description": "Do you know where to evacuate to?"
     },
-    "evacuationnumber":{
+    "evacuationnumber": {
       "description": "Number of people in your village"
     },
     "fireestimate": {
       "unit": "hectares"
     },
-    "sign" : {
+    "sign": {
       "description": "Indicate any observations:",
-      "symptoms":[
+      "symptoms": [
         "Significant Temperature Increases",
         "Drought / Vegetation Death",
         "Unusual Animal Behaviour",
@@ -137,7 +129,7 @@
       ]
     },
     "impact": {
-        "symptoms" : [
+      "symptoms": [
         {
           "title": "Low Disruption",
           "subtitle": "Small obstacles flying"
@@ -151,11 +143,7 @@
           "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
         }
       ],
-      "review":[
-        "Low Disruption",
-        "Medium Disruption",
-        "High Disruption"
-      ]
+      "review": ["Low Disruption", "Medium Disruption", "High Disruption"]
     },
     "description": "Add your description here ...",
     "review": {
@@ -176,11 +164,25 @@
       "people": "people"
     },
     "thank": {
-      "result": "SUCCESS!",
-      "title": [
+      "result": {
+        "real" : "SUCCESS",
+        "training": "SUCCESS TRAINING"
+      },
+      "url":{
+        "real" : "https://petabencana.id",
+        "training" : "https://training.petabencana.id"
+      },
+      "urlText":"Petabencana.id",
+      "title": {
+        "real" : [
         "Thank you for your report. Check",
         "to view your report and see real-time disaster updates."
       ],
+      "training" : [
+        "You have completed your training . Check",
+        " to view and share your simulation report!"
+      ]
+    },
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",
@@ -188,21 +190,24 @@
       "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region"
     },
     "swipeText": "SUBMIT",
+    "submitButton": {
+        "real": "Submit Report",
+        "training": "Complete Training"
+    },
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?"
   },
   "partner_mode_title": "Enter Partner Mode?",
-  "partner_mode_body1":"Anyone can submit a disaster report to PetaBencana.id",
-  "partner_mode_body2":"To submit an anonymous disaster report, skip this step!",
-  "partner_mode_body3":"To submit a report as a partner organization, enter your code below",  
-  "partner_mode_placeholder":"Partner Code",
-  "forgot_partner_code":"Forget Partner Code",
-  "partner_mode_cta":"GO",
-  "partner_mode_loginHeader":"Welcome Back!",
-  "partner_mode_loginSubHeader" : "You are submitting a report as:",
-  "partner_mode_partnerNotfound":"Partner code not found or in inactive status , Kindly check your partner code or email us at info@petabencana.id",
-  "forgot_partner_email":" info@petabencana.id",
-  "forgot_partner_subject":"Forgot PetaBencana.id Partner Code",
-  "forgot_partner_body":"Hi PetaBencana.id My name is [enter your name] from [enter your organization]. I have forgotten my partner code and/or I would like to gain access to a Partner Code to be able to report disasters as an official partner representative of PetaBencana.id ,Thank you."
-
+  "partner_mode_body1": "Anyone can submit a disaster report to PetaBencana.id",
+  "partner_mode_body2": "To submit an anonymous disaster report, skip this step!",
+  "partner_mode_body3": "To submit a report as a partner organization, enter your code below",
+  "partner_mode_placeholder": "Partner Code",
+  "forgot_partner_code": "Forget Partner Code",
+  "partner_mode_cta": "GO",
+  "partner_mode_loginHeader": "Welcome Back!",
+  "partner_mode_loginSubHeader": "You are submitting a report as:",
+  "partner_mode_partnerNotfound": "Partner code not found or in inactive status , Kindly check your partner code or email us at info@petabencana.id",
+  "forgot_partner_email": " info@petabencana.id",
+  "forgot_partner_subject": "Forgot PetaBencana.id Partner Code",
+  "forgot_partner_body": "Hi PetaBencana.id My name is [enter your name] from [enter your organization]. I have forgotten my partner code and/or I would like to gain access to a Partner Code to be able to report disasters as an official partner representative of PetaBencana.id ,Thank you."
 }

@@ -1,19 +1,19 @@
-<div
-  class="type"
-  (mouseenter)="onMouseEnter(img)"
-  (mouseleave)="onMouseLeave(img)"
->
-  <img
-    class="type__img"
-    [src]="imgUrl"
-    #img
-  />
-  
-  <button class="type__btn btn-hovered">
-    {{ title }}
-  </button>
-  
-  <p class="type__hint" *ngIf="hint !== ''">
-    {{ hint }}
-  </p>
-</div>
+  <div
+    class="type"
+    (mouseenter)="onMouseEnter(img)"
+    (mouseleave)="onMouseLeave(img)"
+  >
+    <img
+      class="type__img"
+      *ngIf="imgUrl"
+      [src]="imgUrl"
+      #img
+    />
+      <button class="type__btn btn-hovered">
+        {{ title }}
+      </button>
+    
+    <p class="type__hint" *ngIf="hint !== ''">
+      {{ hint }}
+    </p>
+  </div>
