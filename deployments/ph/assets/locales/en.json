@@ -168,8 +168,8 @@
     "thank": {
       "result": "SUCCESS!",
       "title": [
-        "Thank you for your report. Check",
-        "to view your report and see real-time disaster updates."
+        "You have completed your training! Check",
+        "to view and share your simulation report!"
       ],
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
