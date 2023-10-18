@@ -50,6 +50,10 @@
       "earthquake": {
         "roadTypeButton": "Road Accessibility",
         "structureTypeButton": "Structural Failure"
+      },
+      "volcano": {
+        "volcanoButton": "Volcanic Signs",
+        "smogButton": "Ashfall and smog"
       }
     },
     "visibility": {
@@ -108,7 +112,7 @@
       "fully_collapsed": "Fully Collapsed"
     },
     "evacuation": {
-      "description": "Do you know where to evacuate to?"
+      "description": "Are you evacuating?"
     },
     "evacuationnumber":{
       "description": "Number of people in your village"
@@ -120,7 +124,7 @@
       "description": "Indicate any observations:",
       "symptoms":[
         "Significant Temperature Increases",
-        "Drought / Vegetation Death",
+        "Water sources are drying up/contaminated",
         "Unusual Animal Behaviour",
         "Frequent Earthquake Tremors",
         "Frequent Rumbling Sounds"
@@ -147,8 +151,9 @@
         "High Disruption"
       ]
     },
-    "description": "Add your description here ...",
-    "review": {
+    "flooddescription": "Add your description here…",
+    "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
+    "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
       "link": "PetaBencana.id Contributors Agreement",

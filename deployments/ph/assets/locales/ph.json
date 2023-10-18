@@ -12,8 +12,8 @@
     "locateText": "Ipakita ang aking lokasyon"
   },
   "card": {
-    "yes": "Oo",
-    "no": "Hindi",
+    "yes": "Yes",
+    "no": "No",
     "titles": {
       "type": "Piliin ang uri ng ulat ",
       "location": "Pillin ang lokasyon ng ulat",
@@ -46,6 +46,10 @@
       "earthquake": {
         "roadTypeButton": "Accessibility ng Daan ",
         "structureTypeButton": "Pagguho ng Istruktura"
+      },
+      "volcano": {
+        "volcanoButton": "Volcanic Signs",
+        "smogButton": "Ashfall and smog"
       }
     },
     "visibility": {
@@ -104,7 +108,7 @@
       "fully_collapsed": "Ganap na Gumuho"
     },
     "evacuation": {
-      "description": "Alam mo ba kung saan ka lilikas?"
+      "description": "Are you evacuating?"
     },
     "evacuationnumber": {
       "description": "Ilan ang mga tao sa iyong barangay?"
@@ -115,11 +119,11 @@
     "sign": {
       "description": "Ilagay ang anumang mga obserbasyon:",
       "symptoms": [
-        " Malubhang Pagtaas ng Temperatura",
-        "Tagtuyot / Pagkamatay ng Gulay",
-        " Hindi Karaniwang Ugali ng Hayop",
-        "Madalas na Mga Panginginig ng Lindol ",
-        "Madalas na Tunog "
+        "Significant Temperature Increases",
+        "Water sources are drying up/contaminated",
+        "Unusual Animal Behaviour",
+        "Frequent Earthquake Tremors",
+        "Frequent Rumbling Sounds"
       ]
     },
     "impact": {
@@ -143,7 +147,9 @@
         "Malubhang Pagkagambala"
       ]
     },
-    "description": "Ilagay ang iyong paglalarawan dito ...",
+    "flooddescription": "Add your description here…",
+    "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
+    "smogdescription": "Ex: Ash in the area. Zero visibility while driving",
     "review": {
       "text": " Sa pamamagitan ng pagsusumite ng ulat na ito sumasang-ayon ka sa",
       "terms": "User agreement & Privacy policy",
