@@ -23,6 +23,21 @@
         "review",
         "thank"
       ]
+    },
+    {
+      "name": "volcano",
+      "cards": [
+        "type",
+        "location",
+        "sign",
+        "fireestimate",
+        "impact",
+        "evacuationarea",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
     }
   ]
 }

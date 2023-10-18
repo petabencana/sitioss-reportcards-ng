@@ -29,7 +29,8 @@ export class TypeComponent {
   ) {
     this.initItems()
     // Store card routes for navigation
-    this.navController.registerCardRoutes('earthquake');
+    // this.navController.registerCardRoutes('earthquake');
+    this.navController.registerCardRoutes('volcano' || 'earthquake');
   }
 
   initItems() {
@@ -46,6 +47,22 @@ export class TypeComponent {
           title: 'card.type.earthquake.structureTypeButton',
           hint: '',
           subtype: 'structure',
+          imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
+          highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
+        }
+      ].filter(item => !this.deckService.finishedSubType.includes(item.subtype)); break;
+      case 'volcano': this.items = [
+        {
+          title: 'card.type.volcano.volcanoButton',
+          hint: '',
+          subtype: 'volcanic',
+          imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
+          highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
+        },
+        {
+          title: 'card.type.volcano.smogButton',
+          hint: '',
+          subtype: 'smog',
           imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
           highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
         }

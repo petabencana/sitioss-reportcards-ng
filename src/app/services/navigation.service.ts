@@ -46,6 +46,7 @@ export class NavigationService {
 
   filterRoutes(subtype: string) {
     const mustHaveCard = ["photo", "description", "review", "thank"]
+    const volcanoCard = ["photo", "description", "evacuationarea", "review", "thank"]
 
     switch (subtype) {
       case 'road':
@@ -53,6 +54,12 @@ export class NavigationService {
         break;
       case 'structure':
         this.cardRoutes = ['type', 'location', 'structure', ...mustHaveCard];
+        break;
+      case 'volcanic':
+        this.cardRoutes = ['type', 'location', 'sign', ...volcanoCard];
+        break;
+      case 'smog':
+        this.cardRoutes = ['type', 'location', 'fireestimate', 'impact', ...volcanoCard];
         break;
     }
   }
