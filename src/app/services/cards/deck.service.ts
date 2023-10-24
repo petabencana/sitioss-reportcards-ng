@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as topojson from 'topojson-client';
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood';
+type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'notifications';
 type deckSubType =
   | 'fire'
   | 'haze'
