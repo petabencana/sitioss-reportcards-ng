@@ -27,11 +27,46 @@ export class ThankComponent {
           break;
         case 'structure':
           this.reportAgainText = 'card.reportAgainAccess'
+          break; 
+      }
+    } else if(deckType === 'typhoon' && this.deckService.finishedSubType.length === 0) {
+      this.isShowReportAgain = true
+      switch(this.deckService.getDeckSubType()) {
+        case 'wind':
+          this.reportAgainText = 'card.reportAgain'
           break;
+        case 'flood':
+          this.reportAgainText = 'card.reportAgain'
+          break;
+        case 'storm':
+          this.reportAgainText = 'card.reportAgain'
+          break; 
       }
     }
 
     this.deckService.reset()
+  }
+
+  get options():{
+    opt1:string;
+    opt2:string
+  } {
+    if(this.deckService.getDeckSubType() === 'wind') {
+      return {
+        opt1 : `card.floodoptbutton`,
+        opt2 : `card.stormoptbutton`
+      }
+    } else if(this.deckService.getDeckSubType() === 'storm'){
+      return {
+        opt1 : `card.floodoptbutton`,
+        opt2 : `card.windoptbutton`
+      }
+    } else if(this.deckService.getDeckSubType() === 'flood'){
+      return {
+        opt1 : `card.stormoptbutton`,
+        opt2 : `card.windoptbutton`
+      }
+    }
   }
 
   get typeImage(): string {

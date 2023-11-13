@@ -11,7 +11,11 @@
     {{ reportAgainText | translate}}
   </p>
   <div *ngIf="isShowReportAgain" class="thanks__btn-group">
-    <a class="thanks__btn" (click)="reportAnotherCard()">{{'card.thank.acceptButton' | translate}}</a>
+    <a *ngIf = "deckService.getDeckType() !== 'typhoon'" class="thanks__btn" (click)="reportAnotherCard()">{{'card.thank.acceptButton' | translate}}</a>
+    <ng-container *ngIf = "deckService.getDeckType() ==='typhoon'">
+      <a class="thanks__btn">{{options.opt1 | translate}}</a>
+      <a class="thanks__btn">{{options.opt2 | translate}}</a>
+    </ng-container>
     <a class="thanks__btn" (click)="isShowReportAgain = false">{{'card.thank.rejectButton' | translate}}</a>
   </div>
 </div>

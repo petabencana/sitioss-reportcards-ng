@@ -32,7 +32,7 @@ export class FloodComponent implements OnInit {
     this.navController.checkForFirstCard(this.route);
 
     this.deckService.setDeckType('flood')
-    this.deckService.setDeckSubType('flood')
+    // this.deckService.setDeckSubType('flood')
     this.deckService.setRoute(route)
   }
 

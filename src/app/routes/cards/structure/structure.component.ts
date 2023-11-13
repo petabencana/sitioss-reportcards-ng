@@ -84,7 +84,7 @@ export class StructureComponent implements OnInit, AfterViewChecked {
       this.deckService.setStructureFailure(intValue)
     }
 
-    leftArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'left')
-    rightArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'right')
+    leftArrow.style.left = countArrowOffset(intValue, 3, slider.offsetWidth, 'left')
+    rightArrow.style.left = countArrowOffset(intValue, 3, slider.offsetWidth, 'right')
   }
 }

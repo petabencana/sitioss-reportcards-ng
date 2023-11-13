@@ -61,6 +61,15 @@ export class NavigationService {
       case 'smog':
         this.cardRoutes = ['type', 'location', 'fireestimate', 'impact', ...volcanoCard];
         break;
+      case 'storm':
+        this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];
+        break;
+      case 'wind':
+        this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];
+        break;
+      case 'flood':
+        this.cardRoutes = ['location', 'type', 'depth', ...mustHaveCard];
+        break;
     }
   }
 

@@ -20,10 +20,6 @@ export class DescriptionComponent implements OnInit {
 
   getDescription(floodDes:string, volcanoDes:string, smogDes:string){
     switch(this.deckService.getDeckSubType()){
-      case 'flood':
-        floodDes = `card.flooddescription`;
-        return floodDes;
-        break;
       case 'volcanic':
         volcanoDes = `card.volcanodescription`;
         return volcanoDes;
@@ -31,7 +27,11 @@ export class DescriptionComponent implements OnInit {
       case 'smog':
         smogDes = `card.smogdescription`;
         return smogDes;
-        break;    
+        break;   
+      default :
+        floodDes = `card.flooddescription`;
+        return floodDes;
+        break; 
     }
   }
 }

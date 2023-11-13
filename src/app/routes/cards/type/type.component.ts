@@ -30,7 +30,13 @@ export class TypeComponent {
     this.initItems()
     // Store card routes for navigation
     // this.navController.registerCardRoutes('earthquake');
-    this.navController.registerCardRoutes('volcano' || 'earthquake');
+    if(this.deckService.getDeckType() === 'earthquake'){
+      this.navController.registerCardRoutes('earthquake');
+    } else if(this.deckService.getDeckType() === 'volcano'){
+      this.navController.registerCardRoutes('volcano');
+    } else if(this.deckService.getDeckType() === 'typhoon'){
+      this.navController.registerCardRoutes('typhoon');
+    }
   }
 
   initItems() {
@@ -65,6 +71,29 @@ export class TypeComponent {
           subtype: 'smog',
           imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
           highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
+        }
+      ].filter(item => !this.deckService.finishedSubType.includes(item.subtype)); break;
+      case 'typhoon': this.items = [
+        {
+          title: 'card.type.typhoon.windButton',
+          hint: '',
+          subtype: 'wind',
+          imgUrl: '',
+          highlightImgUrl: ''
+        },
+        {
+          title: 'card.type.typhoon.floodButton',
+          hint: '',
+          subtype: 'flood',
+          imgUrl: '',
+          highlightImgUrl: ''
+        },
+        {
+          title: 'card.type.typhoon.stormButton',
+          hint: '',
+          subtype: 'storm',
+          imgUrl: '',
+          highlightImgUrl: ''
         }
       ].filter(item => !this.deckService.finishedSubType.includes(item.subtype)); break;
     }

@@ -28,6 +28,17 @@ export class EvacuationareaComponent implements OnInit {
     this.isUserAbleToContinue()
   }
 
+  getEvacuation() {
+    if(this.deckService.getDeckType() === 'typhoon'){
+      return `card.evacuation.typhoondescription`;
+    } else if(this.deckService.getDeckType() === 'earthquake'){
+      return `card.evacuation.description`;
+    } else if(this.deckService.getDeckType() === 'volcano'){
+      return `card.evacuation.description`;
+    }
+
+  }
+
   isUserAbleToContinue() {
     // If user not select anything yet, next button is disabled
     if (this.deckService.getEvacuationArea() !== null) {
