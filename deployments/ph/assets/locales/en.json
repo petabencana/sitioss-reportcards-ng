@@ -35,6 +35,7 @@
       "evacuationarea": "Report Evacuation",
 
       "photo": "Upload a Photo",
+      "photodescription": "Click to upload",
       "description": "Tell us more",
       "review": "Review & Submit",
       "thank": "Thank you!"
@@ -54,6 +55,11 @@
       "volcano": {
         "volcanoButton": "Volcanic Signs",
         "smogButton": "Ashfall and smog"
+      },
+      "typhoon": {
+        "windButton": "Strong Winds",
+        "floodButton": "Flooding",
+        "stormButton": "Storm surge"
       }
     },
     "visibility": {
@@ -112,7 +118,8 @@
       "fully_collapsed": "Fully Collapsed"
     },
     "evacuation": {
-      "description": "Are you evacuating?"
+      "description": "Are you evacuating?",
+      "typhoondescription": "Are you experiencing power outage?"
     },
     "evacuationnumber":{
       "description": "Number of people in your village"
@@ -134,15 +141,15 @@
         "symptoms" : [
         {
           "title": "Low Disruption",
-          "subtitle": "Small obstacles flying"
+          "subtitle": "Small debris are flying around"
         },
         {
           "title": "Medium Disruption",
-          "subtitle": "Road blockages, transport disturbance, blackout"
+          "subtitle": "Road blockages, felled trees, agricultural damage, blackout"
         },
         {
           "title": "High Disruption",
-          "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+          "subtitle": "Damage to property, large debris flying around"
         }
       ],
       "review":[
@@ -183,7 +190,11 @@
     },
     "swipeText": "Submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
-    "reportAgainAccess": "Would you also like to submit road accessibility report?"
+    "reportAgainAccess": "Would you also like to submit road accessibility report?",
+    "reportAgain": "Would you like to submit another report?",
+    "floodoptbutton": "Flooding",
+    "stormoptbutton": "Storm Surge",
+    "windoptbutton": "Strong Winds"
   },
   "partner_mode_title": "Enter Partner Mode?",
   "partner_mode_body1":"Anyone can submit a disaster report to Makalamidad.ph",

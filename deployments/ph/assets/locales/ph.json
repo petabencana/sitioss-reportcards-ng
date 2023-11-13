@@ -31,6 +31,7 @@
       "evacuationnumber": "I-ulat ang Paglikas",
       "evacuationarea": " I-ulat ang Paglikas",
       "photo": "Magsumite ng Larawan",
+      "photodescription": "Pindutin para mag-upload",
       "description": "Magbigay ng iba pang impormasyon",
       "review": "Suriin at I-sumite",
       "thank": "Salamat!"
@@ -48,8 +49,13 @@
         "structureTypeButton": "Pagguho ng Istruktura"
       },
       "volcano": {
-        "volcanoButton": "Volcanic Signs",
-        "smogButton": "Ashfall and smog"
+        "volcanoButton": "Senyales ng pagsabog ng Bulkan",
+        "smogButton": "Abo at Usok"
+      },
+      "typhoon": {
+        "windButton": "Strong Winds",
+        "floodButton": "Flooding",
+        "stormButton": "Storm surge"
       }
     },
     "visibility": {
@@ -108,7 +114,8 @@
       "fully_collapsed": "Ganap na Gumuho"
     },
     "evacuation": {
-      "description": "Are you evacuating?"
+      "description": "Are you evacuating?",
+      "typhoondescription": "Are you experiencing power outage?"
     },
     "evacuationnumber": {
       "description": "Ilan ang mga tao sa iyong barangay?"
@@ -119,26 +126,25 @@
     "sign": {
       "description": "Ilagay ang anumang mga obserbasyon:",
       "symptoms": [
-        "Significant Temperature Increases",
-        "Water sources are drying up/contaminated",
-        "Unusual Animal Behaviour",
-        "Frequent Earthquake Tremors",
-        "Frequent Rumbling Sounds"
+        "Tuyong pinanggalingan ng tubig/Nahawahan",
+        "Hindi pangkaraniwang pag-uugali ng Hayop",
+        "Madalas na pagyanig ng lupa",
+        "Madalas na dumadagundong na tunog"
       ]
     },
     "impact": {
       "symptoms": [
         {
           "title": "Low Disruption",
-          "subtitle": "Small obstacles flying"
+          "subtitle": "Small debris are flying around"
         },
         {
           "title": "Medium Disruption",
-          "subtitle": "Road blockages, transport disturbance, blackout"
+          "subtitle": "Road blockages, felled trees, agricultural damage, blackout"
         },
         {
           "title": "High Disruption",
-          "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+          "subtitle": "Damage to property, large debris flying around"
         }
       ],
       "review": [
@@ -148,7 +154,7 @@
       ]
     },
     "flooddescription": "Add your description here…",
-    "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
+    "volcanodescription": "Hal: Nakakarinig ako ng mga dagundong. Posibleng mula sa pagsabog ng bulkan.",
     "smogdescription": "Ex: Ash in the area. Zero visibility while driving",
     "review": {
       "text": " Sa pamamagitan ng pagsusumite ng ulat na ito sumasang-ayon ka sa",
@@ -174,13 +180,17 @@
         "upang matingnan ang iyong ulat at makita ang mga real-time na update ng sakuna."
       ],
       "subtitle": "Gusto mo bang magsumite ng ulat?",
-      "acceptButton": "Oo",
-      "rejectButton": "Hindi",
+      "acceptButton": "Yes",
+      "rejectButton": "No",
       "tips": "Click here for safety tips from OCD"
     },
     "swipeText": "Isumite",
     "reportAgainStructure": "Gusto mo rin bang mag-ulat ng pagkaguho ng istruktura?",
-    "reportAgainAccess": "Gusto mo rin bang mag-ulat ng accessibility ng daan?"
+    "reportAgainAccess": "Gusto mo rin bang mag-ulat ng accessibility ng daan?",
+    "reportAgain": "Nais mo ba magsumite ng ulat para sa Abo at usok?",
+    "floodoptbutton": "Flooding",
+    "stormoptbutton": "Storm Surge",
+    "windoptbutton": "Strong Winds"
   },
   "partner_mode_title": "Pumapasok ka ba sa Partner Mode?",
   "partner_mode_body1":"Kahit sino ay maaaring magsumite ng ulat ng kalamidad sa Mapakalamidad.ph!",
