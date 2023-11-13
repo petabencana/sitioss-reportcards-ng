@@ -50,6 +50,7 @@ export class DeckService {
 
   isPrevButtonDisabled = true;
   isNextButtonDisabled = true;
+  reportType = '';
 
   userCanBack() {
     this.isPrevButtonDisabled = false;
@@ -74,6 +75,10 @@ export class DeckService {
     this.cardLanguage = lang;
   }
 
+  selectReportType(type: string) {
+    this.reportType = type;
+  }
+
   async isPermittedLocation() {
     const requestHeaders: HeadersInit = new Headers();
     requestHeaders.set('Access-Control-Allow-Origin', "*");
@@ -96,6 +101,10 @@ export class DeckService {
 
   getRoute() {
     return this.route;
+  }
+
+  getReportType() {
+    return this.reportType
   }
 
   getStructureFailure() {
@@ -326,6 +335,7 @@ export class DeckService {
       image_url: "",
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : "",
+      is_training : this.getReportType() === 'training'
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;

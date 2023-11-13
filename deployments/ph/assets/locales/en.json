@@ -50,6 +50,10 @@
       "earthquake": {
         "roadTypeButton": "Road Accessibility",
         "structureTypeButton": "Structural Failure"
+      },
+      "report":{
+        "realTypeButton": "Submit Real Disaster Report",
+        "trainingTypeButton": "Completely Training Exercise"
       }
     },
     "visibility": {
@@ -166,11 +170,20 @@
       "people": "people"
     },
     "thank": {
-      "result": "SUCCESS!",
-      "title": [
+      "result": {
+        "real" : "SUCCESS",
+        "training": "SUCCESS TRAINING"
+      },
+      "title": {
+        "real" : [
         "Thank you for your report. Check",
         "to view your report and see real-time disaster updates."
       ],
+      "training" : [
+        "You have completed your training . Check",
+        " to view and share your simulation report!"
+      ]
+    },
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",
