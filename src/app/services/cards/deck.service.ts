@@ -4,8 +4,8 @@ import { environment as env } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood';
-type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano' | 'flood' | 'volcanic' | 'smog';
+type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon';
+type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano' | 'flood' | 'volcanic' | 'smog' | 'storm';
 
 interface LatLng {
   lat: number;
