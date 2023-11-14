@@ -170,6 +170,11 @@
         "real" : "TAGUMPAY",
         "training": "TAGUMPAY"
       },
+      "url":{
+        "real" : "https://mapakalamidad.ph",
+        "training" : "https://training.mapakalamidad.ph"
+      },
+      "urlText":"Mapakalamidad.ph",
       "title": {
         "real" : [
           "Salamat sa iyong ulat. Magtungo sa",
@@ -177,7 +182,7 @@
         ],
       "training" : [
         "Natapos mo na ang iyong pagsasanay! Tingnan ang",
-        "training.mapakalamidad.ph upang tingnan at ibahagi ang iyong paghahalimbawang ulat. "
+        " upang tingnan at ibahagi ang iyong paghahalimbawang ulat. "
       ]
     },
       "subtitle": "Gusto mo bang magsumite ng ulat?",

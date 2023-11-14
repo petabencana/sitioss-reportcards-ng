@@ -1,51 +1,53 @@
-<div class="titleItems" [ngClass] = "{'partnerTitleItems': isPartner}">
-  <span id="partnerIcon" (click)="showPartnerPopup()" >
-    <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
-  </span>
-  <span id="titleText">{{ title }} </span>
-  <span></span>
-</div>
-
-<div id="tabsRow" *ngIf="isShowTabs">
-  <div
-    *ngFor="let tab of totalTabs; index as i"
-    [ngClass]="[getCssClass(i)]"
-  >
+<div [ngClass] = "deckService.getReportType() === '' ? 'titleItems-opacity' : 'titleItems'">
+  <div class="titleItems" [ngClass] = "{'partnerTitleItems': isPartner}">
+    <span id="partnerIcon" (click)="showPartnerPopup()" >
+      <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
+    </span>
+    <span id="titleText">{{ title }} </span>
+    <span></span>
   </div>
-</div>
-<div id="welcomeToast" *ngIf="partnerIcon != ''">
-  <header  class="partnerCodePopup__header">
-    <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
-    <div>
-       <h3><b>{{partnerModeLoginHeader}}</b></h3>
-       <p>{{partnerModeLoginSubHeader}}</p>
+  </div>
+  
+  <div id="tabsRow" *ngIf="isShowTabs">
+    <div
+      *ngFor="let tab of totalTabs; index as i"
+      [ngClass]="[getCssClass(i)]"
+    >
     </div>
-  </header>
-  <div class="welcomeToast__body">
-    <img class="welcomeToast__partnerimage" src='{{ partnerIcon }}' alt={{partnerText}}/>
   </div>
-</div>
-  <div *ngIf="isShown && !isPartner" id="partnerCodePopup">
-    <header class="partnerCodePopup__header">
-        <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
-        <p><b>{{partnerModeTitle}}</b></p>
-        <div id="closeRow">
-          <span (click)="closePartnerPopup()">X</span>
-        </div>
-      </header>
-    <div class="partnerCodePopup__body">
-    <p><b>{{partnerModeBody1}}</b></p>
-    <p (click)="closePartnerPopup()" class="partnerCodePopup__body--underline"><u><b>{{partnerModeBody2}} </b></u></p>
-    <p><b>{{partnerModeBody3}} </b></p>
-    <input type="text" id="partnerCode" placeholder={{partnerModePlaceHolder}} [(value)]="partnerCode" />
-    <a href = "mailto:{{forgotPartnerModeEmail}}?subject={{forgotPartnerModeSubject}}&body={{forgotPartnerModeBody}}">
-    <p class="partnerCodePopup__body--link"><u>{{partnerModeForgotPassword}}</u></p>
-    </a>
-    <div id="submitRow">
-      <button  (click)="submitCode()">{{partnerModeCTA}}</button>
+  <div id="welcomeToast" *ngIf="partnerIcon != ''">
+    <header  class="partnerCodePopup__header">
+      <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
+      <div>
+         <h3><b>{{partnerModeLoginHeader}}</b></h3>
+         <p>{{partnerModeLoginSubHeader}}</p>
+      </div>
+    </header>
+    <div class="welcomeToast__body">
+      <img class="welcomeToast__partnerimage" src='{{ partnerIcon }}' alt={{partnerText}}/>
     </div>
-    <p *ngIf="isError" id="partnerCodeError">
-      {{partnerModeCodeNotFound}}
-    </p>
   </div>
-</div>
+    <div *ngIf="isShown && !isPartner" id="partnerCodePopup">
+      <header class="partnerCodePopup__header">
+          <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
+          <p><b>{{partnerModeTitle}}</b></p>
+          <div id="closeRow">
+            <span (click)="closePartnerPopup()">X</span>
+          </div>
+        </header>
+      <div class="partnerCodePopup__body">
+      <p><b>{{partnerModeBody1}}</b></p>
+      <p (click)="closePartnerPopup()" class="partnerCodePopup__body--underline"><u><b>{{partnerModeBody2}} </b></u></p>
+      <p><b>{{partnerModeBody3}} </b></p>
+      <input type="text" id="partnerCode" placeholder={{partnerModePlaceHolder}} [(value)]="partnerCode" />
+      <a href = "mailto:{{forgotPartnerModeEmail}}?subject={{forgotPartnerModeSubject}}&body={{forgotPartnerModeBody}}">
+      <p class="partnerCodePopup__body--link"><u>{{partnerModeForgotPassword}}</u></p>
+      </a>
+      <div id="submitRow">
+        <button  (click)="submitCode()">{{partnerModeCTA}}</button>
+      </div>
+      <p *ngIf="isError" id="partnerCodeError">
+        {{partnerModeCodeNotFound}}
+      </p>
+    </div>
+  </div>
