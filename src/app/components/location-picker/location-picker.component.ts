@@ -200,6 +200,10 @@ export class LocationPickerComponent implements OnInit {
         return '../../../assets/decks/volcano/location/Select_Report_Location.png'
       case 'haze':
         return '../../../assets/decks/fire/location/SelectHazeLocation.png';
+      case 'volcanic':
+        return '../../../assets/decks/volcano/location/Select_Report_Location.png';
+      case 'smog':
+        return '../../../assets/decks/volcano/location/Select_Report_Location.png';
       default:
         return '../../../assets/decks/fire/location/SelectHazeLocation.png';
     }
