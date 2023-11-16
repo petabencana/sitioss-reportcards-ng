@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FireestimateComponent } from './fireestimate.component';
+import { RadiusestimateComponent } from './radiusestimate.component';
 
 const routes: Routes = [
-  { path: '', component: FireestimateComponent }
+  { path: '', component: RadiusestimateComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FireestimateRoutingModule { }
+export class RadiusestimateRoutingModule { }

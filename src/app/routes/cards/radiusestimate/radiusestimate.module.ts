@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FireestimateRoutingModule } from './fireestimate-routing.module';
-import { FireestimateComponent } from './fireestimate.component';
+import { RadiusestimateRoutingModule } from './radiusestimate-routing.module';
+import { RadiusestimateComponent } from './radiusestimate.component';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
-    FireestimateRoutingModule,
+    RadiusestimateRoutingModule,
     TranslateModule
   ],
-  declarations: [FireestimateComponent],
+  declarations: [RadiusestimateComponent],
   exports: [
     TranslateModule
   ],
@@ -19,4 +19,4 @@ import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
     TranslatePipe
   ]
 })
-export class FireestimateModule { }
+export class RadiusestimateModule { }

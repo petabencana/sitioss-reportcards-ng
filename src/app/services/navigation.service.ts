@@ -59,7 +59,7 @@ export class NavigationService {
         this.cardRoutes = ['type', 'location', 'sign', ...volcanoCard];
         break;
       case 'smog':
-        this.cardRoutes = ['type', 'location', 'fireestimate', 'impact', ...volcanoCard];
+        this.cardRoutes = ['type', 'location', 'radiusestimate', 'impact', ...volcanoCard];
         break;
       case 'storm':
         this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];

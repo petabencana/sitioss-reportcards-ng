@@ -127,7 +127,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   }
 
   get fireRangeUnit() {
-    return this.translate.instant('card.fireestimate.unit');
+    return this.translate.instant('card.radiusestimate.unit');
   }
 
   get floodDepth() {

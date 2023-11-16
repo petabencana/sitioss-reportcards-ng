@@ -18,7 +18,7 @@
       "type": "Select Report Type",
       "location": "Select Report Location",
       "depth": "Select flood depth",
-      "fireestimate": "Report Fire Extent",
+      "radiusestimate": "Report Fire Extent",
       "firedistance": "Your Location and Fire Location",
       "airquality": "Report Air Quality",
       "visibility": "Report Visibility",
@@ -124,7 +124,7 @@
     "evacuationnumber":{
       "description": "Number of people in your village"
     },
-    "fireestimate": {
+    "radiusestimate": {
       "unit": "hectares"
     },
     "sign" : {
@@ -160,7 +160,8 @@
     },
     "flooddescription": "Add your description here…",
     "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
-    "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    "review": {
+    "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    
+    "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
       "link": "PetaBencana.id Contributors Agreement",
@@ -191,6 +192,8 @@
     "swipeText": "Submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?",
+    "reportAgainVolcanic": "Would you like to submit Volcani report?",
+    "reportAgainSmog": "Would you like to submit smog report?",
     "reportAgain": "Would you like to submit another report?",
     "floodoptbutton": "Flooding",
     "stormoptbutton": "Storm Surge",

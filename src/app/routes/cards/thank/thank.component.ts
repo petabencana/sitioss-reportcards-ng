@@ -42,6 +42,16 @@ export class ThankComponent {
           this.reportAgainText = 'card.reportAgain'
           break; 
       }
+    } else if(deckType === 'volcano' && this.deckService.finishedSubType.length === 0) {
+      this.isShowReportAgain = true
+      switch(this.deckService.getDeckSubType()) {
+        case 'volcanic':
+          this.reportAgainText = 'card.reportAgainSmog'
+          break;
+        case 'smog':
+          this.reportAgainText = 'card.reportAgainVolcanic'
+          break;
+      }
     }
 
     this.deckService.reset()

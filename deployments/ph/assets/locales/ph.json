@@ -18,7 +18,7 @@
       "type": "Piliin ang uri ng ulat ",
       "location": "Pillin ang lokasyon ng ulat",
       "depth": "Piliin ang lebel ng baha",
-      "fireestimate": "I-ulat ang lawak ng apoy",
+      "radiusestimate": "I-ulat ang lawak ng apoy",
       "firedistance": "Iyong Lokasyon at Lokasyon ng Apoy",
       "airquality": "I-ulat ang Kalidad ng Hangin",
       "visibility": "I-ulat ang Visibility",
@@ -120,7 +120,7 @@
     "evacuationnumber": {
       "description": "Ilan ang mga tao sa iyong barangay?"
     },
-    "fireestimate": {
+    "radiusestimate": {
       "unit": "Ektarya"
     },
     "sign": {
@@ -155,7 +155,7 @@
     },
     "flooddescription": "Add your description here…",
     "volcanodescription": "Hal: Nakakarinig ako ng mga dagundong. Posibleng mula sa pagsabog ng bulkan.",
-    "smogdescription": "Ex: Ash in the area. Zero visibility while driving",
+    "smogdescription": "Hal: May Abo sa lugar. Walang makita habang nagmamaneho.",
     "review": {
       "text": " Sa pamamagitan ng pagsusumite ng ulat na ito sumasang-ayon ka sa",
       "terms": "User agreement & Privacy policy",
@@ -185,9 +185,11 @@
       "tips": "Click here for safety tips from OCD"
     },
     "swipeText": "Isumite",
+    "reportAgain": "Would you like to submit another report?",
     "reportAgainStructure": "Gusto mo rin bang mag-ulat ng pagkaguho ng istruktura?",
     "reportAgainAccess": "Gusto mo rin bang mag-ulat ng accessibility ng daan?",
-    "reportAgain": "Nais mo ba magsumite ng ulat para sa Abo at usok?",
+    "reportAgainVolcanic": "Nais mo ba magsumite ng ulat para sa senyales ng pagsabago ng bulkan?",
+    "reportAgainSmog": "Nais mo ba magsumite ng ulat para sa Abo at usok?",
     "floodoptbutton": "Flooding",
     "stormoptbutton": "Storm Surge",
     "windoptbutton": "Strong Winds"

@@ -9,11 +9,11 @@ import { lineString , length} from "@turf/turf";
 declare let L
 
 @Component({
-  selector: 'app-fireestimate',
-  templateUrl: './fireestimate.component.html',
-  styleUrls: ['./fireestimate.component.scss']
+  selector: 'app-radiusestimate',
+  templateUrl: './radiusestimate.component.html',
+  styleUrls: ['./radiusestimate.component.scss']
 })
-export class FireestimateComponent implements OnInit {
+export class RadiusestimateComponent implements OnInit {
   private fireMarker
   private radiusMarker
   private geojson
@@ -103,7 +103,14 @@ export class FireestimateComponent implements OnInit {
 
     const imageElement = document.createElement('div');
     imageElement.className = 'marker';
-    imageElement.style.backgroundImage = `url(../../../assets/decks/fire/location/SelectFireLocation_Highlight.png)`;
+    switch(this.deckService.getDeckType()) {
+      case 'fire':
+        imageElement.style.backgroundImage = `url(../../../assets/decks/fire/location/SelectFireLocation_Highlight.png)`;
+        break;
+      case 'volcano':
+        imageElement.style.backgroundImage = `url(../../../assets/decks/volcano/location/Select_Report_Location.png)`;
+        break;
+    }
     imageElement.style.width = `30px`;
     imageElement.style.height = `60px`;
     imageElement.style['background-repeat'] = 'no-repeat';
@@ -172,7 +179,7 @@ export class FireestimateComponent implements OnInit {
        const circleLayer = {
         'type': 'Feature',
         'properties': {
-          'description': `${this.fireRange} ${this.translate.instant('card.fireestimate.unit')}`,
+          'description': `${this.fireRange} ${this.translate.instant('card.radiusestimate.unit')}`,
           },
         'geometry': {
         'type': 'Point',
