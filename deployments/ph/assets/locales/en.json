@@ -52,6 +52,7 @@
         "roadTypeButton": "Road Accessibility",
         "structureTypeButton": "Structural Failure"
       },
+
       "volcano": {
         "volcanoButton": "Volcanic Signs",
         "smogButton": "Ashfall and smog"
@@ -60,6 +61,11 @@
         "windButton": "Strong Winds",
         "floodButton": "Flooding",
         "stormButton": "Storm surge"
+
+      "report":{
+        "realTypeButton": "Submit Real Disaster Report",
+        "trainingTypeButton": "Completely Training Exercise"
+
       }
     },
     "visibility": {
@@ -179,11 +185,25 @@
       "people": "people"
     },
     "thank": {
-      "result": "SUCCESS!",
-      "title": [
+      "result": {
+        "real" : "SUCCESS",
+        "training": "SUCCESS TRAINING"
+      },
+      "url":{
+        "real" : "https://mapakalamidad.ph",
+        "training" : "https://training.mapakalamidad.ph"
+      },
+      "urlText":"Mapakalamidad.ph",
+      "title": {
+        "real" : [
         "Thank you for your report. Check",
         "to view your report and see real-time disaster updates."
       ],
+      "training" : [
+        "You have completed your training . Check",
+        " to view and share your simulation report!"
+      ]
+    },
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",

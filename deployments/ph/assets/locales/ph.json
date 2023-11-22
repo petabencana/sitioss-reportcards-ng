@@ -48,6 +48,7 @@
         "roadTypeButton": "Accessibility ng Daan ",
         "structureTypeButton": "Pagguho ng Istruktura"
       },
+
       "volcano": {
         "volcanoButton": "Senyales ng pagsabog ng Bulkan",
         "smogButton": "Abo at Usok"
@@ -56,6 +57,11 @@
         "windButton": "Strong Winds",
         "floodButton": "Flooding",
         "stormButton": "Storm surge"
+
+      "report":{
+        "realTypeButton": "Submit Real Disaster Report",
+        "trainingTypeButton": "Completely Training Exercise"
+
       }
     },
     "visibility": {
@@ -174,11 +180,25 @@
       "people": "Tao"
     },
     "thank": {
-      "result": "TAGUMPAY!",
-      "title": [
-        "Salamat sa iyong ulat. Magtungo sa",
-        "upang matingnan ang iyong ulat at makita ang mga real-time na update ng sakuna."
-      ],
+      "result": {
+        "real" : "TAGUMPAY",
+        "training": "TAGUMPAY"
+      },
+      "url":{
+        "real" : "https://mapakalamidad.ph",
+        "training" : "https://training.mapakalamidad.ph"
+      },
+      "urlText":"Mapakalamidad.ph",
+      "title": {
+        "real" : [
+          "Salamat sa iyong ulat. Magtungo sa",
+          "upang matingnan ang iyong ulat at makita ang mga real-time na update ng sakuna."
+        ],
+      "training" : [
+        "Natapos mo na ang iyong pagsasanay! Tingnan ang",
+        " upang tingnan at ibahagi ang iyong paghahalimbawang ulat. "
+      ]
+    },
       "subtitle": "Gusto mo bang magsumite ng ulat?",
       "acceptButton": "Yes",
       "rejectButton": "No",
