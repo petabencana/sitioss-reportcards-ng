@@ -90,7 +90,8 @@ export class ThankComponent {
 
       case 'wind': return '../../../../assets/decks/wind/thank/success_wind.png'
 
-      case 'volcano': return '../../../../assets/decks/volcano/thank/success.png'
+      case 'volcanic': return '../../../../assets/decks/volcano/thank/success.png'
+      case 'smog': return '../../../../assets/decks/volcano/thank/success.png'
     }
   }
 

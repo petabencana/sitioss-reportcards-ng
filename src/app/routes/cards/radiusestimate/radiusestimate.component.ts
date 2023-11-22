@@ -175,7 +175,15 @@ export class RadiusestimateComponent implements OnInit {
        // Used to calculate radius between boints
        var line = lineString([[this.fireMarker.getLngLat().lng ,this.fireMarker.getLngLat().lat ] , [this.radiusMarker.getLngLat().lng ,this.radiusMarker.getLngLat().lat]]);
        var circleRadius = length(line, {units: 'meters'});
-       this.deckService.setFireDistance(circleRadius)
+       switch(this.deckService.getDeckType()) {
+        case 'volcano':
+          this.deckService.setSmogRadius(circleRadius);
+          break;
+        case 'fire':
+          this.deckService.setFireDistance(circleRadius)
+          break;  
+       }
+       // Create a GeoJSON point feature for each location.
        const circleLayer = {
         'type': 'Feature',
         'properties': {
@@ -217,7 +225,15 @@ export class RadiusestimateComponent implements OnInit {
   }
 
   get fireRange() {
-    const radius = this.deckService.getFireDistance()
+    let radius;
+    switch(this.deckService.getDeckType()) {
+      case 'fire' : 
+        radius = this.deckService.getFireDistance();
+        break;
+      case 'volcano':
+        radius = this.deckService.getSmogRadius();
+        break;
+    }
     const range = Math.PI * Math.pow(radius, 2) / 10000
     
     return range.toFixed(2)

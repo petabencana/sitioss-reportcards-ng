@@ -38,7 +38,12 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       let previewImgSrc
       switch (this.deckService.getDeckSubType()) {
         case 'fire': previewImgSrc = '../../../assets/decks/fire/review/Fire.png'; break;
-        case 'volcano': previewImgSrc = '../../../assets/decks/volcano/review/volcano.png'; break;
+        case 'volcanic': previewImgSrc = '../../../assets/decks/volcano/review/volcano.png'; break;
+        case 'smog': previewImgSrc = [
+          "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
+          "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
+          "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+        ][this.deckService.getImpact()]; break;
         case 'flood': previewImgSrc = '../../../assets/decks/flood/review/flood_card_ph.svg'; break;
         case 'haze': previewImgSrc = [
           "../../../../assets/decks/fire/visibility/Visibility_High.jpg",
@@ -63,7 +68,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
         default: previewImgSrc = 'https://via.placeholder.com/150'; break;
       }
       this.previewImg.setAttribute('src', previewImgSrc)
-      if (this.deckService.getDeckSubType() === 'volcano') {
+      if (this.deckService.getDeckType() === 'volcano') {
         this.previewImgContainer.style.padding = '10px 0'
         this.previewImgContainer.style.justifyContent = 'center'
       }
@@ -119,7 +124,15 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   // Fire
 
   get fireRange() {
-    const radius = this.deckService.getFireDistance()
+    let radius;
+    switch(this.deckService.getDeckType()) {
+      case 'fire':
+        radius = this.deckService.getFireDistance();
+        break;
+      case 'volcano':
+        radius = this.deckService.getSmogRadius();
+        break;
+    }
     const range = Math.PI * Math.pow(radius, 2) / 10000
 
     if (range < 1) return '<1'

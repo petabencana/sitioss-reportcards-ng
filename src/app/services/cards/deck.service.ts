@@ -39,6 +39,7 @@ export class DeckService {
   fireLocation: LatLng;
   fireRadius: LatLng;
   fireDistance: number;
+  smogRadius: number;
   volcanicSigns: number[] = [];
   evacuationNumber: null | number = null;
   evacuationArea: null | boolean = null;
@@ -130,6 +131,9 @@ export class DeckService {
   getFireDistance(): number {
     return this.fireDistance;
   }
+  getSmogRadius(): number {
+    return this.smogRadius;
+  }
   getVolcanicSigns(): number[] {
     return this.volcanicSigns;
   }
@@ -198,6 +202,9 @@ export class DeckService {
   setFireDistance(fireDistance: number) {
     this.fireDistance = fireDistance;
   }
+  setSmogRadius(smogRadius: number) {
+    this.smogRadius = smogRadius;
+  }
   setVolcanicSigns(volcanicSigns: number[]) {
     this.volcanicSigns = volcanicSigns;
   }
@@ -243,6 +250,7 @@ export class DeckService {
     this.fireLocation = undefined;
     this.fireRadius = undefined;
     this.fireDistance = undefined;
+    this.smogRadius = undefined;
     this.volcanicSigns = [];
     this.evacuationNumber = null;
     this.evacuationArea = null;
@@ -344,9 +352,14 @@ export class DeckService {
         summary.location = this.fireLocation;
         break;
       case "volcano":
-        summary.card_data.volcanicSigns = this.volcanicSigns;
-        summary.card_data.evacuationNumber = this.evacuationNumber;
-        summary.card_data.evacuationArea = this.evacuationArea;
+        if(this.subType == "volcanic") {
+          summary.card_data.volcanicSigns = this.volcanicSigns;
+          summary.card_data.evacuationArea = this.evacuationArea;
+        } else if(this.subType == "smog") {
+          summary.card_data.smogRadius = this.smogRadius;
+          summary.card_data.impact = this.impact;
+          summary.card_data.evacuationArea = this.evacuationArea;
+        }
         break;
       case "haze":
         summary.card_data.visibility = this.visibility;

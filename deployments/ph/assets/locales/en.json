@@ -12,8 +12,8 @@
     "locateText": "Show me where I am"
   },
   "card": {
-    "yes": "yes",
-    "no": "no",
+    "yes": "Yes",
+    "no": "No",
     "titles": {
       "type": "Select Report Type",
       "location": "Select Report Location",
@@ -192,7 +192,7 @@
     "swipeText": "Submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?",
-    "reportAgainVolcanic": "Would you like to submit Volcani report?",
+    "reportAgainVolcanic": "Would you like to submit volcanic report?",
     "reportAgainSmog": "Would you like to submit smog report?",
     "reportAgain": "Would you like to submit another report?",
     "floodoptbutton": "Flooding",
