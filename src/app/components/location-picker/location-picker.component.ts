@@ -7,6 +7,8 @@ import { DeckService } from '../../services/cards/deck.service';
 import { MONUMEN_NASIONAL_LAT_LNG } from "../../../utils/const";
 import { environment as env } from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 declare let L
 
@@ -43,47 +45,56 @@ export class LocationPickerComponent implements OnInit {
       lng = this.deckService.getLocation().lng
     }
 
-    this.map = L.map('mapid', {
-      center: [ lat, lng ],
-      zoom: 16
+    // this.map = L.map('mapid', {
+    //   center: [ lat, lng ],
+    //   zoom: 16
+    // });
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ';
+    this.map = new mapboxgl.Map({
+      container: 'mapid', // container ID
+      style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center:[lng , lat], // starting position [lng, lat]
+      zoom: 16, // starting zoom
     });
 
-    const accessToken = env.mapbox_access_token;
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+      },
+      trackUserLocation: true,
+      showUserHeading: false,
+      showUserLocation: false,
+    });
 
-    L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=${accessToken}`, {
-      attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(this.map);
-
-    L.control.zoom({ position: 'bottomleft' })
-
-    this.map.on('move', () => {
-      this.addMarker()
-
-      // User can click next button if user has move the map
-      if (!isEqual(this.map.getCenter(), { lat, lng })) {
-        this.deckService.userCanContinue()
-      }
-    })
+    this.map.addControl(geolocate);
 
     // If user not approve permission
-    if (this.currentMarker) this.currentMarker.remove(this.map)
-    this.addMarker()
+    if (this.currentMarker) this.currentMarker.remove(this.map);
 
-    const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true, strings: {title: this.locateText} }).addTo(this.map);
-    locate.start()
+    this.addMarker();
 
-    this.map.addControl(new L.Control.Compass());
-    this.map.on('locationfound ', (event) => {
-      if (this.currentMarker) this.currentMarker.remove(this.map)
-      this.addMarker()
+    this.provider = new OpenStreetMapProvider();
 
+    this.map.on('load', () => {
+      geolocate.trigger();
+    });
+
+    geolocate.on('geolocate', (event) => {
       // If location already same, no net to disable it again
-      if (isEqual(event.latlng, this.map.getCenter())) {
-        this.deckService.userCannotContinue()
+      if (
+        isEqual(this.map.getCenter(), {
+          lng: event.coords.longitude,
+          lat: event.coords.latitude,
+        })
+      ) {
+        this.deckService.userCannotContinue();
       }
-    })
+    });
 
-    this.provider = new OpenStreetMapProvider()
+    geolocate.on('trackuserlocationend', () => {
+      if (this.currentMarker) this.currentMarker.remove(this.map);
+      this.addMarker();
+    });
   }
 
   ngOnDestroy() {
@@ -102,52 +113,76 @@ export class LocationPickerComponent implements OnInit {
 
   async onSearch(query: string) {
     query = query + env.loc_search_suffix;
-    const results = await this.provider.search({ query });
+    const minimumCharCount = 3
+    const results = query.split(',')[0].length > minimumCharCount && await this.provider.search({ query }) // Optimising the calls made to search api
     this.searchResults = results; //we send this to the child component search-location
   }
 
   async onConfirmSearch(query: string) {
     const results = await this.provider.search({ query });
-
-    this.map.setView({ lat: results[0].y, lng: results[0].x }, 18)
-    if (this.currentMarker) this.currentMarker.remove(this.map)
-
-    const icon = L.icon({
-      iconUrl: this.icon,
-      iconSize: [57.2 / 2, 103.5 / 2],
-      iconAnchor: [15, 50],
-      popupAnchor: [-3, -76],
+    this.map.flyTo({
+      center: [results[0].x, results[0].y],
+      essential: true // this animation is considered essential with respect to prefers-reduced-motion
     });
-
-    const marker = L.marker([results[0].y, results[0].x], { icon })
-
-    this.latlng = { lat: results[0].y, lng: results[0].x }
-    this.deckService.setLocation({ lat: results[0].y, lng: results[0].x })
-
     if (this.currentMarker) this.currentMarker.remove(this.map)
-    marker.addTo(this.map)
+    const imageElement = document.createElement('div');
+    imageElement.className = 'marker';
+    imageElement.style.backgroundImage = `url(${this.icon})`;
+    imageElement.style.width = `30px`;
+    imageElement.style.position = 'relative';
+    imageElement.style.height = `60px`;
+    imageElement.style['background-repeat'] = 'no-repeat';
+    imageElement.style.backgroundSize = '100%';
 
+    // Add markers to the map.
+    const marker = new mapboxgl.Marker({
+      element : imageElement,
+      draggable:true
+    })
+      .setLngLat([results[0].x, results[0].y])
+      .addTo(this.map);
+    if (this.currentMarker) this.currentMarker.remove(this.map)
     this.currentMarker = marker
-  }
 
-  private addMarker(): void {
-    const icon = L.icon({
-      iconUrl: this.icon,
-      iconSize: [57.2 / 2, 103.5 / 2],
-      iconAnchor: [15, 50],
-      popupAnchor: [-3, -76],
+    marker.on('dragend' , () => {
+      const lngLat = marker.getLngLat();
+        if (!isEqual(this.map.getCenter(), {lng : lngLat.lng , lat: lngLat.lat})) {
+            this.deckService.userCanContinue()
+            this.deckService.setLocation({ lat : lngLat.lat, lng: lngLat.lng })
+      }
     });
-
+  }
+  
+  private addMarker() {
     const { lat, lng } = this.map.getCenter();
+   
 
-    const marker = L.marker([lat, lng], { icon })
+    const imageElement = document.createElement('div');
 
-    this.latlng = { lat, lng }
-    this.deckService.setLocation({ lat, lng })
+    imageElement.className = 'marker';
+    imageElement.style.backgroundImage = `url(${this.icon})`;
+    imageElement.style.width = `30px`;
+    imageElement.style.position = 'relative';
+    imageElement.style.height = `60px`;
+    imageElement.style['background-repeat'] = 'no-repeat';
+    imageElement.style.backgroundSize = '100%';
 
+    // Add markers to the map.
+    const marker = new mapboxgl.Marker({
+        element : imageElement,
+        draggable:true
+    })
+      .setLngLat([lng, lat])
+      .addTo(this.map);
+
+      marker.on('dragend' , () => {
+      const lngLat = marker.getLngLat();
+         if (!isEqual(this.map.getCenter(), {lng : lngLat.lng , lat: lngLat.lat})) {
+             this.deckService.userCanContinue()
+             this.deckService.setLocation({ lat : lngLat.lat, lng: lngLat.lng })
+      }
+      })
     if (this.currentMarker) this.currentMarker.remove(this.map)
-    marker.addTo(this.map)
-
     this.currentMarker = marker
   }
 
@@ -165,6 +200,10 @@ export class LocationPickerComponent implements OnInit {
         return '../../../assets/decks/volcano/location/Select_Report_Location.png'
       case 'haze':
         return '../../../assets/decks/fire/location/SelectHazeLocation.png';
+      case 'volcanic':
+        return '../../../assets/decks/volcano/location/Select_Report_Location.png';
+      case 'smog':
+        return '../../../assets/decks/volcano/location/Select_Report_Location.png';
       default:
         return '../../../assets/decks/fire/location/SelectHazeLocation.png';
     }

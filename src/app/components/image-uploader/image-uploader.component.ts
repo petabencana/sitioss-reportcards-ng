@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service'
 
 @Component({
@@ -7,6 +7,8 @@ import { DeckService } from '../../services/cards/deck.service'
   styleUrls: ['./image-uploader.component.scss']
 })
 export class ImageUploaderComponent implements OnInit {
+  @Input() photoText: string;
+
   rotateDeg: number = 0
 
   constructor(private deckService: DeckService) {}

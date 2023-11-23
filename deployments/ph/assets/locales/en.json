@@ -12,13 +12,13 @@
     "locateText": "Show me where I am"
   },
   "card": {
-    "yes": "yes",
-    "no": "no",
+    "yes": "Yes",
+    "no": "No",
     "titles": {
       "type": "Select Report Type",
       "location": "Select Report Location",
       "depth": "Select flood depth",
-      "fireestimate": "Report Fire Extent",
+      "radiusestimate": "Report Fire Extent",
       "firedistance": "Your Location and Fire Location",
       "airquality": "Report Air Quality",
       "visibility": "Report Visibility",
@@ -35,6 +35,7 @@
       "evacuationarea": "Report Evacuation",
 
       "photo": "Upload a Photo",
+      "photodescription": "Click to upload",
       "description": "Tell us more",
       "review": "Review & Submit",
       "thank": "Thank you!"
@@ -51,9 +52,20 @@
         "roadTypeButton": "Road Accessibility",
         "structureTypeButton": "Structural Failure"
       },
+
+      "volcano": {
+        "volcanoButton": "Volcanic Signs",
+        "smogButton": "Ashfall and smog"
+      },
+      "typhoon": {
+        "windButton": "Strong Winds",
+        "floodButton": "Flooding",
+        "stormButton": "Storm surge"
+
       "report":{
         "realTypeButton": "Submit Real Disaster Report",
         "trainingTypeButton": "Completely Training Exercise"
+
       }
     },
     "visibility": {
@@ -112,19 +124,20 @@
       "fully_collapsed": "Fully Collapsed"
     },
     "evacuation": {
-      "description": "Do you know where to evacuate to?"
+      "description": "Are you evacuating?",
+      "typhoondescription": "Are you experiencing power outage?"
     },
     "evacuationnumber":{
       "description": "Number of people in your village"
     },
-    "fireestimate": {
+    "radiusestimate": {
       "unit": "hectares"
     },
     "sign" : {
       "description": "Indicate any observations:",
       "symptoms":[
         "Significant Temperature Increases",
-        "Drought / Vegetation Death",
+        "Water sources are drying up/contaminated",
         "Unusual Animal Behaviour",
         "Frequent Earthquake Tremors",
         "Frequent Rumbling Sounds"
@@ -134,15 +147,15 @@
         "symptoms" : [
         {
           "title": "Low Disruption",
-          "subtitle": "Small obstacles flying"
+          "subtitle": "Small debris are flying around"
         },
         {
           "title": "Medium Disruption",
-          "subtitle": "Road blockages, transport disturbance, blackout"
+          "subtitle": "Road blockages, felled trees, agricultural damage, blackout"
         },
         {
           "title": "High Disruption",
-          "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+          "subtitle": "Damage to property, large debris flying around"
         }
       ],
       "review":[
@@ -151,7 +164,9 @@
         "High Disruption"
       ]
     },
-    "description": "Add your description here ...",
+    "flooddescription": "Add your description here…",
+    "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
+    "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    
     "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
@@ -196,7 +211,13 @@
     },
     "swipeText": "Submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
-    "reportAgainAccess": "Would you also like to submit road accessibility report?"
+    "reportAgainAccess": "Would you also like to submit road accessibility report?",
+    "reportAgainVolcanic": "Would you like to submit volcanic report?",
+    "reportAgainSmog": "Would you like to submit smog report?",
+    "reportAgain": "Would you like to submit another report?",
+    "floodoptbutton": "Flooding",
+    "stormoptbutton": "Storm Surge",
+    "windoptbutton": "Strong Winds"
   },
   "partner_mode_title": "Enter Partner Mode?",
   "partner_mode_body1":"Anyone can submit a disaster report to Makalamidad.ph",

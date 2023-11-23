@@ -1,2 +1,8 @@
-<search-location (search)="onSearch($event)"></search-location>
-<div id="mapid"></div>
+<search-location
+  (search)="onSearch($event)"
+  (confirmSearch)="onConfirmSearch($event)"
+  [searchResults]='searchResults'
+  [searchText]="'search.placeholder' | translate"
+  >
+</search-location>
+  <div id="mapid"></div>

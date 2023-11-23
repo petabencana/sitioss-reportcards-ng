@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubmitSwipeComponent } from './submit-swipe.component';
+import { TyphoonComponent } from './typhoon.component';
 
-describe('SubmitSwipeComponent', () => {
-  let component: SubmitSwipeComponent;
-  let fixture: ComponentFixture<SubmitSwipeComponent>;
+describe('TyphoonComponent', () => {
+  let component: TyphoonComponent;
+  let fixture: ComponentFixture<TyphoonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SubmitSwipeComponent ]
+      declarations: [ TyphoonComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubmitSwipeComponent);
+    fixture = TestBed.createComponent(TyphoonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

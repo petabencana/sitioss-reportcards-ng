@@ -6,8 +6,13 @@
   "supported_languages": ["en", "ph"],
   "default_language": "ph",
   "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
-  "data_server": "https://dev-api.mapakalamidad.ph/",
+  "data_server": "https://api.mapakalamidad.ph/",
   "app": "https://mapakalamidad.ph/",
+  "default_location": {
+    "lat": 14.35,
+    "lng": 120.58
+  },
+  "loc_search_suffix": ", Philippines",
   "decks": [{
     "name": "flood",
     "cards": [

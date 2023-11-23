@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { environment as env } from '../../../../environments/environment';
-import { VolcanoComponent } from './volcano.component';
+import { TyphoonComponent } from './typhoon.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: VolcanoComponent,
-    children: env['supportedCards']['volcano']
+    component: TyphoonComponent,
+    children: env['supportedCards']['typhoon']
   },
-  // Optional, redirectTo first card in volcano
+  // Optional, redirectTo first card in prep
   {
     path: '**',
-    redirectTo: 'type',
+    redirectTo: 'location',
     pathMatch: 'full'
   }
 ];
@@ -22,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class VolcanoRoutingModule { }
+export class TyphoonRoutingModule { }

@@ -124,11 +124,11 @@
       }
 
       &::-moz-range-track {
-        background-image: linear-gradient(to right, #ffde17, #f7941d 50%, #6C6D70 50%);
+        background-image: linear-gradient(to right, #ffde17, #f7941d 33%, #6C6D70 33%);
       }
 
       &::-webkit-slider-runnable-track {
-        background-image: linear-gradient(to right, #ffde17, #f7941d 50%, #6C6D70 50%);
+        background-image: linear-gradient(to right, #ffde17, #f7941d 33%, #6C6D70 33%);
       }
     }
 
@@ -142,11 +142,29 @@
       }
 
       &::-webkit-slider-runnable-track {
-        background-image: linear-gradient(to right, #ffde17, #f7941d, #be1e2d);
+        background-image: linear-gradient(to right, #ffde17 25%, #f7941d 66%, #6C6D70 25%);
       }
 
       &::-moz-range-track {
-        background-image: linear-gradient(to right, #ffde17, #f7941d, #be1e2d);
+        background-image: linear-gradient(to right, #ffde17 25%, #f7941d 66%, #6C6D70 25%);
+      }
+    }
+
+    &.range-3 {
+      &::-webkit-slider-thumb {
+        background: #be1e2d;
+      }
+
+      &::-moz-range-thumb {
+        background: #be1e2d;
+      }
+
+      &::-webkit-slider-runnable-track {
+        background-image: linear-gradient(to right, #ffde17 30%, #f7941d 95%, #be1e2d 30%);
+      }
+
+      &::-moz-range-track {
+        background-image: linear-gradient(to right, #ffde17 30%, #f7941d 95%, #be1e2d 30%);
       }
     }
   }
