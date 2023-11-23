@@ -142,11 +142,11 @@
         }
 
         &::-webkit-slider-runnable-track {
-          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #6D6E6D 25%);
+          background-image: linear-gradient(to right, #be1e2d, #f7941d 33%, #6D6E6D 33%);
         }
       
         &::-moz-range-track {
-          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #6D6E6D 25%);
+          background-image: linear-gradient(to right, #be1e2d, #f7941d 33%, #6D6E6D 33%);
 
         }
       }
@@ -161,11 +161,11 @@
         }
 
         &::-webkit-slider-runnable-track {
-          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #ffde17 50%, #6D6E6D 25%);
+          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #ffde17 66%, #6D6E6D 25%);
         }
       
         &::-moz-range-track {
-          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #ffde17 50%, #6D6E6D 25%);
+          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #ffde17 66%, #6D6E6D 25%);
         }
       }
   
@@ -179,11 +179,11 @@
         }
 
         &::-webkit-slider-runnable-track {
-          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #ffde17 75%, #6D6E6D 25%);
+          background-image: linear-gradient(to right, #be1e2d, #f7941d 30%, #ffde17 95%, #6D6E6D 30%);
         }
       
         &::-moz-range-track {
-          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #ffde17 75%, #6D6E6D 25%);
+          background-image: linear-gradient(to right, #be1e2d, #f7941d 30%, #ffde17 95%, #6D6E6D 30%);
         }
       }
   
@@ -197,11 +197,11 @@
         }
 
         &::-webkit-slider-runnable-track {
-          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #ffde17 50%, #00a651 75%, green);
+          background-image: linear-gradient(to right, #be1e2d, #f7941d 33%,  #00a651 66%, green);
         }
       
         &::-moz-range-track {
-          background-image: linear-gradient(to right, #be1e2d, #f7941d 25%, #ffde17 50%, #00a651 75%, green);
+          background-image: linear-gradient(to right, #be1e2d, #f7941d 33%, #ffde17 66%, green);
         }
       }
     }

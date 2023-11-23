@@ -73,9 +73,9 @@ export class AccessibilityComponent implements AfterViewChecked {
     switch (intValue) {
       case 0: displayNumber = 0.5; break;
       case 1: displayNumber = 1.0; break;
-      // case 2: displayNumber = 2.2; break;
       case 2: displayNumber = 1.4; break;
       case 3: displayNumber = 1.8; break;
+      // case 2: displayNumber = 2.2; break;
     }
 
     this.image = this.images[intValue]
