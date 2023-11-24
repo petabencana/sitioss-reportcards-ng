@@ -22,7 +22,7 @@
   "homepage": "https://github.com/urbanriskmap/cognicity-cards-ng#readme",
   "scripts": {
     "ng": "ng",
-    "start": "dep=ph npm run pre-build-tasks && ng serve --poll=1000",
+    "start": "dep=id npm run pre-build-tasks && ng serve",
     "start-ph": "dep=ph npm run pre-build-tasks && ng serve",
     "serve-prod": "dep=id npm run pre-build-tasks && ng serve --prod",
     "serve-prod-ngsw": "npm run build-prod-ngsw && http-server dist/prod-us -p 8080",
