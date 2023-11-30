@@ -37,7 +37,7 @@ export class VolcanoComponent implements OnInit {
     this.navController.checkForFirstCard(this.route);
 
     this.deckService.setDeckType('volcano');
-    this.deckService.setDeckSubType('volcano');
+    // this.deckService.setDeckSubType('volcano');
 
     this.deckService.setRoute(route)
   }

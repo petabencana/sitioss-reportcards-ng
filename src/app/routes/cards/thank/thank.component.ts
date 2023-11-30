@@ -19,7 +19,6 @@ export class ThankComponent {
     public navController: NavigationService,
     public translate: TranslateService,
     private router: Router,
-
   )
   {
     const deckType = this.deckService.getDeckType();
@@ -61,7 +60,7 @@ export class ThankComponent {
           break;
       }
     }
-  
+    
     this.deckService.reset();
   }
 
@@ -151,6 +150,8 @@ export class ThankComponent {
         }).catch((error) => {
           this.router.navigate(['/error']);
         });
+      } else {
+          this.navController.reset(this.deckService.getRoute());
       }
     }).catch((error)=>{
       this.router.navigate(['/error']);
@@ -160,18 +161,11 @@ export class ThankComponent {
   // reportAnotherCard() {
   //   this.deckService.setSubSubmission();
   //   let newDeckSubType:any
-  //   if(this.deckService.getDeckType() === 'earthquake' || this.deckService.getDeckType() === 'volcano' ){
   //     if(this.deckService.getDeckType() === 'earthquake'){
   //       newDeckSubType = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
   //       this.deckService.setDeckSubType(newDeckSubType);
   //       this.navController.filterRoutes(newDeckSubType);
   //       this.navController.resetEqDeckToLocation(this.deckService.getRoute());
-  //     } else if(this.deckService.getDeckType() === 'volcano'){
-  //       newDeckSubType = this.deckService.getDeckSubType() === 'volcanic' ? 'smog' : 'volcanic';
-  //       this.deckService.setDeckSubType(newDeckSubType);
-  //       this.navController.filterRoutes(newDeckSubType);
-  //       this.navController.resetEqDeckToLocation(this.deckService.getRoute());
-  //     }
   //   }else{
   //     this.navController.reset(this.deckService.getRoute());
   //   }
