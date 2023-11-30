@@ -61,7 +61,7 @@
         "windButton": "Strong Winds",
         "floodButton": "Flooding",
         "stormButton": "Storm surge"
-
+      },
       "report":{
         "realTypeButton": "Submit Real Disaster Report",
         "trainingTypeButton": "Completely Training Exercise"

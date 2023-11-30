@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon';
-type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano' | 'flood' | 'volcanic' | 'smog' | 'storm';
+type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'flood' | 'volcanic' | 'smog' | 'storm';
 
 interface LatLng {
   lat: number;
@@ -330,6 +330,26 @@ export class DeckService {
       return this.putReport(report, cardId, false, false);
     }
   }
+
+  initiateAnotherReport(): Promise<Boolean> { 
+    return new Promise((resolve, reject) => {
+        const url = env.data_server + "cards/";
+        const body = {
+          username: "web_guest",
+          language: 'pa',
+          network: "website",
+        };
+        this.http.post(url, body)
+        .subscribe((result: any) => {
+         resolve(result.cardId)
+        },
+        (error) => {
+          reject(error);
+        }
+        )
+    })
+  }
+  
   _get_report_summary(): any {
     const summary: any = {
       disaster_type: this.type,
@@ -382,6 +402,17 @@ export class DeckService {
           summary.card_data.accessabilityFailure = this.accessibility;
         }
         summary.card_data.condition = this.condition;
+        break;
+      case "typhoon":
+        if(this.subType == "flood") {
+          summary.card_data.flood_depth = this.floodDepth;
+        } else if (this.subType == "wind") {
+          summary.card_data.impact = this.impact; 
+          summary.card_data.evacuationArea = this.evacuationArea;
+        } else if(this.subType == "storm") {
+          summary.card_data.impact = this.impact; 
+          summary.card_data.evacuationArea = this.evacuationArea;
+        }
         break;
     }
     return summary;
