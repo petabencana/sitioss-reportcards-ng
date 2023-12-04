@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service';
 import { NavigationService } from '../../../services/navigation.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-thank',
@@ -15,8 +17,10 @@ export class ThankComponent {
   constructor(
     public deckService: DeckService,
     public navController: NavigationService,
-    public translate: TranslateService
-  ) {
+    public translate: TranslateService,
+    private router: Router,
+  )
+  {
     const deckType = this.deckService.getDeckType();
     if (
       deckType === 'earthquake' &&
@@ -56,7 +60,7 @@ export class ThankComponent {
           break;
       }
     }
-
+    
     this.deckService.reset();
   }
 
@@ -101,6 +105,7 @@ export class ThankComponent {
 
       case 'volcanic': return '../../../../assets/decks/volcano/thank/success.png'
       case 'smog': return '../../../../assets/decks/volcano/thank/success.png'
+      case 'storm': return '../../../../assets/decks/wind/thank/success_wind.png'
     }
   }
 
@@ -122,18 +127,50 @@ export class ThankComponent {
     };
   }
 
-  reportAnotherCard() {
-    this.deckService.setSubSubmission();
-    if(this.deckService.getDeckType() === 'earthquake' ){
-      let newDeckSubType:any = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
-      this.deckService.setDeckSubType(newDeckSubType);
-      this.navController.filterRoutes(newDeckSubType);
-      this.navController.resetEqDeckToLocation(this.deckService.getRoute());
-    }else{
-      this.navController.reset(this.deckService.getRoute());
-    }
 
-    // console.log('deckType',this.deckService.getDeckType());
-    // console.log('deckSubType',this.deckService.getDeckSubType());
+  reportAnotherCard() {
+    let newDeckSubType:any
+    this.deckService.initiateAnotherReport().then((response)=>{
+      if(this.deckService.getDeckType() === 'earthquake'){
+        window.location.href = "/" + response + "/earthquake"
+        newDeckSubType = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
+        this.deckService.setDeckSubType(newDeckSubType);
+        let currentRoute1 = this.navController.filterRoutes(newDeckSubType);
+        this.router.navigate([response, 'volcano', currentRoute1[1]]).then(() => {
+          this.navController.resetEqDeckToLocation(this.deckService.getRoute());
+        }).catch((error) => {
+          this.router.navigate(['/error']);
+        });      
+      } else if(this.deckService.getDeckType() === 'volcano'){
+        newDeckSubType = this.deckService.getDeckSubType() === 'volcanic' ? 'smog' : 'volcanic';
+        this.deckService.setDeckSubType(newDeckSubType);
+        let currentRoute = this.navController.filterRoutes(newDeckSubType);
+        this.router.navigate([response, 'volcano', currentRoute[1]]).then(() => {
+          this.navController.resetEqDeckToLocation(this.deckService.getRoute());
+        }).catch((error) => {
+          this.router.navigate(['/error']);
+        });
+      } else {
+          this.navController.reset(this.deckService.getRoute());
+      }
+    }).catch((error)=>{
+      this.router.navigate(['/error']);
+    });
   }
+
+  // reportAnotherCard() {
+  //   this.deckService.setSubSubmission();
+  //   let newDeckSubType:any
+  //     if(this.deckService.getDeckType() === 'earthquake'){
+  //       newDeckSubType = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
+  //       this.deckService.setDeckSubType(newDeckSubType);
+  //       this.navController.filterRoutes(newDeckSubType);
+  //       this.navController.resetEqDeckToLocation(this.deckService.getRoute());
+  //   }else{
+  //     this.navController.reset(this.deckService.getRoute());
+  //   }
+
+  // //   // console.log('deckType',this.deckService.getDeckType());
+  // //   // console.log('deckSubType',this.deckService.getDeckSubType());
+  // }
 }

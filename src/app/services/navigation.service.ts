@@ -57,9 +57,11 @@ export class NavigationService {
         break;
       case 'volcanic':
         this.cardRoutes = ['type', 'location', 'sign', ...volcanoCard];
+        return this.cardRoutes;
         break;
       case 'smog':
         this.cardRoutes = ['type', 'location', 'radiusestimate', 'impact', ...volcanoCard];
+        return this.cardRoutes;
         break;
       case 'storm':
         this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];

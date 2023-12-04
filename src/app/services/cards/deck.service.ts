@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon';
-type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano' | 'flood' | 'volcanic' | 'smog' | 'storm';
+type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'flood' | 'volcanic' | 'smog' | 'storm';
 
 interface LatLng {
   lat: number;
@@ -330,6 +330,26 @@ export class DeckService {
       return this.putReport(report, cardId, false, false);
     }
   }
+
+  initiateAnotherReport(): Promise<Boolean> { 
+    return new Promise((resolve, reject) => {
+        const url = env.data_server + "cards/";
+        const body = {
+          username: "web_guest",
+          language: 'pa',
+          network: "website",
+        };
+        this.http.post(url, body)
+        .subscribe((result: any) => {
+         resolve(result.cardId)
+        },
+        (error) => {
+          reject(error);
+        }
+        )
+    })
+  }
+  
   _get_report_summary(): any {
     const summary: any = {
       disaster_type: this.type,
