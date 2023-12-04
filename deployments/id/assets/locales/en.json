@@ -187,7 +187,7 @@
       "acceptButton": "Yes",
       "rejectButton": "No",
       "tips": "Click here for safety tips from BNPB",
-      "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region"
+      "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region. To unsubscribe, type “unsubscribe”."
     },
     "swipeText": "SUBMIT",
     "submitButton": {

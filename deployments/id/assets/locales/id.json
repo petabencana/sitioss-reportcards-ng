@@ -189,7 +189,7 @@
       "acceptButton": "Ya",
       "rejectButton": "Tidak",
       "tips": "Klik di sini untuk tips dari BNPB",
-      "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih"
+      "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih. Untuk berhenti berlangganan ketik “unsubscribe“."
     },
     "swipeText": "Kirim Laporan",
     "submitButton": {
