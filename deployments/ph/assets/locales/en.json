@@ -99,10 +99,9 @@
     },
     "accessibility": [
       "No access for vehicles",
-      "2-Wheel Vehicle",
-      "4-Wheel Vehicle (Sedan)",
-      "4-Wheel Vehicle (SUV)",
-      "Large Vehicle (Truck)"
+      "2 and 3-Wheel Vehicle (Motorcycle and Tricycle)",
+      "4-Wheel Vehicle (Sedan and medium SUVs)",
+      "Large Vehicles (Large SUVs and Trucks)"
     ],
     "condition": [
       {

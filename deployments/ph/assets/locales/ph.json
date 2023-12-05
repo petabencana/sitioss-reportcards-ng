@@ -95,10 +95,9 @@
     },
     "accessibility": [
       "Walang access para sa mga sasakyan",
-      "2-Wheel na Sasakyan",
-      "4-Wheel na Sasakyan (Sedan)",
-      "4-Wheel na Sasakyan (SUV)",
-      "Malalaking Sasakyan (Truck)"
+      "2 and 3-Wheel Vehicle (Motorcycle and Tricycle)",
+      "4-Wheel Vehicle (Sedan and medium SUVs)",
+      "Large Vehicles (Large SUVs and Trucks)"
     ],
     "condition": [
       {
