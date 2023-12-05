@@ -17,7 +17,7 @@ export class ThankComponent {
   constructor(
     public deckService: DeckService,
     public navController: NavigationService,
-    public translate: TranslateService,
+    public translateService: TranslateService,
     private router: Router,
   )
   {
@@ -36,7 +36,7 @@ export class ThankComponent {
           this.reportAgainText = 'card.reportAgainAccess'
           break; 
       }
-    } else if(deckType === 'typhoon' && this.deckService.finishedSubType.length === 0) {
+    } else if(deckType === 'typhoon' ) {
       this.isShowReportAgain = true
       switch(this.deckService.getDeckSubType()) {
         case 'wind':
@@ -75,8 +75,8 @@ export class ThankComponent {
       }
     } else if(this.deckService.getDeckSubType() === 'storm'){
       return {
-        opt1 : `card.floodoptbutton`,
-        opt2 : `card.windoptbutton`
+        opt1 : `card.windoptbutton`,
+        opt2 : `card.floodoptbutton`
       }
     } else if(this.deckService.getDeckSubType() === 'flood'){
       return {
@@ -94,7 +94,8 @@ export class ThankComponent {
         return '../../../assets/decks/fire/thanks/SuccessHazeReport.png';
       case 'flood':
         return '../../../assets/decks/flood/thanks/SuccessFloodReport.svg';
-
+      case 'storm':
+        return '../../../../assets/decks/wind/thank/success_wind.png';
       case 'road':
         return '../../../../assets/decks/earthquake/thanks/AddAccessReportIcon_Success.png';
       case 'structure':
@@ -156,6 +157,33 @@ export class ThankComponent {
     }).catch((error)=>{
       this.router.navigate(['/error']);
     });
+  }
+
+  reportTyphoonCard(buttonText: string) {
+    console.log('btntext',buttonText)
+    this.deckService.setSubSubmission();
+    let newDeckSubType: any;
+    this.deckService.initiateAnotherReport().then((response)=> {
+      if(this.deckService.getDeckType() === 'typhoon'){
+        if(buttonText === 'card.windoptbutton'){
+          newDeckSubType = 'wind'
+        } else if (buttonText === 'card.floodoptbutton'){
+          newDeckSubType = 'flood'
+        } else if (buttonText === 'card.stormoptbutton'){
+          newDeckSubType = 'storm'
+        }
+        this.deckService.setDeckSubType(newDeckSubType);
+        let currentRoute = this.navController.filterRoutes(newDeckSubType);
+        this.router.navigate([response, 'typhoon', currentRoute[1]]).then(() => {
+          this.navController.resetTyDeckToLocation(this.deckService.getRoute());
+        }).catch((error) => {
+          this.router.navigate(['/error']);
+        });
+      }  else {
+        this.navController.reset(this.deckService.getRoute());
+    }
+    })
+ 
   }
 
   // reportAnotherCard() {
