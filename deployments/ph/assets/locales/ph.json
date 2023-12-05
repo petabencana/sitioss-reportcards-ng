@@ -59,9 +59,8 @@
         "stormButton": "Storm surge"
       },
       "report":{
-        "realTypeButton": "Submit Real Disaster Report",
-        "trainingTypeButton": "Completely Training Exercise"
-
+        "realTypeButton": "Mag-submit ng Totoong Ulat tungkol sa Kalamidad",
+        "trainingTypeButton": "Kumpletuhin ang Pagsasanay"
       }
     },
     "visibility": {
