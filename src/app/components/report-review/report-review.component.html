@@ -70,11 +70,25 @@
       <p *ngFor="let sign of volcanicSigns" class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ sign }};
       </p>
-      {{ peopleKey }}
       <!-- <span class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ evacuationNumber }} ;
       </span>
       <p> {{ evacuateKey }}</p> -->
+      <span class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ evacuationArea }}
+      </span>
+    </ng-template>
+
+    <ng-template [ngIf]="deckType === 'smog'">
+      <div class="report-review__fire">
+        {{ fireKey }}
+        <span class="report-review__fire-dist">
+          {{ fireRange }} {{ fireRangeUnit }}
+        </span>
+      </div>
+      <div [style.margin-top]="'10px'" >
+        <p> {{ impactKey }} <span [style.color]="impactColor">{{ impact }} </span></p>
+      </div>
       <span class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ evacuationArea }}
       </span>
