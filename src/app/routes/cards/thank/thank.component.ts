@@ -132,11 +132,10 @@ export class ThankComponent {
     let newDeckSubType:any
     this.deckService.initiateAnotherReport().then((response)=>{
       if(this.deckService.getDeckType() === 'earthquake'){
-        window.location.href = "/" + response + "/earthquake"
         newDeckSubType = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
         this.deckService.setDeckSubType(newDeckSubType);
         let currentRoute1 = this.navController.filterRoutes(newDeckSubType);
-        this.router.navigate([response, 'volcano', currentRoute1[1]]).then(() => {
+        this.router.navigate([response, 'earthquake', currentRoute1[1]]).then(() => {
           this.navController.resetEqDeckToLocation(this.deckService.getRoute());
         }).catch((error) => {
           this.router.navigate(['/error']);
