@@ -62,8 +62,8 @@ export class TypeComponent {
           title: 'card.type.volcano.volcanoButton',
           hint: '',
           subtype: 'volcanic',
-          imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
-          highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
+          imgUrl: '../../../../assets/decks/earthquake/eqtype/AddAccessReportIcon.png',
+          highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddAccessReportIcon_Click.png'
         },
         {
           title: 'card.type.volcano.smogButton',
