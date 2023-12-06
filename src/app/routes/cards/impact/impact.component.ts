@@ -43,19 +43,35 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
   }
 
   initTitles() {
-    this.titles = [
-      "card.impact.symptoms.0.title",
-      "card.impact.symptoms.1.title",
-      "card.impact.symptoms.2.title"
-    ]
+    if(this.deckService.getDeckSubType() === 'smog') {
+      this.titles = [
+        "card.impact.smog.symptoms.0.title",
+        "card.impact.smog.symptoms.1.title",
+        "card.impact.smog.symptoms.2.title"
+      ]
+    } else {
+      this.titles = [
+        "card.impact.symptoms.0.title",
+        "card.impact.symptoms.1.title",
+        "card.impact.symptoms.2.title"
+      ]
+    }
   }
 
   initSubtitles() {
-    this.subtitles = [
-      "card.impact.symptoms.0.subtitle",
-      "card.impact.symptoms.1.subtitle",
-      "card.impact.symptoms.2.subtitle"
-    ]
+    if(this.deckService.getDeckSubType() === 'smog'){
+      this.subtitles = [
+        "card.impact.smog.symptoms.0.subtitle",
+        "card.impact.smog.symptoms.1.subtitle",
+        "card.impact.smog.symptoms.2.subtitle"
+      ]
+    } else {
+      this.subtitles = [
+        "card.impact.symptoms.0.subtitle",
+        "card.impact.symptoms.1.subtitle",
+        "card.impact.symptoms.2.subtitle"
+      ]
+    }
   }
 
   initImages() {

@@ -29,6 +29,7 @@
 
       "impact": "Report Wind Impact",
       "windstructure": "Report Structure Failure",
+      "smogimpact": "Describe Ashfall Situation",
 
       "sign": "Report Volcanic Signs",
       "evacuationnumber": "Report Evacuation",
@@ -156,6 +157,22 @@
           "subtitle": "Damage to property, large debris flying around"
         }
       ],
+        "smog" : {
+          "symptoms" : [
+            {
+              "title": "Fine/Dry",
+              "subtitle": "describe effects, visibility"
+            },
+            {
+              "title": "Granulated ",
+              "subtitle": "strong smell of sulfur"
+            },
+            {
+              "title": "Dense/Wet",
+              "subtitle": "describe effects, roads not passable"
+            }
+          ]
+        },
       "review":[
         "Low Disruption",
         "Medium Disruption",

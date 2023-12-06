@@ -27,6 +27,7 @@
       "structure": "I-ulat ang Pinsala sa Istruktura",
       "impact": "I-ulat ang Epekto ng Hangin",
       "windstructure": " I-ulat kung may Pagguho ng Istruktura",
+      "smogimpact": "Ilarawan ang kalagayan ng abo",
       "sign": " I-ulat ang mga Palatandaan ng Bulkan ",
       "evacuationnumber": "I-ulat ang Paglikas",
       "evacuationarea": " I-ulat ang Paglikas",
@@ -152,6 +153,22 @@
           "subtitle": "Damage to property, large debris flying around"
         }
       ],
+      "smog" : {
+        "symptoms" : [
+          {
+            "title": "Pino/Tuyo",
+            "subtitle": "(describe effects, visibility)"
+          },
+          {
+            "title": "Butil-butil",
+            "subtitle": "(strong smell of sulfur)"
+          },
+          {
+            "title": "Masinsin/Basa",
+            "subtitle": "(describe effects, roads not passable)"
+          }
+        ]
+      },
       "review": [
         "Mababang Pagkagambala",
         "Katamtamang Pagkagambala",
