@@ -135,7 +135,6 @@
     "sign" : {
       "description": "Indicate any observations:",
       "symptoms":[
-        "Significant Temperature Increases",
         "Water sources are drying up/contaminated",
         "Unusual Animal Behaviour",
         "Frequent Earthquake Tremors",

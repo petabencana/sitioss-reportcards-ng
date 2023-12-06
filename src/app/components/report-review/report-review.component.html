@@ -65,16 +65,16 @@
       </div>
     </ng-template>
 
-    <ng-template [ngIf]="deckType === 'volcano'">
+    <ng-template [ngIf]="deckType === 'volcanic'">
       {{ volcanoKey }}
       <p *ngFor="let sign of volcanicSigns" class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ sign }};
       </p>
       {{ peopleKey }}
-      <span class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
+      <!-- <span class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ evacuationNumber }} ;
       </span>
-      <p> {{ evacuateKey }}</p>
+      <p> {{ evacuateKey }}</p> -->
       <span class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ evacuationArea }}
       </span>
