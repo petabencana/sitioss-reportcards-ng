@@ -157,15 +157,15 @@
         "symptoms" : [
           {
             "title": "Pino/Tuyo",
-            "subtitle": "(describe effects, visibility)"
+            "subtitle": "describe effects, visibility"
           },
           {
             "title": "Butil-butil",
-            "subtitle": "(strong smell of sulfur)"
+            "subtitle": "strong smell of sulfur"
           },
           {
             "title": "Masinsin/Basa",
-            "subtitle": "(describe effects, roads not passable)"
+            "subtitle": "describe effects, roads not passable"
           }
         ]
       },
