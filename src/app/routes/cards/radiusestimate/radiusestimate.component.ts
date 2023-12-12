@@ -103,12 +103,15 @@ export class RadiusestimateComponent implements OnInit {
 
     const imageElement = document.createElement('div');
     imageElement.className = 'marker';
-    switch(this.deckService.getDeckType()) {
+    switch(this.deckService.getDeckSubType()) {
       case 'fire':
         imageElement.style.backgroundImage = `url(../../../assets/decks/fire/location/SelectFireLocation_Highlight.png)`;
         break;
-      case 'volcano':
+      case 'volcanic':
         imageElement.style.backgroundImage = `url(../../../assets/decks/volcano/location/Select_Report_Location.png)`;
+        break;
+      case 'smog':
+        imageElement.style.backgroundImage = `url(../../../assets/decks/volcano/location/Select_Report_Ashfall_Location.svg)`;
         break;
     }
     imageElement.style.width = `30px`;
