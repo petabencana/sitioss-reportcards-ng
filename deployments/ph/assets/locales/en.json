@@ -29,6 +29,7 @@
 
       "impact": "Report Wind Impact",
       "windstructure": "Report Structure Failure",
+      "smogimpact": "Describe Ashfall Situation",
 
       "sign": "Report Volcanic Signs",
       "evacuationnumber": "Report Evacuation",
@@ -64,7 +65,7 @@
       },
       "report":{
         "realTypeButton": "Submit Real Disaster Report",
-        "trainingTypeButton": "Completely Training Exercise"
+        "trainingTypeButton": "Complete Training Exercise"
 
       }
     },
@@ -99,10 +100,9 @@
     },
     "accessibility": [
       "No access for vehicles",
-      "2-Wheel Vehicle",
-      "4-Wheel Vehicle (Sedan)",
-      "4-Wheel Vehicle (SUV)",
-      "Large Vehicle (Truck)"
+      "2 and 3-Wheel Vehicle (Motorcycle and Tricycle)",
+      "4-Wheel Vehicle (Sedan and medium SUVs)",
+      "Large Vehicles (Large SUVs and Trucks)"
     ],
     "condition": [
       {
@@ -136,7 +136,6 @@
     "sign" : {
       "description": "Indicate any observations:",
       "symptoms":[
-        "Significant Temperature Increases",
         "Water sources are drying up/contaminated",
         "Unusual Animal Behaviour",
         "Frequent Earthquake Tremors",
@@ -158,6 +157,22 @@
           "subtitle": "Damage to property, large debris flying around"
         }
       ],
+        "smog" : {
+          "symptoms" : [
+            {
+              "title": "Fine/Dry",
+              "subtitle": "describe effects, visibility"
+            },
+            {
+              "title": "Granulated ",
+              "subtitle": "strong smell of sulfur"
+            },
+            {
+              "title": "Dense/Wet",
+              "subtitle": "describe effects, roads not passable"
+            }
+          ]
+        },
       "review":[
         "Low Disruption",
         "Medium Disruption",

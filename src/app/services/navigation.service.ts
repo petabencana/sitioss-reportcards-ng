@@ -51,9 +51,11 @@ export class NavigationService {
     switch (subtype) {
       case 'road':
         this.cardRoutes = ['type', 'location', 'accessibility', 'condition', ...mustHaveCard];
+        return this.cardRoutes;
         break;
       case 'structure':
         this.cardRoutes = ['type', 'location', 'structure', ...mustHaveCard];
+        return this.cardRoutes;
         break;
       case 'volcanic':
         this.cardRoutes = ['type', 'location', 'sign', ...volcanoCard];
@@ -65,12 +67,15 @@ export class NavigationService {
         break;
       case 'storm':
         this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];
+        return this.cardRoutes;
         break;
       case 'wind':
         this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];
+        return this.cardRoutes;
         break;
       case 'flood':
         this.cardRoutes = ['location', 'type', 'depth', ...mustHaveCard];
+        return this.cardRoutes;
         break;
     }
   }

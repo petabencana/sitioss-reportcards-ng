@@ -27,6 +27,7 @@
       "structure": "I-ulat ang Pinsala sa Istruktura",
       "impact": "I-ulat ang Epekto ng Hangin",
       "windstructure": " I-ulat kung may Pagguho ng Istruktura",
+      "smogimpact": "Ilarawan ang kalagayan ng abo",
       "sign": " I-ulat ang mga Palatandaan ng Bulkan ",
       "evacuationnumber": "I-ulat ang Paglikas",
       "evacuationarea": " I-ulat ang Paglikas",
@@ -95,10 +96,9 @@
     },
     "accessibility": [
       "Walang access para sa mga sasakyan",
-      "2-Wheel na Sasakyan",
-      "4-Wheel na Sasakyan (Sedan)",
-      "4-Wheel na Sasakyan (SUV)",
-      "Malalaking Sasakyan (Truck)"
+      "2 and 3-Wheel Vehicle (Motorcycle and Tricycle)",
+      "4-Wheel Vehicle (Sedan and medium SUVs)",
+      "Large Vehicles (Large SUVs and Trucks)"
     ],
     "condition": [
       {
@@ -153,6 +153,22 @@
           "subtitle": "Damage to property, large debris flying around"
         }
       ],
+      "smog" : {
+        "symptoms" : [
+          {
+            "title": "Pino/Tuyo",
+            "subtitle": "describe effects, visibility"
+          },
+          {
+            "title": "Butil-butil",
+            "subtitle": "strong smell of sulfur"
+          },
+          {
+            "title": "Masinsin/Basa",
+            "subtitle": "describe effects, roads not passable"
+          }
+        ]
+      },
       "review": [
         "Mababang Pagkagambala",
         "Katamtamang Pagkagambala",
