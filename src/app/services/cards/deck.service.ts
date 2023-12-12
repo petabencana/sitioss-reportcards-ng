@@ -403,6 +403,16 @@ export class DeckService {
         }
         summary.card_data.condition = this.condition;
         break;
+      case "typhoon":
+        if(this.subType == "wind") {
+          summary.card_data.impact = this.impact;
+          summary.card_data.evacuationArea = this.evacuationArea;
+        } else if (this.subType == "flood") {
+          summary.card_data.flood_depth = this.floodDepth;
+        } else if (this.subType == "storm") {
+          summary.card_data.impact = this.impact;
+          summary.card_data.evacuationArea = this.evacuationArea;
+        }
     }
     return summary;
   }

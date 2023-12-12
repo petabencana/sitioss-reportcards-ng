@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { NavigationService } from '../../../services/navigation.service';
-import { environment as env } from '../../../../environments/environment';
+import { NavigationService } from '../../src/app/services/navigation.service';
+import { environment as env } from '../../src/environments/environment';
 
 @Component({
   selector: 'app-deck',

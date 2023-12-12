@@ -44,6 +44,11 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
           "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
           "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
         ][this.deckService.getImpact()]; break;
+        case 'storm': previewImgSrc = [
+          "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
+          "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
+          "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+        ][this.deckService.getImpact()]; break;
         case 'flood': previewImgSrc = '../../../assets/decks/flood/review/flood_card_ph.svg'; break;
         case 'haze': previewImgSrc = [
           "../../../../assets/decks/fire/visibility/Visibility_High.jpg",

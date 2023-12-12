@@ -114,6 +114,11 @@ export class NavigationService {
     this.cardCounter = 1;
   }
 
+  resetTyDeckToLocation(route) {
+    this.router.navigate([this.cardRoutes[2]], {relativeTo: route});
+    this.cardCounter = 1;
+  }
+
   next(route) {
       const nextCardRoute = this.cardRoutes[this.cardCounter + 1];
       this.router.navigate([nextCardRoute], {relativeTo: route});
