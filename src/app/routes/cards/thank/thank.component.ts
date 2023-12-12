@@ -94,8 +94,6 @@ export class ThankComponent {
         return '../../../assets/decks/fire/thanks/SuccessHazeReport.png';
       case 'flood':
         return '../../../assets/decks/flood/thanks/SuccessFloodReport.svg';
-      case 'storm':
-        return '../../../../assets/decks/wind/thank/success_wind.png';
       case 'road':
         return '../../../../assets/decks/earthquake/thanks/AddAccessReportIcon_Success.png';
       case 'structure':
@@ -106,7 +104,7 @@ export class ThankComponent {
 
       case 'volcanic': return '../../../../assets/decks/volcano/thank/volcano_success.png'
       case 'smog': return '../../../../assets/decks/volcano/thank/ashfall_success.svg'
-      case 'storm': return '../../../../assets/decks/wind/thank/success_wind.png'
+      case 'storm': return '../../../../assets/decks/typhoon/thank/StormSurge_success.svg'
     }
   }
 

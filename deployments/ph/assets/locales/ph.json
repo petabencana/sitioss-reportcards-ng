@@ -169,6 +169,22 @@
           }
         ]
       },
+      "storm" : {
+        "symptoms" : [
+          {
+            "title": "Low",
+            "subtitle": "Aggressive waves on sea wall"
+          },
+          {
+            "title": "Medium ",
+            "subtitle": "Waves causing low to medium flooding to coastal communities"
+          },
+          {
+            "title": "High",
+            "subtitle": "Large waves damaging coastal communities"
+          }
+        ]
+      },
       "review": [
         "Mababang Pagkagambala",
         "Katamtamang Pagkagambala",

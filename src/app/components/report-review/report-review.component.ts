@@ -45,9 +45,9 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
           "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
         ][this.deckService.getImpact()]; break;
         case 'storm': previewImgSrc = [
-          "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
-          "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
-          "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+          "../../../../assets/decks/typhoon/impact/low.png",
+          "../../../../assets/decks/typhoon/impact/medium.png",
+          "../../../../assets/decks/typhoon/impact/high.png",
         ][this.deckService.getImpact()]; break;
         case 'flood': previewImgSrc = '../../../assets/decks/flood/review/flood_card_ph.svg'; break;
         case 'haze': previewImgSrc = [
@@ -57,7 +57,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
         ][this.deckService.getVisibility()]; break;
         case 'wind': previewImgSrc = [
           "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
-          "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
+          "../../../../assets/decks/wind/impact/MediumDisruption.png",
           "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
         ][this.deckService.getImpact()]; break;
         case 'structure': previewImgSrc = [
