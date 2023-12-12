@@ -52,6 +52,7 @@ export class StructureComponent implements OnInit, AfterViewChecked {
       "../../../../assets/decks/earthquake/structure/StructureFailure_1.png",
       "../../../../assets/decks/earthquake/structure/StructureFailure_2.png",
       "../../../../assets/decks/earthquake/structure/StructureFailure_3.png",
+      "../../../../assets/decks/earthquake/structure/StructureFailure_4.png",
     ]; 
   }
 

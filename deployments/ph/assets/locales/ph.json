@@ -114,9 +114,10 @@
       }
     ],
     "structure": {
-      "cracking": "Cracking",
-      "partially_collapsed": "Bahagyang Gumuho",
-      "fully_collapsed": "Ganap na Gumuho"
+      "observed_shaking": "Observed Shaking",
+      "minor_damage": "Minor Damage",
+      "major_damage": "Major Damage",
+      "fully_collapsed": "Fully Collapsed"
     },
     "evacuation": {
       "description": "Are you evacuating?",

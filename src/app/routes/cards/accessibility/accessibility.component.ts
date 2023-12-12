@@ -48,9 +48,8 @@ export class AccessibilityComponent implements AfterViewChecked {
     this.images = [
       "../../../../assets/decks/earthquake/accessibility/Access_1.png",
       "../../../../assets/decks/earthquake/accessibility/Access_2.png",
-      // "../../../../assets/decks/earthquake/accessibility/Access_3.png",
+      "../../../../assets/decks/earthquake/accessibility/Access_3.png",
       "../../../../assets/decks/earthquake/accessibility/Access_4.png",
-      "../../../../assets/decks/earthquake/accessibility/Access_5.png",
     ]
   }
 

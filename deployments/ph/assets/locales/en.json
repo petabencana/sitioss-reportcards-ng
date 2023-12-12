@@ -119,8 +119,9 @@
       }
     ],
     "structure": {
-      "cracking": "Cracking",
-      "partially_collapsed": "Partially Collapsed",
+      "observed_shaking": "Observed Shaking",
+      "minor_damage": "Minor Damage",
+      "major_damage": "Major Damage",
       "fully_collapsed": "Fully Collapsed"
     },
     "evacuation": {
