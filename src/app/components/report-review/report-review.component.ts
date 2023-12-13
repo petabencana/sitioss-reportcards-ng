@@ -64,6 +64,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
           "../../../../assets/decks/earthquake/structure/StructureFailure_1.png",
           "../../../../assets/decks/earthquake/structure/StructureFailure_2.png",
           "../../../../assets/decks/earthquake/structure/StructureFailure_3.png",
+          "../../../../assets/decks/earthquake/structure/StructureFailure_4.png",
         ][this.deckService.getStructureFailure()]; break;
         case 'road': previewImgSrc = [
           "../../../../assets/decks/earthquake/condition/RoadCondition_1.png",
@@ -235,7 +236,13 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   get impact() {
     const impact = this.deckService.getImpact();
-    return this.translate.instant("card.impact.review."+impact);
+    if(this.deckService.getDeckSubType()==='smog'){
+      return this.translate.instant('card.impact.smog_review.'+impact);
+    } else if(this.deckService.getDeckSubType()==='storm'){
+      return this.translate.instant('card.impact.storm_review.'+impact);
+    } else {
+      return this.translate.instant("card.impact.review."+impact);
+    }
   }
 
   get impactColor() {
@@ -267,9 +274,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     const failure = this.deckService.getStructureFailure()
 
     switch(failure) {
-      case 0: return this.translate.instant("card.structure.cracking")
-      case 1: return this.translate.instant("card.structure.partially_collapsed")
-      case 2: return this.translate.instant("card.structure.fully_collapsed")
+      case 0: return this.translate.instant("card.structure.observed_shaking")
+      case 1: return this.translate.instant("card.structure.minor_damage")
+      case 2: return this.translate.instant("card.structure.major_damage")
+      case 3: return this.translate.instant("card.structure.fully_collapsed")
     }
   }
 
@@ -279,7 +287,8 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     switch(failure) {
       case 0: return '#ffde17'
       case 1: return '#f7941d'
-      case 2: return '#be1e2d'
+      case 2: return '#ff6417'
+      case 3: return '#be1e2d'
     }
   }
 

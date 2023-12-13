@@ -189,6 +189,16 @@
         "Mababang Pagkagambala",
         "Katamtamang Pagkagambala",
         "Malubhang Pagkagambala"
+      ],
+      "storm_review":[
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "smog_review":[
+        "Fine/Dry",
+        "Granulated",
+        "Dense/Wet"
       ]
     },
     "flooddescription": "Add your description here…",

@@ -41,8 +41,9 @@ export class StructureComponent implements OnInit, AfterViewChecked {
 
   initTitles() {
     this.titles = [
-      "card.structure.cracking",
-      "card.structure.partially_collapsed",
+      "card.structure.observed_shaking",
+      "card.structure.minor_damage",
+      "card.structure.major_damage",
       "card.structure.fully_collapsed",
     ]
   }

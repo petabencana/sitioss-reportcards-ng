@@ -194,6 +194,16 @@
         "Low Disruption",
         "Medium Disruption",
         "High Disruption"
+      ],
+      "storm_review":[
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "smog_review":[
+        "Fine/Dry",
+        "Granulated",
+        "Dense/Wet"
       ]
     },
     "flooddescription": "Add your description here…",
