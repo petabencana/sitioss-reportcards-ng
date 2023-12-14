@@ -1,20 +1,55 @@
 <div class="summary">
+  <div class="summary_box">
     <p>
-        Summary : 
+      {{ 'card.notificationSummaryText' | translate }}
     </p>
-    <span>City</span> : <span>{{getSubscriptions}}</span>
-</div>
-<div class="submit__swipe">
-    <div class="captchaContainer"> 
-        <form [formGroup]="captchaForm">
-            <ngx-recaptcha2
-              siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"
-              (success)="handleSuccess($event)"
-              data-theme='dark'
-              formControlName="recaptcha">
-            </ngx-recaptcha2>
-          </form>
+    <div>
+      <span>{{ 'card.notificationCitiesHeading' | translate }}</span> :
+      <span>{{ subscribedCities }}</span>
     </div>
-    <app-submit-swipe swipeText="{{ 'card.swipeText' | translate}}">
-    </app-submit-swipe>
+  </div>
+  <p class="summary__text">
+    {{'card.review.text' | translate}}
+    <a (click)="showTerms()"> {{'card.review.terms' | translate}}</a>
+  </p>
+  <div id="termsPopup">
+    <div id="termsHeader">
+      <p>{{ 'card.review.terms' | translate }}</p>
+    </div>
+    <div id="tabRow">
+      <div
+        *ngFor="let switch of termscontents; let i = index"
+        [ngClass]="switch.tab_key"
+        class="termsTabs"
+        (click)="switchTab(switch.tab_key)"
+      >
+        <p>{{ switch.tab_name | translate }}</p>
+      </div>
+    </div>
+    <div id="tabContent">
+      <div
+        repeat.for="content of termscontents"
+        class="termsContents"
+        [innerHTML]="tabContent"
+      ></div>
+    </div>
+    <div id="closeRow">
+      <p (click)="closeTerms()">Close&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    </div>
+  </div>
+  <div class="submit__swipe">
+    <div class="captchaContainer">
+      <form [formGroup]="captchaForm">
+        <ngx-recaptcha2
+          siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"
+          (success)="handleSuccess($event)"
+          data-theme="dark"
+          formControlName="recaptcha"
+        >
+        </ngx-recaptcha2>
+      </form>
+    </div>
+    <app-submit-button title="{{ 'card.notificationSubmit' | translate }}">
+    </app-submit-button>
+  </div>
 </div>

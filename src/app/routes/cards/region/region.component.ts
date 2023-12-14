@@ -16,8 +16,6 @@ export class RegionComponent implements OnInit {
   private geojson;
   public latlng: { lat: string; lng: string };
 
-  private map;
-
   constructor(
     private deckService: DeckService,
     public translate: TranslateService
@@ -25,8 +23,8 @@ export class RegionComponent implements OnInit {
 
   ngOnInit() {
     this.initMap();
-    this.deckService.userCanBack();
-    this.deckService.userCanContinue();
+    this.deckService.userCannotBack();
+    this.deckService.userCannotContinue()
   }
 
   private async initMap() {
@@ -41,21 +39,31 @@ export class RegionComponent implements OnInit {
     if (this.geojson.hasOwnProperty('features')) {
       mapboxgl.accessToken =
         'pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ';
-      this.map = new mapboxgl.Map({
+      const map = new mapboxgl.Map({
         container: 'mapid', // container ID
         style: 'mapbox://styles/petabencana/ckq0nc6hp01vw17p9n17yxue2', // style URL
         center: [lng, lat],
         minZoom: 4,
         zoom: 8,
       });
-      this.map.on('load', () => {
-        this.map.addSource('cities', {
+
+      // Disable default box zooming.
+      map.boxZoom.disable();
+
+      const selectedFeatures = [];
+
+      map.on('load', () => {
+        const canvas = map.getCanvasContainer();
+        // Variable to hold the starting xy coordinates
+        // when `mousedown` occured.
+        const self = this;
+        map.addSource('cities', {
           type: 'geojson',
           data: this.geojson,
         });
 
-        this.map.addLayer({
-          id: 'cities-fill',
+        map.addLayer({
+          id: 'cities',
           type: 'fill',
           source: 'cities',
           paint: {
@@ -63,7 +71,7 @@ export class RegionComponent implements OnInit {
             'fill-color': 'rgba(0,0,0,0.1)',
           },
         });
-        this.map.addLayer({
+        map.addLayer({
           id: 'cities-highlighted',
           type: 'fill',
           source: 'cities',
@@ -74,32 +82,69 @@ export class RegionComponent implements OnInit {
           },
           filter: ['in', 'region_code', ''],
         });
-        this.map.on('click', (e) => {
-          // Set `bbox` as 5px reactangle area around clicked point.
-          const bbox = [
-            [e.point.x - 5, e.point.y - 5],
-            [e.point.x + 5, e.point.y + 5],
-          ];
-          // Find features intersecting the bounding box.
-          const selectedFeatures = this.map.queryRenderedFeatures(bbox, {
-            layers: ['cities-fill'],
+
+        document.addEventListener('touchstart', (e) => {
+          map.on('touch', onClick.bind(this));
+        },{ once: true });
+
+        document.addEventListener('touchend', (e) => {
+          map.off('touchend');
+        });
+
+        document.addEventListener('mousedown', (e) => {
+          map.on('click', onClick.bind(this));
+        },{ once: true });
+
+        document.addEventListener('mouseup', (e) => {
+          map.off('click');
+        });
+
+        function onClick(e) {
+          const features = map.queryRenderedFeatures(e.point, {
+            layers: ['cities'],
           });
-          const features = selectedFeatures.map(
-            (feature) => feature.properties.region_code
+          // Check if any of the clicked features are already selected
+          const clickedFeature = features.find((feature) =>
+            selectedFeatures.find(
+              (selectedFeature) =>
+                selectedFeature.properties.region_code ===
+                feature.properties.region_code
+            )
           );
-          const selectedFeatureRegion = selectedFeatures.map(
-            (feature) => feature.properties.city
+
+          if (clickedFeature) {
+            // If clicked feature is already selected, deselect it
+            const index = selectedFeatures.indexOf(clickedFeature);
+            selectedFeatures.splice(index, 1);
+          } else {
+            // If clicked feature is not selected, add it to the selection
+            selectedFeatures.push(...features);
+          }
+
+          if (features.length >= 1000) {
+            return window.alert('Select a smaller number of features');
+          }
+
+          const uniqueFeatures = Array.from(
+            new Set(
+              selectedFeatures.map((feature) => feature.properties.region_code)
+            )
+          ).map((region_code) =>
+            selectedFeatures.find(
+              (feature) => feature.properties.region_code === region_code
+            )
           );
-          this.deckService.setSelectedRegionCode(features[0]);
-          this.deckService.setSelectedRegion(selectedFeatureRegion[0]);
-          // Set a filter matching selected features by FIPS codes
-          // to activate the 'counties-highlighted' layer.
-          this.map.setFilter('cities-highlighted', [
+          const regionCodes = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.region_code)
+          const cities = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.city)
+          this.deckService.setSelectedRegion(cities)
+          this.deckService.setSelectedRegionCode(regionCodes);
+          this.deckService.userCanContinue()
+          map.setFilter('cities-highlighted', [
             'in',
             'region_code',
-            ...features,
+            ...uniqueFeatures.map((feature) => feature.properties.region_code),
           ]);
-        });
+        }
       });
     }
   }
