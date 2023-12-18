@@ -53,7 +53,7 @@
       },
       "report":{
         "realTypeButton": "Submit Real Disaster Report",
-        "trainingTypeButton": "Completely Training Exercise"
+        "trainingTypeButton": "Complete Training Exercise"
       }
     },
     "visibility": {
