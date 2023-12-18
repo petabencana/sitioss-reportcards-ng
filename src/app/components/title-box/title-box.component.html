@@ -1,7 +1,7 @@
 <div [ngClass] = "deckService.getReportType() === '' ? 'titleItems-opacity' : 'titleItems'">
 <div class="titleItems" [ngClass] = "{'partnerTitleItems': isPartner}">
   <span class="partnerIcon" [ngClass] = "{'navIcon': isNotification}" (click)="!isNotification && showPartnerPopup()" >
-    <img src='{{ navIcon }}' alt="Partner Icon"/>
+    <img *ngIf="!isNotification" src='{{ navIcon }}' alt="Partner Icon"/>
   </span>
   <span id="titleText">{{ title }} </span>
   <span></span>

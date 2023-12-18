@@ -31,7 +31,6 @@ export class TitleBoxComponent {
 
   ngOnInit() {
     if(this.deckService.getDeckType() === 'notifications'){
-      this.navIcon = "../assets/nav/petabencana.svg" 
       this.isNotification = true
     }
   }
