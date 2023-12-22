@@ -355,7 +355,7 @@ export class DeckService {
   }
 
   async submitNotificationRequest(): Promise<any> {
-    const selectedRegion = this.getSelectedRegionCode();
+    const selectedRegion = this.getSelectedRegion();
     const languageCode = this.getCardLanguage();
     const notifyMedium = this.waNumber;
     const data = {
