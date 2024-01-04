@@ -119,8 +119,9 @@
       }
     ],
     "structure": {
-      "cracking": "Cracking",
-      "partially_collapsed": "Partially Collapsed",
+      "observed_shaking": "Observed Shaking",
+      "minor_damage": "Minor Damage",
+      "major_damage": "Major Damage",
       "fully_collapsed": "Fully Collapsed"
     },
     "evacuation": {
@@ -173,10 +174,36 @@
             }
           ]
         },
+        "storm": {
+          "symptoms" : [
+            {
+              "title": "Low",
+              "subtitle": "Aggressive waves on sea wall"
+            },
+            {
+              "title": "Medium ",
+              "subtitle": "Waves causing low to medium flooding to coastal communities"
+            },
+            {
+              "title": "High",
+              "subtitle": "Large waves damaging coastal communities"
+            }
+          ]
+        },
       "review":[
         "Low Disruption",
         "Medium Disruption",
         "High Disruption"
+      ],
+      "storm_review":[
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "smog_review":[
+        "Fine/Dry",
+        "Granulated",
+        "Dense/Wet"
       ]
     },
     "flooddescription": "Add your description here…",

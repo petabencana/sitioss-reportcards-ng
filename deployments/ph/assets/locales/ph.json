@@ -114,9 +114,10 @@
       }
     ],
     "structure": {
-      "cracking": "Cracking",
-      "partially_collapsed": "Bahagyang Gumuho",
-      "fully_collapsed": "Ganap na Gumuho"
+      "observed_shaking": "Observed Shaking",
+      "minor_damage": "Minor Damage",
+      "major_damage": "Major Damage",
+      "fully_collapsed": "Fully Collapsed"
     },
     "evacuation": {
       "description": "Are you evacuating?",
@@ -168,10 +169,36 @@
           }
         ]
       },
+      "storm" : {
+        "symptoms" : [
+          {
+            "title": "Low",
+            "subtitle": "Aggressive waves on sea wall"
+          },
+          {
+            "title": "Medium ",
+            "subtitle": "Waves causing low to medium flooding to coastal communities"
+          },
+          {
+            "title": "High",
+            "subtitle": "Large waves damaging coastal communities"
+          }
+        ]
+      },
       "review": [
         "Mababang Pagkagambala",
         "Katamtamang Pagkagambala",
         "Malubhang Pagkagambala"
+      ],
+      "storm_review":[
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "smog_review":[
+        "Fine/Dry",
+        "Granulated",
+        "Dense/Wet"
       ]
     },
     "flooddescription": "Add your description here…",

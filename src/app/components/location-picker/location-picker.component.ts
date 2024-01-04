@@ -197,15 +197,17 @@ export class LocationPickerComponent implements OnInit {
       case 'wind':
         return '../../../assets/decks/wind/windlocation/Wind_Pin.png'
       case 'volcano':
-        return '../../../assets/decks/volcano/location/Select_Report_Location.png'
+        return '../../../assets/decks/volcano/location/Select_Report_Volcanic_Location.png'
       case 'haze':
         return '../../../assets/decks/fire/location/SelectHazeLocation.png';
       case 'volcanic':
-        return '../../../assets/decks/volcano/location/Select_Report_Location.png';
+        return '../../../assets/decks/volcano/location/Select_Report_Volcanic_Location.png';
       case 'smog':
-        return '../../../assets/decks/volcano/location/Select_Report_Location.png';
+        return '../../../assets/decks/volcano/location/Select_Report_Ashfall_Location.svg';
+      case 'typhoon':
+        return '../../../assets/decks/typhoon/location/Typhoon_Pin.svg';
       default:
-        return '../../../assets/decks/fire/location/SelectHazeLocation.png';
+        return '../../../assets/decks/typhoon/location/Typhoon_Pin.svg';
     }
   }
 }

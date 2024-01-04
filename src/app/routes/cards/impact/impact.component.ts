@@ -49,6 +49,12 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
         "card.impact.smog.symptoms.1.title",
         "card.impact.smog.symptoms.2.title"
       ]
+    } else if(this.deckService.getDeckSubType() === 'storm') {
+      this.titles = [
+        "card.impact.storm.symptoms.0.title",
+        "card.impact.storm.symptoms.1.title",
+        "card.impact.storm.symptoms.2.title"
+      ]
     } else {
       this.titles = [
         "card.impact.symptoms.0.title",
@@ -65,6 +71,13 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
         "card.impact.smog.symptoms.1.subtitle",
         "card.impact.smog.symptoms.2.subtitle"
       ]
+    } 
+    else if(this.deckService.getDeckSubType() === 'storm') {
+      this.subtitles = [
+        "card.impact.storm.symptoms.0.subtitle",
+        "card.impact.storm.symptoms.1.subtitle",
+        "card.impact.storm.symptoms.2.subtitle"
+      ]
     } else {
       this.subtitles = [
         "card.impact.symptoms.0.subtitle",
@@ -75,11 +88,25 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
   }
 
   initImages() {
-    this.images = [
-      "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
-      "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
-      "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+    if(this.deckService.getDeckSubType() === 'wind'){
+      this.images = [
+        "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
+        "../../../../assets/decks/wind/impact/MediumDisruption.png",
+        "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+      ];
+    } else if(this.deckService.getDeckSubType() === 'storm') {
+      this.images = [
+        "../../../../assets/decks/typhoon/impact/low.png",
+        "../../../../assets/decks/typhoon/impact/medium.png",
+        "../../../../assets/decks/typhoon/impact/high.png",
+      ];
+    } else {
+      this.images = [
+        "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
+        "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
+        "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
     ];
+    }
   }
 
   ngAfterViewChecked() {
