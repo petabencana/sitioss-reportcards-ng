@@ -81,6 +81,15 @@
         "summary",
         "thankyou"
       ]
+    },
+    {
+      "name": "logistics",
+      "cards": [
+        "products",
+        "location",
+        "review",
+        "thank"
+      ]
     }
   ]
 }
