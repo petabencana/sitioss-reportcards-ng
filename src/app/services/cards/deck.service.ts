@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as topojson from 'topojson-client';
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood';
+type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'logistics';
 type deckSubType =
   | 'fire'
   | 'haze'
@@ -13,7 +13,8 @@ type deckSubType =
   | 'structure'
   | 'wind'
   | 'volcano'
-  | 'flood';
+  | 'flood'
+  | 'logistics';
 
 interface LatLng {
   lat: number;
@@ -63,6 +64,8 @@ export class DeckService {
   isPrevButtonDisabled = true;
   isNextButtonDisabled = true;
   reportType = '';
+
+  waterQuantity : number;
 
   userCanBack() {
     this.isPrevButtonDisabled = false;
@@ -188,11 +191,19 @@ export class DeckService {
   getSelectedRegionCode() {
     return this.selectedRegionCode;
   }
+  getWaterQuantity(){
+    return this.waterQuantity;
+  }
 
   // Setter
   setDeckType(type: deckType) {
     this.type = type;
   }
+
+  setWaterQuantiy(waterQuantity: number){
+   this.waterQuantity = waterQuantity
+  }
+
   setDeckSubType(subType: deckSubType) {
     this.subType = subType;
   }
@@ -479,7 +490,7 @@ export class DeckService {
     // }
 
     // PUT reportcard data
-    return new Promise((resolve, reject) =>
+    return new Promise<void>((resolve, reject) =>
       this.http.put(reportURL, report).subscribe(
         (data) => {
           if (hasPhoto && photoUploaded) {
