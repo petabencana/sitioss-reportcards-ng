@@ -1,17 +1,41 @@
 .card {
-  border: 1px solid #ddd;
   padding: 10px;
   margin: 10px;
-  background-color: #f0f0f0;
+  display: flex;
+  gap: 12px;
+  > div {
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 100px;
+  }
+}
+.cardsList {
+  overflow: auto;
 }
 
 .quantity-selector {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 button {
   margin: 0 5px;
   cursor: pointer;
+}
+
+.categoryList {
+  display: flex;
+  gap: 10px;
+  > button {
+    padding: 10px;
+    border: 1px solid;
+  }
+}
+
+.productsWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
