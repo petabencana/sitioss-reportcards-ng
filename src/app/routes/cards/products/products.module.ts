@@ -6,7 +6,6 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 
 // Child components
-import { TextDisplayComponent } from '../../../components/sample-text/text-display.component'
 
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { CardComponent } from '../../../components/product-cards/product-card.component'
@@ -21,7 +20,6 @@ import { CardComponent } from '../../../components/product-cards/product-card.co
   ],
   declarations: [
     ProductsComponent,
-    TextDisplayComponent,
     CardComponent
   ],
   exports: [
