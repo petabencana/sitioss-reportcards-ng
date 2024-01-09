@@ -56,7 +56,7 @@
 
       "volcano": {
         "volcanoButton": "Volcanic Signs",
-        "smogButton": "Ashfall and smog"
+        "smogButton": "Ashfall"
       },
       "typhoon": {
         "windButton": "Strong Winds",
@@ -255,7 +255,7 @@
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?",
     "reportAgainVolcanic": "Would you like to submit volcanic report?",
-    "reportAgainSmog": "Would you like to submit smog report?",
+    "reportAgainSmog": "Would you like to submit ashfall report?",
     "reportAgain": "Would you like to submit another report?",
     "floodoptbutton": "Flooding",
     "stormoptbutton": "Storm Surge",

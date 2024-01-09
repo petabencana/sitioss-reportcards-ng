@@ -52,7 +52,7 @@
 
       "volcano": {
         "volcanoButton": "Senyales ng pagsabog ng Bulkan",
-        "smogButton": "Abo at Usok"
+        "smogButton": "Abo"
       },
       "typhoon": {
         "windButton": "Strong Winds",
@@ -251,7 +251,7 @@
     "reportAgainStructure": "Gusto mo rin bang mag-ulat ng pagkaguho ng istruktura?",
     "reportAgainAccess": "Gusto mo rin bang mag-ulat ng accessibility ng daan?",
     "reportAgainVolcanic": "Nais mo ba magsumite ng ulat para sa senyales ng pagsabago ng bulkan?",
-    "reportAgainSmog": "Nais mo ba magsumite ng ulat para sa Abo at usok?",
+    "reportAgainSmog": "Nais mo ba magsumite ng ulat para sa Abo?",
     "floodoptbutton": "Flooding",
     "stormoptbutton": "Storm Surge",
     "windoptbutton": "Strong Winds"

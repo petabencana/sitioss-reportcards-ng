@@ -45,9 +45,16 @@ export class RadiusestimateComponent implements OnInit {
   private initMap(): void {
     let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG;
 
-    if (this.deckService.getFireLocation()) {
-      lat = this.deckService.getFireLocation().lat
-      lng = this.deckService.getFireLocation().lng
+    if(this.deckService.getDeckType()==='fire'){
+      if (this.deckService.getFireLocation()) {
+        lat = this.deckService.getFireLocation().lat
+        lng = this.deckService.getFireLocation().lng
+      }
+    } else if(this.deckService.getDeckType()==='volcano'){
+      if (this.deckService.getLocation()) {
+        lat = this.deckService.getLocation().lat
+        lng = this.deckService.getLocation().lng
+      }
     }
 
     // this.map = L.map('mapid', { 
