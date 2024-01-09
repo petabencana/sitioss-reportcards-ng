@@ -1,10 +1,47 @@
-
-<div class="card" *ngFor="let card of cards">
-    <h3>{{ card.title }}</h3>
-    <p>{{ card.description }}</p>
-    <div class="quantity-selector">
-      <button (click)="decreaseQuantity()">-</button>
-      <span>{{ quantity }}</span>
-      <button (click)="increaseQuantity()">+</button>
+<div class="productsWrapper">
+  <!-- <div class="cardsList">
+    <div class="card" *ngFor="let card of cards">
+      <div>
+        <p>{{ card.title }}</p>
+      </div>
+      <div>
+        <p>{{ card.description }}</p>
+        <div class="quantity-selector">
+          <button (click)="decreaseQuantity()">-</button>
+          <span>{{ quantity }}</span>
+          <button (click)="increaseQuantity()">+</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="categoryList">
+    <div *ngFor="let category of categories">
+      <div>{{ category.category }}</div>
+    </div>
+  </div> -->
+ 
+  <div >
+    <div  *ngFor="let card of filteredCards">
+      <div>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
+        <p>Category: {{ card.category }}</p>
+        <p>Quantity: {{ card.quantity || 0 }}</p>
+        <button (click)="decreaseQuantity(card)">-</button>
+        <button (click)="increaseQuantity(card)">+</button>
+      </div>
     </div>
   </div>
+  <div>
+  <div class="categoryList">
+    <div *ngFor="let category of categories">
+      <div (click)="selectCategory(category.category)" class="category-card">
+        <h4>{{ category.category }}</h4>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h3>Selected Category: {{ selectedCategory  }}</h3>
+  </div>
+</div>
+</div>
