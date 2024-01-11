@@ -5,7 +5,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as topojson from 'topojson-client';
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'logistics';
+type deckType =
+  | 'fire'
+  | 'earthquake'
+  | 'wind'
+  | 'haze'
+  | 'volcano'
+  | 'flood'
+  | 'logistics';
 type deckSubType =
   | 'fire'
   | 'haze'
@@ -65,7 +72,32 @@ export class DeckService {
   isNextButtonDisabled = true;
   reportType = '';
 
-  waterQuantity : number;
+
+  selectedProducts: { title: string; quantity: number; category: string }[] =
+    [];
+
+  getselectedProducts() {
+    return this.selectedProducts;
+  }
+
+  setSelectedProducts(title: string, quantity: number, category: string) {
+    if (quantity === 0) {
+      this.selectedProducts = this.selectedProducts.filter(
+        (product) => product.title !== title
+      );
+    } else {
+      const index = this.selectedProducts.findIndex(
+        (product) => product.title === title
+      );
+
+      if (index !== -1) {
+        this.selectedProducts[index].quantity = quantity;
+        this.selectedProducts[index].category = category;
+      } else {
+        this.selectedProducts.push({ title, quantity, category });
+      }
+    }
+  }
 
   userCanBack() {
     this.isPrevButtonDisabled = false;
@@ -118,9 +150,9 @@ export class DeckService {
   getRoute() {
     return this.route;
   }
-  
+
   getReportType() {
-    return this.reportType
+    return this.reportType;
   }
 
   getStructureFailure() {
@@ -191,18 +223,13 @@ export class DeckService {
   getSelectedRegionCode() {
     return this.selectedRegionCode;
   }
-  getWaterQuantity(){
-    return this.waterQuantity;
-  }
 
   // Setter
+
   setDeckType(type: deckType) {
     this.type = type;
   }
 
-  setWaterQuantiy(waterQuantity: number){
-   this.waterQuantity = waterQuantity
-  }
 
   setDeckSubType(subType: deckSubType) {
     this.subType = subType;
@@ -432,7 +459,7 @@ export class DeckService {
       image_url: '',
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : '',
-      is_training : this.getReportType() === 'training'
+      is_training: this.getReportType() === 'training',
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;
