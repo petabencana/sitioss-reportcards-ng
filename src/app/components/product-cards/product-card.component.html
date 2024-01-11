@@ -1,31 +1,11 @@
 <div class="productsWrapper">
-  <!-- <div class="cardsList">
-    <div class="card" *ngFor="let card of cards">
+  <div>
+    <div *ngFor="let card of filteredCards">
       <div>
-        <p>{{ card.title }}</p>
-      </div>
-      <div>
-        <p>{{ card.description }}</p>
-        <div class="quantity-selector">
-          <button (click)="decreaseQuantity()">-</button>
-          <span>{{ quantity }}</span>
-          <button (click)="increaseQuantity()">+</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="categoryList">
-    <div *ngFor="let category of categories">
-      <div>{{ category.category }}</div>
-    </div>
-  </div> -->
- 
-  <div >
-    <div  *ngFor="let card of filteredCards">
-      <div>
+        <img class="categoryimg" src="{{ card.img }}" />
         <h3>{{ card.title }}</h3>
         <p>{{ card.description }}</p>
-        <p>Category: {{ card.category }}</p>
+        <!-- <p>Category: {{ card.category }}</p> -->
         <p>Quantity: {{ card.quantity || 0 }}</p>
         <button (click)="decreaseQuantity(card)">-</button>
         <button (click)="increaseQuantity(card)">+</button>
@@ -33,15 +13,17 @@
     </div>
   </div>
   <div>
-  <div class="categoryList">
-    <div *ngFor="let category of categories">
-      <div (click)="selectCategory(category.category)" class="category-card">
-        <h4>{{ category.category }}</h4>
+    <div class="categoryList">
+      <div *ngFor="let category of categories">
+        <div (click)="selectCategory(category.category)" class="category-card">
+          <!-- <h4>{{ category.category }}</h4> -->
+          <img class="categoryimg" src="{{ category.img }}" />
+        </div>
       </div>
     </div>
+    <div>
+      <h3>Selected Category: {{ selectedCategory }}</h3>
+      <button (click)="check()">check</button>
+    </div>
   </div>
-  <div>
-    <h3>Selected Category: {{ selectedCategory  }}</h3>
-  </div>
-</div>
 </div>
