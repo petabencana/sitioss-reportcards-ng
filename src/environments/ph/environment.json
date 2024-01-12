@@ -45,6 +45,7 @@
         "type",
         "depth",
         "impact",
+        "evacuationarea",
         "photo",
         "description",
         "review",
