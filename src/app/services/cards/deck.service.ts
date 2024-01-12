@@ -76,8 +76,9 @@ export class DeckService {
   selectedProducts: { title: string; quantity: number; category: string }[] =
     [];
 
-  getselectedProducts() {
-    return this.selectedProducts;
+  
+  getSelectedProducts(title: string) {
+    return this.selectedProducts.find((product) => product.title === title);
   }
 
   setSelectedProducts(title: string, quantity: number, category: string) {

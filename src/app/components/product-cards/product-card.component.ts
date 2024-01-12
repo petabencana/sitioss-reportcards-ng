@@ -16,18 +16,23 @@ export class CardComponent {
       description: 'Veg/Non veg',
       category: 'Food',
       img: '../../../assets/decks/logistics/products/Water.png',
+      quantity: 0
     },
     {
       title: 'Shirt',
       description: '1 pair',
       category: 'Clothes',
       img: '../../../assets/decks/logistics/products/Blanket.png',
+      quantity: 0
+
     },
     {
       title: 'Dolo',
       description: '5 Strips',
       category: 'Med',
       img: '../../../assets/decks/logistics/products/Tablet.png',
+      quantity: 0
+
     },
   ];
 
@@ -54,6 +59,17 @@ export class CardComponent {
   selectedCategory: string | null = 'Med';
 
   // cart: { title: string; quantity: number,category: string  }[] = [];
+
+
+  ngOnInit() {
+    this.cards.forEach((card) => {
+      const storedProduct = this.deckService.getSelectedProducts(card.title);
+      if (storedProduct) {
+        card.quantity = storedProduct.quantity;
+      }
+    });
+  }
+
 
   get filteredCards() {
     return this.selectedCategory
