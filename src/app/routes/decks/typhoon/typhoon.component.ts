@@ -50,6 +50,18 @@ import { environment as env } from '../../../../environments/environment';
       return this.showReportTypeButton;
     }
 
+    titles(title){
+      if(title === 'impact'){
+        if(this.deckService.getDeckSubType()==='storm'){
+            return `card.titles.stormimpact`
+        } else {
+            return `card.titles.impact`
+        }
+      } else {
+        return `card.titles.${title}`
+      }
+    }
+
     ngOnInit() { 
       this.items = [
         {
