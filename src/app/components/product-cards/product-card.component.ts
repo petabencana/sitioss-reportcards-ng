@@ -12,38 +12,36 @@ export class CardComponent {
 
   cards = [
     {
-      title: 'Meals',
-      description: 'Veg/Non veg',
-      category: 'Food',
+      title: 'Water',
+      description: '1bottle',
+      category: 'Food & Water',
       img: '../../../assets/decks/logistics/products/Water.png',
-      quantity: 0
+      quantity: 0,
     },
     {
-      title: 'Shirt',
+      title: 'Blanket',
       description: '1 pair',
       category: 'Clothes',
       img: '../../../assets/decks/logistics/products/Blanket.png',
-      quantity: 0
-
+      quantity: 0,
     },
     {
       title: 'Dolo',
       description: '5 Strips',
-      category: 'Med',
+      category: 'Medicine',
       img: '../../../assets/decks/logistics/products/Tablet.png',
-      quantity: 0
-
+      quantity: 0,
     },
   ];
 
   categories = [
     {
-      category: 'Med',
+      category: 'Medicine',
       description: '',
       img: '../../../assets/decks/logistics/products/Firstaid.png',
     },
     {
-      category: 'Food',
+      category: 'Food & Water',
       description: '',
       img: '../../../assets/decks/logistics/products/Food.png',
     },
@@ -52,6 +50,7 @@ export class CardComponent {
       description: '',
       img: '../../../assets/decks/logistics/products/Clothes.png',
     },
+    
   ];
 
   constructor(public deckService: DeckService) {}
