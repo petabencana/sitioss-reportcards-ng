@@ -10,9 +10,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class StructureComponent implements OnInit, AfterViewChecked {
   titles: string[]
+  subtitles: string[]
   images: string[]
   
   title: string
+  subtitle: string
   image: string
   structure: number
 
@@ -22,6 +24,7 @@ export class StructureComponent implements OnInit, AfterViewChecked {
     public translate: TranslateService,
   ) {
     this.initTitles()
+    this.initSubtitles()
     this.initImages()
   }
 
@@ -41,10 +44,19 @@ export class StructureComponent implements OnInit, AfterViewChecked {
 
   initTitles() {
     this.titles = [
-      "card.structure.observed_shaking",
-      "card.structure.minor_damage",
-      "card.structure.major_damage",
-      "card.structure.fully_collapsed",
+      "card.structure.0.title",
+      "card.structure.1.title",
+      "card.structure.2.title",
+      "card.structure.3.title",
+    ]
+  }
+
+  initSubtitles() {
+    this.subtitles = [
+      "card.structure.0.subtitle",
+      "card.structure.1.subtitle",
+      "card.structure.2.subtitle",
+      "card.structure.2.subtitle",
     ]
   }
 
@@ -76,6 +88,7 @@ export class StructureComponent implements OnInit, AfterViewChecked {
 
     this.structure = intValue
     this.title = this.titles[intValue]
+    this.subtitle = this.subtitles[intValue]
     this.image = this.images[intValue]
 
     // Fallback, if user not use the input to change the value,
