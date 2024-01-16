@@ -1,29 +1,54 @@
 <div class="productsWrapper">
-  <div>
-    <div *ngFor="let card of filteredCards">
-      <div>
-        <img class="categoryimg" src="{{ card.img }}" />
-        <h3>{{ card.title }}</h3>
-        <p>{{ card.description }}</p>
+  <div class="scroll">
+    <div *ngFor="let card of filteredCards" class="flex m20">
+      <div class="productCard">
+        <div>
+          <img class="productimg" src="{{ card.img }}" />
+        </div>
+      </div>
+      <div class="productInfo">
+        <div>
+          <h3>{{ card.title }}</h3>
+        </div>
+        <!-- <p>{{ card.description }}</p> -->
         <!-- <p>Category: {{ card.category }}</p> -->
-        <p>Quantity: {{ card.quantity || 0 }}</p>
-        <button (click)="decreaseQuantity(card)">-</button>
-        <button (click)="increaseQuantity(card)">+</button>
+        <div>
+          <button (click)="decreaseQuantity(card)">-</button>
+          <span>{{ card.quantity }}</span>
+          <button (click)="increaseQuantity(card)">+</button>
+        </div>
       </div>
     </div>
   </div>
   <div>
     <div class="categoryList">
       <div *ngFor="let category of categories">
-        <div (click)="selectCategory(category.category)" class="category-card">
+        <div
+          (click)="selectCategory(category.category)"
+          class="category-card"
+          [class.active]="category.category === selectedCategory"
+        >
           <!-- <h4>{{ category.category }}</h4> -->
           <img class="categoryimg" src="{{ category.img }}" />
         </div>
       </div>
     </div>
     <div>
-      <h3>Selected Category: {{ selectedCategory }}</h3>
-      <button (click)="check()">check</button>
+      <p style="text-align: start; color: #fff; font-size: 12px">
+        Selected Category
+      </p>
+      <p
+        style="
+          text-align: start;
+          color: #fff;
+          font-size: 24px;
+          margin: 0%;
+          font-weight: 650;
+        "
+      >
+        {{ selectedCategory }}
+      </p>
+      <!-- <button (click)="check()">check</button> -->
     </div>
   </div>
 </div>
