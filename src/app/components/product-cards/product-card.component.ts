@@ -55,7 +55,7 @@ export class CardComponent {
 
   constructor(public deckService: DeckService) {}
 
-  selectedCategory: string | null = 'Med';
+  selectedCategory: string | null = 'Medicine';
 
   // cart: { title: string; quantity: number,category: string  }[] = [];
 
