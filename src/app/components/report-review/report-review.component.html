@@ -6,6 +6,14 @@
     >
   </div>
   <div class="report-review__txt">
+    <ng-template [ngIf]="deckType === 'logistics'">
+      <div *ngFor="let item of logisticsdetails">
+        <span>
+          {{ item.title }} - {{ item.quantity }} -
+          {{ item.category }}
+        </span>
+      </div>
+    </ng-template>
     <ng-template [ngIf]="deckType === 'flood'">
       <div class="report-review__fire">
         {{ floodKey }}
