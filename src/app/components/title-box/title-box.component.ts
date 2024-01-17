@@ -17,6 +17,8 @@ export class TitleBoxComponent {
   isShown: boolean = false; // hidden by default
   partnerIcon:string = ""
   partnerText:string = ""
+  navIcon:string = "../assets/nav/partnerIcon.svg"
+  isNotification = false
 
 
 
@@ -26,6 +28,12 @@ export class TitleBoxComponent {
     public translate: TranslateService,
 
   ) {}
+
+  ngOnInit() {
+    if(this.deckService.getDeckType() === 'notifications'){
+      this.isNotification = true
+    }
+  }
 
   getCssClass(i) {
     if (this.deckService.getDeckType() === "earthquake") {

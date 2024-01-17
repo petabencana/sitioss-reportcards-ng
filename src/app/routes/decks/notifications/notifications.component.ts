@@ -27,7 +27,8 @@ export class NotificationComponent implements OnInit {
 
     // Store card routes for navigation
     this.navController.registerCardRoutes('notifications');
-
+    this.deckService.setDeckType('notifications')
+    this.deckService.selectReportType('real')
     // Check for first card, else redirect
     this.navController.checkForFirstCard(this.route);
 

@@ -7,7 +7,7 @@
 </router-outlet>
 <div
   id="navWrapper"
-  *ngIf="navController.getCurrentRouteName() !== 'thankyou'" >
+  *ngIf="!['thankyou' , 'summary'].includes(navController.getCurrentRouteName())" >
   <app-nav-button
   [type]="'left'" 
   [text]="'deck.prev' | translate"
