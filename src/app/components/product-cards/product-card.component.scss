@@ -119,11 +119,14 @@ button {
 }
 
 .categoryimg {
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+
 }
 
 .productimg {
-  width: 72px;
-  height: 72px;
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
 }
