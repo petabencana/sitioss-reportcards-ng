@@ -13,23 +13,44 @@ export class CardComponent {
   cards = [
     {
       title: 'Water',
-      description: '1bottle',
-      category: 'Food & Water',
+      description: '',
+      category: 'Food',
       img: '../../../assets/decks/logistics/products/Water.png',
       quantity: 0,
     },
     {
-      title: 'Blanket',
-      description: '1 pair',
-      category: 'Clothes',
-      img: '../../../assets/decks/logistics/products/Blanket.png',
+      title: 'Ready to Eat Meals',
+      description: '',
+      category: 'Food',
+      img: '../../../assets/decks/logistics/products/ReadytoEatMeals.png',
       quantity: 0,
     },
     {
-      title: 'Dolo',
-      description: '5 Strips',
+      title: 'Rice Sack',
+      description: '1 pair',
+      category: 'Food',
+      img: '../../../assets/decks/logistics/products/RiceSack.png',
+      quantity: 0,
+    },
+    {
+      title: 'Mask',
+      description: '',
       category: 'Medicine',
-      img: '../../../assets/decks/logistics/products/Tablet.png',
+      img: '../../../assets/decks/logistics/products/Mask.png',
+      quantity: 0,
+    },
+    {
+      title: 'Baby Bottle',
+      description: '',
+      category: 'Medicine',
+      img: '../../../assets/decks/logistics/products/Babybottle.png',
+      quantity: 0,
+    },
+    {
+      title: 'Flashlight',
+      description: '',
+      category: 'Electronics',
+      img: '../../../assets/decks/logistics/products/Flashlight.png',
       quantity: 0,
     },
   ];
@@ -41,15 +62,16 @@ export class CardComponent {
       img: '../../../assets/decks/logistics/products/Firstaid.png',
     },
     {
-      category: 'Food & Water',
+      category: 'Food',
       description: '',
       img: '../../../assets/decks/logistics/products/Food.png',
     },
     {
-      category: 'Clothes',
+      category: 'Electronics',
       description: '',
-      img: '../../../assets/decks/logistics/products/Clothes.png',
+      img: '../../../assets/decks/logistics/products/Flashlight.png',
     },
+    
     
   ];
 

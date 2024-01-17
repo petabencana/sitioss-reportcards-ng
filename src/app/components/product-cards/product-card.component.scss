@@ -70,7 +70,7 @@ button {
 .categoryList {
   display: flex;
   gap: 10px;
-  justify-content: center;
+  justify-content: flex-start;
   > button {
     padding: 10px;
     border: 1px solid;
@@ -89,7 +89,7 @@ button {
   > div:last-child {
     padding: 20px;
     background-color: #808080;
-    width: 80%;
+    width: 300px;
     margin-bottom: 20px;
   }
 }
@@ -112,6 +112,7 @@ button {
   margin-bottom: 20px;
   padding: 20px;
   height: 100vh;
+  width: 300px;
 }
 .scroll::-webkit-scrollbar {
   width: 0px !important;
