@@ -140,7 +140,7 @@
       "description": "Ilan ang mga tao sa iyong barangay?"
     },
     "radiusestimate": {
-      "unit": "Ektarya"
+      "unit": "Kilometro"
     },
     "sign": {
       "description": "Piliin ang anumang mga obserbasyon:",
@@ -260,12 +260,12 @@
       ]
     },
       "subtitle": "Gusto mo bang magsumite ng ulat?",
-      "acceptButton": "Yes",
-      "rejectButton": "No",
+      "acceptButton": "Oo",
+      "rejectButton": "Hindi",
       "tips": "Click here for safety tips from OCD"
     },
     "swipeText": "Isumite",
-    "reportAgain": "Would you like to submit another report?",
+    "reportAgain": "Gusto mo bang magsumite ng isa pang ulat?",
     "reportAgainStructure": "Nais mo ba magsumite ng ulat tungkol sa Pagguho ng Istruktura?",
     "reportAgainAccess": "Nais mo ba magsumite ng ulat tungkol sa Accessibility ng Daan?",
     "reportAgainVolcanic": "Nais mo ba magsumite ng ulat para sa senyales ng pagsabag ng bulkan?",
