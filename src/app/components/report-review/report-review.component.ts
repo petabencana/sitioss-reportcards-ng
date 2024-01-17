@@ -274,10 +274,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     const failure = this.deckService.getStructureFailure()
 
     switch(failure) {
-      case 0: return this.translate.instant("card.structure.observed_shaking")
-      case 1: return this.translate.instant("card.structure.minor_damage")
-      case 2: return this.translate.instant("card.structure.major_damage")
-      case 3: return this.translate.instant("card.structure.fully_collapsed")
+      case 0: return this.translate.instant("card.structure.0.title")
+      case 1: return this.translate.instant("card.structure.1.title")
+      case 2: return this.translate.instant("card.structure.2.title")
+      case 3: return this.translate.instant("card.structure.3.title")
     }
   }
 

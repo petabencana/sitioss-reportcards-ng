@@ -118,12 +118,24 @@
         "subtitle": "Destroyed Road, Completely Blocked, No access"
       }
     ],
-    "structure": {
-      "observed_shaking": "Observed Shaking",
-      "minor_damage": "Minor Damage",
-      "major_damage": "Major Damage",
-      "fully_collapsed": "Fully Collapsed"
-    },
+    "structure": [
+      {
+        "title": "Observed Shaking",
+        "subtitle": "Movement of household items and decorations at home; felt shaking"
+      },
+      {
+        "title": "Minor Damage",
+        "subtitle": "Visible crack(s) on the wall"
+      },
+      {
+        "title": "Major Damage",
+        "subtitle": "Structure severely compromised"
+      },
+      {
+        "title": "Fully Collapsed",
+        "subtitle": "Structure reduced to rubble"
+      }
+    ],
     "evacuation": {
       "description": "Are you evacuating?",
       "typhoondescription": "Are you experiencing power outage?"
@@ -207,8 +219,13 @@
       ]
     },
     "flooddescription": "Add your description here…",
+    "description": "Add your description here…",
+    "roaddescription": "Ex: Roads are impossible to use since there are huge cracks on the road due to the earthquake.",
+    "structuredescription": "Ex: There is visible cracks on the wall due to the earthquake.",
     "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
     "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    
+    "winddescription": "Leaves are flying around due to the strong winds from the typhoon.",
+    "stormdescription": "Waves are starting to enter the coastal community due to the typhoon.",
     "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",

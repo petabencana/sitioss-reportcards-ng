@@ -65,11 +65,11 @@ export class NavigationService {
         return this.cardRoutes;
         break;
       case 'storm':
-        this.cardRoutes = ['location', 'type', 'impact', ...mustHaveCard];
+        this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];
         return this.cardRoutes;
         break;
       case 'wind':
-        this.cardRoutes = ['location', 'type', 'impact', ...mustHaveCard];
+        this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];
         return this.cardRoutes;
         break;
       case 'flood':

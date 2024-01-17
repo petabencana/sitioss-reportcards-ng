@@ -51,6 +51,20 @@ export class VolcanoComponent implements OnInit {
     return this.showReportTypeButton;
   }
 
+  titles(title){
+    if(title === 'impact'){
+      if(this.deckService.getDeckSubType()==='smog'){
+          return `card.titles.smogimpact`
+      } else if(this.deckService.getDeckSubType()==='structure'){
+          return `card.titles.windstructure`
+      } else {
+          return `card.titles.impact`
+      }
+    } else {
+      return `card.titles.${title}`
+    }
+  }
+
   ngOnInit() {
     this.items = [
       {

@@ -69,8 +69,8 @@ export class TypeComponent {
           title: 'card.type.volcano.smogButton',
           hint: '',
           subtype: 'smog',
-          imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
-          highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
+          imgUrl: '../../../../assets/decks/volcano/volcanotype/AddAshfallIcon.svg',
+          highlightImgUrl: '../../../../assets/decks/volcano/volcanotype/AddAshfallIcon.svg'
         }
       ].filter(item => !this.deckService.finishedSubType.includes(item.subtype)); break;
       case 'typhoon': this.items = [
@@ -78,22 +78,22 @@ export class TypeComponent {
           title: 'card.type.typhoon.windButton',
           hint: '',
           subtype: 'wind',
-          imgUrl: '',
-          highlightImgUrl: ''
+          imgUrl: '../../../../assets/decks/typhoon/typhoontype/AddWindIcon.svg',
+          highlightImgUrl: '../../../../assets/decks/typhoon/typhoontype/AddWindIcon.svg'
         },
         {
           title: 'card.type.typhoon.floodButton',
           hint: '',
           subtype: 'flood',
-          imgUrl: '',
-          highlightImgUrl: ''
+          imgUrl: '../../../../assets/decks/typhoon/typhoontype/AddFloodIcon.png',
+          highlightImgUrl: '../../../../assets/decks/typhoon/typhoontype/AddFloodIcon.png'
         },
         {
           title: 'card.type.typhoon.stormButton',
           hint: '',
           subtype: 'storm',
-          imgUrl: '',
-          highlightImgUrl: ''
+          imgUrl: '../../../../assets/decks/typhoon/typhoontype/AddStormIcon.svg',
+          highlightImgUrl: '../../../../assets/decks/typhoon/typhoontype/AddStormIcon.svg'
         }
       ].filter(item => !this.deckService.finishedSubType.includes(item.subtype)); break;
     }
