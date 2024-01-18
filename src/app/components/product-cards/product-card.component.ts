@@ -40,6 +40,20 @@ export class CardComponent {
       quantity: 0,
     },
     {
+      title: 'Paracetamol',
+      description: '',
+      category: 'Medicine',
+      img: '../../../assets/decks/logistics/products/Paracetamol.png',
+      quantity: 0,
+    },
+    {
+      title: 'Anti Fungal Cream',
+      description: '',
+      category: 'Medicine',
+      img: '../../../assets/decks/logistics/products/AntiFungalCream.png',
+      quantity: 0,
+    },
+    {
       title: 'Baby Bottle',
       description: '',
       category: 'Medicine',
