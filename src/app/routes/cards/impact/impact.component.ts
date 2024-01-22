@@ -100,6 +100,12 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
         "../../../../assets/decks/typhoon/impact/medium.png",
         "../../../../assets/decks/typhoon/impact/high.png",
       ];
+    } else if(this.deckService.getDeckSubType() === 'smog') {
+      this.images = [
+        "../../../../assets/decks/volcano/impact/low1.jpg",
+        "../../../../assets/decks/volcano/impact/medium2.jpeg",
+        "../../../../assets/decks/volcano/impact/high3.jpg",
+      ]
     } else {
       this.images = [
         "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
