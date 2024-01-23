@@ -224,8 +224,8 @@
     "structuredescription": "Ex: There is visible cracks on the wall due to the earthquake.",
     "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
     "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    
-    "winddescription": "Ex: Leaves are flying around due to the strong winds from the typhoon.",
-    "stormdescription": "Ex: Waves are starting to enter the coastal community due to the typhoon.",
+    "winddescription": "Leaves are flying around due to the strong winds from the typhoon.",
+    "stormdescription": "Waves are starting to enter the coastal community due to the typhoon.",
     "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
@@ -255,8 +255,8 @@
       "urlText":"Mapakalamidad.ph",
       "title": {
         "real" : [
-        "Thank you for your report.",
-        "We will notify you when it’s on the map."
+        "Thank you for your report. Check",
+        "to view your report and see real-time disaster updates."
       ],
       "training" : [
         "You have completed your training . Check",
