@@ -4,7 +4,7 @@
     {{ reportSuccessText.result | translate}}
   </p>
   <p class="thanks__subtitle">
-  {{ reportSuccessText.title | translate}} <br> {{ reportSuccessText.subTitle | translate}}
+  {{ reportSuccessText.title | translate}} <a href="{{reportUrlText | translate}}">{{reportUrlText | translate}}</a> {{ reportSuccessText.subTitle | translate}}
   </p>
 
   <p *ngIf="isShowReportAgain" class="thanks__again">
