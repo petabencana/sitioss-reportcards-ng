@@ -224,8 +224,8 @@
     "structuredescription": "Ex: There is visible cracks on the wall due to the earthquake.",
     "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
     "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    
-    "winddescription": "Leaves are flying around due to the strong winds from the typhoon.",
-    "stormdescription": "Waves are starting to enter the coastal community due to the typhoon.",
+    "winddescription": "Ex: Leaves are flying around due to the strong winds from the typhoon.",
+    "stormdescription": "Ex: Waves are starting to enter the coastal community due to the typhoon.",
     "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
