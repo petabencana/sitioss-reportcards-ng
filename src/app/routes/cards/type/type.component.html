@@ -1,11 +1,13 @@
-<div class="type">
-  <ng-template ngFor let-item [ngForOf]="items">
-    <app-type-button
-      [title]="item.title | translate"
-      [hint]="item.hint | translate"
-      [imgUrl]="item.imgUrl"
-      [highlightImgUrl]="item.highlightImgUrl"
-      (click)="onTypeSelected(item.subtype)"
-    ></app-type-button>
-  </ng-template>
-</div>
+<div [ngClass] = "deckService.getReportType() === '' ? 'type-hidden' : 'type-outer'">
+  <div class="type">
+    <ng-template ngFor let-item [ngForOf]="items">
+      <app-type-button
+        [title]="item.title | translate"
+        [hint]="item.hint | translate"
+        [imgUrl]="item.imgUrl"
+        [highlightImgUrl]="item.highlightImgUrl"
+        (click)="onTypeSelected(item.subtype)"
+      ></app-type-button>
+    </ng-template>
+  </div>
+  </div>

@@ -4,8 +4,8 @@ import { environment as env } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood';
-type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano' | 'flood';
+type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon';
+type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'flood' | 'volcanic' | 'smog' | 'storm';
 
 interface LatLng {
   lat: number;
@@ -39,6 +39,7 @@ export class DeckService {
   fireLocation: LatLng;
   fireRadius: LatLng;
   fireDistance: number;
+  smogRadius: number;
   volcanicSigns: number[] = [];
   evacuationNumber: null | number = null;
   evacuationArea: null | boolean = null;
@@ -139,6 +140,9 @@ export class DeckService {
   getFireDistance(): number {
     return this.fireDistance;
   }
+  getSmogRadius(): number {
+    return this.smogRadius;
+  }
   getVolcanicSigns(): number[] {
     return this.volcanicSigns;
   }
@@ -207,6 +211,9 @@ export class DeckService {
   setFireDistance(fireDistance: number) {
     this.fireDistance = fireDistance;
   }
+  setSmogRadius(smogRadius: number) {
+    this.smogRadius = smogRadius;
+  }
   setVolcanicSigns(volcanicSigns: number[]) {
     this.volcanicSigns = volcanicSigns;
   }
@@ -252,6 +259,7 @@ export class DeckService {
     this.fireLocation = undefined;
     this.fireRadius = undefined;
     this.fireDistance = undefined;
+    this.smogRadius = undefined;
     this.volcanicSigns = [];
     this.evacuationNumber = null;
     this.evacuationArea = null;
@@ -322,6 +330,26 @@ export class DeckService {
       return this.putReport(report, cardId, false, false);
     }
   }
+
+  initiateAnotherReport(): Promise<Boolean> { 
+    return new Promise((resolve, reject) => {
+        const url = env.data_server + "cards/";
+        const body = {
+          username: "web_guest",
+          language: 'pa',
+          network: "website",
+        };
+        this.http.post(url, body)
+        .subscribe((result: any) => {
+         resolve(result.cardId)
+        },
+        (error) => {
+          reject(error);
+        }
+        )
+    })
+  }
+  
   _get_report_summary(): any {
     const summary: any = {
       disaster_type: this.type,
@@ -354,9 +382,14 @@ export class DeckService {
         summary.location = this.fireLocation;
         break;
       case "volcano":
-        summary.card_data.volcanicSigns = this.volcanicSigns;
-        summary.card_data.evacuationNumber = this.evacuationNumber;
-        summary.card_data.evacuationArea = this.evacuationArea;
+        if(this.subType == "volcanic") {
+          summary.card_data.volcanicSigns = this.volcanicSigns;
+          summary.card_data.evacuationArea = this.evacuationArea;
+        } else if(this.subType == "smog") {
+          summary.card_data.smogRadius = this.smogRadius;
+          summary.card_data.smogImpact = this.impact;
+          summary.card_data.evacuationArea = this.evacuationArea;
+        }
         break;
       case "haze":
         summary.card_data.visibility = this.visibility;
@@ -370,6 +403,16 @@ export class DeckService {
         }
         summary.card_data.condition = this.condition;
         break;
+      case "typhoon":
+        if(this.subType == "wind") {
+          summary.card_data.impact = this.impact;
+          summary.card_data.evacuationArea = this.evacuationArea;
+        } else if (this.subType == "flood") {
+          summary.card_data.flood_depth = this.floodDepth;
+        } else if (this.subType == "storm") {
+          summary.card_data.impact = this.impact;
+          summary.card_data.evacuationArea = this.evacuationArea;
+        }
     }
     return summary;
   }

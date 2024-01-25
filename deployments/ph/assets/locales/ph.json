@@ -18,21 +18,24 @@
       "type": "Piliin ang uri ng ulat ",
       "location": "Pillin ang lokasyon ng ulat",
       "depth": "Piliin ang lebel ng baha",
-      "fireestimate": "I-ulat ang lawak ng apoy",
+      "radiusestimate": "Ilatag ang Tinatantiyang Radius",
       "firedistance": "Iyong Lokasyon at Lokasyon ng Apoy",
       "airquality": "I-ulat ang Kalidad ng Hangin",
       "visibility": "I-ulat ang Visibility",
       "accessibility": "I-ulat ang Accessibility ng Daan",
-      "condition": "I-ulat and Kondisyon ng Daan",
+      "condition": "I-ulat ang Kondisyon ng Daan",
       "structure": "I-ulat ang Pinsala sa Istruktura",
       "impact": "I-ulat ang Epekto ng Hangin",
       "windstructure": " I-ulat kung may Pagguho ng Istruktura",
+      "smogimpact": "Ilarawan ang kalagayan ng abo",
+      "stormimpact": "epekto ng hangin",
       "sign": " I-ulat ang mga Palatandaan ng Bulkan ",
       "evacuationnumber": "I-ulat ang Paglikas",
       "evacuationarea": " I-ulat ang Paglikas",
       "photo": "Magsumite ng Larawan",
+      "photodescription": "Pindutin para mag-upload",
       "description": "Magbigay ng iba pang impormasyon",
-      "review": "Suriin at I-sumite",
+      "review": "Suriin at i-sumite",
       "thank": "Salamat!"
     },
     "type": {
@@ -46,6 +49,15 @@
       "earthquake": {
         "roadTypeButton": "Accessibility ng Daan ",
         "structureTypeButton": "Pagguho ng Istruktura"
+      },
+      "volcano": {
+        "volcanoButton": "Senyales ng pagsabog ng Bulkan",
+        "smogButton": "Abo at Usok"
+      },
+      "typhoon": {
+        "windButton": "Malakas na Hangin",
+        "floodButton": "Baha",
+        "stormButton": "Dalúyong na Bagyo"
       },
       "report":{
         "realTypeButton": "Mag-submit ng Totoong Ulat tungkol sa Kalamidad",
@@ -82,11 +94,10 @@
       ]
     },
     "accessibility": [
-      "Walang access para sa mga sasakyan",
-      "2-Wheel na Sasakyan",
-      "4-Wheel na Sasakyan (Sedan)",
-      "4-Wheel na Sasakyan (SUV)",
-      "Malalaking Sasakyan (Truck)"
+      "Hindi Madaanan ng mga Motorista.",
+      "2 at 3 Gulong na Sasakyan",
+      "4 na gulong na Sasakyan",
+      "Malalaking Sasakyan"
     ],
     "condition": [
       {
@@ -102,52 +113,114 @@
         "subtitle": "Sirang Daan, Ganap na Naharangan, Walang Access"
       }
     ],
-    "structure": {
-      "cracking": "Cracking",
-      "partially_collapsed": "Bahagyang Gumuho",
-      "fully_collapsed": "Ganap na Gumuho"
-    },
+    "structure": [
+      {
+        "title": "May naramdamang pagka-alog",
+        "subtitle": "Paggalaw ng mga gamit sa bahay at mga dekorasyon sa bahay; nakaramdam ng panginginig"
+      },
+      {
+        "title": "Maliit na pinsala",
+        "subtitle": "Nakikitang mga Bitak sa dingding"
+      },
+      {
+        "title":  "Malaking pinsala",
+        "subtitle": "Malubhang nakompromiso ang istraktura"
+      },
+      {
+        "title": "Tuluyang Gumuho",
+        "subtitle": "Buong nawasak ang Istruktura; mga bato na lang ang natira sa istruktura"
+      }
+    ],
     "evacuation": {
-      "description": "Alam mo ba kung saan ka lilikas?"
+      "description": "Are you evacuating?",
+      "typhoondescription": "Nakakaranas ka ba ng pagkawala ng kuryente? (Oo/Hindi)"
     },
     "evacuationnumber": {
       "description": "Ilan ang mga tao sa iyong barangay?"
     },
-    "fireestimate": {
-      "unit": "Ektarya"
+    "radiusestimate": {
+      "unit": "Kilometro"
     },
     "sign": {
-      "description": "Ilagay ang anumang mga obserbasyon:",
+      "description": "Piliin ang anumang mga obserbasyon:",
       "symptoms": [
-        " Malubhang Pagtaas ng Temperatura",
-        "Tagtuyot / Pagkamatay ng Gulay",
-        " Hindi Karaniwang Ugali ng Hayop",
-        "Madalas na Mga Panginginig ng Lindol ",
-        "Madalas na Tunog "
+        "Tuyong pinanggalingan ng tubig/Nahawahan",
+        "Hindi pangkaraniwang pag-uugali ng Hayop",
+        "Madalas na pagyanig ng lupa",
+        "Madalas na dumadagundong na tunog"
       ]
     },
     "impact": {
       "symptoms": [
         {
-          "title": "Low Disruption",
-          "subtitle": "Small obstacles flying"
+          "title": "Magaan na Pagkagambala",
+          "subtitle": "May Lumilipad na Maliliit na labi sa Paligid."
         },
         {
-          "title": "Medium Disruption",
-          "subtitle": "Road blockages, transport disturbance, blackout"
+          "title": "Katamtamang Pagkagambala",
+          "subtitle": "Mga bara sa kalsada, natumbang puno, pinsala sa agrikultura, blackout."
         },
         {
-          "title": "High Disruption",
-          "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+          "title": "Mabigat na Pagkagambala",
+          "subtitle": "Pinsala sa ari-arian, lumilipad sa paligid ang mga malalaking labi."
         }
       ],
+      "smog" : {
+        "symptoms" : [
+          {
+            "title": "Pino/Tuyo",
+            "subtitle": "mahirap huminga at tumingin"
+          },
+          {
+            "title": "Butil-butil",
+            "subtitle": "may malakas na amoy ng asupre"
+          },
+          {
+            "title": "Masinsin/Basa",
+            "subtitle": "hindi kayang daanan ang daan"
+          }
+        ]
+      },
+      "storm" : {
+        "symptoms" : [
+          {
+            "title": "Magaan na Pagkagambala",
+            "subtitle": "Agresibong alon sa sea wall."
+          },
+          {
+            "title": "Katamtamang Pagkagambala",
+            "subtitle": "Mga alon na nagdudulot ng mababa hanggang katamtamang pagbaha sa mga komunidad sa baybayin."
+          },
+          {
+            "title": "Matinding Pagkagambala",
+            "subtitle": "Malalaking alon na sumisira sa mga komunidad sa baybayin"
+          }
+        ]
+      },
       "review": [
         "Mababang Pagkagambala",
         "Katamtamang Pagkagambala",
         "Malubhang Pagkagambala"
+      ],
+      "storm_review":[
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "smog_review":[
+        "Pino/Tuyo (mahirap huminga at tumingin)",
+        "Butil-butil (may malakas na amoy ng asupre)",
+        "Masinsin/Basa (hindi kayang daanan ang daan)"
       ]
     },
-    "description": "Ilagay ang iyong paglalarawan dito ...",
+    "flooddescription": "Add your description here…",
+    "description": "Ilagay ang iyong paglalarawan dito…",
+    "roaddescription": "Hal: Hindi magamit ang daanan dahil sa mga malalaking bitak sa daan dulot ng lindol.",
+    "structuredescription": "Hal: May mga nakikitang bitak sa dingding dahil sa lindol.",
+    "volcanodescription": "Hal: Nakakarinig ako ng mga dagundong. Posibleng mula sa pagsabog ng bulkan.",
+    "smogdescription": "Hal: May Abo sa lugar. Walang makita habang nagmamaneho.",
+    "winddescription": "Hal: May mga dahon na lumilipad dahil sa lakas ng hangin dulot ng bagyo.",
+    "stormdescription": "Hal: Nagsisimula nang pumasok ang tubig alon sa baybayin dahil sa bagyo.",
     "review": {
       "text": " Sa pamamagitan ng pagsusumite ng ulat na ito sumasang-ayon ka sa",
       "terms": "User agreement & Privacy policy",
@@ -191,8 +264,14 @@
       "tips": "Click here for safety tips from OCD"
     },
     "swipeText": "Isumite",
-    "reportAgainStructure": "Gusto mo rin bang mag-ulat ng pagkaguho ng istruktura?",
-    "reportAgainAccess": "Gusto mo rin bang mag-ulat ng accessibility ng daan?"
+    "reportAgain": "Gusto mo bang magsumite ng isa pang ulat?",
+    "reportAgainStructure": "Nais mo ba magsumite ng ulat tungkol sa Pagguho ng Istruktura?",
+    "reportAgainAccess": "Nais mo ba magsumite ng ulat tungkol sa Accessibility ng Daan?",
+    "reportAgainVolcanic": "Nais mo ba magsumite ng ulat para sa senyales ng pagsabag ng bulkan?",
+    "reportAgainSmog": "Nais mo ba magsumite ng ulat para sa Abo at usok?",
+    "floodoptbutton": "Baha",
+    "stormoptbutton": "Dalúyong na Bagyo",
+    "windoptbutton": "Malakas na hangin"
   },
   "partner_mode_title": "Pumapasok ka ba sa Partner Mode?",
   "partner_mode_body1":"Kahit sino ay maaaring magsumite ng ulat ng kalamidad sa Mapakalamidad.ph!",

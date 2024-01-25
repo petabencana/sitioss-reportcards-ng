@@ -47,6 +47,12 @@
   }
 }
 
+.click-text{
+  color: white;
+  position: relative;
+  bottom: 80px;
+}
+
 @media (max-width: 521px) {
   #image-uploader {
     &-icon {

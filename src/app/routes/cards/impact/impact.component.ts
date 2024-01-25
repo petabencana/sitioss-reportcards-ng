@@ -43,27 +43,76 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
   }
 
   initTitles() {
-    this.titles = [
-      "card.impact.symptoms.0.title",
-      "card.impact.symptoms.1.title",
-      "card.impact.symptoms.2.title"
-    ]
+    if(this.deckService.getDeckSubType() === 'smog') {
+      this.titles = [
+        "card.impact.smog.symptoms.0.title",
+        "card.impact.smog.symptoms.1.title",
+        "card.impact.smog.symptoms.2.title"
+      ]
+    } else if(this.deckService.getDeckSubType() === 'storm') {
+      this.titles = [
+        "card.impact.storm.symptoms.0.title",
+        "card.impact.storm.symptoms.1.title",
+        "card.impact.storm.symptoms.2.title"
+      ]
+    } else {
+      this.titles = [
+        "card.impact.symptoms.0.title",
+        "card.impact.symptoms.1.title",
+        "card.impact.symptoms.2.title"
+      ]
+    }
   }
 
   initSubtitles() {
-    this.subtitles = [
-      "card.impact.symptoms.0.subtitle",
-      "card.impact.symptoms.1.subtitle",
-      "card.impact.symptoms.2.subtitle"
-    ]
+    if(this.deckService.getDeckSubType() === 'smog'){
+      this.subtitles = [
+        "card.impact.smog.symptoms.0.subtitle",
+        "card.impact.smog.symptoms.1.subtitle",
+        "card.impact.smog.symptoms.2.subtitle"
+      ]
+    } 
+    else if(this.deckService.getDeckSubType() === 'storm') {
+      this.subtitles = [
+        "card.impact.storm.symptoms.0.subtitle",
+        "card.impact.storm.symptoms.1.subtitle",
+        "card.impact.storm.symptoms.2.subtitle"
+      ]
+    } else {
+      this.subtitles = [
+        "card.impact.symptoms.0.subtitle",
+        "card.impact.symptoms.1.subtitle",
+        "card.impact.symptoms.2.subtitle"
+      ]
+    }
   }
 
   initImages() {
-    this.images = [
-      "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
-      "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
-      "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+    if(this.deckService.getDeckSubType() === 'wind'){
+      this.images = [
+        "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
+        "../../../../assets/decks/wind/impact/MediumDisruption.png",
+        "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+      ];
+    } else if(this.deckService.getDeckSubType() === 'storm') {
+      this.images = [
+        "../../../../assets/decks/typhoon/impact/low.png",
+        "../../../../assets/decks/typhoon/impact/medium.png",
+        "../../../../assets/decks/typhoon/impact/high.png",
+      ];
+    } else if(this.deckService.getDeckSubType() === 'smog') {
+      this.images = [
+        "../../../../assets/decks/volcano/impact/low1.jpg",
+        "../../../../assets/decks/volcano/impact/medium2.jpeg",
+        "../../../../assets/decks/volcano/impact/high3.jpg",
+      ]
+    } else {
+      this.images = [
+        "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
+        "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
+        "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
     ];
+    }
   }
 
   ngAfterViewChecked() {

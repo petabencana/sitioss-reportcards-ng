@@ -38,7 +38,17 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       let previewImgSrc
       switch (this.deckService.getDeckSubType()) {
         case 'fire': previewImgSrc = '../../../assets/decks/fire/review/Fire.png'; break;
-        case 'volcano': previewImgSrc = '../../../assets/decks/volcano/review/volcano.png'; break;
+        case 'volcanic': previewImgSrc = '../../../assets/decks/volcano/review/volcano.png'; break;
+        case 'smog': previewImgSrc = [
+          "../../../../assets/decks/volcano/impact/low1.jpg",
+          "../../../../assets/decks/volcano/impact/medium2.jpeg",
+          "../../../../assets/decks/volcano/impact/high3.jpg",
+        ][this.deckService.getImpact()]; break;
+        case 'storm': previewImgSrc = [
+          "../../../../assets/decks/typhoon/impact/low.png",
+          "../../../../assets/decks/typhoon/impact/medium.png",
+          "../../../../assets/decks/typhoon/impact/high.png",
+        ][this.deckService.getImpact()]; break;
         case 'flood': previewImgSrc = '../../../assets/decks/flood/review/flood_card_ph.svg'; break;
         case 'haze': previewImgSrc = [
           "../../../../assets/decks/fire/visibility/Visibility_High.jpg",
@@ -47,13 +57,14 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
         ][this.deckService.getVisibility()]; break;
         case 'wind': previewImgSrc = [
           "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
-          "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
+          "../../../../assets/decks/wind/impact/MediumDisruption.png",
           "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
         ][this.deckService.getImpact()]; break;
         case 'structure': previewImgSrc = [
           "../../../../assets/decks/earthquake/structure/StructureFailure_1.png",
           "../../../../assets/decks/earthquake/structure/StructureFailure_2.png",
           "../../../../assets/decks/earthquake/structure/StructureFailure_3.png",
+          "../../../../assets/decks/earthquake/structure/StructureFailure_4.png",
         ][this.deckService.getStructureFailure()]; break;
         case 'road': previewImgSrc = [
           "../../../../assets/decks/earthquake/condition/RoadCondition_1.png",
@@ -63,7 +74,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
         default: previewImgSrc = 'https://via.placeholder.com/150'; break;
       }
       this.previewImg.setAttribute('src', previewImgSrc)
-      if (this.deckService.getDeckSubType() === 'volcano') {
+      if (this.deckService.getDeckType() === 'volcano') {
         this.previewImgContainer.style.padding = '10px 0'
         this.previewImgContainer.style.justifyContent = 'center'
       }
@@ -119,7 +130,15 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   // Fire
 
   get fireRange() {
-    const radius = this.deckService.getFireDistance()
+    let radius;
+    switch(this.deckService.getDeckType()) {
+      case 'fire':
+        radius = this.deckService.getFireDistance();
+        break;
+      case 'volcano':
+        radius = this.deckService.getSmogRadius();
+        break;
+    }
     const range = Math.PI * Math.pow(radius, 2) / 10000
 
     if (range < 1) return '<1'
@@ -127,7 +146,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   }
 
   get fireRangeUnit() {
-    return this.translate.instant('card.fireestimate.unit');
+    return this.translate.instant('card.radiusestimate.unit');
   }
 
   get floodDepth() {
@@ -217,7 +236,13 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   get impact() {
     const impact = this.deckService.getImpact();
-    return this.translate.instant("card.impact.review."+impact);
+    if(this.deckService.getDeckSubType()==='smog'){
+      return this.translate.instant('card.impact.smog_review.'+impact);
+    } else if(this.deckService.getDeckSubType()==='storm'){
+      return this.translate.instant('card.impact.storm_review.'+impact);
+    } else {
+      return this.translate.instant("card.impact.review."+impact);
+    }
   }
 
   get impactColor() {
@@ -249,9 +274,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     const failure = this.deckService.getStructureFailure()
 
     switch(failure) {
-      case 0: return this.translate.instant("card.structure.cracking")
-      case 1: return this.translate.instant("card.structure.partially_collapsed")
-      case 2: return this.translate.instant("card.structure.fully_collapsed")
+      case 0: return this.translate.instant("card.structure.0.title")
+      case 1: return this.translate.instant("card.structure.1.title")
+      case 2: return this.translate.instant("card.structure.2.title")
+      case 3: return this.translate.instant("card.structure.3.title")
     }
   }
 
@@ -261,7 +287,8 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     switch(failure) {
       case 0: return '#ffde17'
       case 1: return '#f7941d'
-      case 2: return '#be1e2d'
+      case 2: return '#ff6417'
+      case 3: return '#be1e2d'
     }
   }
 

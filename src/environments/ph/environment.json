@@ -23,6 +23,48 @@
         "review",
         "thank"
       ]
+    },
+    {
+      "name": "volcano",
+      "cards": [
+        "type",
+        "location",
+        "sign",
+        "radiusestimate",
+        "impact",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    },
+    {
+      "name": "typhoon",
+      "cards": [
+        "location",
+        "type",
+        "depth",
+        "impact",
+        "evacuationarea",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    },
+    {
+      "name": "earthquake",
+      "cards": [
+        "type",
+        "location",
+        "structure",
+        "accessibility",
+        "condition",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
     }
   ]
 }

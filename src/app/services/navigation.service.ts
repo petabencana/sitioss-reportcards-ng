@@ -50,9 +50,31 @@ export class NavigationService {
     switch (subtype) {
       case 'road':
         this.cardRoutes = ['type', 'location', 'accessibility', 'condition', ...mustHaveCard];
+        return this.cardRoutes;
         break;
       case 'structure':
         this.cardRoutes = ['type', 'location', 'structure', ...mustHaveCard];
+        return this.cardRoutes;
+        break;
+      case 'volcanic':
+        this.cardRoutes = ['type', 'location', 'sign', ...mustHaveCard];
+        return this.cardRoutes;
+        break;
+      case 'smog':
+        this.cardRoutes = ['type', 'location', 'radiusestimate', 'impact', ...mustHaveCard];
+        return this.cardRoutes;
+        break;
+      case 'storm':
+        this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];
+        return this.cardRoutes;
+        break;
+      case 'wind':
+        this.cardRoutes = ['location', 'type', 'impact', 'evacuationarea', ...mustHaveCard];
+        return this.cardRoutes;
+        break;
+      case 'flood':
+        this.cardRoutes = ['location', 'type', 'depth', ...mustHaveCard];
+        return this.cardRoutes;
         break;
     }
   }
@@ -88,6 +110,11 @@ export class NavigationService {
 
   resetEqDeckToLocation(route) {
     this.router.navigate([this.cardRoutes[1]], {relativeTo: route});
+    this.cardCounter = 1;
+  }
+
+  resetTyDeckToLocation(route) {
+    this.router.navigate([this.cardRoutes[2]], {relativeTo: route});
     this.cardCounter = 1;
   }
 

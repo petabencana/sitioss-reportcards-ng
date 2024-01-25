@@ -9,11 +9,11 @@ import { lineString , length} from "@turf/turf";
 declare let L
 
 @Component({
-  selector: 'app-fireestimate',
-  templateUrl: './fireestimate.component.html',
-  styleUrls: ['./fireestimate.component.scss']
+  selector: 'app-radiusestimate',
+  templateUrl: './radiusestimate.component.html',
+  styleUrls: ['./radiusestimate.component.scss']
 })
-export class FireestimateComponent implements OnInit {
+export class RadiusestimateComponent implements OnInit {
   private fireMarker
   private radiusMarker
   private geojson
@@ -45,9 +45,16 @@ export class FireestimateComponent implements OnInit {
   private initMap(): void {
     let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG;
 
-    if (this.deckService.getFireLocation()) {
-      lat = this.deckService.getFireLocation().lat
-      lng = this.deckService.getFireLocation().lng
+    if(this.deckService.getDeckType()==='fire'){
+      if (this.deckService.getFireLocation()) {
+        lat = this.deckService.getFireLocation().lat
+        lng = this.deckService.getFireLocation().lng
+      }
+    } else if(this.deckService.getDeckType()==='volcano'){
+      if (this.deckService.getLocation()) {
+        lat = this.deckService.getLocation().lat
+        lng = this.deckService.getLocation().lng
+      }
     }
 
     // this.map = L.map('mapid', { 
@@ -103,7 +110,17 @@ export class FireestimateComponent implements OnInit {
 
     const imageElement = document.createElement('div');
     imageElement.className = 'marker';
-    imageElement.style.backgroundImage = `url(../../../assets/decks/fire/location/SelectFireLocation_Highlight.png)`;
+    switch(this.deckService.getDeckSubType()) {
+      case 'fire':
+        imageElement.style.backgroundImage = `url(../../../assets/decks/fire/location/SelectFireLocation_Highlight.png)`;
+        break;
+      case 'volcanic':
+        imageElement.style.backgroundImage = `url(../../../assets/decks/volcano/location/Select_Report_Location.png)`;
+        break;
+      case 'smog':
+        imageElement.style.backgroundImage = `url(../../../assets/decks/volcano/location/Select_Report_Ashfall_Location.svg)`;
+        break;
+    }
     imageElement.style.width = `30px`;
     imageElement.style.height = `60px`;
     imageElement.style['background-repeat'] = 'no-repeat';
@@ -168,11 +185,19 @@ export class FireestimateComponent implements OnInit {
        // Used to calculate radius between boints
        var line = lineString([[this.fireMarker.getLngLat().lng ,this.fireMarker.getLngLat().lat ] , [this.radiusMarker.getLngLat().lng ,this.radiusMarker.getLngLat().lat]]);
        var circleRadius = length(line, {units: 'meters'});
-       this.deckService.setFireDistance(circleRadius)
+       switch(this.deckService.getDeckType()) {
+        case 'volcano':
+          this.deckService.setSmogRadius(circleRadius);
+          break;
+        case 'fire':
+          this.deckService.setFireDistance(circleRadius)
+          break;  
+       }
+       // Create a GeoJSON point feature for each location.
        const circleLayer = {
         'type': 'Feature',
         'properties': {
-          'description': `${this.fireRange} ${this.translate.instant('card.fireestimate.unit')}`,
+          'description': `${this.fireRange} ${this.translate.instant('card.radiusestimate.unit')}`,
           },
         'geometry': {
         'type': 'Point',
@@ -210,7 +235,15 @@ export class FireestimateComponent implements OnInit {
   }
 
   get fireRange() {
-    const radius = this.deckService.getFireDistance()
+    let radius;
+    switch(this.deckService.getDeckType()) {
+      case 'fire' : 
+        radius = this.deckService.getFireDistance();
+        break;
+      case 'volcano':
+        radius = this.deckService.getSmogRadius();
+        break;
+    }
     const range = Math.PI * Math.pow(radius, 2) / 10000
     
     return range.toFixed(2)

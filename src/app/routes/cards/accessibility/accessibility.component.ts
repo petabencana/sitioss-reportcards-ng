@@ -50,7 +50,6 @@ export class AccessibilityComponent implements AfterViewChecked {
       "../../../../assets/decks/earthquake/accessibility/Access_2.png",
       "../../../../assets/decks/earthquake/accessibility/Access_3.png",
       "../../../../assets/decks/earthquake/accessibility/Access_4.png",
-      "../../../../assets/decks/earthquake/accessibility/Access_5.png",
     ]
   }
 
@@ -75,7 +74,7 @@ export class AccessibilityComponent implements AfterViewChecked {
       case 1: displayNumber = 1.0; break;
       case 2: displayNumber = 1.4; break;
       case 3: displayNumber = 1.8; break;
-      case 4: displayNumber = 2.2; break;
+      // case 2: displayNumber = 2.2; break;
     }
 
     this.image = this.images[intValue]
@@ -91,7 +90,7 @@ export class AccessibilityComponent implements AfterViewChecked {
     }
 
     output.style.left = (intValue / 4.4) * input.offsetWidth + 'px'
-    leftArrow.style.left = countArrowOffset(intValue, 4, input.offsetWidth, 'left')
-    rightArrow.style.left = countArrowOffset(intValue, 4, input.offsetWidth, 'right')
+    leftArrow.style.left = countArrowOffset(intValue, 3, input.offsetWidth, 'left')
+    rightArrow.style.left = countArrowOffset(intValue, 3, input.offsetWidth, 'right')
   }
 }

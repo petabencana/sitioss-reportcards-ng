@@ -1,23 +1,23 @@
 <div class="description">{{ 'card.sign.description' | translate }}</div>
 <div class="options">
-  <div (click)="onOptionClick(0)" [ngClass]="{'option': true, 'selected': selectedOption.includes(0)}">
+  <!-- <div (click)="onOptionClick(0)" [ngClass]="{'option': true, 'selected': selectedOption.includes(0)}">
     <p>{{ 'card.sign.symptoms.0' | translate }}</p>
     <img src="../../../../assets/decks/volcano/sign/Symptom_1.png" alt="Symptom_1">
+  </div> -->
+  <div (click)="onOptionClick(0)" [ngClass]="{'option': true, 'selected': selectedOption.includes(0)}">
+    <p>{{ "card.sign.symptoms.0" | translate }}</p>
+    <img src="../../../../assets/decks/volcano/sign/Symptom_2.png" alt="Symptom_2">
   </div>
   <div (click)="onOptionClick(1)" [ngClass]="{'option': true, 'selected': selectedOption.includes(1)}">
-    <p>{{ "card.sign.symptoms.1" | translate }}</p>
-    <img src="../../../../assets/decks/volcano/sign/Symptom_2.png" alt="Symptom_2">
+    <p>{{ 'card.sign.symptoms.1' | translate }}</p>
+    <img src="../../../../assets/decks/volcano/sign/Symptom_5.png" alt="Symptom_5">
   </div>
   <div (click)="onOptionClick(2)" [ngClass]="{'option': true, 'selected': selectedOption.includes(2)}">
     <p>{{ 'card.sign.symptoms.2' | translate }}</p>
-    <img src="../../../../assets/decks/volcano/sign/Symptom_5.png" alt="Symptom_5">
+    <img src="../../../../assets/decks/volcano/sign/Symptom_3.png" alt="Symptom_3">
   </div>
   <div (click)="onOptionClick(3)" [ngClass]="{'option': true, 'selected': selectedOption.includes(3)}">
     <p>{{ 'card.sign.symptoms.3' | translate }}</p>
-    <img src="../../../../assets/decks/volcano/sign/Symptom_3.png" alt="Symptom_3">
-  </div>
-  <div (click)="onOptionClick(4)" [ngClass]="{'option': true, 'selected': selectedOption.includes(4)}">
-    <p>{{ 'card.sign.symptoms.4' | translate }}</p>
     <img src="../../../../assets/decks/volcano/sign/Symptom_4.png" alt="Symptom_4">
   </div>
 </div>

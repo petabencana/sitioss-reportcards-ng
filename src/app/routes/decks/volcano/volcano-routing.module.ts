@@ -13,7 +13,7 @@ const routes: Routes = [
   // Optional, redirectTo first card in volcano
   {
     path: '**',
-    redirectTo: 'location',
+    redirectTo: 'type',
     pathMatch: 'full'
   }
 ];

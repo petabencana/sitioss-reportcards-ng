@@ -8,7 +8,7 @@
   <div class="structure__slider">
     <input 
       type="range" name="structure__slider-range" 
-      min="0" max="2" 
+      min="0" max="3" 
       [ngClass]="['structure__slider-range', 'range-' + structure]" 
       (change)="onInputChange($event.target.value)"
       [value]="structure"
@@ -19,4 +19,5 @@
   </div>
 
   <p class="structure__txt">{{ title | translate }}</p>
+  <p class="structure_sub">{{ subtitle | translate }}</p>
 </div>

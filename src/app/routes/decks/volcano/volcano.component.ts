@@ -12,6 +12,11 @@ import { environment as env } from '../../../../environments/environment';
   styleUrls: ['./volcano.component.scss']
 })
 export class VolcanoComponent implements OnInit {
+  items: {
+    title: string;
+    subType: 'real' | 'training';
+  }[];
+  showReportTypeButton: boolean = true
 
   constructor(
     public translate: TranslateService,
@@ -32,11 +37,45 @@ export class VolcanoComponent implements OnInit {
     this.navController.checkForFirstCard(this.route);
 
     this.deckService.setDeckType('volcano');
-    this.deckService.setDeckSubType('volcano');
+    // this.deckService.setDeckSubType('volcano');
 
     this.deckService.setRoute(route)
   }
 
-  ngOnInit() { }
+  onTypeSelected(type) {
+    this.showReportTypeButton = false;
+    this.deckService.selectReportType(type);
+  }
+
+  get isShowButtons(): boolean {
+    return this.showReportTypeButton;
+  }
+
+  titles(title){
+    if(title === 'impact'){
+      if(this.deckService.getDeckSubType()==='smog'){
+          return `card.titles.smogimpact`
+      } else if(this.deckService.getDeckSubType()==='structure'){
+          return `card.titles.windstructure`
+      } else {
+          return `card.titles.impact`
+      }
+    } else {
+      return `card.titles.${title}`
+    }
+  }
+
+  ngOnInit() {
+    this.items = [
+      {
+        title: 'card.type.report.realTypeButton',
+        subType: 'real',
+      },
+      {
+        title: 'card.type.report.trainingTypeButton',
+        subType: 'training',
+      },
+    ];
+  }
 
 }

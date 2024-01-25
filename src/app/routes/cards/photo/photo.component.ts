@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../../../app/services/cards/deck.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-photo',
@@ -8,7 +9,8 @@ import { DeckService } from '../../../../app/services/cards/deck.service';
 })
 export class PhotoComponent implements OnInit {
   constructor(
-    public deckService: DeckService
+    public deckService: DeckService,
+    public translate: TranslateService
   ) { }
 
   ngOnInit() {

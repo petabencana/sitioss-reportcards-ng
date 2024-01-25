@@ -12,13 +12,13 @@
     "locateText": "Show me where I am"
   },
   "card": {
-    "yes": "yes",
-    "no": "no",
+    "yes": "Yes",
+    "no": "No",
     "titles": {
       "type": "Select Report Type",
       "location": "Select Report Location",
       "depth": "Select flood depth",
-      "fireestimate": "Report Fire Extent",
+      "radiusestimate": "Report Fire Extent",
       "firedistance": "Your Location and Fire Location",
       "airquality": "Report Air Quality",
       "visibility": "Report Visibility",
@@ -29,12 +29,14 @@
 
       "impact": "Report Wind Impact",
       "windstructure": "Report Structure Failure",
+      "smogimpact": "Describe Ashfall Situation",
 
       "sign": "Report Volcanic Signs",
       "evacuationnumber": "Report Evacuation",
       "evacuationarea": "Report Evacuation",
 
       "photo": "Upload a Photo",
+      "photodescription": "Click to upload",
       "description": "Tell us more",
       "review": "Review & Submit",
       "thank": "Thank you!"
@@ -51,9 +53,20 @@
         "roadTypeButton": "Road Accessibility",
         "structureTypeButton": "Structural Failure"
       },
+
+      "volcano": {
+        "volcanoButton": "Volcanic Signs",
+        "smogButton": "Ashfall"
+      },
+      "typhoon": {
+        "windButton": "Strong Winds",
+        "floodButton": "Flooding",
+        "stormButton": "Storm surge"
+      },
       "report":{
         "realTypeButton": "Submit Real Disaster Report",
         "trainingTypeButton": "Complete Training Exercise"
+
       }
     },
     "visibility": {
@@ -87,10 +100,9 @@
     },
     "accessibility": [
       "No access for vehicles",
-      "2-Wheel Vehicle",
-      "4-Wheel Vehicle (Sedan)",
-      "4-Wheel Vehicle (SUV)",
-      "Large Vehicle (Truck)"
+      "2 and 3-Wheel Vehicle (Motorcycle and Tricycle)",
+      "4-Wheel Vehicle (Sedan and medium SUVs)",
+      "Large Vehicles (Large SUVs and Trucks)"
     ],
     "condition": [
       {
@@ -106,25 +118,38 @@
         "subtitle": "Destroyed Road, Completely Blocked, No access"
       }
     ],
-    "structure": {
-      "cracking": "Cracking",
-      "partially_collapsed": "Partially Collapsed",
-      "fully_collapsed": "Fully Collapsed"
-    },
+    "structure": [
+      {
+        "title": "Observed Shaking",
+        "subtitle": "Movement of household items and decorations at home; felt shaking"
+      },
+      {
+        "title": "Minor Damage",
+        "subtitle": "Visible crack(s) on the wall"
+      },
+      {
+        "title": "Major Damage",
+        "subtitle": "Structure severely compromised"
+      },
+      {
+        "title": "Fully Collapsed",
+        "subtitle": "Structure reduced to rubble"
+      }
+    ],
     "evacuation": {
-      "description": "Do you know where to evacuate to?"
+      "description": "Are you evacuating?",
+      "typhoondescription": "Are you experiencing power outage?"
     },
     "evacuationnumber":{
       "description": "Number of people in your village"
     },
-    "fireestimate": {
+    "radiusestimate": {
       "unit": "hectares"
     },
     "sign" : {
       "description": "Indicate any observations:",
       "symptoms":[
-        "Significant Temperature Increases",
-        "Drought / Vegetation Death",
+        "Water sources are drying up/contaminated",
         "Unusual Animal Behaviour",
         "Frequent Earthquake Tremors",
         "Frequent Rumbling Sounds"
@@ -134,24 +159,73 @@
         "symptoms" : [
         {
           "title": "Low Disruption",
-          "subtitle": "Small obstacles flying"
+          "subtitle": "Small debris are flying around"
         },
         {
           "title": "Medium Disruption",
-          "subtitle": "Road blockages, transport disturbance, blackout"
+          "subtitle": "Road blockages, felled trees, agricultural damage, blackout"
         },
         {
           "title": "High Disruption",
-          "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+          "subtitle": "Damage to property, large debris flying around"
         }
       ],
+        "smog" : {
+          "symptoms" : [
+            {
+              "title": "Fine/Dry",
+              "subtitle": "describe effects, visibility"
+            },
+            {
+              "title": "Granulated ",
+              "subtitle": "strong smell of sulfur"
+            },
+            {
+              "title": "Dense/Wet",
+              "subtitle": "describe effects, roads not passable"
+            }
+          ]
+        },
+        "storm": {
+          "symptoms" : [
+            {
+              "title": "Low",
+              "subtitle": "Aggressive waves on sea wall"
+            },
+            {
+              "title": "Medium ",
+              "subtitle": "Waves causing low to medium flooding to coastal communities"
+            },
+            {
+              "title": "High",
+              "subtitle": "Large waves damaging coastal communities"
+            }
+          ]
+        },
       "review":[
         "Low Disruption",
         "Medium Disruption",
         "High Disruption"
+      ],
+      "storm_review":[
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "smog_review":[
+        "Fine/Dry",
+        "Granulated",
+        "Dense/Wet"
       ]
     },
-    "description": "Add your description here ...",
+    "flooddescription": "Add your description here…",
+    "description": "Add your description here…",
+    "roaddescription": "Ex: Roads are impossible to use since there are huge cracks on the road due to the earthquake.",
+    "structuredescription": "Ex: There is visible cracks on the wall due to the earthquake.",
+    "volcanodescription": "Ex: I can hear rumbling sounds. Possibly from volcanic eruption.",
+    "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    
+    "winddescription": "Ex: Leaves are flying around due to the strong winds from the typhoon. ",
+    "stormdescription": "Ex: Waves are starting to enter the coastal community due to the typhoon. ",
     "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
@@ -196,7 +270,13 @@
     },
     "swipeText": "Submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
-    "reportAgainAccess": "Would you also like to submit road accessibility report?"
+    "reportAgainAccess": "Would you also like to submit road accessibility report?",
+    "reportAgainVolcanic": "Would you like to submit volcanic report?",
+    "reportAgainSmog": "Would you like to submit ashfall report?",
+    "reportAgain": "Would you like to submit another report?",
+    "floodoptbutton": "Flooding",
+    "stormoptbutton": "Storm Surge",
+    "windoptbutton": "Strong Winds"
   },
   "partner_mode_title": "Enter Partner Mode?",
   "partner_mode_body1":"Anyone can submit a disaster report to Makalamidad.ph",
