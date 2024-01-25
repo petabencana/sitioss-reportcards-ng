@@ -387,7 +387,7 @@ export class DeckService {
           summary.card_data.evacuationArea = this.evacuationArea;
         } else if(this.subType == "smog") {
           summary.card_data.smogRadius = this.smogRadius;
-          summary.card_data.impact = this.impact;
+          summary.card_data.smogImpact = this.impact;
           summary.card_data.evacuationArea = this.evacuationArea;
         }
         break;
