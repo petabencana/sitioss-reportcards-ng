@@ -157,7 +157,6 @@ export class ThankComponent {
   }
 
   reportTyphoonCard(buttonText: string) {
-    console.log('btntext',buttonText)
     this.deckService.setSubSubmission();
     let newDeckSubType: any;
     this.deckService.initiateAnotherReport().then((response)=> {
