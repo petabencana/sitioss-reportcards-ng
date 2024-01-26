@@ -18,7 +18,7 @@
       "type": "Select Report Type",
       "location": "Select Report Location",
       "depth": "Select flood depth",
-      "radiusestimate": "Report Fire Extent",
+      "radiusestimate": "Indicate Approximate Radius",
       "firedistance": "Your Location and Fire Location",
       "airquality": "Report Air Quality",
       "visibility": "Report Visibility",
@@ -32,8 +32,8 @@
       "smogimpact": "Describe Ashfall Situation",
 
       "sign": "Report Volcanic Signs",
-      "evacuationnumber": "Report Evacuation",
-      "evacuationarea": "Report Evacuation",
+      "evacuationnumber": "Report Power Status",
+      "evacuationarea": "Report Power Status",
 
       "photo": "Upload a Photo",
       "photodescription": "Click to upload",
@@ -174,7 +174,7 @@
           "symptoms" : [
             {
               "title": "Fine/Dry",
-              "subtitle": "describe effects, visibility"
+              "subtitle": "difficult to breathe and see"
             },
             {
               "title": "Granulated ",
@@ -182,7 +182,7 @@
             },
             {
               "title": "Dense/Wet",
-              "subtitle": "describe effects, roads not passable"
+              "subtitle": "roads not passable"
             }
           ]
         },

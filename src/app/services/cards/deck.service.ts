@@ -384,11 +384,9 @@ export class DeckService {
       case "volcano":
         if(this.subType == "volcanic") {
           summary.card_data.volcanicSigns = this.volcanicSigns;
-          summary.card_data.evacuationArea = this.evacuationArea;
         } else if(this.subType == "smog") {
           summary.card_data.smogRadius = this.smogRadius;
           summary.card_data.smogImpact = this.impact;
-          summary.card_data.evacuationArea = this.evacuationArea;
         }
         break;
       case "haze":
@@ -406,12 +404,12 @@ export class DeckService {
       case "typhoon":
         if(this.subType == "wind") {
           summary.card_data.impact = this.impact;
-          summary.card_data.evacuationArea = this.evacuationArea;
+          summary.card_data.powerOutRage = this.evacuationArea;
         } else if (this.subType == "flood") {
           summary.card_data.flood_depth = this.floodDepth;
         } else if (this.subType == "storm") {
           summary.card_data.impact = this.impact;
-          summary.card_data.evacuationArea = this.evacuationArea;
+          summary.card_data.powerOutRage = this.evacuationArea;
         }
     }
     return summary;
