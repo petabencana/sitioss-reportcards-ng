@@ -15,8 +15,10 @@
   min-height: 90vh;
 }
 
-@media (max-width: 721px) {
+@media (max-width: 768px) {
   .type {
     flex-direction: column;
+    gap: 24px;
+    justify-content: center;
   }
 }
