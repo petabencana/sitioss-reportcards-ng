@@ -29,7 +29,7 @@
 
       "impact": "Report Wind Impact",
       "windstructure": "Report Structure Failure",
-      "smogimpact": "Describe Ashfall Situation",
+      "smogimpact": "Storm Surge Level",
 
       "sign": "Report Volcanic Signs",
       "evacuationnumber": "Report Power Status",
@@ -144,7 +144,7 @@
       "description": "Number of people in your village"
     },
     "radiusestimate": {
-      "unit": "hectares"
+      "unit": "kilometers"
     },
     "sign" : {
       "description": "Indicate any observations:",
