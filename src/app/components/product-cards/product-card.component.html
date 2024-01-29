@@ -11,11 +11,37 @@
           <h4>{{ card.title }}</h4>
         </div>
         <!-- <p>{{ card.description }}</p> -->
-        <!-- <p>Category: {{ card.category }}</p> -->
+        <div *ngIf="card.hasDescription">
+          <button (click)="openDescriptionModal(card)" class="description">
+            {{
+              card.description
+                ? card.description
+                : card.descriptionPlaceholder
+            }}
+          </button>
+          <!-- Modal start-->
+          <div *ngIf="card.showModal" class="modal">
+            <h2>Add Description</h2>
+            <p>{{ card.title }}</p>
+            <textarea
+              [(ngModel)]="card.description"
+              placeholder="Enter description"
+            ></textarea>
+            <div>
+              <button (click)="closeModal(card)">Cancel</button>
+              <button (click)="saveDescription(card)">Save</button>
+            </div>
+          </div>
+          <!-- Modal end-->
+        </div>
         <div>
-          <button (click)="decreaseQuantity(card)">-</button>
+          <button class="quantitybuttons" (click)="decreaseQuantity(card)">
+            -
+          </button>
           <span>{{ card.quantity }}</span>
-          <button (click)="increaseQuantity(card)">+</button>
+          <button class="quantitybuttons" (click)="increaseQuantity(card)">
+            +
+          </button>
         </div>
       </div>
     </div>

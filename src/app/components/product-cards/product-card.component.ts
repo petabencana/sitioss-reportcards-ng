@@ -1,4 +1,3 @@
-// card.component.ts
 import { Component } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
 
@@ -24,10 +23,13 @@ export class CardComponent {
       category: 'Food',
       img: '../../../assets/decks/logistics/products/ReadytoEatMeals.png',
       quantity: 0,
+      descriptionPlaceholder:
+        'Add description. E.g. instant porridge, bread, biscuits, nasi bungkus/padang',
+      hasDescription: true,
     },
     {
       title: 'Rice Sack',
-      description: '1 pair',
+      description: '',
       category: 'Food',
       img: '../../../assets/decks/logistics/products/RiceSack.png',
       quantity: 0,
@@ -71,40 +73,35 @@ export class CardComponent {
 
   categories = [
     {
-      category: 'Medicine',
-      description: '',
-      img: '../../../assets/decks/logistics/products/Firstaid.png',
-    },
-    {
       category: 'Food',
       description: '',
       img: '../../../assets/decks/logistics/products/Food.png',
+    },
+    {
+      category: 'Medicine',
+      description: '',
+      img: '../../../assets/decks/logistics/products/Firstaid.png',
     },
     {
       category: 'Electronics',
       description: '',
       img: '../../../assets/decks/logistics/products/Flashlight.png',
     },
-    
-    
   ];
 
   constructor(public deckService: DeckService) {}
 
-  selectedCategory: string | null = 'Medicine';
-
-  // cart: { title: string; quantity: number,category: string  }[] = [];
-
+  selectedCategory: string | null = 'Food';
 
   ngOnInit() {
     this.cards.forEach((card) => {
       const storedProduct = this.deckService.getSelectedProducts(card.title);
       if (storedProduct) {
         card.quantity = storedProduct.quantity;
+        card.description = storedProduct.description;
       }
     });
   }
-
 
   get filteredCards() {
     return this.selectedCategory
@@ -118,39 +115,61 @@ export class CardComponent {
 
   increaseQuantity(card: any) {
     card.quantity = (card.quantity || 0) + 1;
-    this.recordQuantityChange(card.title, card.quantity, card.category);
+    this.recordQuantityChange(
+      card.title,
+      card.quantity,
+      card.category,
+      card.description
+    );
   }
 
   decreaseQuantity(card: any) {
     if (card.quantity && card.quantity > 0) {
       card.quantity -= 1;
-      this.recordQuantityChange(card.title, card.quantity, card.category);
+      this.recordQuantityChange(
+        card.title,
+        card.quantity,
+        card.category,
+        card.description
+      );
     }
   }
 
   private recordQuantityChange(
     title: string,
     quantity: number,
-    category: string
+    category: string,
+    description: string
   ) {
-    // if (quantity === 0) {
-    //   this.cart = this.cart.filter((change) => change.title !== title);
-    // } else {
-    //   const index = this.cart.findIndex((change) => change.title === title);
-
-    //   if (index !== -1) {
-    //     this.cart[index].quantity = quantity;
-    //     this.cart[index].category = category;
-
-    //   } else {
-    //     this.cart.push({ title, quantity , category});
-    //   }
-    // }
-    this.deckService.setSelectedProducts(title, quantity, category);
+    this.deckService.setSelectedProducts(
+      title,
+      quantity,
+      category,
+      description
+    );
   }
 
   check() {
-    // console.log(this.cart);
     console.log(this.deckService.selectedProducts);
+  }
+
+  openDescriptionModal(card: any): void {
+    card.showModal = true;
+  }
+
+  saveDescription(card: any): void {
+    card.showModal = false;
+    console.log(card);
+
+    this.recordQuantityChange(
+      card.title,
+      card.quantity,
+      card.category,
+      card.description
+    );
+  }
+
+  closeModal(card: any): void {
+    card.showModal = false;
   }
 }
