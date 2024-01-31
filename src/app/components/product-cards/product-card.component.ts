@@ -119,7 +119,8 @@ export class CardComponent {
       card.title,
       card.quantity,
       card.category,
-      card.description
+      card.description,
+      card.img
     );
   }
 
@@ -130,7 +131,8 @@ export class CardComponent {
         card.title,
         card.quantity,
         card.category,
-        card.description
+        card.description,
+        card.img
       );
     }
   }
@@ -139,37 +141,51 @@ export class CardComponent {
     title: string,
     quantity: number,
     category: string,
-    description: string
+    description: string,
+    img:string,
   ) {
     this.deckService.setSelectedProducts(
       title,
       quantity,
       category,
-      description
+      description,
+      img
     );
   }
 
+  truncateDescription(description: string, maxLines: number): string {
+    const lines = description.split('\n');
+    if (lines.length > maxLines) {
+      return lines.slice(0, maxLines).join('\n') + (maxLines > 1 ? '...' : '');
+    }
+    return description;
+  }
+
+  
   check() {
     console.log(this.deckService.selectedProducts);
   }
 
   openDescriptionModal(card: any): void {
     card.showModal = true;
+    card.tempDescription = card.description;
   }
 
   saveDescription(card: any): void {
     card.showModal = false;
-    console.log(card);
+
 
     this.recordQuantityChange(
       card.title,
       card.quantity,
       card.category,
-      card.description
+      card.description,
+      card.img
     );
   }
 
   closeModal(card: any): void {
     card.showModal = false;
+    card.description = card.tempDescription;
   }
 }
