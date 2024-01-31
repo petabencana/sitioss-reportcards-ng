@@ -73,7 +73,7 @@ export class DeckService {
   reportType = '';
 
 
-  selectedProducts: { title: string; quantity: number; category: string }[] =
+  selectedProducts: { title: string; quantity: number; category: string; description: string, img:string }[] =
     [];
 
   
@@ -81,7 +81,7 @@ export class DeckService {
     return this.selectedProducts.find((product) => product.title === title);
   }
 
-  setSelectedProducts(title: string, quantity: number, category: string) {
+  setSelectedProducts(title: string, quantity: number, category: string, description: string,img: string) {
     if (quantity === 0) {
       this.selectedProducts = this.selectedProducts.filter(
         (product) => product.title !== title
@@ -94,8 +94,12 @@ export class DeckService {
       if (index !== -1) {
         this.selectedProducts[index].quantity = quantity;
         this.selectedProducts[index].category = category;
+        this.selectedProducts[index].description = description;
+        this.selectedProducts[index].img = img;
+
+
       } else {
-        this.selectedProducts.push({ title, quantity, category });
+        this.selectedProducts.push({ title, quantity, category, description,img });
       }
     }
   }
