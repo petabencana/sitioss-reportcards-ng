@@ -1,0 +1,40 @@
+<!-- <div class="header">
+  <div *ngFor="let item of logisticsdetails">
+    <span>
+      {{ item.title }} - {{ item.quantity }} -
+      {{ item.category }}
+    </span>
+  </div>
+</div> -->
+
+<div class="productsWrapper">
+  <div class="scroll" #scrollContainer>
+    <div *ngFor="let item of logisticsdetails" class="flex m20">
+      <div class="productCard">
+        <div>
+          <img class="productimg" src="{{ item.img }}" />
+        </div>
+      </div>
+      <div class="productInfo">
+        <div>
+          <h4>{{ item.title }}</h4>
+        </div>
+        <!-- <p>{{ item.description }}</p> -->
+        <div *ngIf="item.description !== ''">
+          <button class="description" contenteditable="false">
+            {{ item.description }}
+          </button>
+        </div>
+        <div>
+          <button class="quantitybuttons" >
+            -
+          </button>
+          <span>{{ item.quantity }}</span>
+          <button class="quantitybuttons" >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
