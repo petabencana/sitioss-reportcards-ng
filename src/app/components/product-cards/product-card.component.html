@@ -12,24 +12,31 @@
         </div>
         <!-- <p>{{ card.description }}</p> -->
         <div *ngIf="card.hasDescription">
-          <button (click)="openDescriptionModal(card)" class="description">
+          <button (click)="openDescriptionModal(card)" class="description" contenteditable="false">
             {{
-              card.description
-                ? card.description
-                : card.descriptionPlaceholder
+              truncateDescription(
+                card.description
+                  ? card.description
+                  : card.descriptionPlaceholder,
+                3
+              )
             }}
           </button>
           <!-- Modal start-->
           <div *ngIf="card.showModal" class="modal">
-            <h2>Add Description</h2>
-            <p>{{ card.title }}</p>
+            <h3>Add more detail - {{ card.title }}</h3>
             <textarea
               [(ngModel)]="card.description"
-              placeholder="Enter description"
+              placeholder="{{ card.descriptionPlaceholder }}"
             ></textarea>
             <div>
               <button (click)="closeModal(card)">Cancel</button>
-              <button (click)="saveDescription(card)">Save</button>
+              <button
+                (click)="saveDescription(card)"
+                [disabled]="card.description === ''"
+              >
+                Save
+              </button>
             </div>
           </div>
           <!-- Modal end-->
