@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
+import { productsList } from './products-list';
 
 @Component({
   selector: 'product-card',
@@ -9,89 +10,47 @@ import { DeckService } from '../../services/cards/deck.service';
 export class CardComponent {
   quantity: number = 0;
 
-  cards = [
-    {
-      title: 'Water',
-      description: '',
-      category: 'Food',
-      img: '../../../assets/decks/logistics/products/Water.png',
-      quantity: 0,
-    },
-    {
-      title: 'Ready to Eat Meals',
-      description: '',
-      category: 'Food',
-      img: '../../../assets/decks/logistics/products/ReadytoEatMeals.png',
-      quantity: 0,
-      descriptionPlaceholder:
-        'Add description. E.g. instant porridge, bread, biscuits, nasi bungkus/padang',
-      hasDescription: true,
-    },
-    {
-      title: 'Rice Sack',
-      description: '',
-      category: 'Food',
-      img: '../../../assets/decks/logistics/products/RiceSack.png',
-      quantity: 0,
-    },
-    {
-      title: 'Mask',
-      description: '',
-      category: 'Medicine',
-      img: '../../../assets/decks/logistics/products/Mask.png',
-      quantity: 0,
-    },
-    {
-      title: 'Paracetamol',
-      description: '',
-      category: 'Medicine',
-      img: '../../../assets/decks/logistics/products/Paracetamol.png',
-      quantity: 0,
-    },
-    {
-      title: 'Anti Fungal Cream',
-      description: '',
-      category: 'Medicine',
-      img: '../../../assets/decks/logistics/products/AntiFungalCream.png',
-      quantity: 0,
-    },
-    {
-      title: 'Baby Bottle',
-      description: '',
-      category: 'Medicine',
-      img: '../../../assets/decks/logistics/products/Babybottle.png',
-      quantity: 0,
-    },
-    {
-      title: 'Flashlight',
-      description: '',
-      category: 'Electronics',
-      img: '../../../assets/decks/logistics/products/Flashlight.png',
-      quantity: 0,
-    },
-  ];
+  cards = productsList;
+
 
   categories = [
     {
-      category: 'Food',
+      category: 'FOOD/WATER',
       description: '',
       img: '../../../assets/decks/logistics/products/Food.png',
     },
     {
-      category: 'Medicine',
+      category: 'CLOTHES & SELF PROTECTION KIT',
       description: '',
-      img: '../../../assets/decks/logistics/products/Firstaid.png',
+      img: '../../../assets/decks/logistics/products/no-pictures.png',
     },
     {
-      category: 'Electronics',
+      category: 'BABIES AND CHILDREN',
       description: '',
-      img: '../../../assets/decks/logistics/products/Flashlight.png',
+      img: '../../../assets/decks/logistics/products/no-pictures.png',
+    },
+    {
+      category: 'HOUSEHOLD AND EMERGENCY SUPPLIES',
+      description: '',
+      img: '../../../assets/decks/logistics/products/no-pictures.png',
+    },
+    {
+      category: 'PERSONAL HEALTH',
+      description: '',
+      img: '../../../assets/decks/logistics/products/no-pictures.png',
+    },
+    {
+      category: 'HYGIENE KITS',
+      description: '',
+      img: '../../../assets/decks/logistics/products/no-pictures.png',
     },
   ];
 
   constructor(public deckService: DeckService) {}
 
-  selectedCategory: string | null = 'Food';
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
+  selectedCategory: string | null = 'FOOD/WATER';
 
   ngOnInit() {
     this.cards.forEach((card) => {
@@ -111,6 +70,7 @@ export class CardComponent {
 
   selectCategory(category: string) {
     this.selectedCategory = category;
+    this.scrollContainer.nativeElement.scrollTop = 0;
   }
 
   increaseQuantity(card: any) {
@@ -142,7 +102,7 @@ export class CardComponent {
     quantity: number,
     category: string,
     description: string,
-    img:string,
+    img: string
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -161,7 +121,6 @@ export class CardComponent {
     return description;
   }
 
-  
   check() {
     console.log(this.deckService.selectedProducts);
   }
@@ -173,7 +132,6 @@ export class CardComponent {
 
   saveDescription(card: any): void {
     card.showModal = false;
-
 
     this.recordQuantityChange(
       card.title,
