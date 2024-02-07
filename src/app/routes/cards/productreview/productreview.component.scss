@@ -1,28 +1,21 @@
-.captchaContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+.captchaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.productreview{
+.productreview {
+    overflow: auto;
+    text-align: center;
     background-color: white;
-    height: 76vh;
+    width: 100%;
+    height: 100%;
 }
 
-.footer{
-    background-color: #808080;
-    width: 350px;
-    margin-inline: auto;
-    padding-inline: 20px;
-    padding-block: 20px;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+.review{
+    display: flex;
+    justify-content: center;
+    height: 86vh;
 }
 
-
-
-.rc-anchor-dark{
-    border: none;
-    background: #808080;
-}
