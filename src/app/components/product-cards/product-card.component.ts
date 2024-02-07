@@ -59,6 +59,10 @@ export class CardComponent {
         card.quantity = storedProduct.quantity;
         card.description = storedProduct.description;
       }
+      else{
+        card.quantity = 0
+        card.description = ''
+      }
     });
   }
 
