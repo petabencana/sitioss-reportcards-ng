@@ -1,14 +1,6 @@
-<!-- <div class="header">
-  <div *ngFor="let item of logisticsdetails">
-    <span>
-      {{ item.title }} - {{ item.quantity }} -
-      {{ item.category }}
-    </span>
-  </div>
-</div> -->
-
 <div class="productsWrapper">
   <div class="scroll" #scrollContainer>
+    <!-- <button (click)="check()">check</button> -->
     <div *ngFor="let item of logisticsdetails" class="flex m20">
       <div class="productCard">
         <div>
@@ -21,9 +13,29 @@
         </div>
         <!-- <p>{{ item.description }}</p> -->
         <div>
-          <button class="description" contenteditable="false">
-            {{ item.description }}
+          <button
+            (click)="openDescriptionModal(item)"
+            class="description"
+            contenteditable="false"
+          >
+            {{ truncateDescription(item.description, 3) }}
           </button>
+          <div *ngIf="item.showModal" class="modal">
+            <h3>Add more detail - {{ item.title }}</h3>
+            <textarea
+              [(ngModel)]="item.description"
+              placeholder="{{ item.descriptionPlaceholder }}"
+            ></textarea>
+            <div>
+              <button (click)="closeModal(item)">Cancel</button>
+              <button
+                (click)="saveDescription(item)"
+                [disabled]="item.description === ''"
+              >
+                Save
+              </button>
+            </div>
+          </div>
         </div>
         <div>
           <button class="quantitybuttons" (click)="decreaseQuantity(item)">
@@ -38,7 +50,6 @@
     </div>
   </div>
   <div class="footer">
-    <button (click)="check()">check</button>
     <div class="captchaContainer">
       <form [formGroup]="captchaForm">
         <ngx-recaptcha2
