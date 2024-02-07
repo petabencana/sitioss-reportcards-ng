@@ -22,6 +22,15 @@ export class ReportProductReviewComponent {
     return this.deckService.selectedProducts;
   }
 
+  truncateDescription(description: string, maxLines: number): string {
+    const lines = description.split('\n');
+    if (lines.length > maxLines) {
+      return lines.slice(0, maxLines).join('\n') + (maxLines > 1 ? '...' : '');
+    }
+    return description;
+  }
+
+
   private recordQuantityChange(
     title: string,
     quantity: number,
@@ -63,7 +72,26 @@ export class ReportProductReviewComponent {
   }
   check() {
     console.log(this.deckService.selectedProducts);
-}
+  }
+  openDescriptionModal(card: any): void {
+    card.showModal = true;
+    card.tempDescription = card.description;
+  }
 
+  saveDescription(card: any): void {
+    card.showModal = false;
 
+    this.recordQuantityChange(
+      card.title,
+      card.quantity,
+      card.category,
+      card.description,
+      card.img
+    );
+  }
+
+  closeModal(card: any): void {
+    card.showModal = false;
+    card.description = card.tempDescription;
+  }
 }
