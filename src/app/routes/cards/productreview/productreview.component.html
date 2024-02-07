@@ -1,17 +1,4 @@
 <div class="productreview">
-  <app-product-review></app-product-review>
-  <div class="footer">
-    <div class="captchaContainer">
-      <form [formGroup]="captchaForm">
-        <ngx-recaptcha2
-          siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"
-          (success)="handleSuccess($event)"
-          data-theme="dark"
-          formControlName="recaptcha"
-        >
-        </ngx-recaptcha2>
-      </form>
-    </div>
-    <app-submit-button title="Submit Request"> </app-submit-button>
-  </div>
+  <app-product-review class="review"></app-product-review>
+  
 </div>

@@ -20,21 +20,37 @@
           <h4>{{ item.title }}</h4>
         </div>
         <!-- <p>{{ item.description }}</p> -->
-        <div *ngIf="item.description !== ''">
+        <div>
           <button class="description" contenteditable="false">
             {{ item.description }}
           </button>
         </div>
         <div>
-          <button class="quantitybuttons" >
+          <button class="quantitybuttons" (click)="decreaseQuantity(item)">
             -
           </button>
           <span>{{ item.quantity }}</span>
-          <button class="quantitybuttons" >
+          <button class="quantitybuttons" (click)="increaseQuantity(item)">
             +
           </button>
         </div>
       </div>
     </div>
+  </div>
+  <div class="footer">
+    <button (click)="check()">check</button>
+    <div class="captchaContainer">
+      <form [formGroup]="captchaForm">
+        <ngx-recaptcha2
+          siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"
+          (success)="handleSuccess($event)"
+          data-theme="dark"
+          formControlName="recaptcha"
+        >
+        </ngx-recaptcha2>
+      </form>
+    </div>
+    <app-submit-button title="Submit Request" class="SubmitButton">
+    </app-submit-button>
   </div>
 </div>
