@@ -12,7 +12,7 @@ type deckType =
   | 'haze'
   | 'volcano'
   | 'flood'
-  | 'logistics';
+  | 'needs';
 type deckSubType =
   | 'fire'
   | 'haze'
@@ -21,7 +21,7 @@ type deckSubType =
   | 'wind'
   | 'volcano'
   | 'flood'
-  | 'logistics';
+  | 'needs';
 
 interface LatLng {
   lat: number;

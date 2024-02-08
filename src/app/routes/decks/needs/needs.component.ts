@@ -8,10 +8,10 @@ import { environment as env } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-logistics',
-  templateUrl: './logistics.component.html',
-  styleUrls: ['./logistics.component.scss'],
+  templateUrl: './needs.component.html',
+  styleUrls: ['./needs.component.scss'],
 })
-export class LogisticsComponent implements OnInit {
+export class NeedsComponent implements OnInit {
   items: {
     title: string;
     subType: 'real' | 'training';
@@ -31,13 +31,13 @@ export class LogisticsComponent implements OnInit {
     translate.use(this.deckService.getCardLanguage());
 
     // Store card routes for navigation
-    this.navController.registerCardRoutes('logistics');
+    this.navController.registerCardRoutes('needs');
 
     // Check for first card, else redirect
     this.navController.checkForFirstCard(this.route);
 
-    this.deckService.setDeckType('logistics');
-    this.deckService.setDeckSubType('logistics');
+    this.deckService.setDeckType('needs');
+    this.deckService.setDeckSubType('needs');
     this.deckService.setRoute(route);
   }
 
