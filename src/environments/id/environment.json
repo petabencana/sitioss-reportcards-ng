@@ -101,6 +101,13 @@
         "productreview",
         "thank"
       ]
+    },
+    {
+      "name": "giver",
+      "cards": [
+        "donate",
+        "thank"
+      ]
     }
   ]
 }

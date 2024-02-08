@@ -12,7 +12,8 @@ type deckType =
   | 'haze'
   | 'volcano'
   | 'flood'
-  | 'needs';
+  | 'needs'
+  | 'giver';
 type deckSubType =
   | 'fire'
   | 'haze'
@@ -21,7 +22,8 @@ type deckSubType =
   | 'wind'
   | 'volcano'
   | 'flood'
-  | 'needs';
+  | 'needs'
+  | 'giver';
 
 interface LatLng {
   lat: number;
@@ -72,16 +74,25 @@ export class DeckService {
   isNextButtonDisabled = true;
   reportType = '';
 
+  selectedProducts: {
+    title: string;
+    quantity: number;
+    category: string;
+    description: string;
+    img: string;
+  }[] = [];
 
-  selectedProducts: { title: string; quantity: number; category: string; description: string, img:string }[] =
-    [];
-
-  
   getSelectedProducts(title: string) {
     return this.selectedProducts.find((product) => product.title === title);
   }
 
-  setSelectedProducts(title: string, quantity: number, category: string, description: string,img: string) {
+  setSelectedProducts(
+    title: string,
+    quantity: number,
+    category: string,
+    description: string,
+    img: string
+  ) {
     if (quantity === 0) {
       this.selectedProducts = this.selectedProducts.filter(
         (product) => product.title !== title
@@ -96,10 +107,14 @@ export class DeckService {
         this.selectedProducts[index].category = category;
         this.selectedProducts[index].description = description;
         this.selectedProducts[index].img = img;
-
-
       } else {
-        this.selectedProducts.push({ title, quantity, category, description,img });
+        this.selectedProducts.push({
+          title,
+          quantity,
+          category,
+          description,
+          img,
+        });
       }
     }
   }
@@ -234,7 +249,6 @@ export class DeckService {
   setDeckType(type: deckType) {
     this.type = type;
   }
-
 
   setDeckSubType(subType: deckSubType) {
     this.subType = subType;
