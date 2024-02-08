@@ -13,7 +13,7 @@ const routes: Routes = [
   // Optional, redirectTo first card in prep
   {
     path: '**',
-    redirectTo: 'products',
+    redirectTo: 'location',
     pathMatch: 'full'
   }
 ];
