@@ -83,11 +83,11 @@
       ]
     },
     {
-      "name": "logistics",
+      "name": "needs",
       "cards": [
-        "products",
         "location",
-        "review",
+        "products",
+        "productreview",
         "thank"
       ]
     }
