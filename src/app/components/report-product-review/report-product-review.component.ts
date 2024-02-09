@@ -36,14 +36,16 @@ export class ReportProductReviewComponent {
     quantity: number,
     category: string,
     description: string,
-    img: string
+    img: string,
+    units: string
   ) {
     this.deckService.setSelectedProducts(
       title,
       quantity,
       category,
       description,
-      img
+      img,
+      units
     );
   }
 
@@ -54,7 +56,8 @@ export class ReportProductReviewComponent {
       card.quantity,
       card.category,
       card.description,
-      card.img
+      card.img,
+      card.units
     );
   }
 
@@ -66,7 +69,8 @@ export class ReportProductReviewComponent {
         card.quantity,
         card.category,
         card.description,
-        card.img
+        card.img,
+        card.units
       );
     }
   }
@@ -86,7 +90,8 @@ export class ReportProductReviewComponent {
       card.quantity,
       card.category,
       card.description,
-      card.img
+      card.img,
+      card.units
     );
   }
 

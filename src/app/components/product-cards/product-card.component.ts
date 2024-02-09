@@ -12,7 +12,6 @@ export class CardComponent {
 
   cards = productsList;
 
-
   categories = [
     {
       category: 'FOOD/WATER',
@@ -58,10 +57,9 @@ export class CardComponent {
       if (storedProduct) {
         card.quantity = storedProduct.quantity;
         card.description = storedProduct.description;
-      }
-      else{
-        card.quantity = 0
-        card.description = ''
+      } else {
+        card.quantity = 0;
+        card.description = '';
       }
     });
   }
@@ -77,6 +75,24 @@ export class CardComponent {
     this.scrollContainer.nativeElement.scrollTop = 0;
   }
 
+  private recordQuantityChange(
+    title: string,
+    quantity: number,
+    category: string,
+    description: string,
+    img: string,
+    units: string
+  ) {
+    this.deckService.setSelectedProducts(
+      title,
+      quantity,
+      category,
+      description,
+      img,
+      units
+    );
+  }
+
   increaseQuantity(card: any) {
     card.quantity = (card.quantity || 0) + 1;
     this.recordQuantityChange(
@@ -84,7 +100,8 @@ export class CardComponent {
       card.quantity,
       card.category,
       card.description,
-      card.img
+      card.img,
+      card.units
     );
   }
 
@@ -96,25 +113,10 @@ export class CardComponent {
         card.quantity,
         card.category,
         card.description,
-        card.img
+        card.img,
+        card.units
       );
     }
-  }
-
-  private recordQuantityChange(
-    title: string,
-    quantity: number,
-    category: string,
-    description: string,
-    img: string
-  ) {
-    this.deckService.setSelectedProducts(
-      title,
-      quantity,
-      category,
-      description,
-      img
-    );
   }
 
   truncateDescription(description: string, maxLines: number): string {
@@ -142,7 +144,8 @@ export class CardComponent {
       card.quantity,
       card.category,
       card.description,
-      card.img
+      card.img,
+      card.units
     );
   }
 

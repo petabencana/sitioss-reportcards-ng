@@ -80,6 +80,7 @@ export class DeckService {
     category: string;
     description: string;
     img: string;
+    units: string
   }[] = [];
 
   getSelectedProducts(title: string) {
@@ -91,7 +92,8 @@ export class DeckService {
     quantity: number,
     category: string,
     description: string,
-    img: string
+    img: string,
+    units: string
   ) {
     if (quantity === 0) {
       this.selectedProducts = this.selectedProducts.filter(
@@ -107,6 +109,8 @@ export class DeckService {
         this.selectedProducts[index].category = category;
         this.selectedProducts[index].description = description;
         this.selectedProducts[index].img = img;
+        this.selectedProducts[index].units = units;
+
       } else {
         this.selectedProducts.push({
           title,
@@ -114,6 +118,7 @@ export class DeckService {
           category,
           description,
           img,
+          units
         });
       }
     }
