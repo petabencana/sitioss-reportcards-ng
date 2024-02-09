@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
-import { productsList } from './products-list';
+import { TranslationService } from './product.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'product-card',
@@ -9,59 +10,56 @@ import { productsList } from './products-list';
 })
 export class CardComponent {
   quantity: number = 0;
+  cards: any;
+  categories: any;
+  selectedCategory: string | null = 'MAKANAN/AIR MINUM' || 'FOOD/WATER';
 
-  cards = productsList;
-
-  categories = [
-    {
-      category: 'FOOD/WATER',
-      description: '',
-      img: '../../../assets/decks/logistics/products/Food.png',
-    },
-    {
-      category: 'CLOTHES & SELF PROTECTION KIT',
-      description: '',
-      img: '../../../assets/decks/logistics/products/no-pictures.png',
-    },
-    {
-      category: 'BABIES AND CHILDREN',
-      description: '',
-      img: '../../../assets/decks/logistics/products/no-pictures.png',
-    },
-    {
-      category: 'HOUSEHOLD AND EMERGENCY SUPPLIES',
-      description: '',
-      img: '../../../assets/decks/logistics/products/no-pictures.png',
-    },
-    {
-      category: 'PERSONAL HEALTH',
-      description: '',
-      img: '../../../assets/decks/logistics/products/no-pictures.png',
-    },
-    {
-      category: 'HYGIENE KITS',
-      description: '',
-      img: '../../../assets/decks/logistics/products/no-pictures.png',
-    },
-  ];
-
-  constructor(public deckService: DeckService) {}
+  constructor(
+    private translationService: TranslationService,
+    public deckService: DeckService
+  ) {}
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
-  selectedCategory: string | null = 'FOOD/WATER';
-
   ngOnInit() {
-    this.cards.forEach((card) => {
-      const storedProduct = this.deckService.getSelectedProducts(card.title);
-      if (storedProduct) {
-        card.quantity = storedProduct.quantity;
-        card.description = storedProduct.description;
-      } else {
-        card.quantity = 0;
-        card.description = '';
-      }
+    // Load both products and categories translations simultaneously
+    forkJoin({
+      //  change hard code en with language value in state
+      productsData: this.translationService.getTranslations('en', 'products'),
+      categoriesData: this.translationService.getTranslations(
+        'en',
+        'categories'
+      ),
+    }).subscribe(({ productsData, categoriesData }) => {
+      // Assign loaded translations to respective properties
+      this.cards = productsData;
+      this.categories = categoriesData;
+
+      // Initialize selectedCategory and prefill cards only after both translations are loaded
+      this.initSelectedCategory();
+      this.prefillCards();
     });
+  }
+
+  private initSelectedCategory() {
+    if (this.categories && this.categories.length > 0) {
+      this.selectedCategory = this.categories[0].category;
+    }
+  }
+
+  private prefillCards() {
+    if (this.cards) {
+      this.cards.forEach((card) => {
+        const storedProduct = this.deckService.getSelectedProducts(card.title);
+        if (storedProduct) {
+          card.quantity = storedProduct.quantity;
+          card.description = storedProduct.description;
+        } else {
+          card.quantity = 0;
+          card.description = '';
+        }
+      });
+    }
   }
 
   get filteredCards() {
@@ -128,7 +126,11 @@ export class CardComponent {
   }
 
   check() {
-    console.log(this.deckService.selectedProducts);
+    // console.log(this.cards);
+    // console.log(this.categories[0]);
+    // console.log(this.selectCategory);
+    // console.log(this.deckService.selectedProducts);
+    // console.log(this.deckService.getCardLanguage());
   }
 
   openDescriptionModal(card: any): void {
