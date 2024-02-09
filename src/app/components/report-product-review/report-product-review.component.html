@@ -41,7 +41,7 @@
           <button class="quantitybuttons" (click)="decreaseQuantity(item)">
             -
           </button>
-          <span>{{ item.quantity }}</span>
+          <span style="min-width: 62px;">{{ item.quantity }}&nbsp;{{item.units}}</span>
           <button class="quantitybuttons" (click)="increaseQuantity(item)">
             +
           </button>

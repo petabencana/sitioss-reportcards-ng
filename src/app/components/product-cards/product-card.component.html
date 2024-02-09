@@ -45,7 +45,7 @@
           <button class="quantitybuttons" (click)="decreaseQuantity(card)">
             -
           </button>
-          <span>{{ card.quantity }}</span>
+          <span style="min-width: 62px;">{{ card.quantity }}&nbsp;{{card.units}}</span>
           <button class="quantitybuttons" (click)="increaseQuantity(card)">
             +
           </button>
