@@ -10,6 +10,7 @@ import { ProductsComponent } from './products.component';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { CardComponent } from '../../../components/product-cards/product-card.component'
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ProductsRoutingModule,
     TranslateModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   declarations: [
     ProductsComponent,
