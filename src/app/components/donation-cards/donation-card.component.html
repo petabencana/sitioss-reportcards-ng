@@ -1,0 +1,47 @@
+<div class="productsWrapper">
+  <div class="scroll" #scrollContainer>
+    <div *ngFor="let card of cards" class="flex m20">
+      <div class="productCard">
+        <div>
+          <img class="productimg" src="{{ card.img }}" />
+        </div>
+      </div>
+      <div class="productInfo">
+        <div>
+          <h4>{{ card.title }}</h4>
+        </div>
+        <p>Need: {{ card.quantity }}</p>
+        <div *ngIf="card.description">
+          <button
+            (click)="openDescriptionModal(card)"
+            class="description"
+            contenteditable="false"
+          >
+            {{ truncateDescription(card.description, 3) }}
+          </button>
+          <!-- Modal start-->
+          <div *ngIf="card.showModal" class="modal">
+            <h3>{{ card.description }}</h3>
+            <div>
+              <button (click)="closeModal(card)">Cancel</button>
+            </div>
+          </div>
+          <!-- Modal end-->
+        </div>
+        <div>
+          <button class="quantitybuttons" (click)="decreaseQuantity(card)">
+            -
+          </button>
+          <span>{{ card.donate }}</span>
+          <button
+            class="quantitybuttons"
+            (click)="increaseQuantity(card)"
+            [disabled]="card.donate === card.quantity"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
