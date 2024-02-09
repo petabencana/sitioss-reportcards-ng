@@ -6,6 +6,7 @@ export const productsList = [
     category: 'FOOD/WATER',
     img: '../../../assets/decks/logistics/products/Water.png',
     quantity: 0,
+    units: 'Liters',
   },
   {
     title: 'Rice',
@@ -13,6 +14,7 @@ export const productsList = [
     category: 'FOOD/WATER',
     img: '../../../assets/decks/logistics/products/RiceSack.png',
     quantity: 0,
+    units: 'Kgs',
   },
   {
     title: 'Ready to Eat Meals',
@@ -23,6 +25,7 @@ export const productsList = [
     descriptionPlaceholder:
       'Add description. E.g. instant porridge, bread, biscuits, nasi bungkus/padang',
     hasDescription: true,
+    units: 'Packs',
   },
   {
     title: 'Sembako',
@@ -30,6 +33,7 @@ export const productsList = [
     category: 'FOOD/WATER',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Packs',
   },
   {
     title: 'Fresh Produce',
@@ -40,6 +44,7 @@ export const productsList = [
     descriptionPlaceholder:
       'Add description. E.g. (Eggs, Vegetables, Meat, Fruits)',
     hasDescription: true,
+    units: 'Kgs',
   },
   {
     title: 'Baby Food',
@@ -47,6 +52,7 @@ export const productsList = [
     category: 'FOOD/WATER',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Packs',
   },
 
   // CLOTHES & SELF PROTECTION KIT
@@ -58,6 +64,7 @@ export const productsList = [
     quantity: 0,
     descriptionPlaceholder: 'Add description. E.g. Underwear, Bra, Dress',
     hasDescription: true,
+    units: 'Pcs',
   },
   {
     title: 'Men',
@@ -67,6 +74,7 @@ export const productsList = [
     quantity: 0,
     descriptionPlaceholder: 'Add description: E.g. Shirts, Pants, Underwear',
     hasDescription: true,
+    units: 'Pcs',
   },
   {
     title: 'Footwear',
@@ -76,6 +84,7 @@ export const productsList = [
     quantity: 0,
     descriptionPlaceholder: 'Add description: E.g. Sandals, Protective Boots',
     hasDescription: true,
+    units: 'Pairs',
   },
   {
     title: 'Face Masks',
@@ -83,6 +92,7 @@ export const productsList = [
     category: 'CLOTHES & SELF PROTECTION KIT',
     img: '../../../assets/decks/logistics/products/Mask.png',
     quantity: 0,
+    units: 'Pcs',
   },
   {
     title: 'Protective Eye Wear',
@@ -90,6 +100,7 @@ export const productsList = [
     category: 'CLOTHES & SELF PROTECTION KIT',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Pcs',
   },
   {
     title: 'Raincoats',
@@ -97,6 +108,7 @@ export const productsList = [
     category: 'CLOTHES & SELF PROTECTION KIT',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Pcs',
   },
 
   // BABIES AND CHILDREN
@@ -109,6 +121,7 @@ export const productsList = [
     quantity: 0,
     descriptionPlaceholder: 'Add description. E.g age/size, clothing item',
     hasDescription: true,
+    units: 'Pcs',
   },
   {
     title: 'Bottles',
@@ -116,6 +129,7 @@ export const productsList = [
     category: 'BABIES AND CHILDREN',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Pcs',
   },
   {
     title: 'Toys',
@@ -123,6 +137,7 @@ export const productsList = [
     category: 'BABIES AND CHILDREN',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Pcs',
   },
   {
     title: 'Pacifier',
@@ -130,6 +145,7 @@ export const productsList = [
     category: 'BABIES AND CHILDREN',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Pcs',
   },
 
   // HOUSEHOLD AND EMERGENCY SUPPLIES
@@ -141,6 +157,7 @@ export const productsList = [
     quantity: 0,
     descriptionPlaceholder: 'Add description. E.g pan, cutlery',
     hasDescription: true,
+    units: 'Pcs',
   },
   {
     title: 'Blankets',
@@ -148,6 +165,7 @@ export const productsList = [
     category: 'HOUSEHOLD AND EMERGENCY SUPPLIES',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Pcs',
   },
   {
     title: 'Sleeping Mats',
@@ -155,6 +173,7 @@ export const productsList = [
     category: 'HOUSEHOLD AND EMERGENCY SUPPLIES',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Pcs',
   },
   {
     title: 'Cleaning Supplies',
@@ -165,6 +184,7 @@ export const productsList = [
     descriptionPlaceholder:
       'Add description. (E.g. Brooms, Detergent, Floor Wiper)',
     hasDescription: true,
+    units: 'Pcs',
   },
 
   {
@@ -173,6 +193,7 @@ export const productsList = [
     category: 'HOUSEHOLD AND EMERGENCY SUPPLIES',
     img: '../../../assets/decks/logistics/products/Flashlight.png',
     quantity: 0,
+    units: 'Pcs',
   },
 
   // PERSONAL HEALTH
@@ -182,6 +203,7 @@ export const productsList = [
     category: 'PERSONAL HEALTH',
     img: '../../../assets/decks/logistics/products/Firstaid.png',
     quantity: 0,
+    units: 'Pcs',
   },
   {
     title: 'Diarrhea Medication',
@@ -189,6 +211,7 @@ export const productsList = [
     category: 'PERSONAL HEALTH',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Strips',
   },
   {
     title: 'Anti Fungal Cream',
@@ -196,6 +219,7 @@ export const productsList = [
     category: 'PERSONAL HEALTH',
     img: '../../../assets/decks/logistics/products/AntiFungalCream.png',
     quantity: 0,
+    units: 'Pcs',
   },
   {
     title: 'Vitamins & Supplements',
@@ -206,6 +230,7 @@ export const productsList = [
     descriptionPlaceholder:
       'Add description. (E.g. Iron Supplement, Multi vitamin, Vitamin C)',
     hasDescription: true,
+    units: 'Strips',
   },
   {
     title: 'Paracetamol',
@@ -213,6 +238,7 @@ export const productsList = [
     category: 'PERSONAL HEALTH',
     img: '../../../assets/decks/logistics/products/Paracetamol.png',
     quantity: 0,
+    units: 'Strips',
   },
   {
     title: 'Eucalyptus Oil',
@@ -220,6 +246,7 @@ export const productsList = [
     category: 'PERSONAL HEALTH',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
+    units: 'Bottles',
   },
   {
     title: 'Personal Health Equipment',
@@ -230,6 +257,7 @@ export const productsList = [
     descriptionPlaceholder:
       'Add description E.g. Wheelchair, walking stick, oxygen, blood pressure measurement tool, diabetes measurement tool, inhaler',
     hasDescription: true,
+    units: 'Pcs',
   },
   // HYGIENE KITS
 
@@ -242,6 +270,7 @@ export const productsList = [
     descriptionPlaceholder:
       'Add description. E.g. pads, tampons, menstrual cups',
     hasDescription: true,
+    units: 'Pcs',
   },
   {
     title: 'Oral Care',
@@ -249,9 +278,9 @@ export const productsList = [
     category: 'HYGIENE KITS',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
-    descriptionPlaceholder:
-      'Add description. E.g. toothbrush, toothpaste',
+    descriptionPlaceholder: 'Add description. E.g. toothbrush, toothpaste',
     hasDescription: true,
+    units: 'Pcs',
   },
   {
     title: 'Personal Cleansing',
@@ -259,8 +288,8 @@ export const productsList = [
     category: 'HYGIENE KITS',
     img: '../../../assets/decks/logistics/products/no-pictures.png',
     quantity: 0,
-    descriptionPlaceholder:
-      'Add description. E.g. soap, shampoo',
+    descriptionPlaceholder: 'Add description. E.g. soap, shampoo',
     hasDescription: true,
+    units: 'Pcs',
   },
 ];
