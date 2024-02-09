@@ -8,7 +8,7 @@ import { DonateComponent } from './doante.component';
 // Child components
 
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
-// import { CardComponent } from '../../../components/product-cards/product-card.component'
+import { DonationCardComponent } from '../../../components/donation-cards/donation-card.component'
 
 
 
@@ -20,7 +20,7 @@ import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
   ],
   declarations: [
     DonateComponent,
-    // CardComponent
+    DonationCardComponent
   ],
   exports: [
     TranslateModule
