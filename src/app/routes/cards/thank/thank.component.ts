@@ -37,6 +37,12 @@ export class ThankComponent {
     this.deckService.reset();
   }
 
+  get deckType() {
+    return this.deckService.getDeckSubType()
+  }
+
+ 
+
   get typeImage(): string {
     switch (this.deckService.getDeckSubType()) {
       case 'fire':
@@ -56,6 +62,8 @@ export class ThankComponent {
 
       case 'volcano':
         return '../../../../assets/decks/volcano/thank/success.png';
+      case 'needs':
+         return '../../../../assets/decks/logistics/success.svg';
     }
   }
 

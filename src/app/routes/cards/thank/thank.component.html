@@ -1,5 +1,5 @@
-<div class="thanks">
-  <img [src]="typeImage" alt="success image report" class="thanks__img">
+<div class="thanks" *ngIf="deckType !== 'needs'">
+  <img [src]="typeImage" alt="success image report" class="thanks__img" />
   <p class="thanks__title">
     {{ reportSuccessText.result | translate}}
   </p>
@@ -11,7 +11,19 @@
     {{ reportAgainText | translate}}
   </p>
   <div *ngIf="isShowReportAgain" class="thanks__btn-group">
-    <a class="thanks__btn" (click)="reportAnotherCard()">{{'card.thank.acceptButton' | translate}}</a>
-    <a class="thanks__btn" (click)="isShowReportAgain = false">{{'card.thank.rejectButton' | translate}}</a>
+    <a class="thanks__btn" (click)="reportAnotherCard()">{{
+      'card.thank.acceptButton' | translate
+    }}</a>
+    <a class="thanks__btn" (click)="isShowReportAgain = false">{{
+      'card.thank.rejectButton' | translate
+    }}</a>
+  </div>
+</div>
+<div class="needs_thanks" *ngIf="deckType === 'needs'">
+  <img [src]="typeImage" alt="success image report" class="thanks__img" />
+  <h3>Success!</h3>
+  <div>
+    <p>Thank you for your report</p>
+    <p>We will notify you when it's on the map</p>
   </div>
 </div>
