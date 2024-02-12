@@ -116,10 +116,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     return this.deckService.getDeckSubType()
   }
 
-  // logistics
-  get logisticsdetails() {
-    return this.deckService.selectedProducts;
-  }
+ 
 
   // Fire
 
