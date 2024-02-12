@@ -9,37 +9,41 @@
       <div class="productInfo">
         <div>
           <h4>{{ card.title }}</h4>
-        </div>
-        <p>Need: {{ card.quantity }}</p>
-        <div *ngIf="card.description">
-          <button
-            (click)="openDescriptionModal(card)"
-            class="description"
-            contenteditable="false"
-          >
-            {{ truncateDescription(card.description, 3) }}
-          </button>
-          <!-- Modal start-->
-          <div *ngIf="card.showModal" class="modal">
-            <h3>{{ card.description }}</h3>
-            <div>
-              <button (click)="closeModal(card)">Cancel</button>
+          <div *ngIf="card.description">
+            <button
+              (click)="openDescriptionModal(card)"
+              class="description"
+              contenteditable="false"
+            >
+              {{ truncateDescription(card.description, 3) }}
+            </button>
+            <div *ngIf="card.showModal" class="modal">
+              <h3>{{ card.description }}</h3>
+              <div>
+                <button (click)="closeModal(card)">Cancel</button>
+              </div>
             </div>
           </div>
-          <!-- Modal end-->
+          <p>Need: {{ card.quantity }}&nbsp;{{ card.units }}</p>
+          <p>Status: {{ card.status }}</p>
         </div>
         <div>
-          <button class="quantitybuttons" (click)="decreaseQuantity(card)">
-            -
-          </button>
-          <span>{{ card.donate }}</span>
-          <button
-            class="quantitybuttons"
-            (click)="increaseQuantity(card)"
-            [disabled]="card.donate === card.quantity"
-          >
-            +
-          </button>
+          <div>
+            <p>Donate</p>
+          </div>
+          <div>
+            <button class="quantitybuttons" (click)="decreaseQuantity(card)">
+              -
+            </button>
+            <span>{{ card.donate }}&nbsp;{{ card.units }}</span>
+            <button
+              class="quantitybuttons"
+              (click)="increaseQuantity(card)"
+              [disabled]="card.donate === card.quantity"
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
     </div>
