@@ -1,0 +1,50 @@
+.donation {
+  overflow: auto;
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.calendar-container {
+  margin: auto;
+  width: fit-content; /* Optional: Adjust width as needed */
+  margin-bottom: 20px;
+}
+
+.content{
+  p{
+    width: 300px;
+    margin: auto;
+    text-align: justify;
+    font-size: 14px;
+  }
+  margin-block: 40px 20px;
+}
+
+
+.time-picker-container {
+  display: flex;
+  justify-content: center;
+}
+
+.time-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+input[type="text"] {
+  width: 50px;
+  text-align: center;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
