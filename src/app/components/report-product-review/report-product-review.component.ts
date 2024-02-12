@@ -37,7 +37,8 @@ export class ReportProductReviewComponent {
     category: string,
     description: string,
     img: string,
-    units: string
+    units: string,
+    need_id: string,
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -45,7 +46,8 @@ export class ReportProductReviewComponent {
       category,
       description,
       img,
-      units
+      units,
+      need_id
     );
   }
 
@@ -57,7 +59,8 @@ export class ReportProductReviewComponent {
       card.category,
       card.description,
       card.img,
-      card.units
+      card.units,
+      card.need_id,
     );
   }
 
@@ -70,7 +73,8 @@ export class ReportProductReviewComponent {
         card.category,
         card.description,
         card.img,
-        card.units
+        card.units,
+        card.need_id,
       );
     }
   }
@@ -91,7 +95,8 @@ export class ReportProductReviewComponent {
       card.category,
       card.description,
       card.img,
-      card.units
+      card.units,
+      card.need_id
     );
   }
 

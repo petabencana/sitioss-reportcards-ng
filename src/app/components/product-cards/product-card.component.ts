@@ -54,6 +54,7 @@ export class CardComponent {
         if (storedProduct) {
           card.quantity = storedProduct.quantity;
           card.description = storedProduct.description;
+          card.need_id = storedProduct.need_id
         } else {
           card.quantity = 0;
           card.description = '';
@@ -79,7 +80,8 @@ export class CardComponent {
     category: string,
     description: string,
     img: string,
-    units: string
+    units: string,
+    need_id: string,
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -87,7 +89,8 @@ export class CardComponent {
       category,
       description,
       img,
-      units
+      units,
+      need_id,
     );
   }
 
@@ -99,7 +102,8 @@ export class CardComponent {
       card.category,
       card.description,
       card.img,
-      card.units
+      card.units,
+      card.need_id
     );
   }
 
@@ -112,7 +116,8 @@ export class CardComponent {
         card.category,
         card.description,
         card.img,
-        card.units
+        card.units,
+        card.need_id
       );
     }
   }
@@ -147,7 +152,8 @@ export class CardComponent {
       card.category,
       card.description,
       card.img,
-      card.units
+      card.units,
+      card.need_id
     );
   }
 

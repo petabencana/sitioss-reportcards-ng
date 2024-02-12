@@ -18,14 +18,15 @@
   "card": {
     "yes": "Ya",
     "no": "Tidak",
-    "productsList": [
+    "productsList" : [
       {
         "title": "Air minum",
         "description": "",
         "category": "MAKANAN/AIR MINUM",
         "img": "../../../assets/decks/logistics/products/Water.png",
         "quantity": 0,
-        "units": "Liters"
+        "units": "Liters",
+        "need_id": "1"
       },
       {
         "title": "Beras",
@@ -33,7 +34,8 @@
         "category": "MAKANAN/AIR MINUM",
         "img": "../../../assets/decks/logistics/products/RiceSack.png",
         "quantity": 0,
-        "units": "Kgs"
+        "units": "Kgs",
+        "need_id": "2"
       },
       {
         "title": "Makanan Siap Saji ",
@@ -43,7 +45,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: bubur instan, roti, biskuit, nasi bungkus/padang",
         "hasDescription": true,
-        "units": "Bungkus"
+        "units": "Bungkus",
+        "need_id": "3"
       },
       {
         "title": "Sembako",
@@ -51,7 +54,8 @@
         "category": "MAKANAN/AIR MINUM",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Bungkus"
+        "units": "Bungkus",
+        "need_id": "4"
       },
       {
         "title": "Bahan Segar",
@@ -61,7 +65,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: telur, sayur, daging, buah",
         "hasDescription": true,
-        "units": "Kgs"
+        "units": "Kgs",
+        "need_id": "5"
       },
       {
         "title": "Makanan bayi",
@@ -69,9 +74,9 @@
         "category": "MAKANAN/AIR MINUM",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Bungkus"
+        "units": "Bungkus",
+        "need_id": "6"
       },
-
       {
         "title": "Wanita",
         "description": "",
@@ -80,7 +85,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: baju, rok, bra, celana dalam",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "7"
       },
       {
         "title": "Laki-laki",
@@ -90,7 +96,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: baju, celana, celana dalam",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "8"
       },
       {
         "title": "Alas kaki",
@@ -100,7 +107,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: sandal jepit, sepatu boot",
         "hasDescription": true,
-        "units": "Pasang"
+        "units": "Pasang",
+        "need_id": "9"
       },
       {
         "title": "Masker",
@@ -108,7 +116,8 @@
         "category": "PAKAIAN & ALAT PERLINDUNGAN DIRI",
         "img": "../../../assets/decks/logistics/products/Mask.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "10"
       },
       {
         "title": "Kacamata pelindung",
@@ -116,7 +125,8 @@
         "category": "PAKAIAN & ALAT PERLINDUNGAN DIRI",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "11"
       },
       {
         "title": "Jas hujan",
@@ -124,9 +134,9 @@
         "category": "PAKAIAN & ALAT PERLINDUNGAN DIRI",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "12"
       },
-
       {
         "title": "Pakaian Bayi & Anak ",
         "description": "",
@@ -135,7 +145,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: usia/ukuran, jenis",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "13"
       },
       {
         "title": "Botol Bayi",
@@ -143,7 +154,8 @@
         "category": "BAYI DAN ANAK",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "14"
       },
       {
         "title": "Mainan Anak",
@@ -151,7 +163,8 @@
         "category": "BAYI DAN ANAK",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "15"
       },
       {
         "title": "Dot",
@@ -159,9 +172,9 @@
         "category": "BAYI DAN ANAK",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "16"
       },
-
       {
         "title": "Peralatan masak",
         "description": "",
@@ -170,7 +183,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi; contoh panci, alat makan",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "17"
       },
       {
         "title": "Selimut",
@@ -178,7 +192,8 @@
         "category": "PERALATAN RUMAH TANGGA DAN KEBUTUHAN DARURAT",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "18"
       },
       {
         "title": "Alas tidur",
@@ -186,7 +201,8 @@
         "category": "PERALATAN RUMAH TANGGA DAN KEBUTUHAN DARURAT",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "19"
       },
       {
         "title": "Peralatan kebersihan",
@@ -196,25 +212,26 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi; contoh sapu, deterjen, serokan air karet",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "20"
       },
-
       {
         "title": "Senter",
         "description": "",
         "category": "PERALATAN RUMAH TANGGA DAN KEBUTUHAN DARURAT",
         "img": "../../../assets/decks/logistics/products/Flashlight.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "21"
       },
-
       {
         "title": "P3K",
         "description": "",
         "category": "KESEHATAN",
         "img": "../../../assets/decks/logistics/products/Firstaid.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "22"
       },
       {
         "title": "Obat Diare",
@@ -222,7 +239,8 @@
         "category": "KESEHATAN",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Strips"
+        "units": "Strips",
+        "need_id": "23"
       },
       {
         "title": "Obat anti jamur",
@@ -230,7 +248,8 @@
         "category": "KESEHATAN",
         "img": "../../../assets/decks/logistics/products/AntiFungalCream.png",
         "quantity": 0,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "24"
       },
       {
         "title": "Vitamin & Suplemen",
@@ -240,7 +259,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: obat penambah darah, multi vitamin, vitamin C",
         "hasDescription": true,
-        "units": "Strips"
+        "units": "Strips",
+        "need_id": "25"
       },
       {
         "title": "Parasetamol",
@@ -248,7 +268,8 @@
         "category": "KESEHATAN",
         "img": "../../../assets/decks/logistics/products/Paracetamol.png",
         "quantity": 0,
-        "units": "Strips"
+        "units": "Strips",
+        "need_id": "26"
       },
       {
         "title": "Minyak kayu putih",
@@ -256,7 +277,8 @@
         "category": "KESEHATAN",
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
-        "units": "Botol"
+        "units": "Botol",
+        "need_id": "27"
       },
       {
         "title": "Alat kesehatan",
@@ -266,9 +288,9 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: kursi roda, tongkat jalan, oksigen, alat tes kesehatan, inhaler",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "28"
       },
-
       {
         "title": "Kebersihan Wanita",
         "description": "",
@@ -277,7 +299,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: pembalut",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "29"
       },
       {
         "title": "Kebersihan Mulut",
@@ -287,7 +310,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: sikat gigi, pasta gigi",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "30"
       },
       {
         "title": "Peralatan Mandi",
@@ -297,7 +321,8 @@
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: sabun, sampo",
         "hasDescription": true,
-        "units": "Pcs"
+        "units": "Pcs",
+        "need_id": "31"
       }
     ],
     "categoryList":[
@@ -360,7 +385,9 @@
 
       "region": "Pilih wilayah untuk mendapatkan notifikasi",
       "summary": "Tinjau",
-      "thankyou": "Tinjau dan kirimkan"
+      "thankyou": "Tinjau dan kirimkan",
+      "products": "Select Items",
+      "productreview": "Review & Submit"
     },
     "type": {
       "fire": {
