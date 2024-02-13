@@ -104,10 +104,7 @@
     },
     {
       "name": "giver",
-      "cards": [
-        "donate",
-        "thank"
-      ]
+      "cards": ["donate", "dateandtime", "contact", "thank"]
     }
   ]
 }
