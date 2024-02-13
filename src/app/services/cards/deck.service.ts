@@ -129,6 +129,25 @@ export class DeckService {
     }
   }
 
+  countryCode: string;
+  contactNumber: string;
+
+  getCountryCode() {
+    return this.countryCode;
+  }
+
+  setCountryCode(code: string) {
+    this.countryCode = code;
+  }
+
+  getContactNumber() {
+    return this.contactNumber;
+  }
+
+  setContactNumber(number: string) {
+    this.contactNumber = number;
+  }
+
   userCanBack() {
     this.isPrevButtonDisabled = false;
   }
