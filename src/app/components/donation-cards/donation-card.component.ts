@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
 import { donationList } from './donation-list';
 
@@ -14,17 +14,57 @@ export class DonationCardComponent {
 
   constructor(public deckService: DeckService) {}
 
-  selectedCategory: string | null = 'FOOD/WATER';
+  private recordQuantityChange(
+    title: string,
+    quantity: number,
+    category: string,
+    description: string,
+    img: string,
+    units: string,
+    need_id: string,
+    donate: number
+  ) {
+    this.deckService.setSelectedProducts(
+      title,
+      quantity,
+      category,
+      description,
+      img,
+      units,
+      need_id,
+      donate
+    );
+  }
 
   increaseQuantity(card: any) {
-    if ((card.quantity > card.donate)) {
+    if (card.quantity > card.donate) {
       card.donate = (card.donate || 0) + 1;
+      this.recordQuantityChange(
+        card.title,
+        card.quantity,
+        card.category,
+        card.description,
+        card.img,
+        card.units,
+        card.need_id,
+        card.donate
+      );
     }
   }
 
   decreaseQuantity(card: any) {
     if (card.donate && card.donate > 0) {
       card.donate -= 1;
+      this.recordQuantityChange(
+        card.title,
+        card.quantity,
+        card.category,
+        card.description,
+        card.img,
+        card.units,
+        card.need_id,
+        card.donate
+      );
     }
   }
 
