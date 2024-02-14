@@ -1,0 +1,64 @@
+<div class="productsWrapper">
+  <div class="scroll" #scrollContainer>
+    <!-- <button (click)="check()">check</button> -->
+    <p>You will donate following items to [address] at {{donationDate}}&nbsp;{{donationTime}}</p>
+    <div *ngFor="let item of donationdetails" class="flex m20">
+      <div class="productCard">
+        <div>
+          <img class="productimg" src="{{ item.img }}" />
+        </div>
+      </div>
+      <div class="productInfo">
+        <div>
+          <h4>{{ item.title }}</h4>
+        </div>
+        <div>
+          <button
+            (click)="openDescriptionModal(item)"
+            class="description"
+            contenteditable="false"
+          >
+            {{ truncateDescription(item.description, 3) }}
+          </button>
+          <div *ngIf="item.showModal" class="modal">
+            <div>
+              <h4>Description of {{ item.title }}</h4>
+              <p>{{ item.description }}</p>
+              <button (click)="closeModal(item)">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="quantitybuttons" (click)="decreaseQuantity(item)">
+            -
+          </button>
+          <span style="min-width: 62px"
+            >{{ item.donate }}&nbsp;{{ item.units }}</span
+          >
+          <button
+            class="quantitybuttons"
+            (click)="increaseQuantity(item)"
+            [disabled]="item.donate === item.quantity"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="captchaContainer">
+      <form [formGroup]="captchaForm">
+        <ngx-recaptcha2
+          siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"
+          (success)="handleSuccess($event)"
+          data-theme="dark"
+          formControlName="recaptcha"
+        >
+        </ngx-recaptcha2>
+      </form>
+    </div>
+    <app-submit-button title="Submit Request" class="SubmitButton">
+    </app-submit-button>
+  </div>
+</div>
