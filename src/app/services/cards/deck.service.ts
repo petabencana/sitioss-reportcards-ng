@@ -81,7 +81,8 @@ export class DeckService {
     description: string;
     img: string;
     units: string;
-    need_id: string
+    need_id: string;
+    donate?: number
   }[] = [];
 
   getSelectedProducts(title: string) {
@@ -96,6 +97,7 @@ export class DeckService {
     img: string,
     units: string,
     need_id:string,
+    donate?: number
   ) {
     if (quantity === 0) {
       this.selectedProducts = this.selectedProducts.filter(
@@ -113,6 +115,7 @@ export class DeckService {
         this.selectedProducts[index].img = img;
         this.selectedProducts[index].units = units;
         this.selectedProducts[index].need_id = need_id;
+        this.selectedProducts[index].donate = donate;
 
 
       } else {
@@ -123,7 +126,8 @@ export class DeckService {
           description,
           img,
           units,
-          need_id
+          need_id,
+          donate
         });
       }
     }
