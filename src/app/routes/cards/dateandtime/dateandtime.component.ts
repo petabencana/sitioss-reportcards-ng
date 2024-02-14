@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { DeckService } from '../../../services/cards/deck.service';
-import { TranslateService } from '@ngx-translate/core';
 import flatpickr from 'flatpickr';
 
 @Component({
@@ -10,57 +8,51 @@ import flatpickr from 'flatpickr';
   styleUrls: ['./dateandtime.component.scss'],
 })
 export class DateandtimeComponent implements OnInit {
-  constructor(
-    public deckService: DeckService,
-    public translate: TranslateService
-  ) {}
+  selectedDate: string;
+  selectedTime: string;
+
+  constructor(public deckService: DeckService) {}
 
   ngOnInit() {
     this.deckService.userCanBack();
     this.deckService.userCanContinue();
+    this.selectedDate = this.deckService.getDonationdate() || '';
+    this.selectedTime = this.deckService.getDonationtime() || '';
     this.openCalendar();
+    this.openTimePicker();
   }
-  selectedDate: string;
-  selectedTime: string;
+
   openCalendar() {
-    flatpickr('#calendarContainer', {
+    flatpickr('#calendar', {
       inline: true,
-      enableTime: true, // Enable time picker
-      dateFormat: 'Y-m-d H:i',
-      minDate: new Date().toISOString().split('T')[0], // Set min date to today
-      maxDate: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000)
-        .toISOString()
-        .split('T')[0], // Set max date to 30 days from today
+      defaultDate: this.selectedDate, // Prefill calendar with selected date
+      minDate: new Date().toISOString().split('T')[0],
+      maxDate: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
       onChange: (selectedDates, dateStr, instance) => {
-        this.selectedDate = dateStr; // Update selectedDate with the selected date
+        this.selectedDate = dateStr;
+        this.deckService.setDonationdate(this.selectedDate);
       },
     });
   }
 
-  selectedHour: string = '00';
-  selectedMinute: string = '00';
-
-  incrementHour() {
-    let hour = parseInt(this.selectedHour);
-    hour = (hour + 1) % 24;
-    this.selectedHour = hour.toString().padStart(2, '0');
+  openTimePicker() {
+    flatpickr('#time', {
+      inline: true,
+      defaultDate: this.selectedTime, // Prefill time picker with selected time
+      enableTime: true,
+      noCalendar: true,
+      dateFormat: 'H:i',
+      onChange: (selectedDates, dateStr, instance) => {
+        this.selectedTime = dateStr;
+        this.deckService.setDonationtime(this.selectedTime);
+      },
+    });
   }
 
-  decrementHour() {
-    let hour = parseInt(this.selectedHour);
-    hour = (hour - 1 + 24) % 24;
-    this.selectedHour = hour.toString().padStart(2, '0');
-  }
-
-  incrementMinute() {
-    let minute = parseInt(this.selectedMinute);
-    minute = (minute + 1) % 60;
-    this.selectedMinute = minute.toString().padStart(2, '0');
-  }
-
-  decrementMinute() {
-    let minute = parseInt(this.selectedMinute);
-    minute = (minute - 1 + 60) % 60;
-    this.selectedMinute = minute.toString().padStart(2, '0');
+  check() {
+    console.log(
+      this.deckService.getDonationdate(),
+      this.deckService.getDonationtime()
+    );
   }
 }
