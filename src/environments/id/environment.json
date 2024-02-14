@@ -104,7 +104,7 @@
     },
     {
       "name": "giver",
-      "cards": ["donate", "dateandtime", "contact", "thank"]
+      "cards": ["donate","dateandtime", "contact","donationreview", "thank"]
     }
   ]
 }
