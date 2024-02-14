@@ -9,6 +9,7 @@ export const donationList = [
     status: '0% Met',
     donate: 0,
     units: 'Liters',
+    need_id:'1',
   },
   {
     title: 'Rice',
@@ -19,6 +20,8 @@ export const donationList = [
     status: '0% Met',
     donate: 0,
     units: 'kgs',
+    need_id:'2',
+
   },
   {
     title: 'Ready to Eat Meals',
@@ -30,6 +33,8 @@ export const donationList = [
     status: '0% Met',
     donate: 0,
     units: 'packs',
+    need_id:'3',
+
   },
   
 ];
