@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
+import { TranslationService } from './donation.service';
 import { donationList } from './donation-list';
 
 @Component({
@@ -9,28 +10,31 @@ import { donationList } from './donation-list';
 })
 export class DonationCardComponent implements OnInit {
   quantity: number = 0;
-  cards = [];
+  cards: any[];
 
-  constructor(public deckService: DeckService) {}
+  constructor(
+    private translationService: TranslationService,
+    public deckService: DeckService
+  ) {}
 
   ngOnInit() {
-    this.deckService.userCanBack();
-    this.deckService.userCanContinue();
-    this.cards = donationList.map((card) => {
-      const selectedProduct = this.deckService.getSelectedProducts(card.title);
-      if (selectedProduct) {
-        return {
-          ...card,
-          donate: selectedProduct.donate,
-        };
+    // Load translations for donation cards
+    this.translationService.getDonationTranslations('id').subscribe(donationTranslations => {
+      if (donationTranslations) {
+        this.cards = donationList.map(donation => {
+          const product = donationTranslations.find(p => p.need_id === donation.need_id);
+          return product ? { ...donation, title: product.title } : donation;
+        });
       } else {
-        return {
-          ...card,
-          donate: 0,
-        };
+        console.error('Donation translations not found');
       }
     });
+    
+    this.deckService.userCanBack();
+    this.deckService.userCanContinue();
   }
+
+
 
   private recordQuantityChange(
     title: string,
@@ -100,6 +104,7 @@ export class DonationCardComponent implements OnInit {
       }
     }
   }
+
   truncateDescription(description: string, maxLines: number): string {
     const lines = description.split('\n');
     if (lines.length > maxLines) {
