@@ -18,8 +18,9 @@
               {{ truncateDescription(card.description, 3) }}
             </button>
             <div *ngIf="card.showModal" class="modal">
-              <h3>{{ card.description }}</h3>
               <div>
+                <h4>Description of {{card.title}}</h4>
+                <p>{{ card.description }}</p>
                 <button (click)="closeModal(card)">Cancel</button>
               </div>
             </div>
@@ -48,4 +49,6 @@
       </div>
     </div>
   </div>
+      <button (click)="check()" style="padding: 10px;">check</button>
+
 </div>
