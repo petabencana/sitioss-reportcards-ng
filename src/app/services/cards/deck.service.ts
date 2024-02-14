@@ -152,6 +152,25 @@ export class DeckService {
     this.contactNumber = number;
   }
 
+  donationDate: string;
+  donationTime: string;
+
+  getDonationdate() {
+    return this.donationDate;
+  }
+
+  setDonationdate(date: string) {
+    this.donationDate = date;
+  }
+
+  getDonationtime() {
+    return this.donationTime;
+  }
+
+  setDonationtime(time: string) {
+    this.donationTime = time;
+  }
+
   userCanBack() {
     this.isPrevButtonDisabled = false;
   }
