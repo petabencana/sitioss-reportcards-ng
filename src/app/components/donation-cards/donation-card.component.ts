@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
 import { donationList } from './donation-list';
 
@@ -7,12 +7,30 @@ import { donationList } from './donation-list';
   templateUrl: './donation-card.component.html',
   styleUrls: ['./donation-card.component.scss'],
 })
-export class DonationCardComponent {
+export class DonationCardComponent implements OnInit {
   quantity: number = 0;
-
-  cards = donationList;
+  cards = [];
 
   constructor(public deckService: DeckService) {}
+
+  ngOnInit() {
+    this.deckService.userCanBack();
+    this.deckService.userCanContinue();
+    this.cards = donationList.map((card) => {
+      const selectedProduct = this.deckService.getSelectedProducts(card.title);
+      if (selectedProduct) {
+        return {
+          ...card,
+          donate: selectedProduct.donate,
+        };
+      } else {
+        return {
+          ...card,
+          donate: 0,
+        };
+      }
+    });
+  }
 
   private recordQuantityChange(
     title: string,
@@ -55,19 +73,33 @@ export class DonationCardComponent {
   decreaseQuantity(card: any) {
     if (card.donate && card.donate > 0) {
       card.donate -= 1;
-      this.recordQuantityChange(
-        card.title,
-        card.quantity,
-        card.category,
-        card.description,
-        card.img,
-        card.units,
-        card.need_id,
-        card.donate
-      );
+      if (card.donate === 0) {
+        // If donate becomes 0, remove the product from selectedProducts
+        this.deckService.setSelectedProducts(
+          card.title,
+          0,
+          card.category,
+          card.description,
+          card.img,
+          card.units,
+          card.need_id,
+          card.donate
+        );
+      } else {
+        // If donate is greater than 0, update selectedProducts
+        this.recordQuantityChange(
+          card.title,
+          card.quantity,
+          card.category,
+          card.description,
+          card.img,
+          card.units,
+          card.need_id,
+          card.donate
+        );
+      }
     }
   }
-
   truncateDescription(description: string, maxLines: number): string {
     const lines = description.split('\n');
     if (lines.length > maxLines) {
