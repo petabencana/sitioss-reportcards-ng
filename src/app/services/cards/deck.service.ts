@@ -74,6 +74,17 @@ export class DeckService {
   isNextButtonDisabled = true;
   reportType = '';
 
+  translatedData: any[];
+
+  getTranslatedData(): any[] {
+    return this.translatedData;
+  }
+
+  // Method to set translated data in the state
+  setTranslatedData(data: any[]): void {
+    this.translatedData = data;
+  }
+
   selectedProducts: {
     title: string;
     quantity: number;
@@ -82,7 +93,7 @@ export class DeckService {
     img: string;
     units: string;
     need_id: string;
-    donate?: number
+    donate?: number;
   }[] = [];
 
   getSelectedProducts(title: string) {
@@ -96,7 +107,7 @@ export class DeckService {
     description: string,
     img: string,
     units: string,
-    need_id:string,
+    need_id: string,
     donate?: number
   ) {
     if (quantity === 0) {
@@ -116,8 +127,6 @@ export class DeckService {
         this.selectedProducts[index].units = units;
         this.selectedProducts[index].need_id = need_id;
         this.selectedProducts[index].donate = donate;
-
-
       } else {
         this.selectedProducts.push({
           title,
@@ -127,7 +136,7 @@ export class DeckService {
           img,
           units,
           need_id,
-          donate
+          donate,
         });
       }
     }
@@ -135,15 +144,22 @@ export class DeckService {
 
   countryCode: string;
   contactNumber: string;
+  countryName: string;
 
   getCountryCode() {
     return this.countryCode;
   }
 
+  getCountryName() {
+    return this.countryName;
+  }
+
   setCountryCode(code: string) {
     this.countryCode = code;
   }
-
+  setCountryName(countryName: string) {
+    this.countryName = countryName;
+  }
   getContactNumber() {
     return this.contactNumber;
   }
