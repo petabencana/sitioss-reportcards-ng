@@ -387,7 +387,11 @@
       "summary": "Tinjau",
       "thankyou": "Tinjau dan kirimkan",
       "products": "Select Items",
-      "productreview": "Review & Submit"
+      "productreview": "Review & Submit",
+      "donate": "Select Items to Donate",
+      "dateandtime":"Select Date & Time",
+      "contact":"Your Contact",
+      "donationreview":"Review & Submit"
     },
     "type": {
       "fire": {
