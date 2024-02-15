@@ -80,6 +80,8 @@ export class ReportProductReviewComponent {
   }
   check() {
     console.log(this.deckService.selectedProducts);
+    console.log(this.deckService.location);
+    
   }
   openDescriptionModal(card: any): void {
     card.showModal = true;
