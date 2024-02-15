@@ -107,6 +107,13 @@ export class ReportDonationReviewComponent {
   }
   check() {
     console.log(this.deckService.selectedProducts);
+    console.log(
+      this.deckService.donationDate,
+      this.deckService.donationTime,
+      this.deckService.countryName,
+      this.deckService.countryCode,
+      this.deckService.contactNumber
+    );
   }
   openDescriptionModal(card: any): void {
     card.showModal = true;
