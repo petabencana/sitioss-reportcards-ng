@@ -11,6 +11,7 @@ import { donationList } from './donation-list';
 export class DonationCardComponent implements OnInit {
   quantity: number = 0;
   cards: any[];
+  translatedData: any[]; // Store translated data
 
   constructor(
     private translationService: TranslationService,
@@ -18,24 +19,44 @@ export class DonationCardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Load translations for donation cards
-    this.translationService.getDonationTranslations('id').subscribe(donationTranslations => {
-      if (donationTranslations) {
-        this.cards = donationList.map(donation => {
-          const product = donationTranslations.find(p => p.need_id === donation.need_id);
-          return product ? { ...donation, title: product.title } : donation;
-        });
-      } else {
-        console.error('Donation translations not found');
-      }
-    });
-    
+    // Check if translated data is already available in the state
+    this.translatedData = this.deckService.getTranslatedData();
+
+    // If translated data is not available, fetch it from the translation service
+    if (!this.translatedData) {
+      this.translationService.getDonationTranslations('en').subscribe(donationTranslations => {
+        if (donationTranslations) {
+          this.translatedData = donationTranslations; // Store translated data
+          this.deckService.setTranslatedData(donationTranslations); // Store translated data in the state
+          this.loadCards(); // Load cards using translated data
+        } else {
+          console.error('Donation translations not found');
+        }
+      });
+    } else {
+      // If translated data is already available, load cards directly
+      this.loadCards();
+    }
+
     this.deckService.userCanBack();
     this.deckService.userCanContinue();
   }
 
+  private loadCards() {
+    // Use translated data to map donation list
+    this.cards = donationList.map(donation => {
+      const product = this.translatedData.find(p => p.need_id === donation.need_id);
+      return product ? { ...donation, title: product.title } : donation;
+    });
 
-
+    // Fetch selected products from the DeckService for each card
+    this.cards.forEach(card => {
+      const selectedProduct = this.deckService.getSelectedProducts(card.title);
+      if (selectedProduct) {
+        card.donate = selectedProduct.donate;
+      }
+    });
+  }
   private recordQuantityChange(
     title: string,
     quantity: number,
@@ -115,6 +136,8 @@ export class DonationCardComponent implements OnInit {
 
   check() {
     console.log(this.deckService.selectedProducts);
+    console.log(this.cards);
+    
   }
 
   openDescriptionModal(card: any): void {
