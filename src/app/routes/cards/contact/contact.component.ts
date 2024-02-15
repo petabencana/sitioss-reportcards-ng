@@ -15,6 +15,7 @@ interface Country {
 export class ContactComponent implements OnInit {
   countryCodes: Country[] = [];
   selectedCountry: string = 'ID';
+  selectedCountryCode: string = '+62';
   phoneNumber: string = '';
 
   constructor(public deckService: DeckService, private http: HttpClient) {}
@@ -23,10 +24,12 @@ export class ContactComponent implements OnInit {
     this.deckService.userCanBack();
     this.deckService.userCanContinue();
     this.fetchCountryCodes();
-    const defaultCountryCode = this.deckService.getCountryCode(); // Get the stored country code
+    const defaultCountryCode = this.deckService.getCountryName(); // Get the stored country code
     if (!defaultCountryCode) {
       this.selectedCountry = 'ID'; // Set default value to 'ID'
-      this.deckService.setCountryCode('ID'); // Update the country code in the service
+      this.selectedCountryCode = '+62';
+      this.deckService.setCountryName('ID');
+      this.deckService.setCountryCode('+62'); // Update the country code in the service
     } else {
       this.selectedCountry = defaultCountryCode; // Use the stored country code
     }
@@ -54,7 +57,10 @@ export class ContactComponent implements OnInit {
       country.callingCodes.includes(this.selectedCountry)
     );
     if (selectedCountryData) {
-      this.deckService.setCountryCode(selectedCountryData.alpha2Code);
+      this.deckService.setCountryName(selectedCountryData.alpha2Code);
+      this.deckService.setCountryCode(
+        '+' + selectedCountryData.callingCodes[0]
+      );
     }
   }
 
@@ -70,6 +76,7 @@ export class ContactComponent implements OnInit {
   check() {
     console.log(
       this.deckService.getCountryCode(),
+      this.deckService.getCountryName(),
       this.deckService.getContactNumber()
     );
   }
