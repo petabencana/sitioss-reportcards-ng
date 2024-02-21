@@ -40,7 +40,9 @@ export class SubmitButtonComponent implements OnInit {
         this.deckService.isCaptchaCleared() &&
         this.isPermittedLocation) ||
       (this.deckService.isCaptchaCleared() &&
-        this.navController.getCurrentRouteName() === 'summary')
+        this.navController.getCurrentRouteName() === 'summary') ||
+      (this.deckService.isCaptchaCleared() &&
+        this.deckService.getDeckSubType() === 'needs')
     );
   }
 
@@ -53,7 +55,7 @@ export class SubmitButtonComponent implements OnInit {
       this.isSumbitted = true;
       return await this.deckService
         .submitNotificationRequest()
-        .then(() => {
+        .then((reponse) => {
           this.isLoading = false;
           this.navController.next(this.deckService.getRoute());
         })
@@ -76,11 +78,28 @@ export class SubmitButtonComponent implements OnInit {
     }
   }
 
-  get deckType() {
-    return this.deckService.getDeckSubType();
+  async needSubmit() {
+    this.isLoading = true;
+    if (
+      this.navController.getCurrentRouteName() === 'productreview' &&
+      !this.isSumbitted
+    ) {
+      this.isSumbitted = true;
+      return await this.deckService
+        .submitNeedRequest()
+        .then((reponse) => {
+          this.isLoading = false;
+          this.navController.next(this.deckService.getRoute());
+          console.log(reponse, 'res');
+        })
+        .catch((err) => {
+          this.navController.next(this.deckService.getRoute());
+          console.log(err, 'err');
+        });
+    }
   }
 
-  check() {
-    console.log(this.deckService.getDeckSubType());
+  get deckType() {
+    return this.deckService.getDeckSubType();
   }
 }
