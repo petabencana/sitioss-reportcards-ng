@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { DeckService } from '../../services/cards/deck.service';
 import { TranslateService } from '@ngx-translate/core';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-product-review',
@@ -14,7 +15,8 @@ export class ReportProductReviewComponent {
 
   constructor(
     public deckService: DeckService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public navController: NavigationService
   ) {}
 
   // logistics
@@ -79,8 +81,12 @@ export class ReportProductReviewComponent {
     }
   }
   check() {
-    console.log(this.deckService.selectedProducts);
-    console.log(this.deckService.location);
+    // console.log(this.deckService.selectedProducts);
+    // console.log(this.deckService.location);
+    // console.log(this.deckService.getCardLanguage(), 'ln');
+
+    console.log(this.navController.getCurrentRouteName() === 'productreview');
+
     
   }
   openDescriptionModal(card: any): void {
@@ -105,5 +111,10 @@ export class ReportProductReviewComponent {
   closeModal(card: any): void {
     card.showModal = false;
     card.description = card.tempDescription;
+  }
+
+  handleSuccess(event) {
+    // add verification step
+    this.deckService.setCaptchaCleared();
   }
 }
