@@ -504,6 +504,49 @@ export class DeckService {
     });
   }
 
+  async submitNeedRequest(): Promise<any> {
+    const need_data = [];
+    const languageCode = this.getCardLanguage()
+      ? this.getCardLanguage()
+      : 'id';
+    const notifyMedium = this.waNumber;
+
+    this.selectedProducts.map((item) => {
+      need_data.push({
+        status: 'ACTIVE',
+        quantity_requested: item.quantity,
+        item_requested: item.title,
+        need_language: languageCode,
+        user_id: notifyMedium,
+        need_request_id: `${notifyMedium.slice(-4)}-${languageCode}`,
+        platform: 'whatsapp',
+        user_type: 'need',
+        units: item.units,
+        item_id: item.need_id,
+        description: item.description ? item.description : '',
+        lng: this.location.lng,
+        lat: this.location.lat,
+      });
+    });
+
+    console.log(need_data, 'deck');
+
+    return new Promise(async (resolve, reject) => {
+      return await this.http
+      .post(`${env.data_server}needs/create-need`, need_data)
+      .toPromise()
+      .then((success) => {
+        // PUT report & patch image_url
+        resolve(success);
+      })
+      .catch((error) => {
+        reject(error);
+        console.log('Error', error);
+        // PUT report & notify user about upload error
+      });
+    });
+  }
+
   async submit(): Promise<any> {
     const signedURL = this.imageSignedUrl;
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
