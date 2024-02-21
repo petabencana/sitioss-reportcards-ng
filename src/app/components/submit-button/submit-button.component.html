@@ -1,7 +1,13 @@
-<div class="type" *ngIf="deckType === 'logistics'">
-  <button class="SubmitButton" (click)="check()">Submit Request</button>
+<div class="type" *ngIf="deckType === 'needs'">
+  <button
+    class="SubmitButton"
+    (click)="needSubmit()"
+    [disabled]="!canSubmit()"
+  >
+    Submit Request
+  </button>
 </div>
-<div class="type" *ngIf="deckType !== 'logistics'">
+<div class="type" *ngIf="deckType !== 'needs'">
   <button type="button" (click)="submit()" [disabled]="!canSubmit()">
     {{ title }}
   </button>
