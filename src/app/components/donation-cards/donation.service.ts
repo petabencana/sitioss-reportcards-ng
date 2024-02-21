@@ -39,9 +39,9 @@ export class TranslationService {
       return donations;
     }
   
-    // Map donations with need_id
+    // Map donations with item_id
     return donations.map((donation) => {
-      const product = products.find((p) => p.need_id === donation.need_id);
+      const product = products.find((p) => p.item_id === donation.item_id);
       if (product) {
         return { ...donation, ...product };
       } else {

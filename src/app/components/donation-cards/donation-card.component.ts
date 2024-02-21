@@ -45,7 +45,7 @@ export class DonationCardComponent implements OnInit {
   private loadCards() {
     // Use translated data to map donation list
     this.cards = donationList.map(donation => {
-      const product = this.translatedData.find(p => p.need_id === donation.need_id);
+      const product = this.translatedData.find(p => p.item_id === donation.item_id);
       return product ? { ...donation, title: product.title } : donation;
     });
 
@@ -64,7 +64,7 @@ export class DonationCardComponent implements OnInit {
     description: string,
     img: string,
     units: string,
-    need_id: string,
+    item_id: string,
     donate: number
   ) {
     this.deckService.setSelectedProducts(
@@ -74,7 +74,7 @@ export class DonationCardComponent implements OnInit {
       description,
       img,
       units,
-      need_id,
+      item_id,
       donate
     );
   }
@@ -89,7 +89,7 @@ export class DonationCardComponent implements OnInit {
         card.description,
         card.img,
         card.units,
-        card.need_id,
+        card.item_id,
         card.donate
       );
     }
@@ -107,7 +107,7 @@ export class DonationCardComponent implements OnInit {
           card.description,
           card.img,
           card.units,
-          card.need_id,
+          card.item_id,
           card.donate
         );
       } else {
@@ -119,7 +119,7 @@ export class DonationCardComponent implements OnInit {
           card.description,
           card.img,
           card.units,
-          card.need_id,
+          card.item_id,
           card.donate
         );
       }

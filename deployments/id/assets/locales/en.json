@@ -26,7 +26,7 @@
         "img": "../../../assets/decks/logistics/products/Water.png",
         "quantity": 0,
         "units": "Liters",
-        "need_id": "1"
+        "item_id": "1"
       },
       {
         "title": "Rice",
@@ -35,7 +35,7 @@
         "img": "../../../assets/decks/logistics/products/RiceSack.png",
         "quantity": 0,
         "units": "Kgs",
-        "need_id": "2"
+        "item_id": "2"
       },
       {
         "title": "Ready to Eat Meals",
@@ -46,7 +46,7 @@
         "descriptionPlaceholder": "Add description. E.g. instant porridge, bread, biscuits, nasi bungkus/padang",
         "hasDescription": true,
         "units": "Packs",
-        "need_id": "3"
+        "item_id": "3"
       },
       {
         "title": "Sembako",
@@ -55,7 +55,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Packs",
-        "need_id": "4"
+        "item_id": "4"
       },
       {
         "title": "Fresh Produce",
@@ -66,7 +66,7 @@
         "descriptionPlaceholder": "Add description. E.g. (Eggs, Vegetables, Meat, Fruits)",
         "hasDescription": true,
         "units": "Kgs",
-        "need_id": "5"
+        "item_id": "5"
       },
       {
         "title": "Baby Food",
@@ -75,7 +75,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Packs",
-        "need_id": "6"
+        "item_id": "6"
       },
       {
         "title": "Women",
@@ -86,7 +86,7 @@
         "descriptionPlaceholder": "Add description. E.g. Underwear, Bra, Dress",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "7"
+        "item_id": "7"
       },
       {
         "title": "Men",
@@ -97,7 +97,7 @@
         "descriptionPlaceholder": "Add description: E.g. Shirts, Pants, Underwear",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "8"
+        "item_id": "8"
       },
       {
         "title": "Footwear",
@@ -108,7 +108,7 @@
         "descriptionPlaceholder": "Add description: E.g. Sandals, Protective Boots",
         "hasDescription": true,
         "units": "Pairs",
-        "need_id": "9"
+        "item_id": "9"
       },
       {
         "title": "Face Masks",
@@ -117,7 +117,7 @@
         "img": "../../../assets/decks/logistics/products/Mask.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "10"
+        "item_id": "10"
       },
       {
         "title": "Protective Eye Wear",
@@ -126,7 +126,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "11"
+        "item_id": "11"
       },
       {
         "title": "Raincoats",
@@ -135,7 +135,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "12"
+        "item_id": "12"
       },
       {
         "title": "Clothing",
@@ -146,7 +146,7 @@
         "descriptionPlaceholder": "Add description. E.g age/size, clothing item",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "13"
+        "item_id": "13"
       },
       {
         "title": "Bottles",
@@ -155,7 +155,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "14"
+        "item_id": "14"
       },
       {
         "title": "Toys",
@@ -164,7 +164,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "15"
+        "item_id": "15"
       },
       {
         "title": "Pacifier",
@@ -173,7 +173,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "16"
+        "item_id": "16"
       },
       {
         "title": "Utensils",
@@ -184,7 +184,7 @@
         "descriptionPlaceholder": "Add description. E.g pan, cutlery",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "17"
+        "item_id": "17"
       },
       {
         "title": "Blankets",
@@ -193,7 +193,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "18"
+        "item_id": "18"
       },
       {
         "title": "Sleeping Mats",
@@ -202,7 +202,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "19"
+        "item_id": "19"
       },
       {
         "title": "Cleaning Supplies",
@@ -213,7 +213,7 @@
         "descriptionPlaceholder": "Add description. (E.g. Brooms, Detergent, Floor Wiper)",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "20"
+        "item_id": "20"
       },
       {
         "title": "Flashlight",
@@ -222,7 +222,7 @@
         "img": "../../../assets/decks/logistics/products/Flashlight.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "21"
+        "item_id": "21"
       },
       {
         "title": "First aid kit",
@@ -231,7 +231,7 @@
         "img": "../../../assets/decks/logistics/products/Firstaid.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "22"
+        "item_id": "22"
       },
       {
         "title": "Diarrhea Medication",
@@ -240,7 +240,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Strips",
-        "need_id": "23"
+        "item_id": "23"
       },
       {
         "title": "Anti Fungal Cream",
@@ -249,7 +249,7 @@
         "img": "../../../assets/decks/logistics/products/AntiFungalCream.png",
         "quantity": 0,
         "units": "Pcs",
-        "need_id": "24"
+        "item_id": "24"
       },
       {
         "title": "Vitamins & Supplements",
@@ -260,7 +260,7 @@
         "descriptionPlaceholder": "Add description. (E.g. Iron Supplement, Multi vitamin, Vitamin C)",
         "hasDescription": true,
         "units": "Strips",
-        "need_id": "25"
+        "item_id": "25"
       },
       {
         "title": "Paracetamol",
@@ -269,7 +269,7 @@
         "img": "../../../assets/decks/logistics/products/Paracetamol.png",
         "quantity": 0,
         "units": "Strips",
-        "need_id": "26"
+        "item_id": "26"
       },
       {
         "title": "Eucalyptus Oil",
@@ -278,7 +278,7 @@
         "img": "../../../assets/decks/logistics/products/no-pictures.png",
         "quantity": 0,
         "units": "Bottles",
-        "need_id": "27"
+        "item_id": "27"
       },
       {
         "title": "Personal Health Equipment",
@@ -289,7 +289,7 @@
         "descriptionPlaceholder": "Add description E.g. Wheelchair, walking stick, oxygen, blood pressure measurement tool, diabetes measurement tool, inhaler",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "28"
+        "item_id": "28"
       },
       {
         "title": "Female Hygiene Products",
@@ -300,7 +300,7 @@
         "descriptionPlaceholder": "Add description. E.g. pads, tampons, menstrual cups",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "29"
+        "item_id": "29"
       },
       {
         "title": "Oral Care",
@@ -311,7 +311,7 @@
         "descriptionPlaceholder": "Add description. E.g. toothbrush, toothpaste",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "30"
+        "item_id": "30"
       },
       {
         "title": "Personal Cleansing",
@@ -322,7 +322,7 @@
         "descriptionPlaceholder": "Add description. E.g. soap, shampoo",
         "hasDescription": true,
         "units": "Pcs",
-        "need_id": "31"
+        "item_id": "31"
       }
     ],
 

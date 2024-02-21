@@ -9,7 +9,7 @@ export const donationList = [
     status: '0% Met',
     donate: 0,
     units: 'Liters',
-    need_id:'1',
+    item_id:'1',
   },
   {
     title: 'Rice',
@@ -20,7 +20,7 @@ export const donationList = [
     status: '0% Met',
     donate: 0,
     units: 'kgs',
-    need_id:'2',
+    item_id:'2',
 
   },
   {
@@ -33,7 +33,7 @@ export const donationList = [
     status: '0% Met',
     donate: 0,
     units: 'packs',
-    need_id:'3',
+    item_id:'3',
 
   },
   

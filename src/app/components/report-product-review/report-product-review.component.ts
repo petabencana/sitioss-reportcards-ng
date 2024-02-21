@@ -40,7 +40,7 @@ export class ReportProductReviewComponent {
     description: string,
     img: string,
     units: string,
-    need_id: string,
+    item_id: string,
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -49,7 +49,7 @@ export class ReportProductReviewComponent {
       description,
       img,
       units,
-      need_id
+      item_id
     );
   }
 
@@ -62,7 +62,7 @@ export class ReportProductReviewComponent {
       card.description,
       card.img,
       card.units,
-      card.need_id,
+      card.item_id,
     );
   }
 
@@ -76,16 +76,15 @@ export class ReportProductReviewComponent {
         card.description,
         card.img,
         card.units,
-        card.need_id,
+        card.item_id,
       );
     }
   }
   check() {
-    // console.log(this.deckService.selectedProducts);
+    console.log(this.deckService.selectedProducts);
     // console.log(this.deckService.location);
     // console.log(this.deckService.getCardLanguage(), 'ln');
 
-    console.log(this.navController.getCurrentRouteName() === 'productreview');
 
     
   }
@@ -104,7 +103,7 @@ export class ReportProductReviewComponent {
       card.description,
       card.img,
       card.units,
-      card.need_id
+      card.item_id
     );
   }
 

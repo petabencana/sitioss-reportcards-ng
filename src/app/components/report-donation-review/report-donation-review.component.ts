@@ -44,7 +44,7 @@ export class ReportDonationReviewComponent {
     description: string,
     img: string,
     units: string,
-    need_id: string,
+    item_id: string,
     donate: number
   ) {
     this.deckService.setSelectedProducts(
@@ -54,7 +54,7 @@ export class ReportDonationReviewComponent {
       description,
       img,
       units,
-      need_id,
+      item_id,
       donate
     );
   }
@@ -69,7 +69,7 @@ export class ReportDonationReviewComponent {
         card.description,
         card.img,
         card.units,
-        card.need_id,
+        card.item_id,
         card.donate
       );
     }
@@ -87,7 +87,7 @@ export class ReportDonationReviewComponent {
           card.description,
           card.img,
           card.units,
-          card.need_id,
+          card.item_id,
           card.donate
         );
       } else {
@@ -99,7 +99,7 @@ export class ReportDonationReviewComponent {
           card.description,
           card.img,
           card.units,
-          card.need_id,
+          card.item_id,
           card.donate
         );
       }

@@ -92,7 +92,7 @@ export class DeckService {
     description: string;
     img: string;
     units: string;
-    need_id: string;
+    item_id: string;
     donate?: number;
   }[] = [];
 
@@ -107,7 +107,7 @@ export class DeckService {
     description: string,
     img: string,
     units: string,
-    need_id: string,
+    item_id: string,
     donate?: number
   ) {
     if (quantity === 0) {
@@ -125,7 +125,7 @@ export class DeckService {
         this.selectedProducts[index].description = description;
         this.selectedProducts[index].img = img;
         this.selectedProducts[index].units = units;
-        this.selectedProducts[index].need_id = need_id;
+        this.selectedProducts[index].item_id = item_id;
         this.selectedProducts[index].donate = donate;
       } else {
         this.selectedProducts.push({
@@ -135,7 +135,7 @@ export class DeckService {
           description,
           img,
           units,
-          need_id,
+          item_id,
           donate,
         });
       }
@@ -522,7 +522,7 @@ export class DeckService {
         platform: 'whatsapp',
         user_type: 'need',
         units: item.units,
-        item_id: item.need_id,
+        item_id: item.item_id,
         description: item.description ? item.description : '',
         lng: this.location.lng,
         lat: this.location.lat,
