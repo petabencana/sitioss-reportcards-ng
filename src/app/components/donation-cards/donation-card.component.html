@@ -1,53 +1,65 @@
-<div class="productsWrapper">
-  <div class="scroll" #scrollContainer>
-    <div *ngFor="let card of cards" class="flex m20">
-      <div class="productCard">
-        <div>
-          <img class="productimg" src="{{ card.img }}" />
+<div *ngIf="loadingData">
+  Loading...
+</div>
+<div *ngIf="!loadingData">
+
+  <div class="productsWrapper">
+    <div class="scroll" #scrollContainer>
+      <div *ngFor="let card of giverCards" class="flex m20">
+        <div class="productCard">
+          <div>
+            <img class="productimg" src="{{ card.img }}" />
+          </div>
         </div>
-      </div>
-      <div class="productInfo">
-        <div>
-          <h4>{{ card.title }}</h4>
-          <div *ngIf="card.description">
-            <button
-              (click)="openDescriptionModal(card)"
-              class="description"
-              contenteditable="false"
-            >
-              {{ truncateDescription(card.description, 3) }}
-            </button>
-            <div *ngIf="card.showModal" class="modal">
-              <div>
-                <h4>Description of {{card.title}}</h4>
-                <p>{{ card.description }}</p>
-                <button (click)="closeModal(card)">Cancel</button>
+        <div class="productInfo">
+          <div>
+            <h4>{{ card.title }}</h4>
+            <div *ngIf="card.description">
+              <button
+                (click)="openDescriptionModal(card)"
+                class="description"
+                contenteditable="false"
+              >
+                {{ truncateDescription(card.description, 3) }}
+              </button>
+              <div *ngIf="card.showModal" class="modal">
+                <div>
+                  <h4>Description of {{ card.title }}</h4>
+                  <p>{{ card.description }}</p>
+                  <button (click)="closeModal(card)">Cancel</button>
+                </div>
               </div>
             </div>
-          </div>
-          <p>Need: {{ card.quantity }}&nbsp;{{ card.units }}</p>
-          <p>Status: {{ card.status }}</p>
-        </div>
-        <div>
-          <div>
-            <p>Donate</p>
+            <p>Need: {{ card.quantity }}&nbsp;{{ card.units }}</p>
+            <p>Status: {{ card.status }}</p>
           </div>
           <div>
-            <button class="quantitybuttons" (click)="decreaseQuantity(card)">
-              -
-            </button>
-            <span>{{ card.donate }}&nbsp;{{ card.units }}</span>
-            <button
-              class="quantitybuttons"
-              (click)="increaseQuantity(card)"
-              [disabled]="card.donate === card.quantity"
-            >
-              +
-            </button>
+            <div>
+              <p>Donate</p>
+            </div>
+            <div>
+              <button
+                class="quantitybuttons"
+                (click)="decreaseQuantity(card)"
+              >
+                -
+              </button>
+  
+              <span>{{ card.donate }}&nbsp;{{ card.units }}</span>
+              <button
+                class="quantitybuttons"
+                (click)="increaseQuantity(card)"
+                [disabled]="card.donate === card.quantity"
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <button (click)="check()" style="padding: 10px">check</button>
   </div>
-  <!-- <button (click)="check()" style="padding: 10px;">check</button> -->
-</div>
+  </div>
+
+
