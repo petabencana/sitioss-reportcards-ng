@@ -41,6 +41,7 @@
               <button
                 class="quantitybuttons"
                 (click)="decreaseQuantity(card)"
+                [disabled]="card.limit > 0 &&card.donate === card.limit"
               >
                 -
               </button>

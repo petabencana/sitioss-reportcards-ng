@@ -1,7 +1,10 @@
 <div class="productsWrapper">
   <div class="scroll" #scrollContainer>
     <button (click)="check()">check</button>
-    <p>You will donate following items to [address] at {{donationDate}}&nbsp;{{donationTime}}</p>
+    <p>
+      You will donate following items to [address] at
+      {{ donationDate }}&nbsp;{{ donationTime }}
+    </p>
     <div *ngFor="let item of donationdetails" class="flex m20">
       <div class="productCard">
         <div>
@@ -29,7 +32,11 @@
           </div>
         </div>
         <div>
-          <button class="quantitybuttons" (click)="decreaseQuantity(item)">
+          <button
+            class="quantitybuttons"
+            (click)="decreaseQuantity(item)"
+            [disabled]="item.limit > 0 && item.donate === item.limit"
+          >
             -
           </button>
           <span style="min-width: 62px"
