@@ -7,8 +7,19 @@
     Submit Request
   </button>
 </div>
-<div class="type" *ngIf="deckType !== 'needs'">
+<div class="type" *ngIf="deckType === 'giver'">
+  <button
+    class="SubmitButton"
+    (click)="giverSubmit()"
+    [disabled]="!canSubmit()"
+  >
+    Submit Giver Request
+  </button>
+</div>
+<div class="type" *ngIf="!['needs','giver'].includes(deckType)">
   <button type="button" (click)="submit()" [disabled]="!canSubmit()">
     {{ title }}
   </button>
 </div>
+
+
