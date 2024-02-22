@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { environment as env } from '../../../../environments/environment';
-import { NeedsComponent } from './needs.component';
+import { NeedComponent } from './need.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: NeedsComponent,
-    children: env['supportedCards']['needs']
+    component: NeedComponent,
+    children: env['supportedCards']['need']
   },
   // Optional, redirectTo first card in prep
   {
@@ -22,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NeedsRoutingModule { }
+export class NeedRoutingModule { }

@@ -62,7 +62,7 @@ export class ThankComponent {
 
       case 'volcano':
         return '../../../../assets/decks/volcano/thank/success.png';
-      case 'needs':
+      case 'need':
         return '../../../../assets/decks/logistics/success.svg';
       case 'giver':
         return '../../../../assets/decks/logistics/success.svg';

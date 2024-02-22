@@ -1,4 +1,4 @@
-<div class="thanks" *ngIf="deckType !== 'needs' && deckType !== 'giver'">
+<div class="thanks" *ngIf="deckType !== 'need' && deckType !== 'giver'">
   <img [src]="typeImage" alt="success image report" class="thanks__img" />
   <p class="thanks__title">
     {{ reportSuccessText.result | translate}}
@@ -19,10 +19,10 @@
     }}</a>
   </div>
 </div>
-<div class="needs_thanks" *ngIf="deckType === 'needs' || deckType === 'giver'">
+<div class="needs_thanks" *ngIf="deckType === 'need' || deckType === 'giver'">
   <img [src]="typeImage" alt="success image report" class="thanks__img" />
   <h3>Success!</h3>
-  <div *ngIf="deckType === 'needs'">
+  <div *ngIf="deckType === 'need'">
     <p>Thank you for your report</p>
     <p>We will notify you when it's on the map</p>
   </div>

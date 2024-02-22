@@ -3,21 +3,21 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 // Routing module
-import { NeedsRoutingModule } from './needs-routing.module';
+import { NeedRoutingModule } from './need-routing.module';
 
 // Parent component
-import { NeedsComponent } from './needs.component';
+import { NeedComponent } from './need.component';
 import { UtilsModule } from '../utils.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    NeedsRoutingModule,
+    NeedRoutingModule,
     TranslateModule,
     UtilsModule
   ],
   declarations: [
-   NeedsComponent,
+   NeedComponent,
   ],
   exports: [
     TranslateModule
@@ -26,4 +26,4 @@ import { UtilsModule } from '../utils.module';
     TranslatePipe
   ]
 })
-export class NeedsModule { }
+export class NeedModule { }

@@ -42,7 +42,7 @@ export class SubmitButtonComponent implements OnInit {
       (this.deckService.isCaptchaCleared() &&
         this.navController.getCurrentRouteName() === 'summary') ||
       (this.deckService.isCaptchaCleared() &&
-        this.deckService.getDeckSubType() === 'needs') ||
+        this.deckService.getDeckSubType() === 'need') ||
       (this.deckService.isCaptchaCleared() &&
         this.deckService.getDeckSubType() === 'giver')
     );

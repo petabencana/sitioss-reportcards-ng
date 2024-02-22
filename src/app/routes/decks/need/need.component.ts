@@ -7,11 +7,11 @@ import { DeckService } from '../../../services/cards/deck.service';
 import { environment as env } from '../../../../environments/environment';
 
 @Component({
-  selector: 'app-logistics',
-  templateUrl: './needs.component.html',
-  styleUrls: ['./needs.component.scss'],
+  selector: 'app-need',
+  templateUrl: './need.component.html',
+  styleUrls: ['./need.component.scss'],
 })
-export class NeedsComponent implements OnInit {
+export class NeedComponent implements OnInit {
   items: {
     title: string;
     subType: 'real' | 'training';
@@ -31,13 +31,13 @@ export class NeedsComponent implements OnInit {
     translate.use(this.deckService.getCardLanguage());
 
     // Store card routes for navigation
-    this.navController.registerCardRoutes('needs');
+    this.navController.registerCardRoutes('need');
 
     // Check for first card, else redirect
     this.navController.checkForFirstCard(this.route);
 
-    this.deckService.setDeckType('needs');
-    this.deckService.setDeckSubType('needs');
+    this.deckService.setDeckType('need');
+    this.deckService.setDeckSubType('need');
     this.deckService.setRoute(route);
   }
 

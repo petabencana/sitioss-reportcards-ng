@@ -12,7 +12,7 @@ type deckType =
   | 'haze'
   | 'volcano'
   | 'flood'
-  | 'needs'
+  | 'need'
   | 'giver';
 type deckSubType =
   | 'fire'
@@ -22,7 +22,7 @@ type deckSubType =
   | 'wind'
   | 'volcano'
   | 'flood'
-  | 'needs'
+  | 'need'
   | 'giver';
 
 interface LatLng {
@@ -545,7 +545,7 @@ export class DeckService {
           -4
         )}-${languageCode}-${timestamp}`,
         platform: 'whatsapp',
-        user_type: 'need',
+        user_type: this.getDeckSubType(),
         units: item.units,
         item_id: item.item_id,
         description: item.description ? item.description : '',
@@ -585,7 +585,7 @@ export class DeckService {
         giver_language: languageCode,
         user_id: this.countryCode + this.contactNumber,
         platform: 'whatsapp',
-        user_type: 'giver',
+        user_type: this.getDeckSubType(),
         need_id: item.need_id,
         promised_date: this.donationDate,
         promised_time: this.donationTime,
