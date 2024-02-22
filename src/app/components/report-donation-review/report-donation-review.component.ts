@@ -18,6 +18,7 @@ export class ReportDonationReviewComponent {
   ) {}
 
   get donationdetails() {
+    
     return this.deckService.selectedProducts;
   }
 
@@ -45,7 +46,8 @@ export class ReportDonationReviewComponent {
     img: string,
     units: string,
     item_id: string,
-    donate: number
+    need_id: number,
+    donate: number,
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -55,6 +57,7 @@ export class ReportDonationReviewComponent {
       img,
       units,
       item_id,
+      need_id,
       donate
     );
   }
@@ -70,6 +73,7 @@ export class ReportDonationReviewComponent {
         card.img,
         card.units,
         card.item_id,
+        card.need_id,
         card.donate
       );
     }
@@ -88,6 +92,7 @@ export class ReportDonationReviewComponent {
           card.img,
           card.units,
           card.item_id,
+          card.need_id,
           card.donate
         );
       } else {
@@ -100,20 +105,23 @@ export class ReportDonationReviewComponent {
           card.img,
           card.units,
           card.item_id,
+          card.need_id,
           card.donate
         );
       }
     }
   }
+
   check() {
     console.log(this.deckService.selectedProducts);
-    console.log(
-      this.deckService.donationDate,
-      this.deckService.donationTime,
-      this.deckService.countryName,
-      this.deckService.countryCode,
-      this.deckService.contactNumber
-    );
+    
+    // console.log(
+    //   this.deckService.donationDate,
+    //   this.deckService.donationTime,
+    //   this.deckService.countryName,
+    //   this.deckService.countryCode,
+    //   this.deckService.contactNumber
+    // );
   }
   openDescriptionModal(card: any): void {
     card.showModal = true;
@@ -121,5 +129,10 @@ export class ReportDonationReviewComponent {
 
   closeModal(card: any): void {
     card.showModal = false;
+  }
+
+  handleSuccess(event) {
+    // add verification step
+    this.deckService.setCaptchaCleared();
   }
 }
