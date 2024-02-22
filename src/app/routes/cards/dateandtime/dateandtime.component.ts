@@ -41,7 +41,7 @@ export class DateandtimeComponent implements OnInit {
       defaultDate: this.selectedTime, // Prefill time picker with selected time
       enableTime: true,
       noCalendar: true,
-      dateFormat: 'H:i',
+      dateFormat: 'h:i K', // 'h' for 12-hour format, 'i' for minutes, 'K' for AM/PM
       onChange: (selectedDates, dateStr, instance) => {
         this.selectedTime = dateStr;
         this.deckService.setDonationtime(this.selectedTime);
