@@ -18,15 +18,14 @@ export class ReportDonationReviewComponent {
   ) {}
 
   get donationdetails() {
-    
     return this.deckService.selectedProducts;
   }
 
-  get donationDate(){
-    return this.deckService.donationDate
+  get donationDate() {
+    return this.deckService.donationDate;
   }
-  get donationTime(){
-    return this.deckService.donationTime
+  get donationTime() {
+    return this.deckService.donationTime;
   }
 
   truncateDescription(description: string, maxLines: number): string {
@@ -36,7 +35,6 @@ export class ReportDonationReviewComponent {
     }
     return description;
   }
-
 
   private recordQuantityChange(
     title: string,
@@ -48,6 +46,7 @@ export class ReportDonationReviewComponent {
     item_id: string,
     need_id: number,
     donate: number,
+    limit: number
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -58,7 +57,8 @@ export class ReportDonationReviewComponent {
       units,
       item_id,
       need_id,
-      donate
+      donate,
+      limit
     );
   }
 
@@ -74,7 +74,8 @@ export class ReportDonationReviewComponent {
         card.units,
         card.item_id,
         card.need_id,
-        card.donate
+        card.donate,
+        card.limit
       );
     }
   }
@@ -82,7 +83,7 @@ export class ReportDonationReviewComponent {
   decreaseQuantity(card: any) {
     if (card.donate && card.donate > 0) {
       card.donate -= 1;
-      if (card.donate === 0) {
+      if (card.donate === 0 || card.donate === card.limit) {
         // If donate becomes 0, remove the product from selectedProducts
         this.deckService.setSelectedProducts(
           card.title,
@@ -93,7 +94,8 @@ export class ReportDonationReviewComponent {
           card.units,
           card.item_id,
           card.need_id,
-          card.donate
+          card.donate,
+          card.limit
         );
       } else {
         // If donate is greater than 0, update selectedProducts
@@ -106,7 +108,8 @@ export class ReportDonationReviewComponent {
           card.units,
           card.item_id,
           card.need_id,
-          card.donate
+          card.donate,
+          card.limit
         );
       }
     }
@@ -114,7 +117,7 @@ export class ReportDonationReviewComponent {
 
   check() {
     console.log(this.deckService.selectedProducts);
-    
+
     // console.log(
     //   this.deckService.donationDate,
     //   this.deckService.donationTime,

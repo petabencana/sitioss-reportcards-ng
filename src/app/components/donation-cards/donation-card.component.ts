@@ -49,7 +49,8 @@ export class DonationCardComponent implements OnInit {
   }
 
   private loadCards() {
-    this.loadingData = true; // Set loading state to true    // Fetch cards
+    this.loadingData = true; // Set loading state to true    
+    // Fetch cards
     this.http
       .get<any[]>(
         `${env.data_server}needs/need?requestId=${this.deckService.requestId}`
@@ -82,6 +83,10 @@ export class DonationCardComponent implements OnInit {
               units: product ? product.units : '', // Add units from product if available
               item_id: donation.item_id,
               need_id: donation.id,
+              limit:
+                donation.quantity_satisfied !== null
+                  ? +donation.quantity_satisfied
+                  : 0,
             };
           });
           this.deckService.setTranslatedData(this.giverCards);
@@ -111,7 +116,8 @@ export class DonationCardComponent implements OnInit {
     units: string,
     item_id: string,
     need_id: number,
-    donate: number
+    donate: number,
+    limit: number
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -122,7 +128,8 @@ export class DonationCardComponent implements OnInit {
       units,
       item_id,
       need_id,
-      donate
+      donate,
+      limit
     );
   }
 
@@ -138,7 +145,8 @@ export class DonationCardComponent implements OnInit {
         card.units,
         card.item_id,
         card.need_id,
-        card.donate
+        card.donate,
+        card.limit
       );
     }
   }
@@ -157,7 +165,8 @@ export class DonationCardComponent implements OnInit {
           card.units,
           card.item_id,
           card.need_id,
-          card.donate
+          card.donate,
+          card.limit
         );
       } else {
         // If donate is greater than 0, update selectedProducts
@@ -170,7 +179,8 @@ export class DonationCardComponent implements OnInit {
           card.units,
           card.item_id,
           card.need_id,
-          card.donate
+          card.donate,
+          card.limit
         );
       }
     }

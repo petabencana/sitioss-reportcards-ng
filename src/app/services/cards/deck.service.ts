@@ -74,7 +74,7 @@ export class DeckService {
   isPrevButtonDisabled = true;
   isNextButtonDisabled = true;
   reportType = '';
-  giverData : any[]
+  giverData: any[];
   translatedData: any[];
 
   getGiverCards(): any[] {
@@ -104,6 +104,7 @@ export class DeckService {
     item_id: string;
     need_id: number;
     donate?: number;
+    limit?: number;
   }[] = [];
 
   getSelectedProducts(title: string) {
@@ -119,7 +120,8 @@ export class DeckService {
     units: string,
     item_id: string,
     need_id?: number,
-    donate?: number
+    donate?: number,
+    limit?: number
   ) {
     if (quantity === 0) {
       this.selectedProducts = this.selectedProducts.filter(
@@ -139,6 +141,7 @@ export class DeckService {
         this.selectedProducts[index].item_id = item_id;
         this.selectedProducts[index].need_id = need_id;
         this.selectedProducts[index].donate = donate;
+        this.selectedProducts[index].limit = limit;
       } else {
         this.selectedProducts.push({
           title,
@@ -150,6 +153,7 @@ export class DeckService {
           item_id,
           need_id,
           donate,
+          limit,
         });
       }
     }
