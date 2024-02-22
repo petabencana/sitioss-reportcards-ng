@@ -42,6 +42,7 @@ export class DeckService {
 
   tweetID: string;
   waNumber: string;
+  requestId: string;
   type: deckType;
   subType: deckSubType;
 
@@ -73,8 +74,12 @@ export class DeckService {
   isPrevButtonDisabled = true;
   isNextButtonDisabled = true;
   reportType = '';
-
+  giverData : any[]
   translatedData: any[];
+
+  getGiverCards(): any[] {
+    return this.giverData;
+  }
 
   getTranslatedData(): any[] {
     return this.translatedData;
@@ -85,6 +90,10 @@ export class DeckService {
     this.translatedData = data;
   }
 
+  setGiverData(data: any[]): void {
+    this.giverData = data;
+  }
+
   selectedProducts: {
     title: string;
     quantity: number;
@@ -93,6 +102,7 @@ export class DeckService {
     img: string;
     units: string;
     item_id: string;
+    need_id: number;
     donate?: number;
   }[] = [];
 
@@ -108,6 +118,7 @@ export class DeckService {
     img: string,
     units: string,
     item_id: string,
+    need_id?: number,
     donate?: number
   ) {
     if (quantity === 0) {
@@ -126,6 +137,7 @@ export class DeckService {
         this.selectedProducts[index].img = img;
         this.selectedProducts[index].units = units;
         this.selectedProducts[index].item_id = item_id;
+        this.selectedProducts[index].need_id = need_id;
         this.selectedProducts[index].donate = donate;
       } else {
         this.selectedProducts.push({
@@ -136,6 +148,7 @@ export class DeckService {
           img,
           units,
           item_id,
+          need_id,
           donate,
         });
       }
@@ -380,6 +393,11 @@ export class DeckService {
       this.waNumber = waNumber;
     }
   }
+  setRequestId(requestId: string) {
+    if (requestId) {
+      this.requestId = requestId;
+    }
+  }
   setEvacuationNumber(evacuationNumber: number) {
     if (this.evacuationNumber !== evacuationNumber) {
       this.evacuationNumber = evacuationNumber;
@@ -509,7 +527,8 @@ export class DeckService {
     const languageCode = this.getCardLanguage()
       ? this.getCardLanguage()
       : 'id';
-    const notifyMedium = this.waNumber;
+    const contactNumber = this.waNumber;
+    const timestamp = Date.now();
 
     this.selectedProducts.map((item) => {
       need_data.push({
@@ -517,8 +536,10 @@ export class DeckService {
         quantity_requested: item.quantity,
         item_requested: item.title,
         need_language: languageCode,
-        user_id: notifyMedium,
-        need_request_id: `${notifyMedium.slice(-4)}-${languageCode}`,
+        user_id: contactNumber,
+        need_request_id: `${contactNumber.slice(
+          -4
+        )}-${languageCode}-${timestamp}`,
         platform: 'whatsapp',
         user_type: 'need',
         units: item.units,
@@ -533,17 +554,55 @@ export class DeckService {
 
     return new Promise(async (resolve, reject) => {
       return await this.http
-      .post(`${env.data_server}needs/create-need`, need_data)
-      .toPromise()
-      .then((success) => {
-        // PUT report & patch image_url
-        resolve(success);
-      })
-      .catch((error) => {
-        reject(error);
-        console.log('Error', error);
-        // PUT report & notify user about upload error
+        .post(`${env.data_server}needs/create-need`, need_data)
+        .toPromise()
+        .then((success) => {
+          // PUT report & patch image_url
+          resolve(success);
+        })
+        .catch((error) => {
+          reject(error);
+          console.log('Error', error);
+          // PUT report & notify user about upload error
+        });
+    });
+  }
+
+  async submitGiverRequest(): Promise<any> {
+    const giver_data = [];
+    const languageCode = this.getCardLanguage()
+      ? this.getCardLanguage()
+      : 'id';
+
+    this.selectedProducts.map((item) => {
+      giver_data.push({
+        quantity_satisfied: item.donate,
+        item_satisfied: item.title,
+        giver_language: languageCode,
+        user_id: this.countryCode + this.contactNumber,
+        platform: 'whatsapp',
+        user_type: 'giver',
+        need_id: item.need_id,
+        promised_date: this.donationDate,
+        promised_time: this.donationTime,
       });
+    });
+
+    console.log(giver_data, 'deck');
+
+    return new Promise(async (resolve, reject) => {
+      return await this.http
+        .post(`${env.data_server}needs/update-giver`, giver_data)
+        .toPromise()
+        .then((success) => {
+          // PUT report & patch image_url
+          resolve(success);
+        })
+        .catch((error) => {
+          reject(error);
+          console.log('Error', error);
+          // PUT report & notify user about upload error
+        });
     });
   }
 
