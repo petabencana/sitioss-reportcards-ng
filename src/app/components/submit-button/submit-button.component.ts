@@ -42,7 +42,9 @@ export class SubmitButtonComponent implements OnInit {
       (this.deckService.isCaptchaCleared() &&
         this.navController.getCurrentRouteName() === 'summary') ||
       (this.deckService.isCaptchaCleared() &&
-        this.deckService.getDeckSubType() === 'needs')
+        this.deckService.getDeckSubType() === 'needs') ||
+      (this.deckService.isCaptchaCleared() &&
+        this.deckService.getDeckSubType() === 'giver')
     );
   }
 
@@ -87,6 +89,27 @@ export class SubmitButtonComponent implements OnInit {
       this.isSumbitted = true;
       return await this.deckService
         .submitNeedRequest()
+        .then((reponse) => {
+          this.isLoading = false;
+          this.navController.next(this.deckService.getRoute());
+          console.log(reponse, 'res');
+        })
+        .catch((err) => {
+          this.navController.next(this.deckService.getRoute());
+          console.log(err, 'err');
+        });
+    }
+  }
+
+  async giverSubmit() {
+    this.isLoading = true;
+    if (
+      this.navController.getCurrentRouteName() === 'donationreview' &&
+      !this.isSumbitted
+    ) {
+      this.isSumbitted = true;
+      return await this.deckService
+        .submitGiverRequest()
         .then((reponse) => {
           this.isLoading = false;
           this.navController.next(this.deckService.getRoute());
