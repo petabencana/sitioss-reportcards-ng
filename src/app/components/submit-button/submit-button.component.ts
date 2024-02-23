@@ -100,11 +100,9 @@ export class SubmitButtonComponent implements OnInit {
         .then((reponse) => {
           this.isLoading = false;
           this.navController.next(this.deckService.getRoute());
-          console.log(reponse, 'res');
         })
         .catch((err) => {
           this.navController.next(this.deckService.getRoute());
-          console.log(err, 'err');
         });
     }
   }
@@ -121,11 +119,9 @@ export class SubmitButtonComponent implements OnInit {
         .then((reponse) => {
           this.isLoading = false;
           this.navController.next(this.deckService.getRoute());
-          console.log(reponse, 'res');
         })
         .catch((err) => {
           this.navController.next(this.deckService.getRoute());
-          console.log(err, 'err');
         });
     }
   }

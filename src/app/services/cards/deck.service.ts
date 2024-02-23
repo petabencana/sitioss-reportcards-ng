@@ -568,7 +568,6 @@ export class DeckService {
       });
     });
 
-    console.log(need_data, 'deck');
 
     return new Promise(async (resolve, reject) => {
       return await this.http
@@ -606,7 +605,6 @@ export class DeckService {
       });
     });
 
-    console.log(giver_data, 'deck');
 
     return new Promise(async (resolve, reject) => {
       return await this.http
