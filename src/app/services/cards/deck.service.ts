@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as topojson from 'topojson-client';
 
+
 type deckType =
   | 'fire'
   | 'earthquake'
@@ -12,8 +13,10 @@ type deckType =
   | 'haze'
   | 'volcano'
   | 'flood'
+  | 'notifications'
   | 'need'
   | 'giver';
+
 type deckSubType =
   | 'fire'
   | 'haze'
@@ -59,8 +62,8 @@ export class DeckService {
   fireLocation: LatLng;
   fireRadius: LatLng;
   fireDistance: number;
-  selectedRegion: Object;
-  selectedRegionCode: Object;
+  selectedRegion: string[];
+  selectedRegionCode: string[];
   volcanicSigns: number[] = [];
   evacuationNumber: null | number = null;
   evacuationArea: null | boolean = null;
@@ -357,11 +360,11 @@ export class DeckService {
     this.route = route;
   }
 
-  setSelectedRegion(selectedRegion: Object) {
+  setSelectedRegion(selectedRegion: string[]) {
     this.selectedRegion = selectedRegion;
   }
 
-  setSelectedRegionCode(selectedRegionCode: Object) {
+  setSelectedRegionCode(selectedRegionCode: string[]) {
     this.selectedRegionCode = selectedRegionCode;
   }
 
@@ -516,13 +519,13 @@ export class DeckService {
   }
 
   async submitNotificationRequest(): Promise<any> {
-    const selectedRegion = this.getSelectedRegionCode();
+    const selectedRegion = this.getSelectedRegion();
     const languageCode = this.getCardLanguage();
     const notifyMedium = this.waNumber;
     const data = {
-      region_code: selectedRegion,
-      whatsapp: notifyMedium,
-      language_code: languageCode,
+      regions: selectedRegion,
+      userId: notifyMedium,
+      language: languageCode,
     };
     return new Promise(async (resolve, reject) => {
       return await this.http
