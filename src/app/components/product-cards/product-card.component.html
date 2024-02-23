@@ -24,7 +24,7 @@
           </button>
           <!-- Modal start-->
           <div *ngIf="card.showModal" class="modal">
-            <h3>Add more detail - {{ card.title }}</h3>
+            <h3>{{ modalHeader }} - {{ card.title }}</h3>
             <textarea
               [(ngModel)]="card.description"
               placeholder="{{ card.descriptionPlaceholder }}"
@@ -68,7 +68,7 @@
     </div>
     <div>
       <p style="text-align: start; color: #fff; font-size: 12px">
-        Selected Category
+        {{ categoryLabel }}
       </p>
       <p
         style="

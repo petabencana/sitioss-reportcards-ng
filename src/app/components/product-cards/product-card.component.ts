@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
 import { TranslationService } from './product.service';
 import { forkJoin } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'product-card',
@@ -16,6 +17,7 @@ export class CardComponent {
 
   constructor(
     private translationService: TranslationService,
+    public translate: TranslateService,
     public deckService: DeckService
   ) {}
 
@@ -25,9 +27,9 @@ export class CardComponent {
     // Load both products and categories translations simultaneously
     forkJoin({
       //  change hard code en with language value in state
-      productsData: this.translationService.getTranslations('en', 'products'),
+      productsData: this.translationService.getTranslations('id', 'products'),
       categoriesData: this.translationService.getTranslations(
-        'en',
+        'id',
         'categories'
       ),
     }).subscribe(({ productsData, categoriesData }) => {
@@ -65,6 +67,7 @@ export class CardComponent {
     }
   }
 
+  
   get filteredCards() {
     return this.selectedCategory
       ? this.cards.filter((card) => card.category === this.selectedCategory)
@@ -75,6 +78,14 @@ export class CardComponent {
     this.selectedCategory = category;
     this.scrollContainer.nativeElement.scrollTop = 0;
   }
+
+  get categoryLabel(): string {
+    return this.translate.instant('card.needLabels.categoryLabel');
+  }
+  get modalHeader(): string {
+    return this.translate.instant('card.needLabels.modalHeader');
+  }
+
 
   private recordQuantityChange(
     title: string,
