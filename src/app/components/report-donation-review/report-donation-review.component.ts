@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { DeckService } from '../../services/cards/deck.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,9 +8,10 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './report-donation-review.component.html',
   styleUrls: ['./report-donation-review.component.scss'],
 })
-export class ReportDonationReviewComponent {
+export class ReportDonationReviewComponent implements OnInit {
   previewImg: HTMLImageElement;
   previewImgContainer: HTMLDivElement;
+  address: any ;
 
   constructor(
     public deckService: DeckService,
@@ -20,6 +21,11 @@ export class ReportDonationReviewComponent {
   get donationdetails() {
     return this.deckService.selectedProducts;
   }
+
+  async ngOnInit() {
+    this.address = await this.deckService.fetchAddress();
+  }
+
 
   get donationDate() {
     return this.deckService.donationDate;
@@ -117,7 +123,8 @@ export class ReportDonationReviewComponent {
 
   check() {
     console.log(this.deckService.selectedProducts);
-
+    console.log(this.address);
+    
     // console.log(
     //   this.deckService.donationDate,
     //   this.deckService.donationTime,
