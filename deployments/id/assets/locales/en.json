@@ -25,6 +25,10 @@
       "needSuccessText1": "Thank you for your report.",
       "needSuccessText2": "We will notify you when it’s on the map"
     },
+    "giverLabels": {
+      "dateandtimeHeader": "Select date and time to deliver items.",
+      "dateandtimeDescription": "We are working on integrated delivery, however, currently you will need to arrange delivery to the recipient. If you are going in person, please be mindful of the disaster situation and always meet in a public space."
+    },
     "productsList": [
       {
         "title": "Water",
