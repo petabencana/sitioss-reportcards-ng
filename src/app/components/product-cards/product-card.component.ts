@@ -39,6 +39,8 @@ export class CardComponent {
       this.initSelectedCategory();
       this.prefillCards();
     });
+    this.deckService.userCanBack();
+    this.deckService.userCannotContinue();
   }
 
   private initSelectedCategory() {
@@ -54,7 +56,7 @@ export class CardComponent {
         if (storedProduct) {
           card.quantity = storedProduct.quantity;
           card.description = storedProduct.description;
-          card.item_id = storedProduct.item_id
+          card.item_id = storedProduct.item_id;
         } else {
           card.quantity = 0;
           card.description = '';
@@ -81,7 +83,7 @@ export class CardComponent {
     description: string,
     img: string,
     units: string,
-    item_id: string,
+    item_id: string
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -90,7 +92,7 @@ export class CardComponent {
       description,
       img,
       units,
-      item_id,
+      item_id
     );
   }
 
@@ -105,6 +107,7 @@ export class CardComponent {
       card.units,
       card.item_id
     );
+    this.deckService.userCanContinue();
   }
 
   decreaseQuantity(card: any) {
@@ -119,6 +122,11 @@ export class CardComponent {
         card.units,
         card.item_id
       );
+    }
+    if (this.deckService.selectedProducts.length > 0) {
+      this.deckService.userCanContinue();
+    } else {
+      this.deckService.userCannotContinue();
     }
   }
 

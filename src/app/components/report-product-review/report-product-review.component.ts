@@ -32,6 +32,10 @@ export class ReportProductReviewComponent {
     return description;
   }
 
+  ngOnInit() {
+    this.deckService.userCanBack();
+    this.deckService.userCannotContinue();
+  }
 
   private recordQuantityChange(
     title: string,
