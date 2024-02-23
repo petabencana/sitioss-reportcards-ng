@@ -18,6 +18,13 @@
   "card": {
     "yes": "yes",
     "no": "no",
+    "needLabels": {
+      "categoryLabel": "Select Category",
+      "modalHeader": "Add more detail",
+      "submitButtonLabel": "Submit Request",
+      "needSuccessText1": "Thank you for your report.",
+      "needSuccessText2": "We will notify you when it’s on the map"
+    },
     "productsList": [
       {
         "title": "Water",
@@ -389,9 +396,9 @@
       "products": "Select Items",
       "productreview": "Review & Submit",
       "donate": "Select Items to Donate",
-      "dateandtime":"Select Date & Time",
-      "contact":"Your Contact",
-      "donationreview":"Review & Submit"
+      "dateandtime": "Select Date & Time",
+      "contact": "Your Contact",
+      "donationreview": "Review & Submit"
     },
     "type": {
       "fire": {
@@ -405,7 +412,7 @@
         "roadTypeButton": "Road Accessibility",
         "structureTypeButton": "Structural Failure"
       },
-      "report":{
+      "report": {
         "realTypeButton": "Submit Real Disaster Report",
         "trainingTypeButton": "Complete Training Exercise"
       }
@@ -511,24 +518,24 @@
     },
     "thank": {
       "result": {
-        "real" : "SUCCESS",
+        "real": "SUCCESS",
         "training": "SUCCESS TRAINING"
       },
-      "url":{
-        "real" : "https://petabencana.id",
-        "training" : "https://training.petabencana.id"
+      "url": {
+        "real": "https://petabencana.id",
+        "training": "https://training.petabencana.id"
       },
-      "urlText":"Petabencana.id",
+      "urlText": "Petabencana.id",
       "title": {
-        "real" : [
-        "Thank you for your report. Check",
-        "to view your report and see real-time disaster updates."
-      ],
-      "training" : [
-        "You have completed your training . Check",
-        " to view and share your simulation report!"
-      ]
-    },
+        "real": [
+          "Thank you for your report. Check",
+          "to view your report and see real-time disaster updates."
+        ],
+        "training": [
+          "You have completed your training . Check",
+          " to view and share your simulation report!"
+        ]
+      },
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",
@@ -537,8 +544,8 @@
     },
     "swipeText": "SUBMIT",
     "submitButton": {
-        "real": "Submit Report",
-        "training": "Complete Training"
+      "real": "Submit Report",
+      "training": "Complete Training"
     },
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?"

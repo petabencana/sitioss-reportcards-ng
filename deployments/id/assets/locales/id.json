@@ -18,6 +18,13 @@
   "card": {
     "yes": "Ya",
     "no": "Tidak",
+    "needLabels": {
+      "categoryLabel": "Pilih Kategori",
+      "modalHeader": "Tambahkan rincian",
+      "submitButtonLabel":"Kirim permintaan",
+      "needSuccessText1": "Terimakasih.",
+      "needSuccessText2": "Kami akan mengirimkan notifikasi ketika permintaanmu sudah tampil di peta!"
+    },
     "productsList" : [
       {
         "title": "Air minum",
@@ -386,8 +393,8 @@
       "region": "Pilih wilayah untuk mendapatkan notifikasi",
       "summary": "Tinjau",
       "thankyou": "Tinjau dan kirimkan",
-      "products": "Select Items",
-      "productreview": "Review & Submit",
+      "products": "Pilih Barang",
+      "productreview": "Tinjau",
       "donate": "Select Items to Donate",
       "dateandtime":"Select Date & Time",
       "contact":"Your Contact",
