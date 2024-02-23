@@ -2,7 +2,7 @@
   <div class="scroll" #scrollContainer>
     <button (click)="check()">check</button>
     <p>
-      You will donate following items to [address] at
+      You will donate following items to {{address.city}},{{address.city_district}} at
       {{ donationDate }}&nbsp;{{ donationTime }}
     </p>
     <div *ngFor="let item of donationdetails" class="flex m20">
