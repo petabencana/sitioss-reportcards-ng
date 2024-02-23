@@ -1,10 +1,8 @@
 <div class="donation">
   <div class="content">
-    <h3>Select date & time to deliver items.</h3>
+    <h3>{{ dateandtimeHeader }}</h3>
     <p>
-      We are working on integrated delivery, however, currently you will need
-      to arrange delivery to the recipient. If you are going in person, please
-      be mindful of the disaster situation and always meet in public space.
+      {{ dateandtimeDescription }}
     </p>
   </div>
   <div class="date-time">
@@ -15,6 +13,6 @@
       <div id="time"></div>
     </div>
   </div>
-  <p>{{ selectedDate }} - {{ selectedTime }}</p>
-  <!-- <button (click)="check()" style="padding: 10px">check</button> -->
+  <p>Selected Date: {{ selectedDate || 'NA' }}</p>
+  <p>Selected Time: {{ selectedTime || 'NA' }}</p>
 </div>
