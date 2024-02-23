@@ -27,9 +27,12 @@ export class CardComponent {
     // Load both products and categories translations simultaneously
     forkJoin({
       //  change hard code en with language value in state
-      productsData: this.translationService.getTranslations('id', 'products'),
+      productsData: this.translationService.getTranslations(
+        this.deckService.getCardLanguage() || 'id',
+        'products'
+      ),
       categoriesData: this.translationService.getTranslations(
-        'id',
+        this.deckService.getCardLanguage() || 'id',
         'categories'
       ),
     }).subscribe(({ productsData, categoriesData }) => {
@@ -42,7 +45,12 @@ export class CardComponent {
       this.prefillCards();
     });
     this.deckService.userCanBack();
-    this.deckService.userCannotContinue();
+
+    if (this.deckService.selectedProducts.length > 0) {
+      this.deckService.userCanContinue();
+    } else {
+      this.deckService.userCannotContinue();
+    }
   }
 
   private initSelectedCategory() {
@@ -67,7 +75,6 @@ export class CardComponent {
     }
   }
 
-  
   get filteredCards() {
     return this.selectedCategory
       ? this.cards.filter((card) => card.category === this.selectedCategory)
@@ -85,7 +92,6 @@ export class CardComponent {
   get modalHeader(): string {
     return this.translate.instant('card.needLabels.modalHeader');
   }
-
 
   private recordQuantityChange(
     title: string,
