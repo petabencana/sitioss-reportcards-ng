@@ -24,8 +24,9 @@ export class ReportDonationReviewComponent implements OnInit {
 
   async ngOnInit() {
     this.address = await this.deckService.fetchAddress();
+    this.deckService.userCanBack();
+    this.deckService.userCannotContinue();
   }
-
 
   get donationDate() {
     return this.deckService.donationDate;
@@ -121,18 +122,7 @@ export class ReportDonationReviewComponent implements OnInit {
     }
   }
 
-  check() {
-    console.log(this.deckService.selectedProducts);
-    console.log(this.address);
-    
-    // console.log(
-    //   this.deckService.donationDate,
-    //   this.deckService.donationTime,
-    //   this.deckService.countryName,
-    //   this.deckService.countryCode,
-    //   this.deckService.contactNumber
-    // );
-  }
+ 
   openDescriptionModal(card: any): void {
     card.showModal = true;
   }
