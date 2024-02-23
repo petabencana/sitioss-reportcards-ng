@@ -22,7 +22,14 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.deckService.userCanBack();
-    this.deckService.userCanContinue();
+    if (
+      this.deckService.contactNumber === undefined ||
+      this.deckService.contactNumber === ''
+    ) {
+      this.deckService.userCannotContinue();
+    } else {
+      this.deckService.userCanContinue();
+    }
     this.fetchCountryCodes();
     const defaultCountryCode = this.deckService.getCountryName(); // Get the stored country code
     if (!defaultCountryCode) {
@@ -71,13 +78,15 @@ export class ContactComponent implements OnInit {
     inputElement.value = sanitizedValue; // Update input value
     this.phoneNumber = sanitizedValue; // Update component property
     this.deckService.setContactNumber(this.phoneNumber);
+    if (
+      this.deckService.contactNumber === undefined ||
+      this.deckService.contactNumber === ''
+    ) {
+      this.deckService.userCannotContinue();
+    } else {
+      this.deckService.userCanContinue();
+    }
   }
 
-  check() {
-    console.log(
-      this.deckService.getCountryCode(),
-      this.deckService.getCountryName(),
-      this.deckService.getContactNumber()
-    );
-  }
+ 
 }
