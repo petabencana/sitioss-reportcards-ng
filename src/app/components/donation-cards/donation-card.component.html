@@ -24,7 +24,7 @@
               </button>
               <div *ngIf="card.showModal" class="modal">
                 <div>
-                  <h4>Description of {{ card.title }}</h4>
+                  <h4>{{modalHeader}} of {{ card.title }}</h4>
                   <p>{{ card.description }}</p>
                   <button (click)="closeModal(card)">Cancel</button>
                 </div>
@@ -59,7 +59,6 @@
         </div>
       </div>
     </div>
-    <button (click)="check()" style="padding: 10px">check</button>
   </div>
   </div>
 

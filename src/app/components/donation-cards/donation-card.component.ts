@@ -4,6 +4,7 @@ import { TranslationService } from './donation.service';
 import { environment as env } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { donationList } from './donation-list';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'donation-card',
@@ -17,6 +18,7 @@ export class DonationCardComponent implements OnInit {
   loadingData: boolean = true;
   constructor(
     private translationService: TranslationService,
+    public translate: TranslateService,
     public deckService: DeckService,
     private http: HttpClient
   ) {}
@@ -29,7 +31,7 @@ export class DonationCardComponent implements OnInit {
     // If translated data is not available or giverCards is empty, fetch it
     if (!this.translatedData || this.giverCards.length === 0) {
       this.translationService
-        .getDonationTranslations('en')
+        .getDonationTranslations(this.deckService.getCardLanguage() || 'id')
         .subscribe((donationTranslations) => {
           if (donationTranslations) {
             this.translatedData = donationTranslations; // Store translated data
@@ -44,9 +46,14 @@ export class DonationCardComponent implements OnInit {
       this.loadCards();
     }
 
-    this.deckService.userCanBack();
-    this.deckService.userCanContinue();
+    this.deckService.userCannotBack();
+    if (this.deckService.selectedProducts.length > 0) {
+      this.deckService.userCanContinue();
+    } else {
+      this.deckService.userCannotContinue();
+    }
   }
+  
 
   private loadCards() {
     this.loadingData = true; // Set loading state to true    
@@ -111,6 +118,10 @@ export class DonationCardComponent implements OnInit {
       });
   }
 
+  get modalHeader(): string {
+    return this.translate.instant('card.needLabels.modalHeader');
+  }
+
   private recordQuantityChange(
     title: string,
     quantity: number,
@@ -153,6 +164,8 @@ export class DonationCardComponent implements OnInit {
         card.limit
       );
     }
+    this.deckService.userCanContinue();
+
   }
 
   decreaseQuantity(card: any) {
@@ -188,6 +201,11 @@ export class DonationCardComponent implements OnInit {
         );
       }
     }
+    if (this.deckService.selectedProducts.length > 0) {
+      this.deckService.userCanContinue();
+    } else {
+      this.deckService.userCannotContinue();
+    }
   }
 
   truncateDescription(description: string, maxLines: number): string {
@@ -198,11 +216,6 @@ export class DonationCardComponent implements OnInit {
     return description;
   }
 
-  check() {
-    // console.log(this.deckService.selectedProducts);
-    console.log(this.giverCards);
-    // console.log(this.translatedData);
-  }
 
   openDescriptionModal(card: any): void {
     card.showModal = true;
