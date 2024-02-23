@@ -84,14 +84,7 @@ export class ReportProductReviewComponent {
       );
     }
   }
-  check() {
-    console.log(this.deckService.selectedProducts);
-    // console.log(this.deckService.location);
-    // console.log(this.deckService.getCardLanguage(), 'ln');
-
-
-    
-  }
+ 
   openDescriptionModal(card: any): void {
     card.showModal = true;
     card.tempDescription = card.description;

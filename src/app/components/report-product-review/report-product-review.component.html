@@ -1,6 +1,5 @@
 <div class="productsWrapper">
   <div class="scroll" #scrollContainer>
-    <!-- <button (click)="check()">check</button> -->
     <div *ngFor="let item of logisticsdetails" class="flex m20">
       <div class="productCard">
         <div>
@@ -11,7 +10,6 @@
         <div>
           <h4>{{ item.title }}</h4>
         </div>
-        <!-- <p>{{ item.description }}</p> -->
         <div>
           <button
             (click)="openDescriptionModal(item)"
