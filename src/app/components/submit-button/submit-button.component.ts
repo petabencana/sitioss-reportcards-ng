@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { DeckService } from '../../services/cards/deck.service';
 import { NavigationService } from '../../services/navigation.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-submit-button',
@@ -19,7 +20,8 @@ export class SubmitButtonComponent implements OnInit {
   constructor(
     public deckService: DeckService,
     public navController: NavigationService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public translate: TranslateService
   ) {}
   async ngOnInit() {
     this.isPermittedLocation =
@@ -32,6 +34,10 @@ export class SubmitButtonComponent implements OnInit {
     return !(
       this.deckService.getDescription() || this.deckService.getPreview()
     );
+  }
+
+  get submitButtonLabel(): string {
+    return this.translate.instant('card.needLabels.submitButtonLabel');
   }
 
   canSubmit(): boolean {
