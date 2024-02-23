@@ -87,6 +87,15 @@ export class ThankComponent {
     };
   }
 
+
+  get needSuccessText1(): string {
+    return this.translate.instant('card.needLabels.needSuccessText1');
+  }
+
+  get needSuccessText2(): string {
+    return this.translate.instant('card.needLabels.needSuccessText2');
+  }
+
   reportAnotherCard() {
     this.deckService.setSubSubmission();
     if (this.deckService.getDeckType() === 'earthquake') {

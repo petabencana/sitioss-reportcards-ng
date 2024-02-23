@@ -21,10 +21,10 @@
 </div>
 <div class="needs_thanks" *ngIf="deckType === 'need' || deckType === 'giver'">
   <img [src]="typeImage" alt="success image report" class="thanks__img" />
-  <h3>Success!</h3>
+  <h3> {{ reportSuccessText.result | translate}}</h3>
   <div *ngIf="deckType === 'need'">
-    <p>Thank you for your report</p>
-    <p>We will notify you when it's on the map</p>
+    <p>{{ needSuccessText1 }}</p>
+    <p>{{ needSuccessText2 }}</p>
   </div>
   <div *ngIf="deckType === 'giver'">
     <p>Thank you for your commitment</p>
