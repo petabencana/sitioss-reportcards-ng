@@ -62,6 +62,10 @@ export class DonationCardComponent implements OnInit {
               (p) => p.item_id === donation.item_id
             );
             const title = product ? product.title : donation.title;
+            this.deckService.setLocation({
+              lat: donation.latitude,
+              lng: donation.longitude,
+            });
             return {
               title: title,
               description: donation.description || '',
@@ -69,23 +73,23 @@ export class DonationCardComponent implements OnInit {
               img: product.img,
               quantity: +donation.quantity_requested,
               status:
-                donation.quantity_satisfied !== null
+                donation.total_quantity_satisfied !== null
                   ? `${(
-                      (donation.quantity_satisfied /
+                      (donation.total_quantity_satisfied /
                         donation.quantity_requested) *
                       100
                     ).toFixed(0)}% Met`
                   : '0% Met',
               donate:
-                donation.quantity_satisfied !== null
-                  ? +donation.quantity_satisfied
+                donation.total_quantity_satisfied !== null
+                  ? +donation.total_quantity_satisfied
                   : 0,
               units: product ? product.units : '', // Add units from product if available
               item_id: donation.item_id,
               need_id: donation.id,
               limit:
-                donation.quantity_satisfied !== null
-                  ? +donation.quantity_satisfied
+                donation.total_quantity_satisfied !== null
+                  ? +donation.total_quantity_satisfied
                   : 0,
             };
           });
@@ -154,7 +158,7 @@ export class DonationCardComponent implements OnInit {
   decreaseQuantity(card: any) {
     if (card.donate && card.donate > 0) {
       card.donate -= 1;
-      if (card.donate === 0) {
+      if (card.donate === 0 || card.donate === card.limit) {
         // If donate becomes 0, remove the product from selectedProducts
         this.deckService.setSelectedProducts(
           card.title,
