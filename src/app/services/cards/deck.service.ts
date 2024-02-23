@@ -244,6 +244,20 @@ export class DeckService {
     return geocodeData.address.country_code === env.country_code;
   }
 
+  async fetchAddress() {
+    const requestHeaders: HeadersInit = new Headers();
+    requestHeaders.set('Access-Control-Allow-Origin', '*');
+
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${this.location.lat}&lon=${this.location.lng}`
+    );
+
+    const geocodeData = await response.json();
+
+    return geocodeData.address;
+  }
+
+
   // Getter
   getDeckType() {
     return this.type;
