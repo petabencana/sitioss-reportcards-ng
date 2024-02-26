@@ -3,7 +3,6 @@ import { DeckService } from '../../services/cards/deck.service';
 import { TranslationService } from './donation.service';
 import { environment as env } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { donationList } from './donation-list';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
