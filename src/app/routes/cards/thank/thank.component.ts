@@ -37,6 +37,12 @@ export class ThankComponent {
     this.deckService.reset();
   }
 
+  get deckType() {
+    return this.deckService.getDeckSubType()
+  }
+
+ 
+
   get typeImage(): string {
     switch (this.deckService.getDeckSubType()) {
       case 'fire':
@@ -56,6 +62,10 @@ export class ThankComponent {
 
       case 'volcano':
         return '../../../../assets/decks/volcano/thank/success.png';
+      case 'need':
+        return '../../../../assets/decks/logistics/success.svg';
+      case 'giver':
+        return '../../../../assets/decks/logistics/success.svg';
     }
   }
 
@@ -75,6 +85,15 @@ export class ThankComponent {
       title: `card.thank.title.${reportType}.0`,
       subTitle: `card.thank.title.${reportType}.1`,
     };
+  }
+
+
+  get needSuccessText1(): string {
+    return this.translate.instant('card.needLabels.needSuccessText1');
+  }
+
+  get needSuccessText2(): string {
+    return this.translate.instant('card.needLabels.needSuccessText2');
   }
 
   reportAnotherCard() {

@@ -1,0 +1,176 @@
+.flex {
+  display: flex;
+  gap: 20px;
+}
+
+.m20 {
+  margin-top: 20px;
+}
+.productCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    padding: 22px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  h4 {
+    margin-block-end: 1px;
+    text-align: initial;
+  }
+  > div:last-child {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+}
+
+.quantitybuttons {
+  background-color: white;
+  color: #25b6ff;
+  border: 1px solid #25b6ff;
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+.card {
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  gap: 12px;
+  > div {
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 100px;
+  }
+}
+.cardsList {
+  overflow: auto;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.categoryList {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  > button {
+    padding: 10px;
+    border: 1px solid;
+  }
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.categoryList::-webkit-scrollbar {
+  width: 0px !important;
+}
+.productsWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  > div:last-child {
+    padding: 20px;
+    background-color: #808080;
+    width: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+.category-card {
+  padding: 10px;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 5px;
+  border: 4px solid white;
+}
+
+.category-card.active {
+  border: 4px solid #00aaff;
+}
+.scroll {
+  overflow: auto;
+  scroll-behavior: smooth;
+  margin-bottom: 20px;
+  padding: 16px;
+  height: 100vh;
+  width: 300px;
+}
+.scroll::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+.categoryimg {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.productimg {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 85vh;
+  margin-block: 20px;
+  width: 300px;
+  transform: translate(-50%, -50%);
+  padding: 22px;
+  background-color: white;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  textarea {
+    width: 100%;
+    height: 20%;
+    margin-bottom: 14px;
+    resize: none;
+  }
+  button {
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+  }
+}
+
+.description {
+  background-color: white;
+  border: none;
+  text-decoration: underline;
+  color: gray;
+  margin: 0px;
+  padding: 0px;
+  min-width: 150px;
+  max-width: 150px;
+  max-height: 45px;
+  font-size: 12px;
+  text-align: initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

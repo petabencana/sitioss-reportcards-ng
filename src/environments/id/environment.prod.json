@@ -81,6 +81,19 @@
         "summary",
         "thankyou"
       ]
+    },
+    {
+      "name": "need",
+      "cards": [
+        "location",
+        "products",
+        "productreview",
+        "thank"
+      ]
+    },
+    {
+      "name": "giver",
+      "cards": ["donate","dateandtime", "contact","donationreview", "thank"]
     }
   ]
 }

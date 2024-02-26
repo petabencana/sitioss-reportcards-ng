@@ -1,0 +1,65 @@
+<div class="productsWrapper">
+  <div class="scroll" #scrollContainer>
+    <div *ngFor="let item of logisticsdetails" class="flex m20">
+      <div class="productCard">
+        <div>
+          <img class="productimg" src="{{ item.img }}" />
+        </div>
+      </div>
+      <div class="productInfo">
+        <div>
+          <h4>{{ item.title }}</h4>
+        </div>
+        <div>
+          <button
+            (click)="openDescriptionModal(item)"
+            class="description"
+            contenteditable="false"
+          >
+            {{ truncateDescription(item.description, 3) }}
+          </button>
+          <div *ngIf="item.showModal" class="modal">
+            <h3>Add more detail - {{ item.title }}</h3>
+            <textarea
+              [(ngModel)]="item.description"
+              placeholder="{{ item.descriptionPlaceholder }}"
+            ></textarea>
+            <div>
+              <button (click)="closeModal(item)">Cancel</button>
+              <button
+                (click)="saveDescription(item)"
+                [disabled]="item.description === ''"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="quantitybuttons" (click)="decreaseQuantity(item)">
+            -
+          </button>
+          <span style="min-width: 62px;">{{ item.quantity }}&nbsp;{{item.units}}</span>
+          <button class="quantitybuttons" (click)="increaseQuantity(item)">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="captchaContainer">
+      <form [formGroup]="captchaForm">
+        <ngx-recaptcha2
+          siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"
+          (success)="handleSuccess($event)"
+          data-theme="dark"
+          formControlName="recaptcha"
+        >
+        </ngx-recaptcha2>
+      </form>
+    </div>
+    <app-submit-button title="Submit Request" class="SubmitButton">
+    </app-submit-button>
+  </div>
+</div>

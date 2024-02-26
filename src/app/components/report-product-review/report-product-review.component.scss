@@ -1,0 +1,126 @@
+.productsWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.scroll {
+  overflow: auto;
+  scroll-behavior: smooth;
+  padding: 16px;
+  width: 300px;
+  height: 100vh;
+}
+.scroll::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.m20 {
+  margin-top: 20px;
+}
+
+.productCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    padding: 18px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+}
+
+.productimg {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  h4 {
+    margin-block-end: 1px;
+    text-align: initial;
+  }
+  > div:last-child {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+}
+
+.quantitybuttons {
+  background-color: white;
+  color: #25b6ff;
+  border: 1px solid #25b6ff;
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+}
+.description {
+  background-color: white;
+  border: none;
+  text-decoration: underline;
+  color: gray;
+  margin: 0px;
+  padding: 0px;
+  min-width: 150px;
+  max-width: 150px;
+  max-height: 45px;
+  font-size: 12px;
+  text-align: initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer {
+  background-color: #808080;
+  margin-inline: auto;
+  padding-inline: 20px;
+  padding-block: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.rc-anchor-dark {
+  border: none;
+  background: #808080;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 85vh;
+  margin-block: 20px;
+  width: 300px;
+  transform: translate(-50%, -50%);
+  padding: 22px;
+  background-color: white;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  textarea {
+    width: 100%;
+    height: 20%;
+    margin-bottom: 14px;
+    resize: none;
+  }
+  button {
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+}

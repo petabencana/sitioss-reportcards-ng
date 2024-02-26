@@ -1,5 +1,25 @@
-<div class="type">
+<div class="type" *ngIf="deckType === 'need'">
+  <button
+    class="SubmitButton"
+    (click)="needSubmit()"
+    [disabled]="!canSubmit()"
+  >
+   {{ submitButtonLabel }}
+  </button>
+</div>
+<div class="type" *ngIf="deckType === 'giver'">
+  <button
+    class="SubmitButton"
+    (click)="giverSubmit()"
+    [disabled]="!canSubmit()"
+  >
+  {{ submitButtonLabel }}
+  </button>
+</div>
+<div class="type" *ngIf="!['need','giver'].includes(deckType)">
   <button type="button" (click)="submit()" [disabled]="!canSubmit()">
     {{ title }}
   </button>
 </div>
+
+

@@ -5,7 +5,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as topojson from 'topojson-client';
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'notifications';
+
+type deckType =
+  | 'fire'
+  | 'earthquake'
+  | 'wind'
+  | 'haze'
+  | 'volcano'
+  | 'flood'
+  | 'notifications'
+  | 'need'
+  | 'giver';
+
 type deckSubType =
   | 'fire'
   | 'haze'
@@ -13,7 +24,9 @@ type deckSubType =
   | 'structure'
   | 'wind'
   | 'volcano'
-  | 'flood';
+  | 'flood'
+  | 'need'
+  | 'giver';
 
 interface LatLng {
   lat: number;
@@ -32,6 +45,7 @@ export class DeckService {
 
   tweetID: string;
   waNumber: string;
+  requestId: string;
   type: deckType;
   subType: deckSubType;
 
@@ -63,6 +77,135 @@ export class DeckService {
   isPrevButtonDisabled = true;
   isNextButtonDisabled = true;
   reportType = '';
+  giverData: any[];
+  translatedData: any[];
+
+  getGiverCards(): any[] {
+    return this.giverData;
+  }
+
+  getTranslatedData(): any[] {
+    return this.translatedData;
+  }
+
+  // Method to set translated data in the state
+  setTranslatedData(data: any[]): void {
+    this.translatedData = data;
+  }
+
+  setGiverData(data: any[]): void {
+    this.giverData = data;
+  }
+
+  selectedProducts: {
+    title: string;
+    quantity: number;
+    category: string;
+    description: string;
+    img: string;
+    units: string;
+    item_id: string;
+    need_id: number;
+    donate?: number;
+    limit?: number;
+  }[] = [];
+
+  getSelectedProducts(title: string) {
+    return this.selectedProducts.find((product) => product.title === title);
+  }
+
+  setSelectedProducts(
+    title: string,
+    quantity: number,
+    category: string,
+    description: string,
+    img: string,
+    units: string,
+    item_id: string,
+    need_id?: number,
+    donate?: number,
+    limit?: number
+  ) {
+    if (quantity === 0) {
+      this.selectedProducts = this.selectedProducts.filter(
+        (product) => product.title !== title
+      );
+    } else {
+      const index = this.selectedProducts.findIndex(
+        (product) => product.title === title
+      );
+
+      if (index !== -1) {
+        this.selectedProducts[index].quantity = quantity;
+        this.selectedProducts[index].category = category;
+        this.selectedProducts[index].description = description;
+        this.selectedProducts[index].img = img;
+        this.selectedProducts[index].units = units;
+        this.selectedProducts[index].item_id = item_id;
+        this.selectedProducts[index].need_id = need_id;
+        this.selectedProducts[index].donate = donate;
+        this.selectedProducts[index].limit = limit;
+      } else {
+        this.selectedProducts.push({
+          title,
+          quantity,
+          category,
+          description,
+          img,
+          units,
+          item_id,
+          need_id,
+          donate,
+          limit,
+        });
+      }
+    }
+  }
+
+  countryCode: string;
+  contactNumber: string;
+  countryName: string;
+
+  getCountryCode() {
+    return this.countryCode;
+  }
+
+  getCountryName() {
+    return this.countryName;
+  }
+
+  setCountryCode(code: string) {
+    this.countryCode = code;
+  }
+  setCountryName(countryName: string) {
+    this.countryName = countryName;
+  }
+  getContactNumber() {
+    return this.contactNumber;
+  }
+
+  setContactNumber(number: string) {
+    this.contactNumber = number;
+  }
+
+  donationDate: string;
+  donationTime: string;
+
+  getDonationdate() {
+    return this.donationDate;
+  }
+
+  setDonationdate(date: string) {
+    this.donationDate = date;
+  }
+
+  getDonationtime() {
+    return this.donationTime;
+  }
+
+  setDonationtime(time: string) {
+    this.donationTime = time;
+  }
 
   userCanBack() {
     this.isPrevButtonDisabled = false;
@@ -104,6 +247,20 @@ export class DeckService {
     return geocodeData.address.country_code === env.country_code;
   }
 
+  async fetchAddress() {
+    const requestHeaders: HeadersInit = new Headers();
+    requestHeaders.set('Access-Control-Allow-Origin', '*');
+
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${this.location.lat}&lon=${this.location.lng}`
+    );
+
+    const geocodeData = await response.json();
+
+    return geocodeData.address;
+  }
+
+
   // Getter
   getDeckType() {
     return this.type;
@@ -115,9 +272,9 @@ export class DeckService {
   getRoute() {
     return this.route;
   }
-  
+
   getReportType() {
-    return this.reportType
+    return this.reportType;
   }
 
   getStructureFailure() {
@@ -190,9 +347,11 @@ export class DeckService {
   }
 
   // Setter
+
   setDeckType(type: deckType) {
     this.type = type;
   }
+
   setDeckSubType(subType: deckSubType) {
     this.subType = subType;
   }
@@ -253,6 +412,11 @@ export class DeckService {
   setWaNumber(waNumber: string) {
     if (waNumber) {
       this.waNumber = waNumber;
+    }
+  }
+  setRequestId(requestId: string) {
+    if (requestId) {
+      this.requestId = requestId;
     }
   }
   setEvacuationNumber(evacuationNumber: number) {
@@ -379,6 +543,88 @@ export class DeckService {
     });
   }
 
+  async submitNeedRequest(): Promise<any> {
+    const need_data = [];
+    const languageCode = this.getCardLanguage()
+      ? this.getCardLanguage()
+      : 'id';
+    const contactNumber = this.waNumber;
+    const timestamp = Date.now();
+
+    this.selectedProducts.map((item) => {
+      need_data.push({
+        status: 'ACTIVE',
+        quantity_requested: item.quantity,
+        item_requested: item.title,
+        need_language: languageCode,
+        user_id: contactNumber,
+        need_request_id: `${contactNumber.slice(
+          -4
+        )}-${languageCode}-${timestamp}`,
+        platform: 'whatsapp',
+        user_type: this.getDeckSubType(),
+        units: item.units,
+        item_id: item.item_id,
+        description: item.description ? item.description : '',
+        lng: this.location.lng,
+        lat: this.location.lat,
+      });
+    });
+
+
+    return new Promise(async (resolve, reject) => {
+      return await this.http
+        .post(`${env.data_server}needs/create-need`, need_data)
+        .toPromise()
+        .then((success) => {
+          // PUT report & patch image_url
+          resolve(success);
+        })
+        .catch((error) => {
+          reject(error);
+          console.log('Error', error);
+          // PUT report & notify user about upload error
+        });
+    });
+  }
+
+  async submitGiverRequest(): Promise<any> {
+    const giver_data = [];
+    const languageCode = this.getCardLanguage()
+      ? this.getCardLanguage()
+      : 'id';
+
+    this.selectedProducts.map((item) => {
+      giver_data.push({
+        quantity_satisfied: item.donate,
+        item_satisfied: item.title,
+        giver_language: languageCode,
+        user_id: this.countryCode + this.contactNumber,
+        platform: 'whatsapp',
+        user_type: this.getDeckSubType(),
+        need_id: item.need_id,
+        promised_date: this.donationDate,
+        promised_time: this.donationTime,
+      });
+    });
+
+
+    return new Promise(async (resolve, reject) => {
+      return await this.http
+        .post(`${env.data_server}needs/update-giver`, giver_data)
+        .toPromise()
+        .then((success) => {
+          // PUT report & patch image_url
+          resolve(success);
+        })
+        .catch((error) => {
+          reject(error);
+          console.log('Error', error);
+          // PUT report & notify user about upload error
+        });
+    });
+  }
+
   async submit(): Promise<any> {
     const signedURL = this.imageSignedUrl;
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
@@ -421,7 +667,7 @@ export class DeckService {
       image_url: '',
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : '',
-      is_training : this.getReportType() === 'training'
+      is_training: this.getReportType() === 'training',
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;
@@ -479,7 +725,7 @@ export class DeckService {
     // }
 
     // PUT reportcard data
-    return new Promise((resolve, reject) =>
+    return new Promise<void>((resolve, reject) =>
       this.http.put(reportURL, report).subscribe(
         (data) => {
           if (hasPhoto && photoUploaded) {
