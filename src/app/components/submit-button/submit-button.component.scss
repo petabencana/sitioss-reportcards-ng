@@ -32,6 +32,8 @@ button {
   font-weight: bolder;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
+  position: relative;
+  z-index: 1000;
   &:disabled {
     color: #888;
     border: 1.5px solid white;
