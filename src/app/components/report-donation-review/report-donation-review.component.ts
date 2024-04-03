@@ -35,6 +35,14 @@ export class ReportDonationReviewComponent implements OnInit {
     return this.deckService.donationTime;
   }
 
+  get reviewDescription(): string {
+    return this.translate.instant('card.giverLabels.reviewDescription');
+  }
+  get text(): string {
+    return this.translate.instant('card.giverLabels.text');
+  }
+
+
   truncateDescription(description: string, maxLines: number): string {
     const lines = description.split('\n');
     if (lines.length > maxLines) {

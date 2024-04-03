@@ -1,7 +1,7 @@
 <div class="productsWrapper">
   <div class="scroll" #scrollContainer>
     <p>
-      You will donate following items to {{address.city}},{{address.city_district}} at
+      {{ reviewDescription }} {{address.city}},{{address.city_district}} {{ text }}
       {{ donationDate }}&nbsp;{{ donationTime }}
     </p>
     <div *ngFor="let item of donationdetails" class="flex m20">

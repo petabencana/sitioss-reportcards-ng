@@ -95,7 +95,9 @@ export class ThankComponent {
   get needSuccessText2(): string {
     return this.translate.instant('card.needLabels.needSuccessText2');
   }
-
+  get giverSuccessText(): string {
+    return this.translate.instant('card.giverLabels.thank');
+  }
   reportAnotherCard() {
     this.deckService.setSubSubmission();
     if (this.deckService.getDeckType() === 'earthquake') {
