@@ -27,7 +27,8 @@
     },
     "giverLabels": {
       "dateandtimeHeader": "Pilih tanggal dan waktu untuk mengirimkan barang",
-      "dateandtimeDescription": "We are working on integrated delivery, however, currently you will need to arrange delivery to the recipient. If you are going in person, please be mindful of the disaster situation and always meet in a public space."
+      "dateandtimeDescription": "We are working on integrated delivery, however, currently you will need to arrange delivery to the recipient. If you are going in person, please be mindful of the disaster situation and always meet in a public space.",
+      "contactDescription": "Kami hanya akan menghubungi Anda terkait status donasi Anda, dan tidak akan menyimpan rincian kontak dan informasi Anda."
     },
     "productsList" : [
       {
