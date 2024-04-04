@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { environment as env } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import * as topojson from 'topojson-client';
+
 
 type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon';
 type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'flood' | 'volcanic' | 'smog' | 'storm';
@@ -39,6 +41,8 @@ export class DeckService {
   fireLocation: LatLng;
   fireRadius: LatLng;
   fireDistance: number;
+  selectedRegion: string[];
+  selectedRegionCode: string[];
   smogRadius: number;
   volcanicSigns: number[] = [];
   evacuationNumber: null | number = null;
@@ -166,6 +170,14 @@ export class DeckService {
     return this.preview;
   }
 
+  getSelectedRegion() {
+    return this.selectedRegion;
+  }
+
+  getSelectedRegionCode() {
+    return this.selectedRegionCode;
+  }
+
   // Setter
   setDeckType(type: deckType) {
     this.type = type;
@@ -196,6 +208,16 @@ export class DeckService {
   setCondition(condition: number) {
     this.condition = condition;
   }
+
+  setSelectedRegion(selectedRegion: Object) {
+    this.selectedRegion = selectedRegion;
+  }
+
+  setSelectedRegionCode(selectedRegionCode: Object) {
+    this.selectedRegionCode = selectedRegionCode;
+  }
+
+
   setLocation(location: LatLng) {
     this.location = location;
   }
@@ -477,6 +499,31 @@ export class DeckService {
         }
       )
     );
+  }
+
+  getRegionsData() {
+    const self = this;
+    return new Promise(function (resolve, reject) {
+      self._getRegionsData().subscribe(
+        (responseData) => {
+          if (responseData.statusCode === 200) {
+            let result = responseData.result;
+            if (result && result.objects) {
+              resolve(topojson.feature(result, result.objects.output));
+            } else {
+              resolve(null);
+            }
+          }
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
+
+  _getRegionsData(): Observable<any> {
+    return this.http.get(`${env.data_server}regions`);
   }
 
   verifyPartnerCode(partnerCode: string) {

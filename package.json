@@ -84,6 +84,7 @@
     "node-sass": "^4.13.1",
     "rxjs": "^6.3.3",
     "sass-loader": "^7.1.0",
+    "topojson-client": "^3.1.0",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
