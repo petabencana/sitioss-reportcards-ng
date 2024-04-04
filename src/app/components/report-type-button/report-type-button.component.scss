@@ -2,21 +2,39 @@
   cursor: pointer;
 
   &__btn {
-    display: block;
-    color: #c34c4d;
+    display: grid;
     margin: 20px auto 10px;
     border-radius: 7.5px;
     padding: 8px 6px;
     min-width: 72px;
     border: 1.5px solid white;
-    background-color: #fff;
     cursor: pointer;
     min-width: 30%;
     line-height: 1;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     filter: drop-shadow(2px 4px 6px black);
+    font-weight: 700;
+    height: 100px;
+    align-items: center;
   }
-
+  &__subtitle {
+    font-size: 0.9rem;
+    font-weight: 100;
+  }
+  .real_btn{
+    background-color: rgb(204, 0, 0);
+    color: white;
+    border: none;
+    &__subtitle {
+      color: white;
+    }
+  }
+  .training_btn{
+    background-color: white;
+    &__subtitle {
+      color: black;
+    }
+  }
 }
 
 @media (max-width: 721px) and (max-height: 761px) {
