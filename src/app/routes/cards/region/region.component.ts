@@ -135,7 +135,7 @@ export class RegionComponent implements OnInit {
             )
           );
           const regionCodes = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.region_code)
-          const cities = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.city)
+          const cities = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.region)
           this.deckService.setSelectedRegion(cities)
           this.deckService.setSelectedRegionCode(regionCodes);
           this.deckService.userCanContinue()

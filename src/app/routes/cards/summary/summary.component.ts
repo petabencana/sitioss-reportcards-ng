@@ -35,6 +35,7 @@ export class SummaryComponent implements OnInit {
 
   ) {}
   ngOnInit() {
+    console.log("Selected regions" ,this.deckService.getSelectedRegion())
     this.subscribedCities = this.deckService.getSelectedRegion() && this.deckService.getSelectedRegion().join(', ');
     this.switchTab(this.termscontents[0].tab_key);
     this.captchaForm = this.formBuilder.group({

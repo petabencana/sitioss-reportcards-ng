@@ -25,6 +25,7 @@ export class DeckService {
   cardLanguage = "";
 
   tweetID: string;
+  userId: string;
   type: deckType;
   subType: deckSubType;
 
@@ -209,11 +210,17 @@ export class DeckService {
     this.condition = condition;
   }
 
-  setSelectedRegion(selectedRegion: Object) {
+  setWaNumber(userId: string) {
+    if (userId) {
+      this.userId = userId;
+    }
+  }
+
+  setSelectedRegion(selectedRegion: string[]) {
     this.selectedRegion = selectedRegion;
   }
 
-  setSelectedRegionCode(selectedRegionCode: Object) {
+  setSelectedRegionCode(selectedRegionCode: string[]) {
     this.selectedRegionCode = selectedRegionCode;
   }
 
@@ -351,6 +358,31 @@ export class DeckService {
       // PUT report & proceed to thanks
       return this.putReport(report, cardId, false, false);
     }
+  }
+
+  async submitNotificationRequest(): Promise<any> {
+    const selectedRegion = this.getSelectedRegion();
+    const languageCode = this.getCardLanguage();
+    const userId = this.userId;
+    const data = {
+      regions: selectedRegion,
+      userId,
+      language: languageCode,
+    };
+    return new Promise(async (resolve, reject) => {
+      return await this.http
+        .post(`${env.data_server}subscriptions/add-subscriber`, data)
+        .toPromise()
+        .then((success) => {
+          // PUT report & patch image_url
+          resolve(success);
+        })
+        .catch((error) => {
+          reject(error);
+          console.log('Error', error);
+          // PUT report & notify user about upload error
+        });
+    });
   }
 
   initiateAnotherReport(): Promise<Boolean> { 
