@@ -60,8 +60,10 @@
         "structureTypeButton": "Structural Failure"
       },
       "report":{
-        "realTypeButton": "Submit Real Disaster Report",
-        "trainingTypeButton": "Complete Training Exercise"
+        "realTypeButton": "Submit Disaster Report",
+        "realSubTypeButton": "Use only if you are in a disaster 🚨",
+        "trainingTypeButton": "Complete Training Exercise",
+        "trainingSubTypeButton": "Use to practice disaster reporting📝"
       }
     },
     "visibility": {

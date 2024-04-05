@@ -62,7 +62,9 @@
       },
       "report": {
         "realTypeButton": "Laporkan Bencana",
-        "trainingTypeButton": " Latihan Simulasi"
+        "realSubTypeButton": "Gunakan saat ada bencana🚨",
+        "trainingTypeButton": "Latihan Simulasi",
+        "trainingSubTypeButton": "Gunakan saat latihan📝"
       }
     },
     "visibility": {

@@ -1,8 +1,9 @@
   <div
     class="report-type"
   >
-      <button class="report-type__btn">
+      <button class="report-type__btn" [ngClass]="btnClasses">
         {{ title }}
+      <div class="report-type__subtitle"> {{ subtitle }} </div>  
       </button>
     
   </div>
