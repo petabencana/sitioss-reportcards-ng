@@ -23,6 +23,8 @@ export class DeckService {
   constructor(private http: HttpClient) {}
   finishedSubType = [];
   cardLanguage = "";
+  network = "";
+
 
   tweetID: string;
   userId: string;
@@ -79,6 +81,9 @@ export class DeckService {
   }
   setCardLanguage(lang: string) {
     this.cardLanguage = lang;
+  }
+  setCardNetwork(network: string) {
+    this.network = network;
   }
 
   selectReportType(type: string) {
@@ -161,6 +166,10 @@ export class DeckService {
     return this.cardLanguage;
   }
 
+  getCardNetwork(): string {
+    return this.network;
+  }
+
   isCaptchaCleared(): boolean {
     return this.captchaCleared;
   }
@@ -210,7 +219,7 @@ export class DeckService {
     this.condition = condition;
   }
 
-  setWaNumber(userId: string) {
+  setUserId(userId: string) {
     if (userId) {
       this.userId = userId;
     }
@@ -361,13 +370,15 @@ export class DeckService {
   }
 
   async submitNotificationRequest(): Promise<any> {
-    const selectedRegion = this.getSelectedRegion();
+    const selectedRegion = this.getSelectedRegionCode();
     const languageCode = this.getCardLanguage();
+    const network = this.getCardNetwork();
     const userId = this.userId;
     const data = {
       regions: selectedRegion,
       userId,
       language: languageCode,
+      network
     };
     return new Promise(async (resolve, reject) => {
       return await this.http

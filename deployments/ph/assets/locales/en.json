@@ -29,7 +29,7 @@
 
       "impact": "Report Wind Impact",
       "windstructure": "Report Structure Failure",
-      "smogimpact": "Storm Surge Level",
+      "stormimpact": "Storm Surge Level",
 
       "sign": "Report Volcanic Signs",
       "evacuationnumber": "Report Power Status",
@@ -39,7 +39,11 @@
       "photodescription": "Click to upload",
       "description": "Tell us more",
       "review": "Review & Submit",
-      "thank": "Thank you!"
+      "thank": "Thank you!",
+
+      "region": "Select region(s) to receive notifications for",
+      "summary": "Review & Submit",
+      "thankyou": "Thank You!"
     },
     "type": {
       "fire": {
@@ -234,7 +238,7 @@
       "accessKey": "Road Accessibility:",
       "structureKey": "Structural Failure:",
       "floodKey": "Flood Depth:",
-      "fireKey": "Fire Extent:",
+      "fireKey": "Ash Extent:",
       "impactKey": "Impact:",
       "airQualityKey": "Air Quality:",
       "visibilityKey": "Visibility:",
@@ -266,8 +270,13 @@
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",
-      "tips": "Click here for safety tips from BNPB"
+      "tips": "Click here for safety tips from BNPB",
+      "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region. To unsubscribe, type “unsubscribe”."
+
     },
+    "notificationSubmit": "Submit",
+    "notificationSummaryText": "Summary :",
+    "notificationCitiesHeading": "Subscribed Cities",
     "swipeText": "Submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?",

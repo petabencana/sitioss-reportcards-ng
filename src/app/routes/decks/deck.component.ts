@@ -14,7 +14,7 @@ export class DeckComponent implements OnInit {
     public deckService:DeckService) { 
       this.activatedroute.queryParamMap.subscribe(params => {
         this.deckService.setTwitterID(params.get("tid"))
-        this.deckService.setWaNumber(params.get("userId"))
+        this.deckService.setUserId(params.get("userId"))
       })
     }
 

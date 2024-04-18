@@ -40,7 +40,7 @@ export class AuthService {
     try {
       var responseData = await self.GetOTLuniqueness(unique_id);
       this.deckService.setCardLanguage(responseData.result.language);
-      console.log(responseData);
+      this.deckService.setCardNetwork(responseData.result.network);
       is_unique = true;
       if (responseData.result.received === true)
         is_unique = false;
