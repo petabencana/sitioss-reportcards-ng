@@ -14,3 +14,7 @@
   // opacity: 90%;
   width: 100%;
 }
+
+::ng-deep html, ::ng-deep body {
+  background-color: #fff; /* Override the background color */
+}

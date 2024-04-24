@@ -5,6 +5,10 @@
       {{ dateandtimeDescription }}
     </p>
   </div>
+  <div>
+    <p>Selected Date: {{ selectedDate || 'NA' }}</p>
+    <p>Selected Time: {{ selectedTime || 'NA' }}</p>
+  </div>
   <div class="date-time">
     <div class="calendar-container">
       <div id="calendar"></div>
@@ -13,6 +17,5 @@
       <div id="time"></div>
     </div>
   </div>
-  <p>Selected Date: {{ selectedDate || 'NA' }}</p>
-  <p>Selected Time: {{ selectedTime || 'NA' }}</p>
+ 
 </div>
