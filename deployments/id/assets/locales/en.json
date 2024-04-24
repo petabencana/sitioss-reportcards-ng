@@ -31,7 +31,8 @@
       "contactDescription": "We will only contact you about the status of your donation, and will not store your contact details.",
       "reviewDescription": "You will donate the following items to",
       "text":"at",
-      "thank":"Thank you for your commitment"
+      "thank":"Thank you for your commitment",
+      "submitButtonLabel": "Help Now!"
     },
     "productsList": [
       {
@@ -406,7 +407,7 @@
       "donate": "Select Items to Donate",
       "dateandtime": "Select Date & Time",
       "contact": "Your Contact",
-      "donationreview": "Review & Submit"
+      "donationreview": "Review and Help"
     },
     "type": {
       "fire": {

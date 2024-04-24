@@ -31,7 +31,8 @@
       "contactDescription": "Kami hanya akan menghubungi Anda terkait status donasi Anda, dan tidak akan menyimpan rincian kontak dan informasi Anda.",
       "reviewDescription": "Anda akan mengirimkan barang - barang berikut ke",
       "text":"pada",
-      "thank":"Terimakasih atas komitmen anda"
+      "thank":"Terimakasih atas komitmen anda",
+      "submitButtonLabel": "Ayo Gotong Royong!"
     },
     "productsList" : [
       {
@@ -406,7 +407,7 @@
       "donate": "Pilih barang untuk didonasikan",
       "dateandtime":"Pilih tanggal dan waktu",
       "contact":"Informasi Nomor Telepon",
-      "donationreview":"Review & Submit"
+      "donationreview":"Tinjau dan kirim bantuan"
     },
     "type": {
       "fire": {

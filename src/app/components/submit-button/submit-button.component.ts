@@ -40,6 +40,9 @@ export class SubmitButtonComponent implements OnInit {
     return this.translate.instant('card.needLabels.submitButtonLabel');
   }
 
+  get submitButtonLabel1(): string {
+    return this.translate.instant('card.giverLabels.submitButtonLabel');
+  }
   canSubmit(): boolean {
     return (
       (!this.isDescriptionAndPhotoEmpty &&
