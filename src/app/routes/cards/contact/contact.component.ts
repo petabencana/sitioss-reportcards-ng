@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service';
 import { HttpClient } from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
 
 interface Country {
   alpha2Code: string;
@@ -18,7 +19,11 @@ export class ContactComponent implements OnInit {
   selectedCountryCode: string = '+62';
   phoneNumber: string = '';
 
-  constructor(public deckService: DeckService, private http: HttpClient) {}
+  constructor(
+    public deckService: DeckService,
+    private http: HttpClient,
+    public translate: TranslateService
+  ) {}
 
   ngOnInit() {
     this.deckService.userCanBack();
@@ -59,6 +64,11 @@ export class ContactComponent implements OnInit {
       });
   }
 
+  get contactDescription(): string {
+    return this.translate.instant('card.giverLabels.contactDescription');
+  }
+
+
   onCountryChange(): void {
     const selectedCountryData = this.countryCodes.find((country) =>
       country.callingCodes.includes(this.selectedCountry)
@@ -87,6 +97,4 @@ export class ContactComponent implements OnInit {
       this.deckService.userCanContinue();
     }
   }
-
- 
 }
