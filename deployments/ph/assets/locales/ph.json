@@ -35,7 +35,10 @@
       "photodescription": "Pindutin para mag-upload",
       "description": "Magbigay ng iba pang impormasyon",
       "review": "Suriin at i-sumite",
-      "thank": "Salamat!"
+      "thank": "Salamat!",
+      "region": "Piliin ang lokasyon upang makatanggap ng notipikasyon",
+      "summary": "Suriin at Isumite",
+      "thankyou": "Salamat!"
     },
     "type": {
       "fire": {
@@ -260,8 +263,13 @@
       "subtitle": "Gusto mo bang magsumite ng ulat?",
       "acceptButton": "Oo",
       "rejectButton": "Hindi",
-      "tips": "Click here for safety tips from OCD"
+      "tips": "Click here for safety tips from OCD",
+      "subscribeText": "Salamat sa pagtangkilik! Magpapadala kami ng notification kapag may ulat sa iyong napiling rehiyon. Para mag-unsubscribe, i-type ang “unsubscribe”."
+
     },
+    "notificationSubmit": "Isumite",
+    "notificationSummaryText": "Maikling Buod :",
+    "notificationCitiesHeading": "Mga naka-subscribe na rehiyon",
     "swipeText": "Isumite",
     "reportAgain": "Gusto mo bang magsumite ng isa pang ulat?",
     "reportAgainStructure": "Nais mo ba magsumite ng ulat tungkol sa Pagguho ng Istruktura?",
