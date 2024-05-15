@@ -30,7 +30,8 @@ export class NotificationComponent implements OnInit {
 
     // Check for first card, else redirect
     this.navController.checkForFirstCard(this.route);
-
+    this.deckService.setDeckType('notifications')
+    this.deckService.selectReportType('real')
     this.deckService.setRoute(route)
     this.deckService.userCanContinue();
     this.deckService.userCanBack();
