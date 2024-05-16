@@ -17,7 +17,7 @@ export class TitleBoxComponent {
   isShown: boolean = false; // hidden by default
   partnerIcon:string = ""
   partnerText:string = ""
-
+  isNotification: boolean = false;
 
 
   constructor(
@@ -26,6 +26,12 @@ export class TitleBoxComponent {
     public translate: TranslateService,
 
   ) {}
+
+  ngOnInit() {
+    if(this.deckService.getDeckType() === 'notifications'){
+      this.isNotification = true
+    }
+  }
 
   getCssClass(i) {
     if (this.deckService.getDeckType() === "earthquake") {
