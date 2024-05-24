@@ -605,7 +605,7 @@ export class DeckService {
         need_id: item.need_id,
         promised_date: this.donationDate,
         promised_time: this.donationTime,
-        delivery_code: `code-${this.requestId.split('-')[0]}`
+        delivery_code: 'code-' + this.selectedProducts.map(prod => prod.need_id).join('-')
       });
     });
 
