@@ -605,6 +605,7 @@ export class DeckService {
         need_id: item.need_id,
         promised_date: this.donationDate,
         promised_time: this.donationTime,
+        delivery_code: `code-${this.requestId.split('-')[0]}`
       });
     });
 
@@ -614,7 +615,6 @@ export class DeckService {
         .post(`${env.data_server}needs/update-giver`, giver_data)
         .toPromise()
         .then((success) => {
-          // PUT report & patch image_url
           resolve(success);
         })
         .catch((error) => {
