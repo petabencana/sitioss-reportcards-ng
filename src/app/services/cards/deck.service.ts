@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import * as topojson from 'topojson-client';
 
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon';
+type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon' | 'notifications';
 type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'flood' | 'volcanic' | 'smog' | 'storm';
 
 interface LatLng {
