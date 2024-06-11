@@ -94,7 +94,7 @@
         "item_id": "6"
       },
       {
-        "title": "Women",
+        "title": "Women Clothes",
         "description": "",
         "category": "CLOTHES & SELF PROTECTION KIT",
         "img": "../../../assets/decks/logistics/products/Default.png",
@@ -105,7 +105,7 @@
         "item_id": "7"
       },
       {
-        "title": "Men",
+        "title": "Men Clothes",
         "description": "",
         "category": "CLOTHES & SELF PROTECTION KIT",
         "img": "../../../assets/decks/logistics/products/Default.png",
@@ -154,7 +154,7 @@
         "item_id": "12"
       },
       {
-        "title": "Clothing",
+        "title": "Baby Clothing",
         "description": "",
         "category": "BABIES AND CHILDREN",
         "img": "../../../assets/decks/logistics/products/Default.png",
