@@ -24,7 +24,8 @@ export class NavButtonComponent implements OnInit {
   }
 
   get isBtnHidden(): boolean {
-    return this.navController.getCurrentRouteName() === 'productreview'
+    const currentRouteName = this.navController.getCurrentRouteName()
+    return  currentRouteName === 'productreview' || currentRouteName === 'donationreview'
   }
 
   ngOnInit() {}
