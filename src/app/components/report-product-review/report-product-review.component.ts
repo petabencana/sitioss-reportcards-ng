@@ -51,6 +51,7 @@ export class ReportProductReviewComponent {
     this.deckService.userCanBack();
     this.deckService.userCannotContinue();
     this.switchTab(this.termscontents[0].tab_key);
+    console.log( this.deckService.selectedProducts,'products');
   }
 
   private recordQuantityChange(
@@ -132,7 +133,6 @@ export class ReportProductReviewComponent {
 
   switchTab(key) {
     var lang = this.translate.currentLang;
-    console.log(this.translate.currentLang);
     this.termscontents.forEach(element => {
       if(element.tab_key === key) 
         this.tabContent = element['tab_content_'+(lang || 'id')]; 
