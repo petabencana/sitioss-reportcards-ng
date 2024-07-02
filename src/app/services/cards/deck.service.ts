@@ -73,7 +73,7 @@ export class DeckService {
   sub_submission = false;
   captchaCleared = false;
   preview: File;
-
+  modalOpen = false;
   isPrevButtonDisabled = true;
   isNextButtonDisabled = true;
   reportType = '';
@@ -326,6 +326,10 @@ export class DeckService {
   isCaptchaCleared(): boolean {
     return this.captchaCleared;
   }
+
+  isModalOPen(): boolean {
+    return this.modalOpen;
+  }
   getDescription() {
     return this.description;
   }
@@ -466,6 +470,13 @@ export class DeckService {
     this.captchaCleared = true;
   }
 
+  setModalOpen() {
+    return this.modalOpen = true;
+  }
+  setModalNotOpen() {
+    return this.modalOpen = false;
+  }
+
   reset() {
     this.finishedSubType.push(this.subType);
 
@@ -487,6 +498,7 @@ export class DeckService {
     this.captchaCleared = false;
     this.imageSignedUrl = 'url_error';
     this.partnerCode = '';
+    this.modalOpen = false;
   }
 
   updateSignedUrl(image: File) {
@@ -550,7 +562,7 @@ export class DeckService {
       : 'id';
     const contactNumber = this.waNumber;
     const timestamp = Date.now();
-
+    
     this.selectedProducts.map((item) => {
       need_data.push({
         status: 'ACTIVE',

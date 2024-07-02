@@ -45,7 +45,7 @@ export class CardComponent {
       this.prefillCards();
     });
     this.deckService.userCanBack();
-
+    
     if (this.deckService.selectedProducts.length > 0) {
       this.deckService.userCanContinue();
     } else {
@@ -164,13 +164,14 @@ export class CardComponent {
   }
 
   openDescriptionModal(card: any): void {
+    this.deckService.setModalOpen();
     card.showModal = true;
     card.tempDescription = card.description;
   }
 
   saveDescription(card: any): void {
     card.showModal = false;
-
+    this.deckService.setModalNotOpen();
     this.recordQuantityChange(
       card.title,
       card.quantity,
@@ -183,6 +184,7 @@ export class CardComponent {
   }
 
   closeModal(card: any): void {
+    this.deckService.setModalNotOpen();
     card.showModal = false;
     card.description = card.tempDescription;
   }
