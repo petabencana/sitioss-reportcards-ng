@@ -50,6 +50,12 @@ export class NeedComponent implements OnInit {
     return this.showReportTypeButton;
   }
 
+  get isBtnHidden(): boolean {
+    const routeName = this.navController.getCurrentRouteName()
+    const btn = routeName === 'products' && this.deckService.isModalOPen();
+    return btn;
+  }
+
   ngOnInit() {
     this.items = [
       {

@@ -15,7 +15,7 @@
 </div>
 <router-outlet> </router-outlet>
 
-<div id="navWrapper" *ngIf="navController.getCurrentRouteName() !== 'thank'">
+<div id="navWrapper" *ngIf="navController.getCurrentRouteName() !== 'thank'" [ngClass]="{'hiddenNavButtons': isBtnHidden}">
   <app-nav-button
     [type]="'left'"
     [text]="'deck.prev' | translate"

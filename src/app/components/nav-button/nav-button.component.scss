@@ -28,6 +28,12 @@ button {
     color: #888;
   }
 
+  &.hiddenButton {
+    &.button-right {
+      visibility: hidden;
+    }
+  }
+
   &.button-default {
     &:focus{
       outline: none;

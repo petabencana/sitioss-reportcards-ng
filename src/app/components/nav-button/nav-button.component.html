@@ -1,7 +1,11 @@
 <button 
   type="button" (click)="onClick()" 
   [disabled]="isDisabled"
-  [ngClass]="['button-' + type]"
+  [ngClass]="{
+    'button-right': type === 'right',
+    'button-left': type === 'left',
+    'hiddenButton': isBtnHidden
+  }"
 >
   <i [ngClass]="['fa', 'fa-chevron-' + type, 'arrow-' + type]"></i>
   {{ text }}
