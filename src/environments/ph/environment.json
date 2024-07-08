@@ -65,6 +65,14 @@
         "review",
         "thank"
       ]
+    },
+    {
+      "name": "notifications",
+      "cards": [
+        "region",
+        "summary",
+        "thankyou"
+      ]
     }
   ]
 }

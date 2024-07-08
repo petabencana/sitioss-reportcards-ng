@@ -3,8 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { environment as env } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import * as topojson from 'topojson-client';
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon';
+
+type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood' | 'typhoon' | 'notifications';
 type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'flood' | 'volcanic' | 'smog' | 'storm';
 
 interface LatLng {
@@ -21,8 +23,11 @@ export class DeckService {
   constructor(private http: HttpClient) {}
   finishedSubType = [];
   cardLanguage = "";
+  network = "";
+
 
   tweetID: string;
+  userId: string;
   type: deckType;
   subType: deckSubType;
 
@@ -39,6 +44,8 @@ export class DeckService {
   fireLocation: LatLng;
   fireRadius: LatLng;
   fireDistance: number;
+  selectedRegion: string[];
+  selectedRegionCode: string[];
   smogRadius: number;
   volcanicSigns: number[] = [];
   evacuationNumber: null | number = null;
@@ -74,6 +81,9 @@ export class DeckService {
   }
   setCardLanguage(lang: string) {
     this.cardLanguage = lang;
+  }
+  setCardNetwork(network: string) {
+    this.network = network;
   }
 
   selectReportType(type: string) {
@@ -156,6 +166,10 @@ export class DeckService {
     return this.cardLanguage;
   }
 
+  getCardNetwork(): string {
+    return this.network;
+  }
+
   isCaptchaCleared(): boolean {
     return this.captchaCleared;
   }
@@ -164,6 +178,14 @@ export class DeckService {
   }
   getPreview() {
     return this.preview;
+  }
+
+  getSelectedRegion() {
+    return this.selectedRegion;
+  }
+
+  getSelectedRegionCode() {
+    return this.selectedRegionCode;
   }
 
   // Setter
@@ -196,6 +218,22 @@ export class DeckService {
   setCondition(condition: number) {
     this.condition = condition;
   }
+
+  setUserId(userId: string) {
+    if (userId) {
+      this.userId = userId;
+    }
+  }
+
+  setSelectedRegion(selectedRegion: string[]) {
+    this.selectedRegion = selectedRegion;
+  }
+
+  setSelectedRegionCode(selectedRegionCode: string[]) {
+    this.selectedRegionCode = selectedRegionCode;
+  }
+
+
   setLocation(location: LatLng) {
     this.location = location;
   }
@@ -329,6 +367,33 @@ export class DeckService {
       // PUT report & proceed to thanks
       return this.putReport(report, cardId, false, false);
     }
+  }
+
+  async submitNotificationRequest(): Promise<any> {
+    const selectedRegion = this.getSelectedRegionCode();
+    const languageCode = this.getCardLanguage();
+    const network = this.getCardNetwork();
+    const userId = this.userId;
+    const data = {
+      regions: selectedRegion,
+      userId,
+      language: languageCode,
+      network
+    };
+    return new Promise(async (resolve, reject) => {
+      return await this.http
+        .post(`${env.data_server}subscriptions/add-subscriber`, data)
+        .toPromise()
+        .then((success) => {
+          // PUT report & patch image_url
+          resolve(success);
+        })
+        .catch((error) => {
+          reject(error);
+          console.log('Error', error);
+          // PUT report & notify user about upload error
+        });
+    });
   }
 
   initiateAnotherReport(): Promise<Boolean> { 
@@ -477,6 +542,31 @@ export class DeckService {
         }
       )
     );
+  }
+
+  getRegionsData() {
+    const self = this;
+    return new Promise(function (resolve, reject) {
+      self._getRegionsData().subscribe(
+        (responseData) => {
+          if (responseData.statusCode === 200) {
+            let result = responseData.result;
+            if (result && result.objects) {
+              resolve(topojson.feature(result, result.objects.output));
+            } else {
+              resolve(null);
+            }
+          }
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
+
+  _getRegionsData(): Observable<any> {
+    return this.http.get(`${env.data_server}regions`);
   }
 
   verifyPartnerCode(partnerCode: string) {

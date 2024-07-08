@@ -39,7 +39,11 @@
       "photodescription": "Click to upload",
       "description": "Tell us more",
       "review": "Review & Submit",
-      "thank": "Thank you!"
+      "thank": "Thank you!",
+
+      "region": "Select region(s) to receive notifications for",
+      "summary": "Review & Submit",
+      "thankyou": "Thank You!"
     },
     "type": {
       "fire": {
@@ -266,8 +270,13 @@
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",
-      "tips": "Click here for safety tips from BNPB"
+      "tips": "Click here for safety tips from BNPB",
+      "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region. To unsubscribe, type “unsubscribe”."
+
     },
+    "notificationSubmit": "Submit",
+    "notificationSummaryText": "Summary :",
+    "notificationCitiesHeading": "Subscribed Regions",
     "swipeText": "Submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?",
