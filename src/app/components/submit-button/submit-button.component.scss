@@ -26,6 +26,12 @@ button {
   }
 }
 
+@media (max-width: 600px) {
+  .SubmitButton {
+    bottom: 40px;
+  }
+}
+
 .SubmitButton {
   background-color: #00aaff;
   border: none;
