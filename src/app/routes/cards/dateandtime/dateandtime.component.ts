@@ -47,7 +47,7 @@ export class DateandtimeComponent implements OnInit {
       inline: true,
       defaultDate: this.selectedDate, // Prefill calendar with selected date
       minDate: new Date().toISOString().split('T')[0],
-      maxDate: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000)
+      maxDate: new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)
         .toISOString()
         .split('T')[0],
       onChange: (selectedDates, dateStr, instance) => {
