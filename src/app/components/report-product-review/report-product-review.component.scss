@@ -101,11 +101,30 @@
 .review_text{
   color: white;
   text-align: center;
-
   & a {
     text-decoration: underline;
     cursor: pointer;
   }
+}
+
+@media (max-width: 600px) {
+  ngx-recaptcha2 {
+    width: 100%;
+    transform:scale(0.8);
+    transform-origin:0 0;
+    display: block;
+  }
+  .review_text {
+    position: relative;
+    bottom: 20px;
+    font-size: 13px;
+  }
+}
+
+ngx-recaptcha2 {
+  width: 240px; 
+  max-width: 100%; 
+  margin: 0 auto;
 }
 
 .rc-anchor-dark {
