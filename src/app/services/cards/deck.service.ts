@@ -28,6 +28,8 @@ type deckSubType =
   | 'need'
   | 'giver';
 
+  type TrainingWords = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
+
 interface LatLng {
   lat: number;
   lng: number;
@@ -42,7 +44,7 @@ export class DeckService {
   constructor(private http: HttpClient) {}
   finishedSubType = [];
   cardLanguage = '';
-
+  trainingWords: string[] = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
   tweetID: string;
   waNumber: string;
   requestId: string;
@@ -667,6 +669,17 @@ export class DeckService {
       return this.putReport(report, cardId, false, false);
     }
   }
+
+  containsTrainingWord(str) {
+    const words = this.trainingWords;
+    for (const word of words) {
+      if (str.toLowerCase().includes(word.toLowerCase())) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   _get_report_summary(): any {
     const summary: any = {
       disaster_type: this.type,
@@ -679,7 +692,7 @@ export class DeckService {
       image_url: '',
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : '',
-      is_training: this.getReportType() === 'training',
+      is_training: this.getReportType() === 'training' || this.containsTrainingWord(this.description),
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;
