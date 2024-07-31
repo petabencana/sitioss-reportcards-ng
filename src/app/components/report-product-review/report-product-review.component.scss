@@ -108,6 +108,10 @@
 }
 
 @media (max-width: 600px) {
+  .footer {
+    width: 100%;
+    padding-inline: 0;
+  }
   ngx-recaptcha2 {
     width: 100%;
     transform:scale(0.8);
