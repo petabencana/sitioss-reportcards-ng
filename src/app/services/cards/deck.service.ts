@@ -33,6 +33,7 @@ export class DeckService {
 
   tweetID: string;
   waNumber: string;
+  isError: boolean;
   type: deckType;
   subType: deckSubType;
 
@@ -85,12 +86,6 @@ export class DeckService {
     this.isNextButtonDisabled = true;
   }
 
-  setSubSubmission() {
-    this.sub_submission = true;
-  }
-  setCardLanguage(lang: string) {
-    this.cardLanguage = lang;
-  }
 
   async isPermittedLocation() {
     const requestHeaders: HeadersInit = new Headers();
@@ -190,6 +185,10 @@ export class DeckService {
     return this.selectedRegionCode;
   }
 
+  getIsError() {
+    return this.isError;
+  }
+
   // Setter
   setDeckType(type: deckType) {
     this.type = type;
@@ -270,6 +269,18 @@ export class DeckService {
   setDescription(description: string) {
     this.description = description;
   }
+
+  setSubSubmission() {
+    this.sub_submission = true;
+  }
+  setCardLanguage(lang: string) {
+    this.cardLanguage = lang;
+  }
+
+  setIsError(isError: boolean) {
+    this.isError = isError;
+  }
+
 
   setInputValue(name: string, inputValue: string) {
     switch (name) {
@@ -375,6 +386,7 @@ export class DeckService {
         .catch((error) => {
           reject(error);
           console.log('Error', error);
+          this.isError = true;
           // PUT report & notify user about upload error
         });
     });
@@ -512,6 +524,7 @@ export class DeckService {
                   // Proceed to thanks page with image upload error notification
                   // thanks_settings.code = 'fail';
                   // router.navigate('thanks');
+                  this.isError = true;
                   reject();
                 }
               );
@@ -532,6 +545,7 @@ export class DeckService {
           // error_settings.msg = put_error.statusText;
           // router.navigate('error');
           reject();
+          this.isError = true;
         }
       )
     );

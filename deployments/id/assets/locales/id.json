@@ -170,7 +170,8 @@
     "thank": {
       "result": {
         "real" : "SUKSES!",
-        "training": "SELAMAT!"
+        "training": "SELAMAT!",
+        "failure" : "Opss! Terjadi kesalahan"
       },
       "url": {
         "real": "https://petabencana.id",
@@ -185,13 +186,18 @@
         "training": [
           "Kamu telah menyelesaikan simulasi! Kunjungi",
           "untuk melihat dan membagikan laporan simulasimu!"
+        ],
+        "failure" : [
+          "Maaf permintaanmu belum dapat kami prosess, silahkan coba lagi.",
+          "Jika kamu terus menerima pesan ini, kirimkan pesan ke info@petabencana.id dan tim kami akan segera membantumu!"
         ]
       },
       "subtitle": "Mau submit laporan lainnya?",
       "acceptButton": "Ya",
       "rejectButton": "Tidak",
       "tips": "Klik di sini untuk tips dari BNPB",
-      "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih. Untuk berhenti berlangganan ketik  “stopinfo“."
+      "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih. Untuk berhenti berlangganan ketik  “stopinfo“.",
+      "subscribeErrText": "Maaf permintaanmu belum dapat kami prosess, silahkan coba lagi. Jika kamu terus menerima pesan ini, kirimkan pesan ke info@petabencana.id dan tim kami akan segera membantumu!."
     },
     "notificationSubmit": "Kirimkan",
     "notificationSummaryText": "Ringkasan :",

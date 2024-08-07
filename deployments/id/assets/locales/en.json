@@ -168,7 +168,8 @@
     "thank": {
       "result": {
         "real" : "SUCCESS",
-        "training": "SUCCESS TRAINING"
+        "training": "SUCCESS TRAINING",
+        "failure":  "Whoops! Something went wrong"
       },
       "url":{
         "real" : "https://petabencana.id",
@@ -183,13 +184,19 @@
       "training" : [
         "You have completed your training . Check",
         " to view and share your simulation report!"
+      ],
+      "failure" : [
+        "We are currently not able to process your request, please try again later.",
+        "If you keep receiving this error message, send a message to info@petabencana.id and our team will assist you!"
       ]
     },
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",
       "tips": "Click here for safety tips from BNPB",
-      "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region. To unsubscribe, type “unsubscribe”."
+      "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region. To unsubscribe, type “unsubscribe”.",
+      "subscribeErrText": "We are currently not able to process your request, please try again later. If you keep receiving this error message, send a message to info@petabencana.id and our team will assist you!."
+    
     },
     "notificationSubmit": "SUBMIT",
     "notificationSummaryText": "Summary :",
