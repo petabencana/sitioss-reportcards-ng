@@ -351,27 +351,27 @@
       {
         "category": "CLOTHES & SELF PROTECTION KIT",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/ClothesCategory.png"
       },
       {
         "category": "BABIES AND CHILDREN",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/BabiesCategory.png"
       },
       {
         "category": "HOUSEHOLD AND EMERGENCY SUPPLIES",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/HouseholdCategory.png"
       },
       {
         "category": "PERSONAL HEALTH",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/FirstAidCategory.png"
       },
       {
         "category": "HYGIENE KITS",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/HygieneCategory.png"
       }
     ],
     "titles": {
