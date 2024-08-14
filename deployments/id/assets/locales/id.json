@@ -352,27 +352,27 @@
       {
         "category": "PAKAIAN & ALAT PERLINDUNGAN DIRI",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/ClothesCategory.png"
       },
       {
         "category": "BAYI DAN ANAK",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/BabiesCategory.png"
       },
       {
         "category": "PERALATAN RUMAH TANGGA DAN KEBUTUHAN DARURAT",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/HouseholdCategory.png"
       },
       {
         "category": "KESEHATAN",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/FirstAidCategory.png"
       },
       {
         "category": "PERALATAN KEBERSIHAN ",
         "description": "",
-        "img": "../../../assets/decks/logistics/products/Default.png"
+        "img": "../../../assets/decks/logistics/products/HygieneCategory.png"
       }
     ],
     "titles": {
