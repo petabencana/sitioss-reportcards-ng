@@ -197,7 +197,9 @@
       "rejectButton": "Tidak",
       "tips": "Klik di sini untuk tips dari BNPB",
       "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih. Untuk berhenti berlangganan ketik  “stopinfo“.",
-      "subscribeErrText": "Maaf permintaanmu belum dapat kami prosess, silahkan coba lagi. Jika kamu terus menerima pesan ini, kirimkan pesan ke info@petabencana.id dan tim kami akan segera membantumu!."
+      "subscribeErrText": "Maaf permintaanmu belum dapat kami prosess, silahkan coba lagi. Jika kamu terus menerima pesan ini, kirimkan pesan ke info@petabencana.id dan tim kami akan segera membantumu!.",
+      "subscribeSameRegionErr": "Kamu sudah mengaktifkan notifikasi bencana di lokasi ini!Jika ingin menambah lokasi lain, klik “Coba Lagi“ dan pilih lokasi baru. Jangan khawatir, kami akan tetap mengirimkan notifikasi bencana untuk lokasi sebelumnya kecuali kamu berhenti berlangganan ya!"
+
     },
     "notificationSubmit": "Kirimkan",
     "notificationSummaryText": "Ringkasan :",

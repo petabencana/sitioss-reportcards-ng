@@ -195,8 +195,8 @@
       "rejectButton": "No",
       "tips": "Click here for safety tips from BNPB",
       "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region. To unsubscribe, type “unsubscribe”.",
-      "subscribeErrText": "We are currently not able to process your request, please try again later. If you keep receiving this error message, send a message to info@petabencana.id and our team will assist you!."
-    
+      "subscribeErrText": "We are currently not able to process your request, please try again later. If you keep receiving this error message, send a message to info@petabencana.id and our team will assist you!.",
+      "subscribeSameRegionErr": "You have already subscribed to receive notifications for this location! If you would like to receive notifications for another location as well, please click “try again”, and only select the new location. Don’t worry, I will always keep notifications for your current selected locations on, unless you unsubscribe!"
     },
     "notificationSubmit": "SUBMIT",
     "notificationSummaryText": "Summary :",

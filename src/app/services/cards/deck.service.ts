@@ -33,7 +33,7 @@ export class DeckService {
 
   tweetID: string;
   waNumber: string;
-  isError: boolean;
+  isError: 'server-error' | 'same-region-select' | boolean = false;
   type: deckType;
   subType: deckSubType;
 
@@ -277,10 +277,6 @@ export class DeckService {
     this.cardLanguage = lang;
   }
 
-  setIsError(isError: boolean) {
-    this.isError = isError;
-  }
-
 
   setInputValue(name: string, inputValue: string) {
     switch (name) {
@@ -372,7 +368,7 @@ export class DeckService {
     const notifyMedium = this.waNumber;
     const data = {
       regions: selectedRegion,
-      userId: notifyMedium,
+      // userId: notifyMedium,
       language: languageCode,
     };
     return new Promise(async (resolve, reject) => {
@@ -386,8 +382,7 @@ export class DeckService {
         .catch((error) => {
           reject(error);
           console.log('Error', error);
-          this.isError = true;
-          // PUT report & notify user about upload error
+          this.isError = error.code;
         });
     });
   }

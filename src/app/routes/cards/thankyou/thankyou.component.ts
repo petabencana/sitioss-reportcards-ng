@@ -19,18 +19,24 @@ export class ThankYouComponent implements OnInit {
 
   get titleText() : string {
     const isError = this.deckService.getIsError()
-    if(isError) { 
-      return `card.thank.result.failure`
-    }
-    return  `card.thank.result.real`
+    switch(isError) {
+      case 'server-error':
+      case 'same-region-select':
+        return `card.thank.result.failure`;
+      default:
+    return  `card.thank.result.real`;
+  }
   }
 
   get subTitleText() : string {
     const isError = this.deckService.getIsError()
-    if(isError) { 
-      return `card.thank.subscribeErrText`
-    }
-    return  `card.thank.subscribeText`
+    switch(isError) {
+      case 'server-error':
+        return `card.thank.subscribeErrText`;
+      case 'same-region-select':
+        return `card.thank.subscribeSameRegionErr`;
+      default:
+    return  `card.thank.subscribeText`;
   }
-
+  }
 }
