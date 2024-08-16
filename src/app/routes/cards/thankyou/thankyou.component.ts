@@ -30,6 +30,7 @@ export class ThankYouComponent implements OnInit {
 
   get subTitleText() : string {
     const isError = this.deckService.getIsError()
+    console.log("🚀 ~ Error message in thank you component:", isError)
     switch(isError) {
       case 'server-error':
         return `card.thank.subscribeErrText`;
