@@ -379,10 +379,9 @@ export class DeckService {
           // PUT report & patch image_url
           resolve(success);
         })
-        .catch((error) => {
-          reject(error);
-          console.log('Error', error);
-          this.isError = error.code;
+        .catch((err) => {
+          reject(err);
+          this.isError = err.error.code;
         });
     });
   }
