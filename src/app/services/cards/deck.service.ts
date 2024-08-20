@@ -368,7 +368,7 @@ export class DeckService {
     const notifyMedium = this.waNumber;
     const data = {
       regions: selectedRegion,
-      // userId: notifyMedium,
+      userId: notifyMedium,
       language: languageCode,
     };
     return new Promise(async (resolve, reject) => {
