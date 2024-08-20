@@ -3,4 +3,8 @@
   <p class="thanks__subtitle">
     {{subTitleText | translate}}
   </p>
+ 
+  <div *ngIf="isError" class="thanks__btn-group">
+    <a class="thanks__btn" (click)="reportAnotherCard()">Try Again</a>
+  </div>
 </div>

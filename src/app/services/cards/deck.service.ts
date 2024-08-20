@@ -331,6 +331,7 @@ export class DeckService {
     this.captchaCleared = false;
     this.imageSignedUrl = 'url_error';
     this.partnerCode = '';
+    this.isError = false;
   }
 
   updateSignedUrl(image: File) {

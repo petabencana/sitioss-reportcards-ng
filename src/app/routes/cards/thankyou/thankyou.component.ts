@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DeckService } from '../../../services/cards/deck.service';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-thankyou',
@@ -8,11 +9,16 @@ import { DeckService } from '../../../services/cards/deck.service';
   styleUrls: ['./thankyou.component.scss']
 })
 export class ThankYouComponent implements OnInit {
-
+  isError = false;
   constructor(
     public translate: TranslateService,
     public deckService: DeckService,
-  ) { }
+    public navController: NavigationService,
+  ) {
+    if(this.deckService.getIsError() ===  'server-error' || this.deckService.getIsError() === 'same-region-select') {
+      this.isError = true;
+    }
+   }
 
   ngOnInit() {
   }
@@ -40,4 +46,12 @@ export class ThankYouComponent implements OnInit {
     return  `card.thank.subscribeText`;
   }
   }
-}
+
+
+  reportAnotherCard() {
+      this.deckService.reset()
+      this.navController.reset(this.deckService.getRoute());
+    }
+
+  }
+  
