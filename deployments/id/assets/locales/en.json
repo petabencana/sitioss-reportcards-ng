@@ -169,7 +169,8 @@
       "result": {
         "real" : "SUCCESS",
         "training": "SUCCESS TRAINING",
-        "failure":  "Whoops! Something went wrong"
+        "failure":  "Whoops! Something went wrong",
+        "whatsAppFailure" : "Nomor WhatsApp Tidak Ditemukan"
       },
       "url":{
         "real" : "https://petabencana.id",
@@ -196,7 +197,9 @@
       "tips": "Click here for safety tips from BNPB",
       "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region. To unsubscribe, type “unsubscribe”.",
       "subscribeErrText": "We are currently not able to process your request, please try again later. If you keep receiving this error message, send a message to info@petabencana.id and our team will assist you!.",
-      "subscribeSameRegionErr": "You have already subscribed to receive notifications for this location! If you would like to receive notifications for another location as well, please click “try again”, and only select the new location. Don’t worry, I will always keep notifications for your current selected locations on, unless you unsubscribe!"
+      "subscribeSameRegionErr": "You have already subscribed to receive notifications for this location! If you would like to receive notifications for another location as well, please click “try again”, and only select the new location. Don’t worry, I will always keep notifications for your current selected locations on, unless you unsubscribe!",
+      "noWhatsAppNumberErr": "Sorry! We couldn’t find your WhatsApp number. Please try again, click “Chat to DisasterBot“ and send “mauinfo“ or “lmk“ to get a new link."
+
     },
     "notificationSubmit": "SUBMIT",
     "notificationSummaryText": "Summary :",
@@ -206,7 +209,10 @@
         "training": "Complete Training"
     },
     "reportAgainStructure": "Would you also like to submit structural failure report?",
-    "reportAgainAccess": "Would you also like to submit road accessibility report?"
+    "reportAgainAccess": "Would you also like to submit road accessibility report?",
+    "subscribedRegionsHeader": "You have subscribed to disaster notifications in the following areas",
+    "subscribedRegionsBody": "Notifications are currently active for the following location(s):",
+    "subscribedRegionsFooter": "To subscribe to a different region, select only the new location you would like to receive notifications for. Please note that you cannot subscribe to the same location more than once."
   },
   "partner_mode_title": "Enter Partner Mode?",
   "partner_mode_body1": "Anyone can submit a disaster report to PetaBencana.id",
@@ -215,6 +221,9 @@
   "partner_mode_placeholder": "Partner Code",
   "forgot_partner_code": "Forget Partner Code",
   "partner_mode_cta": "GO",
+  "alert_popup_cta": "OK",
+  "chat_with_bot_cta":"Chat with DisasterBot",
+  "try_again_cta": "Try Again",
   "partner_mode_loginHeader": "Welcome Back!",
   "partner_mode_loginSubHeader": "You are submitting a report as:",
   "partner_mode_partnerNotfound": "Partner code not found or in inactive status , Kindly check your partner code or email us at info@petabencana.id",

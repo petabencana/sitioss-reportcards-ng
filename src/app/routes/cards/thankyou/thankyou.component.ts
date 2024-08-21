@@ -10,6 +10,7 @@ import { NavigationService } from '../../../services/navigation.service';
 })
 export class ThankYouComponent implements OnInit {
   isError = false;
+  isNoWhatsAppNumber=false;
   constructor(
     public translate: TranslateService,
     public deckService: DeckService,
@@ -17,6 +18,9 @@ export class ThankYouComponent implements OnInit {
   ) {
     if(this.deckService.getIsError() ===  'server-error' || this.deckService.getIsError() === 'same-region-select') {
       this.isError = true;
+    }
+    if(this.deckService.getIsError() ===  'no-whatsapp-number') {
+      this.isNoWhatsAppNumber = true;
     }
    }
 
@@ -29,6 +33,8 @@ export class ThankYouComponent implements OnInit {
       case 'server-error':
       case 'same-region-select':
         return `card.thank.result.failure`;
+      case 'no-whatsapp-number':
+        return `card.thank.result.whatsAppFailure`;
       default:
     return  `card.thank.result.real`;
   }
@@ -36,15 +42,24 @@ export class ThankYouComponent implements OnInit {
 
   get subTitleText() : string {
     const isError = this.deckService.getIsError()
-    console.log("🚀 ~ Error message in thank you component:", isError)
     switch(isError) {
       case 'server-error':
         return `card.thank.subscribeErrText`;
       case 'same-region-select':
         return `card.thank.subscribeSameRegionErr`;
+      case 'no-whatsapp-number':
+        return `card.thank.noWhatsAppNumberErr`;
       default:
     return  `card.thank.subscribeText`;
   }
+  }
+
+  get tryAgainCTA(): string {
+    return this.translate.instant('try_again_cta');
+  }
+
+  get chatWithBotCTA(): string {
+    return this.translate.instant('chat_with_bot_cta');
   }
 
 

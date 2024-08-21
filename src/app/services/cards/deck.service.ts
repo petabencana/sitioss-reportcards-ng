@@ -20,6 +20,11 @@ interface LatLng {
   lng: number;
 }
 
+interface Subscription {
+  subscription_id: string;
+  region_code: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -33,7 +38,7 @@ export class DeckService {
 
   tweetID: string;
   waNumber: string;
-  isError: 'server-error' | 'same-region-select' | boolean = false;
+  isError: 'server-error' | 'same-region-select' | 'no-whatsapp-number' | boolean = false;
   type: deckType;
   subType: deckSubType;
 
@@ -567,8 +572,26 @@ export class DeckService {
     });
   }
 
+  getSubscriptions() {
+    const self = this;
+    return new Promise(function (resolve, reject) {
+      self._getSubscribedRegions().subscribe(
+        (responseData) => {
+            resolve(responseData);
+        },
+        (err) => {
+          reject([]);
+        }
+      );
+    });
+  }
+
   _getCitiesData(): Observable<any> {
     return this.http.get(`${env.data_server}regions`);
+  }
+
+  _getSubscribedRegions(): Observable<Subscription[]> {
+    return this.http.get<Subscription[]>(`${env.data_server}subscriptions/regions?id=${this.waNumber}`);
   }
 
   verifyPartnerCode(partnerCode: string) {

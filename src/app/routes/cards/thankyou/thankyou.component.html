@@ -5,6 +5,11 @@
   </p>
  
   <div *ngIf="isError" class="thanks__btn-group">
-    <a class="thanks__btn" (click)="reportAnotherCard()">Try Again</a>
+    <a class="thanks__btn" (click)="reportAnotherCard()">{{tryAgainCTA}}</a>
   </div>
+
+  <div *ngIf="isNoWhatsAppNumber" class="thanks__btn-group">
+    <a class="thanks__btn" href="https://bit.ly/BencanaBotWA">{{chatWithBotCTA}}</a>
+  </div>
+
 </div>
