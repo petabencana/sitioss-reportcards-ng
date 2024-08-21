@@ -77,9 +77,10 @@ export class ReportDonationReviewComponent implements OnInit {
     img: string,
     units: string,
     item_id: string,
+    hasDescription: boolean,
     need_id: number,
     donate: number,
-    limit: number
+    limit: number,
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -89,9 +90,10 @@ export class ReportDonationReviewComponent implements OnInit {
       img,
       units,
       item_id,
+      hasDescription,
       need_id,
       donate,
-      limit
+      limit,
     );
   }
 
@@ -108,7 +110,8 @@ export class ReportDonationReviewComponent implements OnInit {
         card.item_id,
         card.need_id,
         card.donate,
-        card.limit
+        card.limit,
+        card.hasDescription
       );
     }
   }
@@ -128,7 +131,8 @@ export class ReportDonationReviewComponent implements OnInit {
           card.item_id,
           card.need_id,
           card.donate,
-          card.limit
+          card.limit,
+          card.hasDescription
         );
       } else {
         // If donate is greater than 0, update selectedProducts
@@ -142,7 +146,8 @@ export class ReportDonationReviewComponent implements OnInit {
           card.item_id,
           card.need_id,
           card.donate,
-          card.limit
+          card.limit,
+          card.hasDescription
         );
       }
     }

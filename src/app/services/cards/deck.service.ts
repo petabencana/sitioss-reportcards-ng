@@ -110,6 +110,7 @@ export class DeckService {
     need_id: number;
     donate?: number;
     limit?: number;
+    hasDescription?: boolean;
   }[] = [];
 
   getSelectedProducts(title: string) {
@@ -124,6 +125,7 @@ export class DeckService {
     img: string,
     units: string,
     item_id: string,
+    hasDescription: boolean,
     need_id?: number,
     donate?: number,
     limit?: number
@@ -147,6 +149,7 @@ export class DeckService {
         this.selectedProducts[index].need_id = need_id;
         this.selectedProducts[index].donate = donate;
         this.selectedProducts[index].limit = limit;
+        this.selectedProducts[index].hasDescription = hasDescription;
       } else {
         this.selectedProducts.push({
           title,
@@ -159,6 +162,7 @@ export class DeckService {
           need_id,
           donate,
           limit,
+          hasDescription,
         });
       }
     }

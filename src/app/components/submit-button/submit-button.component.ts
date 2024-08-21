@@ -30,6 +30,13 @@ export class SubmitButtonComponent implements OnInit {
         : await this.deckService.isPermittedLocation();
   }
 
+  get isHasDescription(): boolean {
+    return (this.deckService.selectedProducts.every((item) => {
+      return (item.hasDescription !== true) || (item.description !== "")
+      })  
+    );
+  }
+
   get isDescriptionAndPhotoEmpty(): boolean {
     return !(
       this.deckService.getDescription() || this.deckService.getPreview()
@@ -52,7 +59,8 @@ export class SubmitButtonComponent implements OnInit {
         this.navController.getCurrentRouteName() === 'summary') ||
       (this.deckService.isCaptchaCleared() &&
         this.deckService.getDeckSubType() === 'need' &&
-        this.deckService.selectedProducts.length > 0) ||
+        this.deckService.selectedProducts.length > 0 && 
+        this.isHasDescription) ||
       (this.deckService.isCaptchaCleared() &&
         this.deckService.getDeckSubType() === 'giver' &&
         this.deckService.selectedProducts.length > 0)
