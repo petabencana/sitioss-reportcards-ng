@@ -54,6 +54,12 @@ export class ThankYouComponent implements OnInit {
   }
   }
 
+  get getHref() : string { 
+    const cardLanguage = this.deckService.getCardLanguage();
+    const defaultText = cardLanguage === 'id' ? "mauinfo" : "lmk"
+    return `https://wa.me/+6285842362262?text=${defaultText}`
+  }
+
   get tryAgainCTA(): string {
     return this.translate.instant('try_again_cta');
   }

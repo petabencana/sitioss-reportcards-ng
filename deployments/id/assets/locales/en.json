@@ -170,7 +170,7 @@
         "real" : "SUCCESS",
         "training": "SUCCESS TRAINING",
         "failure":  "Whoops! Something went wrong",
-        "whatsAppFailure" : "Nomor WhatsApp Tidak Ditemukan"
+        "whatsAppFailure" : "WhatsApp Number Not Found"
       },
       "url":{
         "real" : "https://petabencana.id",
@@ -221,7 +221,7 @@
   "partner_mode_placeholder": "Partner Code",
   "forgot_partner_code": "Forget Partner Code",
   "partner_mode_cta": "GO",
-  "alert_popup_cta": "OK",
+  "alert_popup_cta": "Continue to location selection",
   "chat_with_bot_cta":"Chat with DisasterBot",
   "try_again_cta": "Try Again",
   "partner_mode_loginHeader": "Welcome Back!",

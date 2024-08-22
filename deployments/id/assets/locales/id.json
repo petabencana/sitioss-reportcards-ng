@@ -172,7 +172,7 @@
         "real" : "SUKSES!",
         "training": "SELAMAT!",
         "failure" : "Opss! Terjadi kesalahan",
-        "whatsAppFailure" : "WhatsApp Number Not Found"
+        "whatsAppFailure" : "Nomor WhatsApp Tidak Ditemukan"
       },
       "url": {
         "real": "https://petabencana.id",
@@ -211,7 +211,7 @@
     },
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?",
-    "subscribedRegionsHeader": "Kamu telah berlangganan notifikasi bencana di wilayah berikut",
+    "subscribedRegionsHeader": "Kamu Telah Berlangganan Notifikasi di Wilayah Berikut",
     "subscribedRegionsBody": "Notifikasi bencana telah aktif di wilayah berikut:",
     "subscribedRegionsFooter": "Jika ingin berlangganan untuk wilayah lain, silakan pilih lokasi baru. Kamu tidak dapat berlangganan di lokasi yang telah aktif sebelumnya ya!"
   },
@@ -222,7 +222,7 @@
   "partner_mode_placeholder": "Kode Mitra",
   "forgot_partner_code": "Lupa Kode Mitra",
   "partner_mode_cta": "Masuk",
-  "alert_popup_cta": "Masuk",
+  "alert_popup_cta": "Lanjut ke pilih lokasi",
   "chat_with_bot_cta": "Chat ke BencanaBot",
   "try_again_cta": "Coba Lagi",
   "partner_mode_loginHeader": "Selamat Datang!",

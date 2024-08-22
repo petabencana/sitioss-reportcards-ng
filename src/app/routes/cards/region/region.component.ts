@@ -76,8 +76,8 @@ export class RegionComponent implements OnInit {
           type: 'fill',
           source: 'cities',
           paint: {
-            'fill-outline-color': '#484896',
-            'fill-color': '#6e599f',
+            'fill-outline-color': 'red',
+            'fill-color': '#33aade',
             'fill-opacity': 0.75,
           },
           filter: ['in', 'region_code', ''],
@@ -136,9 +136,10 @@ export class RegionComponent implements OnInit {
           );
           const regionCodes = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.region_code)
           const cities = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.city)
+          console.log("🚀 ~ RegionComponent ~ onClick ~ cities:", cities)
           this.deckService.setSelectedRegion(cities)
           this.deckService.setSelectedRegionCode(regionCodes);
-          this.deckService.userCanContinue()
+          cities.length > 0 ? this.deckService.userCanContinue() : this.deckService.userCannotContinue()
           map.setFilter('cities-highlighted', [
             'in',
             'region_code',

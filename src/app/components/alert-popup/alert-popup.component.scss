@@ -1,0 +1,129 @@
+
+
+.partnerCodePopup__header{
+  background-color: #c0262d;
+    height: 50px;
+    padding: 10px;
+    display: grid;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    grid-auto-flow: column;
+    font-weight: 600;
+    & img{
+      width: 50px;
+      height: 50px;
+    }
+    & p{
+      text-align: center;
+      color: #fff;
+      margin: auto;
+    }
+}
+
+#partnerCodePopup {
+  //display: none;
+  position: fixed;
+  top: 54%;
+  left: 50%;
+  width: clamp(15rem, 95%, 25rem);
+  transform: translate(-50%,-50%);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);;
+  z-index: 1030;
+  background: #CDCDCD;
+  border-radius: 15px;
+  opacity: 90%;
+  & span {
+    vertical-align: middle;
+  }
+
+  & a{
+    color: #626262;
+    font-size: 0.75rem;
+  }
+
+  & #submitRow{
+    display: flex;
+    justify-content: flex-end;
+    margin:1rem 0;
+
+    & button{
+      appearance: none;
+      border: none;
+      background: #c0262d;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #fff;
+      min-width: 5rem;
+      box-shadow: rgb(50, 48,42) -1px 2px 24px;
+    }
+  }
+
+  & #closeRow {
+    display: flex;
+    justify-content: flex-end;
+
+    & span{
+      display: grid;
+      place-content: center;
+      border:1px solid #fff;
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+      font-size: 0.75rem;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+
+  .partnerCodePopup__body {
+    padding: 40px;
+    font-weight: 600;
+    & .partnerCodePopup__body--underline{
+      color: #c0262d;
+      cursor: pointer;
+    }
+    & .partnerCodePopup__body--link{
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+#partnerCode {
+  border-radius: 1rem;
+  border: none;
+  padding: 0.75rem;
+  width: 100%;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  height: 2rem;
+
+}
+
+#tabsRow {
+  position: absolute;
+  display: table;
+  table-layout: fixed;
+  margin-top: -1px;
+  width: 100%;
+  background-color: #3D5C69;
+
+  z-index: 999;
+
+  .tabs {
+    display: table-cell;
+    height: 5px;
+
+    &.filled {
+      background-color: #31aade;
+    }
+
+    &.filled_partner{
+      background-color: #fff;
+    }
+  }
+}
