@@ -67,6 +67,7 @@ export class CardComponent {
           card.quantity = storedProduct.quantity;
           card.description = storedProduct.description;
           card.item_id = storedProduct.item_id;
+          card.hasDescription = storedProduct.hasDescription;
         } else {
           card.quantity = 0;
           card.description = '';
@@ -100,7 +101,8 @@ export class CardComponent {
     description: string,
     img: string,
     units: string,
-    item_id: string
+    item_id: string,
+    hasDescription: boolean,
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -109,7 +111,8 @@ export class CardComponent {
       description,
       img,
       units,
-      item_id
+      item_id,
+      hasDescription
     );
   }
 
@@ -122,7 +125,8 @@ export class CardComponent {
       card.description,
       card.img,
       card.units,
-      card.item_id
+      card.item_id,
+      card.hasDescription
     );
     this.deckService.userCanContinue();
   }
@@ -137,7 +141,8 @@ export class CardComponent {
         card.description,
         card.img,
         card.units,
-        card.item_id
+        card.item_id,
+        card.hasDescription
       );
     }
     if (this.deckService.selectedProducts.length > 0) {
@@ -179,7 +184,8 @@ export class CardComponent {
       card.description,
       card.img,
       card.units,
-      card.item_id
+      card.item_id,
+      card.hasDescription
     );
   }
 

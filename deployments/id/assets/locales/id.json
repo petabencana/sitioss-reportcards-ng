@@ -159,7 +159,7 @@
         "title": "Pakaian Bayi & Anak ",
         "description": "",
         "category": "BAYI DAN ANAK",
-        "img": "../../../assets/decks/logistics/products/BabyClothes.png",
+        "img": "../../../assets/decks/logistics/products/BabyClothes.svg",
         "quantity": 0,
         "descriptionPlaceholder": "Tambahkan deskripsi. Contoh: usia/ukuran, jenis",
         "hasDescription": true,
@@ -170,7 +170,7 @@
         "title": "Botol Bayi",
         "description": "",
         "category": "BAYI DAN ANAK",
-        "img": "../../../assets/decks/logistics/products/Babybottle.png",
+        "img": "../../../assets/decks/logistics/products/Babybottle.svg",
         "quantity": 0,
         "units": "Pcs",
         "item_id": "14"
@@ -179,7 +179,7 @@
         "title": "Mainan Anak",
         "description": "",
         "category": "BAYI DAN ANAK",
-        "img": "../../../assets/decks/logistics/products/BabyToy.png",
+        "img": "../../../assets/decks/logistics/products/BabyToys.svg",
         "quantity": 0,
         "units": "Pcs",
         "item_id": "15"
@@ -188,7 +188,7 @@
         "title": "Dot",
         "description": "",
         "category": "BAYI DAN ANAK",
-        "img": "../../../assets/decks/logistics/products/Pacifier.png",
+        "img": "../../../assets/decks/logistics/products/Pacifier.svg",
         "quantity": 0,
         "units": "Pcs",
         "item_id": "16"

@@ -51,7 +51,6 @@ export class ReportProductReviewComponent {
     this.deckService.userCanBack();
     this.deckService.userCannotContinue();
     this.switchTab(this.termscontents[0].tab_key);
-    console.log( this.deckService.selectedProducts,'products');
   }
 
   private recordQuantityChange(
@@ -62,6 +61,7 @@ export class ReportProductReviewComponent {
     img: string,
     units: string,
     item_id: string,
+    hasDescription: boolean,
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -70,7 +70,8 @@ export class ReportProductReviewComponent {
       description,
       img,
       units,
-      item_id
+      item_id,
+      hasDescription
     );
   }
 
@@ -84,6 +85,7 @@ export class ReportProductReviewComponent {
       card.img,
       card.units,
       card.item_id,
+      card.hasDescription
     );
   }
 
@@ -98,6 +100,7 @@ export class ReportProductReviewComponent {
         card.img,
         card.units,
         card.item_id,
+        card.hasDescription
       );
     }
   }
@@ -117,7 +120,8 @@ export class ReportProductReviewComponent {
       card.description,
       card.img,
       card.units,
-      card.item_id
+      card.item_id,
+      card.hasDescription
     );
   }
 
