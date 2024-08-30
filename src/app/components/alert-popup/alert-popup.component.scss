@@ -25,7 +25,9 @@
   position: fixed;
   top: 54%;
   left: 50%;
-  width: clamp(15rem, 95%, 25rem);
+  // width: clamp(15rem, 95%, 25rem);
+  max-width: 500px;
+  min-width: 330px;
   transform: translate(-50%,-50%);
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);;
   z-index: 1030;
@@ -81,6 +83,7 @@
   .partnerCodePopup__body {
     padding: 40px;
     font-weight: 600;
+    max-height: 300px;
     & .partnerCodePopup__body--underline{
       color: #c0262d;
       cursor: pointer;
@@ -88,6 +91,21 @@
     & .partnerCodePopup__body--link{
       display: flex;
       justify-content: flex-end;
+    }
+    & .partnerCodePopup_regions{
+      max-height: 80px;
+      overflow-y: auto;
+      //scrollbar styles
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #555;
+        height: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+      }
     }
   }
 }

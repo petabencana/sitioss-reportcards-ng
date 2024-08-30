@@ -4,7 +4,7 @@
   </div>
     <div class="partnerCodePopup__body">
       <p>{{ 'card.subscribedRegionsBody' | translate }}</p>
-      <div [innerHTML]="regionCodes"></div>
+      <div [innerHTML]="regionCodes" class="partnerCodePopup_regions"></div>
       <p>{{'card.subscribedRegionsFooter' | translate}}</p>
       <div id="submitRow">
       <button  (click)="closePartnerPopup()">{{alertPopupCTA}}</button>
