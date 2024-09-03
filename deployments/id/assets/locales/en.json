@@ -217,7 +217,7 @@
         "title": "Sleeping Mats",
         "description": "",
         "category": "HOUSEHOLD AND EMERGENCY SUPPLIES",
-        "img": "../../../assets/decks/logistics/products/Default.png",
+        "img": "../../../assets/decks/logistics/products/SleepingMat.svg",
         "quantity": 0,
         "units": "Pcs",
         "item_id": "19"
