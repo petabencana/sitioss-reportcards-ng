@@ -15,6 +15,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 export class RegionComponent implements OnInit {
   private geojson;
   public latlng: { lat: string; lng: string };
+  regions: any = [];
+  data: any = [];  
 
   constructor(
     private deckService: DeckService,
@@ -29,6 +31,9 @@ export class RegionComponent implements OnInit {
 
   private async initMap() {
     let { lat, lng } = env.default_location;
+    const subscribed = await this.deckService.getSubscriptions();
+    this.data = subscribed;
+    this.regions = this.data.map(sub => sub.region_code);
     if (this.deckService.getFireLocation()) {
       lat = this.deckService.getFireLocation().lat;
       lng = this.deckService.getFireLocation().lng;
@@ -71,6 +76,26 @@ export class RegionComponent implements OnInit {
             'fill-color': 'rgba(0,0,0,0.1)',
           },
         });
+
+        const subscribedCities = this.geojson.features.filter((feature) => {
+          const res = this.regions.find((reg) => reg == feature.properties.city);
+          return res !== undefined;
+        });
+        const subscribedRegionCodes = subscribedCities.map((feature) => feature.properties.region_code)
+        if(this.regions.length > 0) {
+          map.addLayer({
+            id: 'cities-subscribed',
+            type: 'fill',
+            source: 'cities',
+            paint: {
+              'fill-outline-color': 'red',
+              'fill-color': '#808080',
+              'fill-opacity': 0.75
+,           },
+            filter: ['in', 'region_code', ...subscribedRegionCodes ],
+          });
+        }
+
         map.addLayer({
           id: 'cities-highlighted',
           type: 'fill',
@@ -80,7 +105,7 @@ export class RegionComponent implements OnInit {
             'fill-color': '#33aade',
             'fill-opacity': 0.75,
           },
-          filter: ['in', 'region_code', ''],
+          filter: ['all', ['in', 'region_code', ''], ['!in', 'region_code', ...subscribedRegionCodes]],
         });
 
         document.addEventListener('touchstart', (e) => {
@@ -101,50 +126,58 @@ export class RegionComponent implements OnInit {
 
         function onClick(e) {
           const features = map.queryRenderedFeatures(e.point, {
-            layers: ['cities'],
+            layers: ['cities','cities-subscribed'],
           });
-          // Check if any of the clicked features are already selected
-          const clickedFeature = features.find((feature) =>
-            selectedFeatures.find(
-              (selectedFeature) =>
-                selectedFeature.properties.region_code ===
-                feature.properties.region_code
-            )
-          );
+          
+          if(features[0].layer.id === 'cities-subscribed'){
+            new mapboxgl.Popup()
+              .setLngLat(e.lngLat)
+              .setHTML('Subscribed City')
+              .addTo(map)
 
-          if (clickedFeature) {
-            // If clicked feature is already selected, deselect it
-            const index = selectedFeatures.indexOf(clickedFeature);
-            selectedFeatures.splice(index, 1);
           } else {
-            // If clicked feature is not selected, add it to the selection
-            selectedFeatures.push(...features);
-          }
+            // Check if any of the clicked features are already selected
+            const clickedFeature = features.find((feature) =>
+              selectedFeatures.find(
+                (selectedFeature) =>
+                  selectedFeature.properties.region_code ===
+                  feature.properties.region_code
+              )
+            );
+            if (clickedFeature) {
+              // If clicked feature is already selected, deselect it
+              const index = selectedFeatures.indexOf(clickedFeature);
+              selectedFeatures.splice(index, 1);
+            }else {
+              // If clicked feature is not selected, add it to the selection
+              selectedFeatures.push(...features);
+            }
 
-          if (features.length >= 1000) {
-            return window.alert('Select a smaller number of features');
-          }
+            if (features.length >= 1000) {
+              return window.alert('Select a smaller number of features');
+            }
 
-          const uniqueFeatures = Array.from(
-            new Set(
-              selectedFeatures.map((feature) => feature.properties.region_code)
-            )
-          ).map((region_code) =>
-            selectedFeatures.find(
-              (feature) => feature.properties.region_code === region_code
-            )
-          );
-          const regionCodes = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.region_code)
-          const cities = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.city)
-          console.log("🚀 ~ RegionComponent ~ onClick ~ cities:", cities)
-          this.deckService.setSelectedRegion(cities)
-          this.deckService.setSelectedRegionCode(regionCodes);
-          cities.length > 0 ? this.deckService.userCanContinue() : this.deckService.userCannotContinue()
-          map.setFilter('cities-highlighted', [
-            'in',
-            'region_code',
-            ...uniqueFeatures.map((feature) => feature.properties.region_code),
-          ]);
+            const uniqueFeatures = Array.from(
+              new Set(
+                selectedFeatures.map((feature) => feature.properties.region_code)
+              )
+            ).map((region_code) =>
+              selectedFeatures.find(
+                (feature) => feature.properties.region_code === region_code
+              )
+            );
+            const regionCodes = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.region_code)
+            const cities = uniqueFeatures.map(uniqueFeature => uniqueFeature.properties.city)
+            console.log("🚀 ~ RegionComponent ~ onClick ~ cities:", cities)
+            this.deckService.setSelectedRegion(cities)
+            this.deckService.setSelectedRegionCode(regionCodes);
+            cities.length > 0 ? this.deckService.userCanContinue() : this.deckService.userCannotContinue()
+            map.setFilter('cities-highlighted', [
+              'in',
+              'region_code',
+              ...uniqueFeatures.map((feature) => feature.properties.region_code),
+            ]);
+          }
         }
       });
     }
