@@ -150,6 +150,7 @@
     },
     "windstructure": ["Retak", "Roboh Sebagian", "Roboh Total"],
     "description": "Masukkan deskripsi di sini ...",
+    "region_popup": "Wilayah sudah dipilih",
     "review": {
       "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
       "terms": "Persetujuan pengguna & Kebijakan privasi",

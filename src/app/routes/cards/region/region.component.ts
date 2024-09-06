@@ -132,7 +132,7 @@ export class RegionComponent implements OnInit {
           if(features[0].layer.id === 'cities-subscribed'){
             new mapboxgl.Popup()
               .setLngLat(e.lngLat)
-              .setHTML('Subscribed City')
+              .setHTML(this.translate.instant('card.region_popup'))
               .addTo(map)
 
           } else {
@@ -144,11 +144,12 @@ export class RegionComponent implements OnInit {
                   feature.properties.region_code
               )
             );
+
             if (clickedFeature) {
               // If clicked feature is already selected, deselect it
               const index = selectedFeatures.indexOf(clickedFeature);
               selectedFeatures.splice(index, 1);
-            }else {
+            } else {
               // If clicked feature is not selected, add it to the selection
               selectedFeatures.push(...features);
             }
