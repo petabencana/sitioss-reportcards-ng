@@ -148,6 +148,7 @@
       "review": ["Low Disruption", "Medium Disruption", "High Disruption"]
     },
     "description": "Add your description here ...",
+    "region_popup": "Subscribed region",
     "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
