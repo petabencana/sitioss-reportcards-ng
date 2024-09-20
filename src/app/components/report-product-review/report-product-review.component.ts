@@ -53,6 +53,13 @@ export class ReportProductReviewComponent {
     this.switchTab(this.termscontents[0].tab_key);
   }
 
+  alertDescription() {
+    return (this.deckService.selectedProducts.every((item) => {
+      return (item.hasDescription !== true) || (item.description !== "")
+      })  
+    );
+  }
+
   private recordQuantityChange(
     title: string,
     quantity: number,
