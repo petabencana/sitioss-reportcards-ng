@@ -34,6 +34,14 @@ button {
     }
   }
 
+  &.unclickableBtn{
+    &.button-right {
+      pointer-events: none;
+      cursor: not-allowed;
+      color: #888;
+    }
+  }
+
   &.button-default {
     &:focus{
       outline: none;
