@@ -90,7 +90,7 @@ export class CardComponent {
 
   alertDescription() {
     const hasDescription = this.deckService.selectedProducts.every((item) => {
-      const isDescription = (item.hasDescription === false) || (item.description !== "")
+      const isDescription = (item.hasDescription !== true) || (item.description !== "")
       if(!isDescription){
         this.selectedProduct = item;
       }
