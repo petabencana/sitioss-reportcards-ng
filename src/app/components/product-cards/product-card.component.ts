@@ -14,6 +14,7 @@ export class CardComponent {
   cards: any;
   categories: any;
   selectedCategory: string | null = 'MAKANAN/AIR MINUM' || 'FOOD/WATER';
+  selectedProduct: any;
 
   constructor(
     private translationService: TranslationService,
@@ -85,6 +86,17 @@ export class CardComponent {
   selectCategory(category: string) {
     this.selectedCategory = category;
     this.scrollContainer.nativeElement.scrollTop = 0;
+  }
+
+  alertDescription() {
+    const hasDescription = this.deckService.selectedProducts.every((item) => {
+      const isDescription = (item.hasDescription === false) || (item.description !== "")
+      if(!isDescription){
+        this.selectedProduct = item;
+      }
+      return isDescription;
+    })  
+    return !hasDescription;
   }
 
   get categoryLabel(): string {
