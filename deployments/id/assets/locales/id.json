@@ -23,7 +23,8 @@
       "modalHeader": "Tambahkan rincian",
       "submitButtonLabel":"Kirim permintaan",
       "needSuccessText1": "Terimakasih.",
-      "needSuccessText2": "Kami akan mengirimkan notifikasi ketika permintaanmu sudah tampil di peta!"
+      "needSuccessText2": "Kami akan mengirimkan notifikasi ketika permintaanmu sudah tampil di peta!",
+      "alertDescription": "Tambahkan deskripsi/informasi untuk"
     },
     "giverLabels": {
       "dateandtimeHeader": "Pilih tanggal dan waktu untuk mengirimkan barang",
