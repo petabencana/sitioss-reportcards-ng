@@ -4,7 +4,8 @@
   [ngClass]="{
     'button-right': type === 'right',
     'button-left': type === 'left',
-    'hiddenButton': isBtnHidden
+    'hiddenButton': isBtnHidden,
+    'unclickableBtn': isDescription
   }"
 >
   <i [ngClass]="['fa', 'fa-chevron-' + type, 'arrow-' + type]"></i>

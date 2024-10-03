@@ -53,6 +53,9 @@
       </div>
     </div>
   </div>
+  <div *ngIf="alertDescription()">
+    <p class="alertDescription">{{'card.needLabels.alertDescription' | translate}} {{selectedProduct.title}}</p>
+  </div>  
   <div>
     <div class="categoryList">
       <div *ngFor="let category of categories">

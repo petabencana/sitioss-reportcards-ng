@@ -28,6 +28,16 @@ export class NavButtonComponent implements OnInit {
     return  currentRouteName === 'productreview' || currentRouteName === 'donationreview'
   }
 
+  get isDescription(): boolean {
+    const routeName = this.navController.getCurrentRouteName()
+    const isdecription = (this.deckService.selectedProducts.every((item) => {
+      return (item.hasDescription !== true) || (item.description !== "")
+      })  
+    );
+    const btn = routeName === 'products' &&  !isdecription
+    return btn;
+  }
+
   ngOnInit() {}
 
   onClick() {

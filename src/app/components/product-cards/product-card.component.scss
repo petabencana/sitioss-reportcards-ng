@@ -70,6 +70,12 @@ button {
   cursor: pointer;
 }
 
+.alertDescription{
+  color: red;
+  width: 300px;
+  text-align: left;
+}
+
 .categoryList {
   display: flex;
   gap: 10px;

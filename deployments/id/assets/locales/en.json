@@ -23,7 +23,8 @@
       "modalHeader": "Add more detail",
       "submitButtonLabel": "Submit Request",
       "needSuccessText1": "Thank you for your report.",
-      "needSuccessText2": "We will notify you when it’s on the map"
+      "needSuccessText2": "We will notify you when it’s on the map",
+      "alertDescription": "Please add the description for the product"
     },
     "giverLabels": {
       "dateandtimeHeader": "Select date and time to deliver items.",
