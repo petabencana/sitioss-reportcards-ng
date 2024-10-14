@@ -14,6 +14,11 @@ interface LatLng {
   lng: number;
 }
 
+interface Subscription {
+  subscription_id: string;
+  region_code: string;
+}
+
 @Injectable({
   providedIn: "root",
 })
@@ -24,7 +29,7 @@ export class DeckService {
   finishedSubType = [];
   cardLanguage = "";
   network = "";
-
+  
 
   tweetID: string;
   userId: string;
@@ -567,6 +572,24 @@ export class DeckService {
 
   _getRegionsData(): Observable<any> {
     return this.http.get(`${env.data_server}regions`);
+  }
+
+  getSubscriptions() {
+    const self = this;
+    return new Promise(function (resolve, reject) {
+      self._getSubscribedRegions().subscribe(
+        (responseData) => {
+            resolve(responseData);
+        },
+        (err) => {
+          reject([]);
+        }
+      );
+    });
+  }
+
+  _getSubscribedRegions(): Observable<Subscription[]> {
+    return this.http.get<Subscription[]>(`${env.data_server}subscriptions/regions?id=${this.userId}`);
   }
 
   verifyPartnerCode(partnerCode: string) {
