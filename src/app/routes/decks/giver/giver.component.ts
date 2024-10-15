@@ -43,7 +43,7 @@ export class GiverComponent implements OnInit {
 
   onTypeSelected(type) {
     this.showReportTypeButton = false;
-    this.deckService.selectReportType(type);
+    this.deckService.selectReportType('real');
   }
 
   get isShowButtons(): boolean {
