@@ -125,8 +125,10 @@ export class RegionComponent implements OnInit {
         });
 
         function onClick(e) {
+          const layerIds = map.getStyle().layers.map(layer => layer.id);
+          const layersToQuery = ['cities', 'cities-subscribed'].filter(layer => layerIds.includes(layer));
           const features = map.queryRenderedFeatures(e.point, {
-            layers: ['cities','cities-subscribed'],
+            layers: layersToQuery,
           });
           
           if(features[0].layer.id === 'cities-subscribed'){
