@@ -230,6 +230,7 @@
     "smogdescription": "Ex: Ash in the area. Zero visibility while driving",    
     "winddescription": "Ex: Leaves are flying around due to the strong winds from the typhoon. ",
     "stormdescription": "Ex: Waves are starting to enter the coastal community due to the typhoon. ",
+    "region_popup": "Subscribed Region",
     "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
