@@ -14,6 +14,17 @@ button {
   }
 }
 
+.spinner{
+  border: 2px solid #f3f3f3;          
+  border-top: 2px solid #6d6e6d;       
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  // margin-right: 8px;
+}
+
 @media (max-width: 721px) and (max-height: 761px) {
   .button {
     padding: 7.5px 37.5px;
