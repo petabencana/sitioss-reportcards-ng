@@ -1,0 +1,20 @@
+#navWrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: clamp(15rem, 95%, 25rem);
+  transform: translate(-50%,-50%);
+  z-index: 1030;
+  opacity: 0%;
+  // opacity: 90%;
+  width: 100%;
+}
+
+::ng-deep html, ::ng-deep body {
+  background-color: #fff; /* Override the background color */
+}

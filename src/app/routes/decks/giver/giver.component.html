@@ -1,0 +1,32 @@
+<div>
+  <app-title-box
+    [title]="'card.titles.' + navController.getCardPath() | translate"
+  >
+  </app-title-box>
+</div>
+
+<div *ngIf="isShowButtons" class="centered">
+  <ng-template ngFor let-item [ngForOf]="items">
+    <app-report-type-button
+      [title]="item.title | translate"
+      (click)="onTypeSelected(item.subType)"
+    ></app-report-type-button>
+  </ng-template>
+</div>
+<router-outlet> </router-outlet>
+
+<div id="navWrapper" *ngIf="navController.getCurrentRouteName() !== 'thank'">
+  <app-nav-button
+    [type]="'left'"
+    [text]="'deck.prev' | translate"
+    (navigate)="navController.back(route)"
+  >
+  </app-nav-button>
+
+  <app-nav-button
+    [type]="'right'"
+    [text]="'deck.next' | translate"
+    (navigate)="navController.next(route)"
+  >
+  </app-nav-button>
+</div>

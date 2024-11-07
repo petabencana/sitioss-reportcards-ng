@@ -116,6 +116,8 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     return this.deckService.getDeckSubType()
   }
 
+ 
+
   // Fire
 
   get fireRange() {

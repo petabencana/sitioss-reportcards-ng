@@ -1,0 +1,24 @@
+<div class="contact">
+  <div>
+    <div class="flex">
+      <img src="../../../../assets/decks/logistics/whatsapp.svg" alt="whatsapp-icon">
+    <select [(ngModel)]="selectedCountry" (change)="onCountryChange()">
+      <option
+        *ngFor="let country of countryCodes"
+        [value]="country.callingCodes[0]"
+      >
+        {{ country.alpha2Code }} (+{{ country.callingCodes[0] }})
+        <!-- {{ country.name }} (+{{ country.callingCodes[0] }}) -->
+      </option>
+    </select>
+    <input
+      type="tel"
+      [(ngModel)]="phoneNumber"
+      (input)="onPhoneNumberInput($event)"
+    />
+  </div>
+    <div>
+      <p style="width: 250px; text-align: justify; font-size: 14px; color: gray;">{{ contactDescription }}</p>
+    </div>
+  </div>
+</div>

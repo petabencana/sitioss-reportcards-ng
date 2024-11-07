@@ -1,0 +1,91 @@
+<div class="productsWrapper">
+  <div class="scroll" #scrollContainer>
+    <div *ngFor="let card of filteredCards" class="flex m20">
+      <div class="productCard">
+        <div>
+          <img class="productimg" src="{{ card.img }}" />
+        </div>
+      </div>
+      <div class="productInfo">
+        <div>
+          <h4>{{ card.title }}</h4>
+        </div>
+        <!-- <p>{{ card.description }}</p> -->
+        <div *ngIf="card.hasDescription">
+          <button (click)="openDescriptionModal(card)" class="description" contenteditable="false">
+            {{
+              truncateDescription(
+                card.description
+                  ? card.description
+                  : card.descriptionPlaceholder,
+                3
+              )
+            }}
+          </button>
+          <!-- Modal start-->
+          <div *ngIf="card.showModal" class="modal">
+            <h3>{{ modalHeader }} - {{ card.title }}</h3>
+            <textarea
+              [(ngModel)]="card.description"
+              placeholder="{{ card.descriptionPlaceholder }}"
+            ></textarea>
+            <div>
+              <button (click)="closeModal(card)">Cancel</button>
+              <button
+                (click)="saveDescription(card)"
+                [disabled]="card.description === ''"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+          <!-- Modal end-->
+        </div>
+        <div>
+          <button class="quantitybuttons" (click)="decreaseQuantity(card)">
+            -
+          </button>
+          <span style="min-width: 62px;">{{ card.quantity }}&nbsp;{{card.units}}</span>
+          <button class="quantitybuttons" (click)="increaseQuantity(card)">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="alertDescription()">
+    <p class="alertDescription">{{'card.needLabels.alertDescription' | translate}} {{selectedProduct.title}}</p>
+  </div>  
+  <div>
+    <div class="categoryList">
+      <div *ngFor="let category of categories">
+        <div
+          (click)="selectCategory(category.category)"
+          class="category-card"
+          [class.active]="category.category === selectedCategory"
+        >
+          <!-- <h4>{{ category.category }}</h4> -->
+          <img class="categoryimg" src="{{ category.img }}" />
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="text-align: start; color: #fff; font-size: 12px">
+        {{ categoryLabel }}
+      </p>
+      <p
+        style="
+          text-align: start;
+          color: #fff;
+          font-size: 16px;
+          margin: 0%;
+          font-weight: 650;
+          min-height: 36px;
+        "
+      >
+        {{ selectedCategory }}
+      </p>
+      <!-- <button (click)="check()" style="padding: 10px;">check</button> -->
+    </div>
+  </div>
+</div>
