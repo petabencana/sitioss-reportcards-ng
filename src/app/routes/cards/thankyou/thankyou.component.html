@@ -1,6 +1,15 @@
 <div class="thanks">
-  <p class="thanks__title"> {{'card.thank.result.real' | translate}}</p>
+  <p class="thanks__title"> {{ titleText | translate}}</p>
   <p class="thanks__subtitle">
-    {{'card.thank.subscribeText' | translate}}
+    {{subTitleText | translate}}
   </p>
+ 
+  <div *ngIf="isError" class="thanks__btn-group">
+    <a class="thanks__btn" (click)="reportAnotherCard()">{{tryAgainCTA}}</a>
+  </div>
+
+  <div *ngIf="isNoWhatsAppNumber" class="thanks__btn-group">
+    <a class="thanks__btn" href="{{getHref}}">{{chatWithBotCTA}}</a>
+  </div>
+
 </div>

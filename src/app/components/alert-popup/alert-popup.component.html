@@ -1,0 +1,13 @@
+<div *ngIf="isShown" id="partnerCodePopup">
+  <div class="partnerCodePopup__header">
+    <p>{{ 'card.subscribedRegionsHeader' | translate }}</p>
+  </div>
+    <div class="partnerCodePopup__body">
+      <p>{{ 'card.subscribedRegionsBody' | translate }}</p>
+      <div [innerHTML]="regionCodes" class="partnerCodePopup_regions"></div>
+      <p>{{'card.subscribedRegionsFooter' | translate}}</p>
+      <div id="submitRow">
+      <button  (click)="closePartnerPopup()">{{alertPopupCTA}}</button>
+    </div>
+  </div>
+</div>

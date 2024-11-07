@@ -426,7 +426,9 @@
       },
       "report": {
         "realTypeButton": "Laporkan Bencana",
-        "trainingTypeButton": " Latihan Simulasi"
+        "realSubTypeButton": "Gunakan saat ada bencana🚨",
+        "trainingTypeButton": "Latihan Simulasi",
+        "trainingSubTypeButton": "Gunakan saat latihan📝"
       }
     },
     "visibility": {
@@ -512,6 +514,7 @@
     },
     "windstructure": ["Retak", "Roboh Sebagian", "Roboh Total"],
     "description": "Masukkan deskripsi di sini ...",
+    "region_popup": "Wilayah sudah dipilih",
     "review": {
       "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
       "terms": "Persetujuan pengguna & Kebijakan privasi",
@@ -532,7 +535,9 @@
     "thank": {
       "result": {
         "real" : "SUKSES!",
-        "training": "SELAMAT!"
+        "training": "SELAMAT!",
+        "failure" : "Opss! Terjadi kesalahan",
+        "whatsAppFailure" : "Nomor WhatsApp Tidak Ditemukan"
       },
       "url": {
         "real": "https://petabencana.id",
@@ -547,13 +552,20 @@
         "training": [
           "Kamu telah menyelesaikan simulasi! Kunjungi",
           "untuk melihat dan membagikan laporan simulasimu!"
+        ],
+        "failure" : [
+          "Maaf permintaanmu belum dapat kami prosess, silahkan coba lagi.",
+          "Jika kamu terus menerima pesan ini, kirimkan pesan ke info@petabencana.id dan tim kami akan segera membantumu!"
         ]
       },
       "subtitle": "Mau submit laporan lainnya?",
       "acceptButton": "Ya",
       "rejectButton": "Tidak",
       "tips": "Klik di sini untuk tips dari BNPB",
-      "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih. Untuk berhenti berlangganan ketik  “stopinfo“."
+      "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih. Untuk berhenti berlangganan ketik  “stopinfo“.",
+      "subscribeErrText": "Maaf permintaanmu belum dapat kami prosess, silahkan coba lagi. Jika kamu terus menerima pesan ini, kirimkan pesan ke info@petabencana.id dan tim kami akan segera membantumu!.",
+      "subscribeSameRegionErr": "Kamu sudah mengaktifkan notifikasi bencana di lokasi ini!Jika ingin menambah lokasi lain, klik “Coba Lagi“ dan pilih lokasi baru. Jangan khawatir, kami akan tetap mengirimkan notifikasi bencana untuk lokasi sebelumnya kecuali kamu berhenti berlangganan ya!",
+      "noWhatsAppNumberErr": "Kami tidak dapat menemukan nomer WhatsApp kamu. Silahkan coba lagi, klik “Chat ke BencanaBot“ dan ketik “mauinfo“ atau “lmk“ untuk mendapatkan link terbaru."
     },
     "notificationSubmit": "Kirimkan",
     "notificationSummaryText": "Ringkasan :",
@@ -563,7 +575,10 @@
       "training": "Selesaikan Latihan"
     },
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
-    "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
+    "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?",
+    "subscribedRegionsHeader": "Kamu Telah Berlangganan Notifikasi di Wilayah Berikut",
+    "subscribedRegionsBody": "Notifikasi bencana telah aktif di wilayah berikut:",
+    "subscribedRegionsFooter": "Jika ingin berlangganan untuk wilayah lain, silakan pilih lokasi baru. Kamu tidak dapat berlangganan di lokasi yang telah aktif sebelumnya ya!"
   },
   "partner_mode_title": "Lapor sebagai Mitra Resmi?",
   "partner_mode_body1": "Siapapun dapat melaporkan bencana ke PetaBencana.id.",
@@ -572,6 +587,9 @@
   "partner_mode_placeholder": "Kode Mitra",
   "forgot_partner_code": "Lupa Kode Mitra",
   "partner_mode_cta": "Masuk",
+  "alert_popup_cta": "Lanjut ke pilih lokasi",
+  "chat_with_bot_cta": "Chat ke BencanaBot",
+  "try_again_cta": "Coba Lagi",
   "partner_mode_loginHeader": "Selamat Datang!",
   "partner_mode_loginSubHeader": "Anda akan melapor bencana sebagai:",
   "partner_mode_partnerNotfound": "Kode mitra tidak ditemukan atau status tidak aktif, cek kembali kode Anda atau klik Lupa Kode Mitra untuk mengirim email ke info@petabencana.id",

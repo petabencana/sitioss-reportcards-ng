@@ -35,6 +35,11 @@ interface LatLng {
   lng: number;
 }
 
+interface Subscription {
+  subscription_id: string;
+  region_code: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -45,9 +50,11 @@ export class DeckService {
   finishedSubType = [];
   cardLanguage = '';
   trainingWords: string[] = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
+
   tweetID: string;
   waNumber: string;
   requestId: string;
+  isError: 'server-error' | 'same-region-select' | 'no-whatsapp-number' | boolean = false;
   type: deckType;
   subType: deckSubType;
 
@@ -233,12 +240,6 @@ export class DeckService {
     this.isNextButtonDisabled = true;
   }
 
-  setSubSubmission() {
-    this.sub_submission = true;
-  }
-  setCardLanguage(lang: string) {
-    this.cardLanguage = lang;
-  }
 
   async isPermittedLocation() {
     const requestHeaders: HeadersInit = new Headers();
@@ -356,6 +357,10 @@ export class DeckService {
     return this.selectedRegionCode;
   }
 
+  getIsError() {
+    return this.isError;
+  }
+
   // Setter
 
   setDeckType(type: deckType) {
@@ -444,6 +449,14 @@ export class DeckService {
     this.description = description;
   }
 
+  setSubSubmission() {
+    this.sub_submission = true;
+  }
+  setCardLanguage(lang: string) {
+    this.cardLanguage = lang;
+  }
+
+
   setInputValue(name: string, inputValue: string) {
     switch (name) {
       case 'facebook':
@@ -505,6 +518,7 @@ export class DeckService {
     this.imageSignedUrl = 'url_error';
     this.partnerCode = '';
     this.modalOpen = false;
+    this.isError = false;
   }
 
   updateSignedUrl(image: File) {
@@ -696,7 +710,7 @@ export class DeckService {
       image_url: '',
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : '',
-      is_training: this.getReportType() === 'training' || this.containsTrainingWord(this.description),
+      is_training : this.getReportType() === 'training' || this.containsTrainingWord(this.description)
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;
@@ -775,6 +789,7 @@ export class DeckService {
                   // Proceed to thanks page with image upload error notification
                   // thanks_settings.code = 'fail';
                   // router.navigate('thanks');
+                  this.isError = true;
                   reject();
                 }
               );
@@ -795,6 +810,7 @@ export class DeckService {
           // error_settings.msg = put_error.statusText;
           // router.navigate('error');
           reject();
+          this.isError = true;
         }
       )
     );
@@ -821,8 +837,26 @@ export class DeckService {
     });
   }
 
+  getSubscriptions() {
+    const self = this;
+    return new Promise(function (resolve, reject) {
+      self._getSubscribedRegions().subscribe(
+        (responseData) => {
+            resolve(responseData);
+        },
+        (err) => {
+          reject([]);
+        }
+      );
+    });
+  }
+
   _getCitiesData(): Observable<any> {
     return this.http.get(`${env.data_server}regions`);
+  }
+
+  _getSubscribedRegions(): Observable<Subscription[]> {
+    return this.http.get<Subscription[]>(`${env.data_server}subscriptions/regions?id=${this.waNumber}`);
   }
 
   verifyPartnerCode(partnerCode: string) {

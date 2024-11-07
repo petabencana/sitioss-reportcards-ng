@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ReportTypeButtonComponent {
   @Input() title: string;
+  @Input() subtitle: string;
+  @Input() btnClasses: string;
 }

@@ -8,11 +8,13 @@
     <ng-template ngFor let-item [ngForOf]="items">
       <app-report-type-button
         [title]="item.title | translate"
+        [subtitle]="item.subtitle | translate"
         (click)="onTypeSelected(item.subType)"
+        [btnClasses]="item.subType === 'real' ? 'real_btn' : item.subType === 'training' ? 'training_btn' : ''"
       ></app-report-type-button>
     </ng-template>
   </div>
-
+  
   <router-outlet>
   </router-outlet>
 

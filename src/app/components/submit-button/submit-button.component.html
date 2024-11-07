@@ -18,7 +18,8 @@
 </div>
 <div class="type" *ngIf="!['need','giver'].includes(deckType)">
   <button type="button" (click)="submit()" [disabled]="!canSubmit()">
-    {{ title }}
+    <span *ngIf="isLoading" class="spinner" > </span>
+    <span *ngIf="!isLoading" > {{ title }}</span>
   </button>
 </div>
 

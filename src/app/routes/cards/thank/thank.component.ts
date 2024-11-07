@@ -10,6 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ThankComponent {
   isShowReportAgain = false;
+  isError = false;
+
   reportAgainText = '';
 
   constructor(
@@ -17,6 +19,9 @@ export class ThankComponent {
     public navController: NavigationService,
     public translate: TranslateService
   ) {
+    if(this.deckService.getIsError()) {
+      this.isError = true;
+    }
     const deckType = this.deckService.getDeckType();
     if (
       deckType === 'earthquake' &&
@@ -74,12 +79,12 @@ export class ThankComponent {
     return `card.thank.url.${reportType}`;
   }
 
-  get reportSuccessText(): {
+  get reportText(): {
     result: string;
     title: string;
     subTitle: string;
   } {
-    const reportType = this.deckService.getReportType();
+    const reportType = this.isError ? "failure" : this.deckService.getReportType();
     return {
       result: `card.thank.result.${reportType}`,
       title: `card.thank.title.${reportType}.0`,

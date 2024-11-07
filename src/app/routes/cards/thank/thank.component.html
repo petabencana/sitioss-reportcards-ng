@@ -1,8 +1,18 @@
 <div class="thanks" *ngIf="deckType !== 'need' && deckType !== 'giver'">
   <img [src]="typeImage" alt="success image report" class="thanks__img" />
   <p class="thanks__title">
-    {{ reportSuccessText.result | translate}}
+    {{ reportText.result | translate}}
   </p>
+
+  <p class="thanks__subtitle">
+    <ng-container *ngIf="isError; else successText">
+      {{ reportText.title | translate}}  {{ reportText.subTitle | translate}}
+    </ng-container>
+    <ng-template #successText>
+      {{ reportText.title | translate}} <a href="{{reportUrlText | translate}}">{{reportUrlText | translate}}</a> {{ reportText.subTitle | translate}}
+    </ng-template>
+  </p>
+
   <p class="thanks__subtitle">
   {{ reportSuccessText.title | translate}} <a href="{{reportUrlText | translate}}">{{reportUrlText | translate}}</a> {{ reportSuccessText.subTitle | translate}}
   </p>

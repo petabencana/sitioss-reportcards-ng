@@ -14,6 +14,7 @@ import { environment as env } from '../../../../environments/environment';
 export class EarthquakeComponent implements OnInit {
   items: {
     title: string;
+    subtitle: string;
     subType: 'real' | 'training';
   }[];
   showReportTypeButton: boolean = true
@@ -53,10 +54,12 @@ export class EarthquakeComponent implements OnInit {
     this.items = [
       {
         title: 'card.type.report.realTypeButton',
+        subtitle: 'card.type.report.realSubTypeButton',
         subType: 'real',
       },
       {
         title: 'card.type.report.trainingTypeButton',
+        subtitle: 'card.type.report.trainingSubTypeButton',
         subType: 'training',
       },
     ]
