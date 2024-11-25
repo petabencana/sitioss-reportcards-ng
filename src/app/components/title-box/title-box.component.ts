@@ -30,8 +30,10 @@ export class TitleBoxComponent {
   ) {}
 
   ngOnInit() {
-    if(this.deckService.getDeckType() === 'notifications' || 'need' || 'giver'){
+    if( this.deckService.getDeckType() === 'notifications' || this.deckService.getDeckType() === 'need' || this.deckService.getDeckType() === 'giver'){
       this.isNotification = true
+    } else {
+      this.isNotification = false
     }
   }
 
