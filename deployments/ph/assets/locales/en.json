@@ -30,6 +30,7 @@
       "impact": "Report Wind Impact",
       "windstructure": "Report Structure Failure",
       "stormimpact": "Storm Surge Level",
+      "smogimpact": "Ashfall level",
 
       "sign": "Report Volcanic Signs",
       "evacuationnumber": "Report Power Status",
@@ -240,6 +241,7 @@
       "structureKey": "Structural Failure:",
       "floodKey": "Flood Depth:",
       "fireKey": "Ash Extent:",
+      "smogKey": "Spread of the volcanic eruption",
       "impactKey": "Impact:",
       "airQualityKey": "Air Quality:",
       "visibilityKey": "Visibility:",

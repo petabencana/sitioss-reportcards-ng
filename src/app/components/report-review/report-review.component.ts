@@ -213,6 +213,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     return this.translate.instant("card.review.fireKey");
   }
 
+  get smogKey() {
+    return this.translate.instant("card.review.smogKey");
+  }
+
   get airQualityKey() {
     return this.translate.instant("card.review.airQualityKey");
   }
