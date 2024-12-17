@@ -29,6 +29,7 @@ export class DeckService {
   finishedSubType = [];
   cardLanguage = "";
   network = "";
+  typhoonLocation: LatLng = undefined;
   
 
   tweetID: string;
@@ -421,6 +422,9 @@ export class DeckService {
   }
   
   _get_report_summary(): any {
+    if(this.type === 'typhoon' && !this.sub_submission) {
+      this.typhoonLocation = {lat: this.location.lat+0.00002, lng: this.location.lng+0.00002};
+    }
     const summary: any = {
       disaster_type: this.type,
       card_data: {
@@ -430,7 +434,7 @@ export class DeckService {
       text: this.description,
       created_at: new Date().toISOString(),
       image_url: "",
-      location: this.location,
+      location: (this.type === 'typhoon' && this.sub_submission) ?  this.typhoonLocation : this.location,
       partnerCode: this.partnerCode ? this.partnerCode : "",
       is_training : this.getReportType() === 'training'
     };
