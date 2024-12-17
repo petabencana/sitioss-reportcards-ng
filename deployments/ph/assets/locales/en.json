@@ -243,6 +243,7 @@
       "fireKey": "Ash Extent:",
       "smogKey": "Spread of the volcanic eruption",
       "impactKey": "Impact:",
+      "evacuationkey": "Power outage:",
       "airQualityKey": "Air Quality:",
       "visibilityKey": "Visibility:",
       "volcanoKey": "Observations:",
