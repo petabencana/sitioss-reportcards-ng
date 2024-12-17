@@ -63,9 +63,9 @@
       <div [style.margin-top]="'10px'" >
         <p> {{ impactKey }} <span [style.color]="impactColor">{{ impact }} </span></p>
       </div>
-      <span class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
-        {{ evacuationArea }}
-      </span>
+      <div [style.margin-top]="'10px'"> 
+        <p>   {{evacuationKey}}  <span [style.color]="'#31aade'"> {{ evacuationArea }}</span> </p>  
+      </div>
     </ng-template>
 
     <ng-template [ngIf]="deckType === 'volcanic'">
