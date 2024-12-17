@@ -60,7 +60,7 @@
       "typhoon": {
         "windButton": "Malakas na Hangin",
         "floodButton": "Baha",
-        "stormButton": "Dalúyong na Bagyo"
+        "stormButton": "Daluyong Ng Bagyo"
       },
       "report":{
         "realTypeButton": "Mag-submit ng Totoong Ulat tungkol sa Kalamidad",
@@ -157,7 +157,7 @@
       "symptoms": [
         {
           "title": "Magaan na Pagkagambala",
-          "subtitle": "May Lumilipad na Maliliit na labi sa Paligid."
+          "subtitle": "May lulmilipad na maliliit na labi sa paligid."
         },
         {
           "title": "Katamtamang Pagkagambala",
@@ -236,6 +236,7 @@
       "fireKey": "Lawak ng Apoy:",
       "smogKey": "Lawak ng putok ng bulkan",
       "impactKey": "Epekto:",
+      "evacuationkey": "Pagkawala ng Kuryente:",
       "airQualityKey": "Kalidad ng Hangin:",
       "visibilityKey": "Visibility:",
       "volcanoKey": "Mga Obserbasyon:",
@@ -259,7 +260,7 @@
           "upang matingnan ang iyong ulat at makita ang mga real-time na update ng sakuna."
         ],
       "training" : [
-        "Natapos mo na ang iyong pagsasanay! Tingnan ang",
+        "Natapos mo na ang iyong pagsasanay! Pindutin ang",
         " upang tingnan at ibahagi ang iyong paghahalimbawang ulat. "
       ]
     },
@@ -283,7 +284,7 @@
     "reportAgainVolcanic": "Nais mo ba magsumite ng ulat para sa senyales ng pagsabag ng bulkan?",
     "reportAgainSmog": "Nais mo ba magsumite ng ulat para sa Abo at usok?",
     "floodoptbutton": "Baha",
-    "stormoptbutton": "Dalúyong na Bagyo",
+    "stormoptbutton": "Daluyong Ng Bagyo",
     "windoptbutton": "Malakas na hangin"
   },
   "partner_mode_title": "Pumapasok ka ba sa Partner Mode?",
