@@ -14,6 +14,7 @@ import { environment as env } from '../../../../environments/environment';
 export class NeedComponent implements OnInit {
   items: {
     title: string;
+    subtitle: string;
     subType: 'real' | 'training';
   }[];
   showReportTypeButton: boolean = true
@@ -43,7 +44,7 @@ export class NeedComponent implements OnInit {
 
   onTypeSelected(type) {
     this.showReportTypeButton = false;
-    this.deckService.selectReportType('real');
+    this.deckService.selectReportType(type);
   }
 
   get isShowButtons(): boolean {
@@ -60,10 +61,12 @@ export class NeedComponent implements OnInit {
     this.items = [
       {
         title: 'card.type.report.realTypeButton',
+        subtitle: 'card.type.report.realSubTypeButton',
         subType: 'real',
       },
       {
         title: 'card.type.report.trainingTypeButton',
+        subtitle: 'card.type.report.trainingSubTypeButton',
         subType: 'training',
       },
     ];

@@ -1,4 +1,4 @@
-<div [ngClass]="(deckService.getDeckType() === 'need' || deckService.getDeckType() === 'giver') || deckService.getReportType() !== '' ? 'titleItems' : 'titleItems-opacity'">
+<div [ngClass]="(deckService.getDeckType() === 'giver') || deckService.getReportType() !== '' ? 'titleItems' : 'titleItems-opacity'">
   <div class="titleItems" [ngClass] = "{'partnerTitleItems': isPartner}">
   <span class="partnerIcon" [ngClass] = "{'navIcon': isNotification}" (click)="!isNotification && showPartnerPopup()" >
     <img *ngIf="!isNotification" src='{{ navIcon }}' alt="Partner Icon"/>
