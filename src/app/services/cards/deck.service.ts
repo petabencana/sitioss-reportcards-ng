@@ -599,6 +599,7 @@ export class DeckService {
         description: item.description ? item.description : '',
         lng: this.location.lng,
         lat: this.location.lat,
+        is_training: this.getReportType() === 'training'
       });
     });
 
