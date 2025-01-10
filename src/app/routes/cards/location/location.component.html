@@ -1,4 +1,4 @@
-<div [ngClass]="(deckService.getDeckType() === 'need' || deckService.getDeckType() === 'giver') || deckService.getReportType() !== '' ? 'location' : 'location-opacity'">
+<div [ngClass]="(deckService.getDeckType() === 'giver') || deckService.getReportType() !== '' ? 'location' : 'location-opacity'">
   <app-location-picker 
       [type]="deckService.getDeckSubType()" 
       [searchText]="'search.placeholder' | translate"
