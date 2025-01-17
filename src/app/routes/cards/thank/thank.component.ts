@@ -46,7 +46,9 @@ export class ThankComponent {
     return this.deckService.getDeckSubType()
   }
 
- 
+ get reportType() {
+  return this.deckService.getReportType()
+ }
 
   get typeImage(): string {
     switch (this.deckService.getDeckSubType()) {
@@ -94,7 +96,8 @@ export class ThankComponent {
 
 
   get needSuccessText1(): string {
-    return this.translate.instant('card.needLabels.needSuccessText1');
+    const reportType = this.deckService.getReportType();
+    return reportType === 'training' ? this.translate.instant('card.thank.result.training') : this.translate.instant('card.needLabels.needSuccessText1');
   }
 
   get needSuccessText2(): string {

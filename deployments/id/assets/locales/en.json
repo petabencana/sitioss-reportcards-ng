@@ -429,6 +429,12 @@
         "realSubTypeButton": "Use only if you are in a disaster 🚨",
         "trainingTypeButton": "Complete Training Exercise",
         "trainingSubTypeButton": "Use to practice disaster reporting📝"
+      },
+      "need":{
+        "realTypeButton": "Submit Need Request",
+        "realSubTypeButton": "Use only if you are currently in need of resources 🚨",
+        "trainingTypeButton": "Complete Training Exercise",
+        "trainingSubTypeButton": "Use to practice reporting 📝"
       }
     },
     "visibility": {
