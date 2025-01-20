@@ -60,13 +60,13 @@ export class NeedComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
-        title: 'card.type.report.realTypeButton',
-        subtitle: 'card.type.report.realSubTypeButton',
+        title: 'card.type.need.realTypeButton',
+        subtitle: 'card.type.need.realSubTypeButton',
         subType: 'real',
       },
       {
-        title: 'card.type.report.trainingTypeButton',
-        subtitle: 'card.type.report.trainingSubTypeButton',
+        title: 'card.type.need.trainingTypeButton',
+        subtitle: 'card.type.need.trainingSubTypeButton',
         subType: 'training',
       },
     ];

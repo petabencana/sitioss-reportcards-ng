@@ -429,6 +429,12 @@
         "realSubTypeButton": "Gunakan saat ada bencana🚨",
         "trainingTypeButton": "Latihan Simulasi",
         "trainingSubTypeButton": "Gunakan saat latihan📝"
+      },
+      "need":{
+        "realTypeButton": "Permintaan Bantuan",
+        "realSubTypeButton": "Gunakan saat membutuhkan bantuan sumberdaya 🚨",
+        "trainingTypeButton": " Latihan Simulasi",
+        "trainingSubTypeButton": "Gunakan saat latihan📝"
       }
     },
     "visibility": {
