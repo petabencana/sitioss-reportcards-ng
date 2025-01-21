@@ -57,6 +57,7 @@ export class NeedComponent implements OnInit {
     return btn;
   }
 
+  // Add need translation
   ngOnInit() {
     this.items = [
       {
