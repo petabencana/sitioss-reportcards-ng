@@ -29,22 +29,22 @@
     }}</a>
   </div>
 </div>
-<div class="needs_thanks" *ngIf="deckType === 'need' || deckType === 'giver'">
+<div class="need_thanks" *ngIf="deckType === 'need' || deckType === 'giver'">
   <img [src]="typeImage" alt="success image report" class="thanks__img" />
-  <h3> {{ reportSuccessText.result | translate}}</h3>
-  <div *ngIf="deckType === 'need'">
-    <div *ngIf="reportType === 'training'">
-      <p>{{ needSuccessText1 }}</p>
-      <p>
+  <h3 class="need_thanks__title"> {{ reportSuccessText.result | translate}}</h3>
+  <div *ngIf="deckType === 'need'" class="need_thanks__subtitle">
+    <div *ngIf="reportType === 'training'" >
+      <p >{{ needSuccessText1 }}</p>
+      <p >
         {{ reportText.title | translate}} <a href="{{reportUrlText | translate}}">{{reportUrlText | translate}}</a> {{ reportText.subTitle | translate}}
       </p>
     </div>
     <div *ngIf="reportType === 'real'">
-      <p>{{ needSuccessText1 }}</p>
-      <p>{{ needSuccessText2 }}</p>
+      <p >{{ needSuccessText1 }}</p>
+      <p >{{ needSuccessText2 }}</p>
     </div>
   </div>
-  <div *ngIf="deckType === 'giver'">
-    <p>{{ giverSuccessText }}</p>
+  <div *ngIf="deckType === 'giver'" class="need_thanks__subtitle">
+    <p >{{ giverSuccessText }}</p>
   </div>
 </div>
