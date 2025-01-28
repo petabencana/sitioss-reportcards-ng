@@ -110,6 +110,10 @@
     font-size: 12px;
   }
 
+  .need_thanks__subtitle {
+    font-size: 12px;
+  }
+
   .thanks__again {	
     font-size: 16px;	
   }
@@ -117,7 +121,7 @@
 
 
 
-.needs_thanks{
+.need_thanks{
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -127,5 +131,14 @@
   text-align: center;
   h3{
     color: #21c179;
+  }
+
+  &__subtitle {
+    max-width: 80%;
+    text-align: center;
+  }
+  &__title {
+    font-size: 24px;
+    margin-bottom: 0;
   }
 }
