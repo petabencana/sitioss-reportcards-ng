@@ -98,8 +98,26 @@ button {
   > div:last-child {
     padding: 20px;
     background-color: #808080;
-    width: 400px;
+    max-width: 420px;
+    width: 100%;
     margin-bottom: 60px;
+  }
+}
+
+@media (min-width:366px) and (max-width: 420px)  {
+  .productsWrapper {
+    > div:last-child {
+    width: 390px;
+    padding-left: 40px;
+    }
+  }
+}
+
+@media (max-width: 365px) {
+  .productsWrapper {
+    > div:last-child {
+      width: 330px;
+      }
   }
 }
 
