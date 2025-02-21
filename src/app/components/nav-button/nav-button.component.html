@@ -11,3 +11,38 @@
   <i [ngClass]="['fa', 'fa-chevron-' + type, 'arrow-' + type]"></i>
   {{ text }}
 </button>
+
+<!-- Modal start--> 
+<!-- make it only for need -->
+<div *ngIf="showModal " class="modal">
+  <h3>{{ getTranslation('title') }}</h3>
+  <p>{{ getTranslation('p1') }}</p>
+  <p>{{ getTranslation('p2') }}</p>
+
+  <div class="modalInput">
+    <label class="label">{{ getTranslation('address') }}</label>
+    <input class="input" type="text" [(ngModel)]="userAddress.address" />
+    
+    <label class="label">{{ getTranslation('city') }}</label>
+    <input class="input" type="text" [(ngModel)]="userAddress.city" />
+    
+    <label class="label">{{ getTranslation('province') }}</label>
+    <input class="input" type="text" [(ngModel)]="userAddress.province" />
+    
+    <label class="label">{{ getTranslation('postal') }}</label>
+    <input class="input" type="text" [(ngModel)]="userAddress.postal" />
+    
+    <label class="label">{{ getTranslation('notes') }}</label>
+    <input class="input" type="text" [(ngModel)]="userAddress.notes" />
+  </div>
+  <hr>
+
+  <div>
+    <button class="saveBtn"
+      (click)="saveDescription()"
+      [disabled]="!isUserAddressValid">
+      Save
+    </button>
+  </div>
+</div>
+<!-- Modal end-->

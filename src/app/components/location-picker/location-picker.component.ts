@@ -9,6 +9,8 @@ import { environment as env } from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { HttpClient } from '@angular/common/http';
+
 
 declare let L
 
@@ -30,7 +32,8 @@ export class LocationPickerComponent implements OnInit {
 
   constructor(
     private deckService: DeckService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private http: HttpClient,
     ) { }
 
   ngOnInit() {
@@ -180,10 +183,25 @@ export class LocationPickerComponent implements OnInit {
          if (!isEqual(this.map.getCenter(), {lng : lngLat.lng , lat: lngLat.lat})) {
              this.deckService.userCanContinue()
              this.deckService.setLocation({ lat : lngLat.lat, lng: lngLat.lng })
+             if(this.deckService.getDeckSubType() === 'need') {
+              this.getAddress(lngLat.lng, lngLat.lat);
+             }
       }
       })
     if (this.currentMarker) this.currentMarker.remove(this.map)
     this.currentMarker = marker
+  }
+
+  getAddress(lng: number, lat: number) {
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${mapboxgl.accessToken}`;
+
+    this.http.get(url).subscribe((res: any) => {
+      if (res.features.length > 0) {
+        const place = res.features;
+        console.log('place:',place)
+        this.deckService.setInputAddress(place)
+      }
+    });
   }
 
   get icon() {

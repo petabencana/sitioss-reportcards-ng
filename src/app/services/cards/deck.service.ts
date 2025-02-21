@@ -40,6 +40,14 @@ interface Subscription {
   region_code: string;
 }
 
+interface Address {
+  address: string;
+  city: string;
+  province: string;
+  postal: string;
+  notes: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -88,6 +96,8 @@ export class DeckService {
   reportType = '';
   giverData: any[];
   translatedData: any[];
+  address = {};
+  inputAddess = [];
 
   getGiverCards(): any[] {
     return this.giverData;
@@ -361,6 +371,10 @@ export class DeckService {
     return this.isError;
   }
 
+  getInputAddress() {
+    return this.inputAddess;
+  }
+
   // Setter
 
   setDeckType(type: deckType) {
@@ -423,6 +437,14 @@ export class DeckService {
     if (tweetID) {
       this.tweetID = tweetID;
     }
+  }
+  setAddress(address: Address) {
+    if(address) {
+      this.address = {...address};
+    }
+  }
+  setInputAddress(data: any): void {
+    this.inputAddess = [data]
   }
   setWaNumber(waNumber: string) {
     if (waNumber) {
@@ -576,6 +598,7 @@ export class DeckService {
 
   async submitNeedRequest(): Promise<any> {
     const need_data = [];
+    console.log('addre',this.address);
     const languageCode = this.getCardLanguage()
       ? this.getCardLanguage()
       : 'id';
@@ -599,7 +622,8 @@ export class DeckService {
         description: item.description ? item.description : '',
         lng: this.location.lng,
         lat: this.location.lat,
-        is_training: this.getReportType() === 'training'
+        is_training: this.getReportType() === 'training',
+        address: this.address
       });
     });
 

@@ -79,14 +79,104 @@ button {
   }
 }
 
-@media (max-width: 381px) {
-  button {
-    width: 130px;
-  }
-}
+
 
 @media (max-width: 321px) {
   button {
     width: 125px;
+  }
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 51%;
+  left: 50%;
+  height: 710px;
+  margin-block: 20px;
+  width: 350px;
+  transform: translate(-50%, -50%);
+  padding: 22px;
+  background-color: white;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+
+  textarea {
+    width: 100%;
+    height: 20%;
+    margin-bottom: 14px;
+    resize: none;
+    border-radius: 10px;
+  }
+  button {
+    background-color: #b8b3b3;
+    padding: 8px 12px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    width: 90px;
+  }
+  .modalInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+  }
+  hr {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+  .input {
+    border-radius: 20px;
+    height: 30px;
+    border: 1px solid;
+    padding: 0 10px;
+    font-size: 15px;
+  }
+  .saveBtn {
+    cursor: pointer;
+    background-color: #00aaff;
+
+    &:disabled {
+      background-color: #888;
+    }
+  }
+}
+
+@media (max-width: 381px) {
+  button {
+    width: 130px;
+  }
+  .modal {
+    height: 530px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 46%;
+    p {
+      margin: 0;
+      font-size: 15px;
+    }
+    h3 {
+      margin: 0;
+    }
+    hr {
+      margin: 0;
+    }
+  }
+  .modalInput {
+    height: 300px;
+    overflow: scroll;
   }
 }
