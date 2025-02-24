@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from '../../services/navigation.service';
-
+import { TranslateService } from '@ngx-translate/core';
 import { DeckService } from '../../services/cards/deck.service';
 
 @Component({
@@ -14,7 +14,16 @@ export class NavButtonComponent implements OnInit {
   @Input() type: 'right' | 'left' | 'default';
   @Output() navigate = new EventEmitter<any>();
 
-  constructor(public route: ActivatedRoute, public deckService: DeckService, public navController: NavigationService) { }
+   showModal: boolean = false;
+   userAddress = {
+    address: '',
+    city: '',
+    province: '',
+    postal: '',
+    notes: ''
+  };
+   InputAddress: any = [];
+    constructor(public route: ActivatedRoute, public deckService: DeckService, public navController: NavigationService, public translate: TranslateService) { }
 
   get isDisabled(): boolean {
     return (
@@ -38,11 +47,35 @@ export class NavButtonComponent implements OnInit {
     return btn;
   }
 
+  getTranslation(key: string): string {
+    return this.translate.instant(`card.modal.${key}`);
+  }
+
+  saveDescription() {
+    this.showModal = false;
+    console.log('addr:',this.userAddress);
+    this.deckService.setAddress(this.userAddress)
+    this.navigate.emit()
+  }
+
   ngOnInit() {}
 
-  onClick() {
-    if (this.isDisabled) return
+  get isUserAddressValid(): boolean {
+    let valid = Object.values(this.userAddress).every(value => value && value.trim() !== '');
+    return valid;
+  }
 
-    this.navigate.emit()
+  onClick() {
+    const routeName = this.navController.getCurrentRouteName()
+    const deck = this.deckService.getDeckSubType()
+    if (this.isDisabled) return
+    if(this.type === 'right' && routeName === 'location' && deck === 'need') {
+      this.showModal = true;
+      this.InputAddress = this.deckService.getInputAddress();
+      this.userAddress.postal = this.InputAddress[0][0].context[0].id.split('.')[1];
+      this.userAddress.province = this.InputAddress[0][3].place_name.split(',')[0];
+    } else {
+      this.navigate.emit()
+    }
   }
 }

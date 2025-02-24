@@ -107,7 +107,8 @@ button {
 @media (min-width:366px) and (max-width: 420px)  {
   .productsWrapper {
     > div:last-child {
-    width: 390px;
+    // width: 390px;
+    width: 100%;
     padding-left: 40px;
     }
   }
@@ -116,7 +117,8 @@ button {
 @media (max-width: 365px) {
   .productsWrapper {
     > div:last-child {
-      width: 330px;
+      // width: 350px;
+      width:100%;
       }
   }
 }

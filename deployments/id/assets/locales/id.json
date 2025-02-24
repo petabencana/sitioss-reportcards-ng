@@ -521,6 +521,16 @@
     "windstructure": ["Retak", "Roboh Sebagian", "Roboh Total"],
     "description": "Masukkan deskripsi di sini ...",
     "region_popup": "Wilayah sudah dipilih",
+    "modal": {
+      "title": "Confirm Delivery Location",
+      "p1": "*We recommend choosing a public location for delivery",
+      "p2": "This address will only be used for this delivery and will not be shared or stored beyond what is necessary. Address information provided here will not be shared publicly. It will only be shared with the sender.",
+      "address": "Address",
+      "city": "City",
+      "province": "Province",
+      "postal": "Postal Code",
+      "notes": "Notes"
+    },
     "review": {
       "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
       "terms": "Persetujuan pengguna & Kebijakan privasi",

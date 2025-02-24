@@ -520,6 +520,16 @@
     },
     "description": "Add your description here ...",
     "region_popup": "Subscribed region",
+    "modal": {
+      "title": "Confirm Delivery Location",
+      "p1": "*We recommend choosing a public location for delivery",
+      "p2": "This address will only be used for this delivery and will not be shared or stored beyond what is necessary. Address information provided here will not be shared publicly. It will only be shared with the sender.",
+      "address": "Address",
+      "city": "City",
+      "province": "Province",
+      "postal": "Postal Code",
+      "notes": "Notes"
+    },
     "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",

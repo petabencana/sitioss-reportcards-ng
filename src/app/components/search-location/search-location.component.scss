@@ -9,7 +9,7 @@ $search-comp-width: 60%;
   position: absolute;
   top: 60px;
   right: 35px;
-  z-index: 1000;
+  z-index: 999;
   width: 100%;
 
   .search-location-form__search-bar-wrapper{
