@@ -53,7 +53,6 @@ export class NavButtonComponent implements OnInit {
 
   saveDescription() {
     this.showModal = false;
-    console.log('addr:',this.userAddress);
     this.deckService.setAddress(this.userAddress)
     this.navigate.emit()
   }
@@ -73,7 +72,9 @@ export class NavButtonComponent implements OnInit {
       this.showModal = true;
       this.InputAddress = this.deckService.getInputAddress();
       this.userAddress.postal = this.InputAddress[0][0].context[0].id.split('.')[1];
-      this.userAddress.province = this.InputAddress[0][3].place_name.split(',')[0];
+      // prvince is coming for some regions and some for not commenting out 
+      // this.userAddress.province = this.InputAddress[0][3].place_name.split(',')[0];
+      this.userAddress.address = this.InputAddress[0][0].place_name;
     } else {
       this.navigate.emit()
     }
