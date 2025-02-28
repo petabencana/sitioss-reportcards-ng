@@ -528,7 +528,8 @@
       "city": "City",
       "province": "Province",
       "postal": "Postal Code",
-      "notes": "Notes"
+      "notes": "Notes",
+      "save": "SAVE"
     },
     "review": {
       "text": "By submitting this report you are agreeing to the ",
