@@ -522,14 +522,15 @@
     "description": "Masukkan deskripsi di sini ...",
     "region_popup": "Wilayah sudah dipilih",
     "modal": {
-      "title": "Confirm Delivery Location",
-      "p1": "*We recommend choosing a public location for delivery",
-      "p2": "This address will only be used for this delivery and will not be shared or stored beyond what is necessary. Address information provided here will not be shared publicly. It will only be shared with the sender.",
-      "address": "Address",
-      "city": "City",
-      "province": "Province",
-      "postal": "Postal Code",
-      "notes": "Notes"
+      "title": "Konfirmasi Lokasi Pengiriman",
+      "p1": "*Kami menyarankan memilih lokasi publik untuk pengiriman",
+      "p2": "Alamat ini hanya akan digunakan untuk pengiriman ini dan tidak akan dibagikan atau disimpan lebih dari yang diperlukan. Informasi alamat yang diberikan di sini tidak akan dibagikan secara publik. Alamat hanya akan dibagikan kepada pengirim.",
+      "address": "Alamat",
+      "city": "Kabupaten/Kota",
+      "province": "Provinsi",
+      "postal": "Kode Pos",
+      "notes": "Catatan",
+      "save": "SIMPAN"
     },
     "review": {
       "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
