@@ -705,7 +705,7 @@ export class DeckService {
           })
           .catch((error) => {
             // PUT report & notify user about upload error
-            return this.putReport(report, cardId, true, false);
+            return this.putReport(report, cardId, true, true);
           });
       }
     } else {
