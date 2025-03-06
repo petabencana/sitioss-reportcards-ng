@@ -819,9 +819,16 @@ export class DeckService {
                   this.http.patch(reportURL , {
                     image_url: id,
                     image_type: this.fileType,
-                  })
-                  this.isError = true;
-                  reject();
+                  }).subscribe(
+                    (patch_success) => {
+                      this.isError = true;
+                      reject();
+                    },
+                    (patch_error) => {
+                      this.isError = true;
+                      reject();
+                    }
+                  )
                 }
               );
           } else if (hasPhoto && !photoUploaded) {
