@@ -98,6 +98,7 @@ export class DeckService {
   translatedData: any[];
   address = {};
   inputAddess = [];
+  fileType = '';
 
   getGiverCards(): any[] {
     return this.giverData;
@@ -545,6 +546,7 @@ export class DeckService {
 
   updateSignedUrl(image: File) {
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
+    this.fileType = image.type.split('/')[1].split('+')[0]
     this.getSignedURL(cardId, image.type)
       .then((signedURL) => (this.imageSignedUrl = signedURL))
       .catch((error) => {
@@ -801,6 +803,7 @@ export class DeckService {
               .patch(reportURL, {
                 // TODO: match server patch handler
                 image_url: id,
+                image_type: this.fileType,
               })
               .subscribe(
                 (patch_success) => {
