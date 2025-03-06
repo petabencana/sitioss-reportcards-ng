@@ -816,26 +816,27 @@ export class DeckService {
                   // Proceed to thanks page with image upload error notification
                   // thanks_settings.code = 'fail';
                   // router.navigate('thanks');
-                  this.http.patch(reportURL , {
-                    image_url: id,
-                    image_type: this.fileType,
-                  }).subscribe(
-                    (patch_success) => {
-                      this.isError = true;
-                      reject();
-                    },
-                    (patch_error) => {
-                      this.isError = true;
-                      reject();
-                    }
-                  )
+                  this.isError = true;
+                  reject();
                 }
               );
           } else if (hasPhoto && !photoUploaded) {
             // Proceed to thanks page with image upload error notification
             // thanks_settings.code = 'fail';
             // router.navigate('thanks');
-            resolve();
+            this.http.patch(reportURL , {
+              image_url: id,
+              image_type: this.fileType,
+            }).subscribe(
+              (patch_success) => {
+                this.isError = true;
+                reject();
+              },
+              (patch_error) => {
+                this.isError = true;
+                reject();
+              }
+            )
           } else {
             // Proceed to thanks page
             // thanks_settings.code = 'pass';
@@ -847,8 +848,8 @@ export class DeckService {
           // error_settings.code = put_error.statusCode;
           // error_settings.msg = put_error.statusText;
           // router.navigate('error');
-          reject();
           this.isError = true;
+          reject();
         }
       )
     );
