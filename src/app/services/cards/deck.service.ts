@@ -821,13 +821,14 @@ export class DeckService {
                     image_type: this.fileType,
                   }).subscribe(
                     (patch_success) => {
+                      this.isError = true;
                       reject();
                     },
                     (patch_error) => {
+                      this.isError = true;
                       reject();
                     }
                   )
-                  this.isError = true;
                 }
               );
           } else if (hasPhoto && !photoUploaded) {
