@@ -816,6 +816,10 @@ export class DeckService {
                   // Proceed to thanks page with image upload error notification
                   // thanks_settings.code = 'fail';
                   // router.navigate('thanks');
+                  this.http.patch(reportURL , {
+                    image_url: id,
+                    image_type: this.fileType,
+                  })
                   this.isError = true;
                   reject();
                 }
