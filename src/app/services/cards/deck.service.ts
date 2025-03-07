@@ -797,7 +797,7 @@ export class DeckService {
     return new Promise<void>((resolve, reject) =>
       this.http.put(reportURL, report).subscribe(
         (data) => {
-          if (hasPhoto && photoUploaded) {
+          if (hasPhoto) {
             // If photo uploaded successfully, patch image_url
             this.http
               .patch(reportURL, {
@@ -816,28 +816,41 @@ export class DeckService {
                   // Proceed to thanks page with image upload error notification
                   // thanks_settings.code = 'fail';
                   // router.navigate('thanks');
-                  this.isError = true;
-                  reject();
+                  this.http.patch(reportURL , {
+                    image_url: id,
+                    image_type: this.fileType,
+                  }).subscribe(
+                    (patch_success) => {
+                      this.isError = true;
+                      reject();
+                    },
+                    (patch_error) => {
+                      this.isError = true;
+                      reject();
+                    }
+                  )
                 }
               );
-          } else if (hasPhoto && !photoUploaded) {
-            // Proceed to thanks page with image upload error notification
-            // thanks_settings.code = 'fail';
-            // router.navigate('thanks');
-            this.http.patch(reportURL , {
-              image_url: id,
-              image_type: this.fileType,
-            }).subscribe(
-              (patch_success) => {
-                this.isError = true;
-                reject();
-              },
-              (patch_error) => {
-                this.isError = true;
-                reject();
-              }
-            )
-          } else {
+          } 
+          // else if (hasPhoto && !photoUploaded) {
+          //   // Proceed to thanks page with image upload error notification
+          //   // thanks_settings.code = 'fail';
+          //   // router.navigate('thanks');
+          //   this.http.patch(reportURL , {
+          //     image_url: id,
+          //     image_type: this.fileType,
+          //   }).subscribe(
+          //     (patch_success) => {
+          //       this.isError = true;
+          //       reject();
+          //     },
+          //     (patch_error) => {
+          //       this.isError = true;
+          //       reject();
+          //     }
+          //   )
+          // } 
+          else {
             // Proceed to thanks page
             // thanks_settings.code = 'pass';
             // router.navigate('thanks');
