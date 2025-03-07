@@ -99,7 +99,7 @@ export class DeckService {
   address = {};
   inputAddess = [];
   fileType = '';
-  cardId = '';
+  setImage = false;
 
   getGiverCards(): any[] {
     return this.giverData;
@@ -520,6 +520,10 @@ export class DeckService {
     return this.modalOpen = false;
   }
 
+  setImageUrl() {
+    return this.setImage = true;
+  }
+
   reset() {
     this.finishedSubType.push(this.subType);
 
@@ -547,7 +551,6 @@ export class DeckService {
 
   updateSignedUrl(image: File) {
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
-    this.cardId = cardId;
     this.fileType = image.type.split('/')[1].split('+')[0]
     this.getSignedURL(cardId, image.type)
       .then((signedURL) => (this.imageSignedUrl = signedURL))
@@ -727,7 +730,7 @@ export class DeckService {
   }
 
   _get_report_summary(): any {
-    const imgurl = env.image_server + this.cardId + '.jpg';
+    const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
     const summary: any = {
       disaster_type: this.type,
       card_data: {
@@ -736,7 +739,7 @@ export class DeckService {
       sub_submission: this.sub_submission,
       text: this.description,
       created_at: new Date().toISOString(),
-      image_url: this.cardId ? imgurl : '',
+      image_url: this.setImage ? cardId : '',
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : '',
       is_training : this.getReportType() === 'training' || this.containsTrainingWord(this.description)
