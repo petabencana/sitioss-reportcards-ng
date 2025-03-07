@@ -99,6 +99,7 @@ export class DeckService {
   address = {};
   inputAddess = [];
   fileType = '';
+  cardId = '';
 
   getGiverCards(): any[] {
     return this.giverData;
@@ -546,6 +547,7 @@ export class DeckService {
 
   updateSignedUrl(image: File) {
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
+    this.cardId = cardId;
     this.fileType = image.type.split('/')[1].split('+')[0]
     this.getSignedURL(cardId, image.type)
       .then((signedURL) => (this.imageSignedUrl = signedURL))
@@ -705,7 +707,7 @@ export class DeckService {
           })
           .catch((error) => {
             // PUT report & notify user about upload error
-            return this.putReport(report, cardId, true, true);
+            return this.putReport(report, cardId, true, false);
           });
       }
     } else {
@@ -725,6 +727,7 @@ export class DeckService {
   }
 
   _get_report_summary(): any {
+    const imgurl = env.image_server + this.cardId + '.jpg';
     const summary: any = {
       disaster_type: this.type,
       card_data: {
@@ -733,7 +736,7 @@ export class DeckService {
       sub_submission: this.sub_submission,
       text: this.description,
       created_at: new Date().toISOString(),
-      image_url: '',
+      image_url: this.cardId ? imgurl : '',
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : '',
       is_training : this.getReportType() === 'training' || this.containsTrainingWord(this.description)
@@ -797,7 +800,7 @@ export class DeckService {
     return new Promise<void>((resolve, reject) =>
       this.http.put(reportURL, report).subscribe(
         (data) => {
-          if (hasPhoto) {
+          if (hasPhoto && photoUploaded) {
             // If photo uploaded successfully, patch image_url
             this.http
               .patch(reportURL, {
@@ -816,40 +819,28 @@ export class DeckService {
                   // Proceed to thanks page with image upload error notification
                   // thanks_settings.code = 'fail';
                   // router.navigate('thanks');
-                  this.http.patch(reportURL , {
-                    image_url: id,
-                    image_type: this.fileType,
-                  }).subscribe(
-                    (patch_success) => {
-                      this.isError = true;
-                      reject();
-                    },
-                    (patch_error) => {
-                      this.isError = true;
-                      reject();
-                    }
-                  )
+                  this.isError = true;
+                  reject();
                 }
               );
           } 
-          // else if (hasPhoto && !photoUploaded) {
-          //   // Proceed to thanks page with image upload error notification
-          //   // thanks_settings.code = 'fail';
-          //   // router.navigate('thanks');
-          //   this.http.patch(reportURL , {
-          //     image_url: id,
-          //     image_type: this.fileType,
-          //   }).subscribe(
-          //     (patch_success) => {
-          //       this.isError = true;
-          //       reject();
-          //     },
-          //     (patch_error) => {
-          //       this.isError = true;
-          //       reject();
-          //     }
-          //   )
-          // } 
+          else if (hasPhoto && !photoUploaded) {
+            // Proceed to thanks page with image upload error notification
+            // thanks_settings.code = 'fail';
+            // router.navigate('thanks');
+            this.http.patch(reportURL , {
+              image_url: id,
+              image_type: this.fileType,
+            }).subscribe(
+              (patch_success) => {
+                resolve();
+              },
+              (patch_error) => {
+                this.isError = true;
+                reject();
+              }
+            )
+          } 
           else {
             // Proceed to thanks page
             // thanks_settings.code = 'pass';
