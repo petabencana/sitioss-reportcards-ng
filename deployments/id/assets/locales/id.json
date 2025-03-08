@@ -547,7 +547,8 @@
       "volcanoKey": "Hasil Pengamatan:",
       "peopleKey": "Jumlah orang di sekitar:",
       "evacuateKey": "Tahu arah Evakuasi:",
-      "people": "orang"
+      "people": "orang",
+      "loading": "Sedang memuat..."
     },
     "thank": {
       "result": {
