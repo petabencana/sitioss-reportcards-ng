@@ -546,7 +546,8 @@
       "volcanoKey": "Observations:",
       "peopleKey": "Number of people nearby:",
       "evacuateKey": "Know where to evacuate:",
-      "people": "people"
+      "people": "people",
+      "loading": "Loading..."
     },
     "thank": {
       "result": {
