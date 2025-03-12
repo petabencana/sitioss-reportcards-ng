@@ -182,3 +182,25 @@ button {
     overflow: scroll;
   }
 }
+
+@media (max-height: 700px) {
+  .modal {
+    height: 500px;
+    gap: 5px;
+    top:46%;
+  }
+  p {
+    margin: 0;
+    font-size: 15px;
+  }
+  h3 {
+    margin: 0;
+  }
+  hr {
+    margin: 0;
+  }
+  .modalInput {
+    height: 300px;
+    overflow: scroll;
+  }
+}
