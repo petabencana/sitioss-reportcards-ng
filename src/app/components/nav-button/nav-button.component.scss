@@ -128,6 +128,9 @@ button {
     flex-direction: column;
     gap: 10px;
     text-align: left;
+    .asterisk {
+      color: #c0262d;
+    }
   }
   hr {
     margin: 0;
