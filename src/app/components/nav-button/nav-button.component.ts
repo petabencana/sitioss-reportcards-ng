@@ -60,7 +60,8 @@ export class NavButtonComponent implements OnInit {
   ngOnInit() {}
 
   get isUserAddressValid(): boolean {
-    let valid = Object.values(this.userAddress).every(value => value && value.trim() !== '');
+    let { notes, ...requiredFields } = this.userAddress;
+    let valid = Object.values(requiredFields).every(value => value && value.trim() !== '');
     return valid;
   }
 
