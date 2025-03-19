@@ -28,7 +28,7 @@ type deckSubType =
   | 'need'
   | 'giver';
 
-  type TrainingWords = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
+  type TrainingWords = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi", "HKB"];
 
 interface LatLng {
   lat: number;
@@ -57,7 +57,7 @@ export class DeckService {
   constructor(private http: HttpClient) {}
   finishedSubType = [];
   cardLanguage = '';
-  trainingWords: string[] = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
+  trainingWords: string[] = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi", "HKB"];
 
   tweetID: string;
   waNumber: string;
@@ -151,17 +151,17 @@ export class DeckService {
   ) {
     if (quantity === 0) {
       this.selectedProducts = this.selectedProducts.filter(
-        (product) => product.title !== title
+        (product) => product.item_id !== item_id
       );
     } else {
       const index = this.selectedProducts.findIndex(
-        (product) => product.title === title
+        (product) => product.item_id === item_id
       );
 
       if (index !== -1) {
         this.selectedProducts[index].quantity = quantity;
         this.selectedProducts[index].category = category;
-        this.selectedProducts[index].description = description;
+        this.selectedProducts[index].description = hasDescription ? description : "";
         this.selectedProducts[index].img = img;
         this.selectedProducts[index].units = units;
         this.selectedProducts[index].item_id = item_id;
@@ -174,7 +174,7 @@ export class DeckService {
           title,
           quantity,
           category,
-          description,
+          description: hasDescription ? description : "",
           img,
           units,
           item_id,
@@ -605,7 +605,6 @@ export class DeckService {
 
   async submitNeedRequest(): Promise<any> {
     const need_data = [];
-    console.log('addre',this.address);
     const languageCode = this.getCardLanguage()
       ? this.getCardLanguage()
       : 'id';
