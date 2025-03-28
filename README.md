@@ -96,3 +96,23 @@ This platform is built using the Angular framework with a few prerequisites. To 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Changes since Fork
+Since our fork in November 2017, we've transformed this platform into a comprehensive data exchange solution with numerous improvements:
+
+### User Experience & Reporting Capabilities
+- **Streamlined Reporting System**: Implemented fully functional reporting workflows
+- **Interactive Content**: Added support for diverse decks and cards to improve information presentation
+- **Differentiated Reporting**: Created specialized flows for partner and standard reports
+- **Geographic Expansion**: Scaled coverage from city-level to national-level scope
+- **Multi-disaster Support**: Enabled reporting across various disaster types simultaneously
+- **Crowdsourced Logistics**: Integrated crowdlogistics reporting capabilities
+- **Alert System**: Implemented disaster notification subscription features
+
+### Technical Advancements
+- **Modern Mapping**: Upgraded from Leaflet to MapboxGLJS for enhanced visualization
+- **Improved Interactivity**: Redesigned map interactions for better user experience
+- **Performance Optimization**: Enhanced system to handle larger geographic areas efficiently
+- **Streamlined Submission**: Optimized the report submission workflow for better usability
+
+These improvements have established the platform as a robust, scalable solution for comprehensive data exchange and management across diverse geographic scales.
