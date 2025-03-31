@@ -129,18 +129,20 @@ export class CardComponent {
   }
 
   increaseQuantity(card: any) {
-    card.quantity = (card.quantity || 0) + 1;
-    this.recordQuantityChange(
-      card.title,
-      card.quantity,
-      card.category,
-      card.description,
-      card.img,
-      card.units,
-      card.item_id,
-      card.hasDescription
-    );
-    this.deckService.userCanContinue();
+    if ( ((card.quantity || 0) < 10)) {
+      card.quantity = (card.quantity || 0) + 1;
+      this.recordQuantityChange(
+        card.title,
+        card.quantity,
+        card.category,
+        card.description,
+        card.img,
+        card.units,
+        card.item_id,
+        card.hasDescription
+      );
+      this.deckService.userCanContinue();
+    }
   }
 
   decreaseQuantity(card: any) {
