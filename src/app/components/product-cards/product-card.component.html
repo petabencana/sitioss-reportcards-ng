@@ -46,7 +46,7 @@
             -
           </button>
           <span style="min-width: 62px;">{{ card.quantity }}&nbsp;{{card.units}}</span>
-          <button class="quantitybuttons" (click)="increaseQuantity(card)">
+          <button class="quantitybuttons" [disabled]="card.quantity >= 10" (click)="increaseQuantity(card)"  [ngClass]="{'disabled-btn': card.quantity >= 10}">
             +
           </button>
         </div>
