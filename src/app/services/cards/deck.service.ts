@@ -625,7 +625,7 @@ export class DeckService {
         user_type: this.getDeckSubType(),
         units: item.units,
         item_id: item.item_id,
-        description: item.description ? item.description : '',
+        description: item.hasDescription ? {[item.item_id] : item.description} : '',
         lng: this.location.lng,
         lat: this.location.lat,
         is_training: this.getReportType() === 'training',
