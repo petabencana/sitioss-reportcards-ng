@@ -74,7 +74,7 @@ export class DonationCardComponent implements OnInit {
             });
             return {
               title: title,
-              description: donation.description || '',
+              description: donation.description ? JSON.parse(donation.description)[donation.item_id] : '',
               category: product.category,
               img: product.img,
               quantity: +donation.quantity_requested,
