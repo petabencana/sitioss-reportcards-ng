@@ -24,7 +24,10 @@
       "submitButtonLabel":"Kirim permintaan",
       "needSuccessText1": "Terimakasih.",
       "needSuccessText2": "Kami akan mengirimkan notifikasi ketika permintaanmu sudah tampil di peta!",
-      "alertDescription": "Tambahkan deskripsi/informasi untuk"
+      "alertDescription": "Tambahkan deskripsi/informasi untuk",
+      "need": "Permintaan kebutuhan:",
+      "status": "Status:",
+      "donate": "Donasi:"
     },
     "giverLabels": {
       "dateandtimeHeader": "Pilih tanggal dan waktu untuk mengirimkan barang",
