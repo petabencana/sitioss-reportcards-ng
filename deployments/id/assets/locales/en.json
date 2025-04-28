@@ -24,7 +24,10 @@
       "submitButtonLabel": "Submit Request",
       "needSuccessText1": "Thank you for your report.",
       "needSuccessText2": "We will notify you when it’s on the map",
-      "alertDescription": "Please add the description for the product"
+      "alertDescription": "Please add the description for the product",
+      "need": "Need:",
+      "status": "Status:",
+      "donate": "Donate:"
     },
     "giverLabels": {
       "dateandtimeHeader": "Select date and time to deliver items.",

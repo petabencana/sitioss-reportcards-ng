@@ -121,6 +121,18 @@ export class DonationCardComponent implements OnInit {
     return this.translate.instant('card.needLabels.modalHeader');
   }
 
+  get modalNeed(): string {
+    return this.translate.instant('card.needLabels.need')
+  }
+
+  get modalStatus(): string {
+    return this.translate.instant('card.needLabels.status')
+  }
+
+  get modalDonate(): string {
+    return this.translate.instant('card.needLabels.donate')
+  }
+
   private recordQuantityChange(
     title: string,
     quantity: number,
