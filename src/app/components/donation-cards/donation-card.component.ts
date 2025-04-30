@@ -15,6 +15,8 @@ export class DonationCardComponent implements OnInit {
   giverCards: any[] = [];
   translatedData: any[]; // Store translated data
   loadingData: boolean = true;
+  totalClicks: number = 0;
+
   constructor(
     private translationService: TranslationService,
     public translate: TranslateService,
@@ -84,12 +86,13 @@ export class DonationCardComponent implements OnInit {
                       (donation.total_quantity_satisfied /
                         donation.quantity_requested) *
                       100
-                    ).toFixed(0)}% Met`
-                  : '0% Met',
+                    ).toFixed(0)}%`
+                  : `0%`,
               donate:
                 donation.total_quantity_satisfied !== null
                   ? +donation.total_quantity_satisfied
                   : 0,
+              userDonate: 0,
               units: product ? product.units : '', // Add units from product if available
               item_id: donation.item_id,
               need_id: donation.id,
@@ -133,6 +136,10 @@ export class DonationCardComponent implements OnInit {
     return this.translate.instant('card.needLabels.donate')
   }
 
+  get modalMet(): string {
+    return this.translate.instant('card.needLabels.met')
+  }
+
   private recordQuantityChange(
     title: string,
     quantity: number,
@@ -141,10 +148,11 @@ export class DonationCardComponent implements OnInit {
     img: string,
     units: string,
     item_id: string,
+    hasDescription: boolean,
     need_id: number,
     donate: number,
     limit: number,
-    hasDescription: boolean
+    totalUserDonated: number
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -158,12 +166,15 @@ export class DonationCardComponent implements OnInit {
       need_id,
       donate,
       limit,
+      totalUserDonated
     );
   }
 
   increaseQuantity(card: any) {
     if (card.quantity > card.donate) {
-      card.donate = (card.donate || 0) + 1;
+      card.userDonate += 1;
+      card.donate = card.userDonate;
+      card.totalUserDonated = card.userDonate + card.limit;
       this.recordQuantityChange(
         card.title,
         card.quantity,
@@ -172,10 +183,11 @@ export class DonationCardComponent implements OnInit {
         card.img,
         card.units,
         card.item_id,
+        card.hasDescription,
         card.need_id,
         card.donate,
         card.limit,
-        card.hasDescription
+        card.totalUserDonated
       );
     }
     this.deckService.userCanContinue();
@@ -184,7 +196,9 @@ export class DonationCardComponent implements OnInit {
 
   decreaseQuantity(card: any) {
     if (card.donate && card.donate > 0) {
-      card.donate -= 1;
+      card.userDonate -= 1;
+      card.donate = card.userDonate
+      card.totalUserDonated = card.donate + card.limit
       if (card.donate === 0 || card.donate === card.limit) {
         // If donate becomes 0, remove the product from selectedProducts
         this.deckService.setSelectedProducts(
@@ -195,10 +209,11 @@ export class DonationCardComponent implements OnInit {
           card.img,
           card.units,
           card.item_id,
+          card.hasDescription,
           card.need_id,
           card.donate,
           card.limit,
-          card.hasDescription
+          card.totalUserDonated
         );
       } else {
         // If donate is greater than 0, update selectedProducts
@@ -210,10 +225,11 @@ export class DonationCardComponent implements OnInit {
           card.img,
           card.units,
           card.item_id,
+          card.hasDescription,
           card.need_id,
           card.donate,
           card.limit,
-          card.hasDescription
+          card.totalUserDonated
         );
       }
     }

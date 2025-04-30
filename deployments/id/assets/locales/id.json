@@ -27,6 +27,7 @@
       "alertDescription": "Tambahkan deskripsi/informasi untuk",
       "need": "Permintaan kebutuhan:",
       "status": "Status:",
+      "met": "Terpenuhi",
       "donate": "Donasi:"
     },
     "giverLabels": {

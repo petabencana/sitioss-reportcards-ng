@@ -34,7 +34,7 @@
           <button
             class="quantitybuttons"
             (click)="decreaseQuantity(item)"
-            [disabled]="item.limit > 0 && item.donate === item.limit"
+            [disabled]="item.donate === 0 || item.limit === item.quantity"
           >
             -
           </button>
@@ -44,7 +44,7 @@
           <button
             class="quantitybuttons"
             (click)="increaseQuantity(item)"
-            [disabled]="item.donate === item.quantity"
+            [disabled]="item.totalUserDonated === item.quantity || item.donate === item.quantity"
           >
             +
           </button>

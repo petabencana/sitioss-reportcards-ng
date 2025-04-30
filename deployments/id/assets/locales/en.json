@@ -27,6 +27,7 @@
       "alertDescription": "Please add the description for the product",
       "need": "Need:",
       "status": "Status:",
+      "met": "Met",
       "donate": "Donate:"
     },
     "giverLabels": {

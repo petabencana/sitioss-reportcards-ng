@@ -31,7 +31,7 @@
               </div>
             </div>
             <p>{{modalNeed}} {{ card.quantity }}&nbsp;{{ card.units }}</p>
-            <p>{{modalStatus}} {{ card.status }}</p>
+            <p>{{modalStatus}} {{ card.status }} {{modalMet}}</p>
           </div>
           <div>
             <div>
@@ -41,16 +41,16 @@
               <button
                 class="quantitybuttons"
                 (click)="decreaseQuantity(card)"
-                [disabled]="card.limit > 0 &&card.donate === card.limit"
+                [disabled]="card.donate === 0 || card.limit === card.quantity"
               >
                 -
               </button>
   
-              <span>{{ card.donate }}&nbsp;{{ card.units }}</span>
+              <span>{{ card.userDonate }}&nbsp;{{ card.units }}</span>
               <button
                 class="quantitybuttons"
                 (click)="increaseQuantity(card)"
-                [disabled]="card.donate === card.quantity"
+                [disabled]="card.totalUserDonated === card.quantity || card.donate === card.quantity"
               >
                 +
               </button>
