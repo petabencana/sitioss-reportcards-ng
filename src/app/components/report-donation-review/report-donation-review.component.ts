@@ -13,6 +13,7 @@ export class ReportDonationReviewComponent implements OnInit {
   previewImg: HTMLImageElement;
   previewImgContainer: HTMLDivElement;
   address: any ;
+  userDonate: number;
   termscontents = [
     {
       'tab_key': 'u_a',
@@ -81,6 +82,7 @@ export class ReportDonationReviewComponent implements OnInit {
     need_id: number,
     donate: number,
     limit: number,
+    totalUserDonated: number
   ) {
     this.deckService.setSelectedProducts(
       title,
@@ -94,12 +96,16 @@ export class ReportDonationReviewComponent implements OnInit {
       need_id,
       donate,
       limit,
+      totalUserDonated
     );
   }
 
   increaseQuantity(card: any) {
     if (card.quantity > card.donate) {
-      card.donate = (card.donate || 0) + 1;
+      this.userDonate = card.donate
+      this.userDonate += 1;
+      card.donate = this.userDonate;
+      card.totalUserDonated = this.userDonate + card.limit;
       this.recordQuantityChange(
         card.title,
         card.quantity,
@@ -108,17 +114,21 @@ export class ReportDonationReviewComponent implements OnInit {
         card.img,
         card.units,
         card.item_id,
+        card.hasDescription,
         card.need_id,
         card.donate,
         card.limit,
-        card.hasDescription
+        card.totalUserDonated
       );
     }
   }
 
   decreaseQuantity(card: any) {
     if (card.donate && card.donate > 0) {
-      card.donate -= 1;
+      this.userDonate = card.donate
+      this.userDonate -= 1;
+      card.donate = this.userDonate
+      card.totalUserDonated = card.donate + card.limit
       if (card.donate === 0 || card.donate === card.limit) {
         // If donate becomes 0, remove the product from selectedProducts
         this.deckService.setSelectedProducts(
@@ -129,10 +139,11 @@ export class ReportDonationReviewComponent implements OnInit {
           card.img,
           card.units,
           card.item_id,
+          card.hasDescription,
           card.need_id,
           card.donate,
           card.limit,
-          card.hasDescription
+          card.totalUserDonated
         );
       } else {
         // If donate is greater than 0, update selectedProducts
@@ -144,10 +155,11 @@ export class ReportDonationReviewComponent implements OnInit {
           card.img,
           card.units,
           card.item_id,
+          card.hasDescription,
           card.need_id,
           card.donate,
           card.limit,
-          card.hasDescription
+          card.totalUserDonated
         );
       }
     }

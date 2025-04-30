@@ -100,6 +100,7 @@ export class DeckService {
   inputAddess = [];
   fileType = '';
   setImage = false;
+  totalClicks: number;
 
   getGiverCards(): any[] {
     return this.giverData;
@@ -130,6 +131,7 @@ export class DeckService {
     donate?: number;
     limit?: number;
     hasDescription?: boolean;
+    totalUserDonated?: number;
   }[] = [];
 
   getSelectedProducts(title: string) {
@@ -147,7 +149,8 @@ export class DeckService {
     hasDescription: boolean,
     need_id?: number,
     donate?: number,
-    limit?: number
+    limit?: number,
+    totalUserDonated?: number
   ) {
     if (quantity === 0) {
       this.selectedProducts = this.selectedProducts.filter(
@@ -169,6 +172,7 @@ export class DeckService {
         this.selectedProducts[index].donate = donate;
         this.selectedProducts[index].limit = limit;
         this.selectedProducts[index].hasDescription = hasDescription;
+        this.selectedProducts[index].totalUserDonated = totalUserDonated;
       } else {
         this.selectedProducts.push({
           title,
@@ -182,6 +186,7 @@ export class DeckService {
           donate,
           limit,
           hasDescription,
+          totalUserDonated
         });
       }
     }
