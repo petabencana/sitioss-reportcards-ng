@@ -687,15 +687,15 @@ export class DeckService {
     }
   }
 
-  containsTrainingWord(str) {
-    const words = this.trainingWords;
-    for (const word of words) {
-      if (str.toLowerCase().includes(word.toLowerCase())) {
-        return true;
-      }
-    }
-    return false;
-  }
+  // containsTrainingWord(str) {
+  //   const words = this.trainingWords;
+  //   for (const word of words) {
+  //     if (str.toLowerCase().includes(word.toLowerCase())) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 
   _get_report_summary(): any {
     const summary: any = {
@@ -709,7 +709,7 @@ export class DeckService {
       image_url: '',
       location: this.location,
       partnerCode: this.partnerCode ? this.partnerCode : '',
-      is_training : this.getReportType() === 'training' || this.containsTrainingWord(this.description)
+      is_training : this.getReportType() === 'training'
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;
