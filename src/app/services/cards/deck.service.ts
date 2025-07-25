@@ -28,7 +28,7 @@ type deckSubType =
   | 'need'
   | 'giver';
 
-  type TrainingWords = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
+  // type TrainingWords = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
 
 interface LatLng {
   lat: number;
@@ -49,7 +49,7 @@ export class DeckService {
   constructor(private http: HttpClient) {}
   finishedSubType = [];
   cardLanguage = '';
-  trainingWords: string[] = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
+  // trainingWords: string[] = ["trainer", "duta", "dkrb", "youth", "tes", "test", "simulasi"];
 
   tweetID: string;
   waNumber: string;
