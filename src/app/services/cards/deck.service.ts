@@ -88,7 +88,7 @@ export class DeckService {
   description = '';
   inputValue = [];
   sub_submission = false;
-  captchaCleared = false;
+  captchaCleared = true; // Captcha disabled - rate limiting handled by API gateway
   preview: File;
   modalOpen = false;
   isPrevButtonDisabled = true;
@@ -344,11 +344,11 @@ export class DeckService {
     return this.evacuationArea;
   }
   getCardLanguage(): string {
-    return this.cardLanguage;
+    return this.cardLanguage || env.default_language;
   }
 
   isCaptchaCleared(): boolean {
-    return this.captchaCleared;
+    return true; // Captcha disabled - rate limiting handled by API gateway
   }
 
   isModalOPen(): boolean {

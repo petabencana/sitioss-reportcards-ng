@@ -36,11 +36,12 @@ export class ReviewComponent implements OnInit {
   async ngOnInit() {
     // this.deckService.userCanBack()
     // this.deckService.userCannotContinue()
-    this.deckService.setCaptchaNotCleared()
+    // Captcha disabled - rate limiting handled by API gateway
+    this.deckService.setCaptchaCleared(); // Set as cleared since captcha is disabled
     this.switchTab(this.termscontents[0].tab_key);
     this.isPermittedLocation = await this.deckService.isPermittedLocation();
     this.captchaForm = this.formBuilder.group({
-      recaptcha: ['', Validators.required]
+      recaptcha: [''] // No validators required - captcha disabled
     });
   }
   async ngAfterContentInit() {

@@ -37,8 +37,10 @@ export class SummaryComponent implements OnInit {
   ngOnInit() {
     this.subscribedCities = this.deckService.getSelectedRegion() && this.deckService.getSelectedRegion().join(', ');
     this.switchTab(this.termscontents[0].tab_key);
+    // Captcha disabled - rate limiting handled by API gateway
+    this.deckService.setCaptchaCleared(); // Set as cleared since captcha is disabled
     this.captchaForm = this.formBuilder.group({
-      recaptcha: ['', Validators.required]
+      recaptcha: [''] // No validators required - captcha disabled
     });
   }
 

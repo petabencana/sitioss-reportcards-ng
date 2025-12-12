@@ -8,6 +8,11 @@
   "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
   "data_server": "https://api.petabencana.id/",
   "app": "https://petabencana.id/",
+  "default_location": {
+    "lat": -6.175392,
+    "lng": 106.827153
+  },
+  "loc_search_suffix": ", Indonesia",
   "decks": [
     {
       "name": "flood",

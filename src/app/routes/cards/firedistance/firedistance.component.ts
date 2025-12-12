@@ -27,7 +27,7 @@ export class FiredistanceComponent implements OnInit {
   public search;
   searchResults
 
-  constructor(private deckService: DeckService , public translate: TranslateService,) {}
+  constructor(public deckService: DeckService , public translate: TranslateService,) {}
   
 
   ngOnInit() {
