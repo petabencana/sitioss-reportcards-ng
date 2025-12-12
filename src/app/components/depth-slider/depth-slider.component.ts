@@ -22,6 +22,7 @@ export class DepthSliderComponent implements OnInit {
   depthText:string = this.currentY*2 + ' cm';
 
   async ngOnInit() {
+    console.log('depth-slider ngOnInit');
     this.deckService.userCanBack();
     this.deckService.userCannotContinue();
     //get position of the card relative to top

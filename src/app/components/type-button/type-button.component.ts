@@ -12,11 +12,17 @@ export class TypeButtonComponent {
   @Input() highlightImgUrl: string;
   @Input() isCentered: boolean = false;
 
-  onMouseEnter(img: HTMLImageElement) {
-    img.setAttribute('src', this.highlightImgUrl);
+  onMouseEnter(event: MouseEvent) {
+    const img = (event.currentTarget as HTMLElement).querySelector('img') as HTMLImageElement;
+    if (img && this.highlightImgUrl) {
+      img.setAttribute('src', this.highlightImgUrl);
+    }
   }
 
-  onMouseLeave(img: HTMLImageElement) {
-    img.setAttribute('src', this.imgUrl);
+  onMouseLeave(event: MouseEvent) {
+    const img = (event.currentTarget as HTMLElement).querySelector('img') as HTMLImageElement;
+    if (img && this.imgUrl) {
+      img.setAttribute('src', this.imgUrl);
+    }
   }
 }

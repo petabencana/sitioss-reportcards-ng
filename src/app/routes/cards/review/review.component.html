@@ -44,7 +44,8 @@
       <p (click)="closeTerms()">Close&nbsp;&nbsp;&nbsp;&nbsp;</p>
     </div>
   </div>
-  <div class="captchaContainer"> 
+  <!-- Captcha disabled - rate limiting handled by API gateway -->
+  <div class="captchaContainer" *ngIf="false"> 
     <form [formGroup]="captchaForm">
       <ngx-recaptcha2
         siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"

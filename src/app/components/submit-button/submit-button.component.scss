@@ -1,3 +1,14 @@
+// When used in nav variant (inside #navWrapper), make host flex like nav-button
+:host-context(#navWrapper) {
+  flex: 1;
+}
+
+// Wrapper for nav variant - makes it flex like nav-button
+.nav-button-wrapper {
+  flex: 1;
+}
+
+// Default button styles (for review page, etc.)
 button {
   display: block;
   color: white;
@@ -9,7 +20,49 @@ button {
   cursor: pointer;
   width: 300px;
   &:disabled {
-    // color: #888;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+// Nav variant - matches nav-button styling (only when variant="nav")
+button.button-right {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 90% !important;
+  height: 40px !important;
+  font-size: 14px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid white !important;
+  padding: 0 !important;
+  background-color: rgba(66, 66, 66, 0.3) !important;
+  flex-direction: row-reverse;
+  transition: background-color .5s;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    outline: none;
+    background-color: rgba(66, 66, 66, 0.3);
+    color: white;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:active {
+    outline: none;
+    background: #5e5e5e;
+    transform: translateY(1px);
+    border-bottom: 0;
+  }
+
+  &:disabled {
+    color: #888;
     pointer-events: none;
     cursor: not-allowed;
   }
@@ -45,20 +98,27 @@ button {
   }
 }
 
-.SubmitButton {
-  background-color: #00aaff;
-  border: none;
-  font-weight: bolder;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
-  position: relative;
-  z-index: 1000;
-  &:disabled {
-    // color: #888;
-    // border: 1.5px solid white;
-    background-color: #00aaff;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
+// Match nav-button media query for nav variant
+@media (max-width: 321px) {
+  button.button-right {
+    width: 125px !important;
   }
 }
+
+// .SubmitButton {
+//   background-color: #00aaff;
+//   border: none;
+//   font-weight: bolder;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   padding: 10px 20px;
+//   position: relative;
+//   z-index: 1000;
+//   &:disabled {
+//     // color: #888;
+//     // border: 1.5px solid white;
+//     background-color: #00aaff;
+//     border: none;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//     padding: 10px 20px;
+//   }
+// }

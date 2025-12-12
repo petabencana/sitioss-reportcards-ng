@@ -16,6 +16,7 @@ export class SubmitButtonComponent implements OnInit {
   isSumbitted = false;
   @Input() title: string;
   @Input() hint: string;
+  @Input() variant: 'default' | 'nav' = 'default';
 
   constructor(
     public deckService: DeckService,

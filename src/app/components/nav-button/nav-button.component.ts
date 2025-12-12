@@ -23,6 +23,10 @@ export class NavButtonComponent implements OnInit {
     )
   }
 
+  get isLastCard(): boolean {
+    return this.navController.cardCounter === this.navController.cardRoutes.length - 1
+  }
+
   get isBtnHidden(): boolean {
     const currentRouteName = this.navController.getCurrentRouteName()
     return  currentRouteName === 'productreview' || currentRouteName === 'donationreview'

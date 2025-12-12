@@ -56,6 +56,12 @@ export class NeedComponent implements OnInit {
     return btn;
   }
 
+  get submitButtonTitle(): string {
+    const reportType = this.deckService.getReportType() || 'real';
+    return `card.submitButton.${reportType}`;
+  }
+
+  // Add need translation
   ngOnInit() {
     this.items = [
       {
