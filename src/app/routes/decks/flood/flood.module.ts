@@ -14,7 +14,7 @@ import { UtilsModule } from '../utils.module';
     CommonModule,
     FloodRoutingModule,
     TranslateModule,
-    UtilsModule
+    UtilsModule,
   ],
   declarations: [
     FloodComponent,

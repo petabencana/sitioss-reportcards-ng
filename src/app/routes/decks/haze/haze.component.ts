@@ -51,6 +51,11 @@ export class HazeComponent implements OnInit {
     return this.showReportTypeButton;
   }
 
+  get submitButtonTitle(): string {
+    const reportType = this.deckService.getReportType() || 'real';
+    return `card.submitButton.${reportType}`;
+  }
+
   ngOnInit() { 
     this.items = [
       {

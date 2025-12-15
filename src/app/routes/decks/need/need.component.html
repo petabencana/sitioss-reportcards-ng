@@ -29,6 +29,9 @@
     [type]="'right'"
     [text]="'deck.next' | translate"
     (navigate)="navController.next(route)"
+    *ngIf="navController.cardCounter < navController.cardRoutes.length - 2"
   >
   </app-nav-button>
+  <app-submit-button [title]="submitButtonTitle | translate" [variant]="'nav'" *ngIf="navController.cardCounter === navController.cardRoutes.length - 2">
+  </app-submit-button>
 </div>

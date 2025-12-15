@@ -1,6 +1,6 @@
 <div class="type" *ngIf="deckType === 'need'">
   <button
-    class="SubmitButton"
+    [ngClass]="{'button-right': variant === 'nav', 'SubmitButton': variant === 'default'}"
     (click)="needSubmit()"
     [disabled]="!canSubmit()"
   >
@@ -9,15 +9,15 @@
 </div>
 <div class="type" *ngIf="deckType === 'giver'">
   <button
-    class="SubmitButton"
+    [ngClass]="{'button-right': variant === 'nav', 'SubmitButton': variant === 'default'}"
     (click)="giverSubmit()"
     [disabled]="!canSubmit()"
   >
   {{ submitButtonLabel1 }}
   </button>
 </div>
-<div class="type" *ngIf="!['need','giver'].includes(deckType)">
-  <button type="button" (click)="submit()" [disabled]="!canSubmit()">
+<div class="type" *ngIf="!['need','giver'].includes(deckType)" [ngClass]="{'nav-button-wrapper': variant === 'nav'}">
+  <button type="button" (click)="submit()" [disabled]="!canSubmit()" [ngClass]="{'button-right': variant === 'nav', 'SubmitButton': variant === 'default'}">
     <span *ngIf="isLoading" class="loadText"> 
       {{loadingText}}  <span class="spinner"> </span>
     </span>

@@ -11,8 +11,7 @@ import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { ReportDonationReviewComponent } from '../../../components/report-donation-review/report-donation-review.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
-
-import { SubmitButtonComponent } from '../../../components/submit-button/submit-button.component';
+import { UtilsModule } from '../../decks/utils.module';
 
 @NgModule({
   imports: [
@@ -22,11 +21,11 @@ import { SubmitButtonComponent } from '../../../components/submit-button/submit-
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
+    UtilsModule,
   ],
   declarations: [
     DonationreviewComponent,
     ReportDonationReviewComponent,
-    SubmitButtonComponent,
   ],
   exports: [TranslateModule],
   providers: [TranslatePipe],
